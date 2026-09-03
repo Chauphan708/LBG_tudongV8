@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần Mềm Quản Lý Lịch Báo Giảng & Kế Hoạch Dạy Học Lớp 5</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css?v=3.4">
+    <!-- Offline & Fallback Libraries -->
+    <script src="lib/jszip.min.js"></script>
+    <script src="lib/FileSaver.min.js"></script>
+    <script src="lib/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <!-- Header & Top Navigation -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-group">
+                <div class="brand-logo-wrap">
+                    <img src="assets/img/logo.jpg" alt="CPA Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-info">
+                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC LỚP 5</h1>
+                </div>
+            </div>
+            <div class="header-meta no-print">
+                <span class="badge-info" id="top-badge-school">🏫 TH TRUNG NHỨT — LỚP 5A</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-navigation no-print">
+        <div class="nav-container">
+            <button class="tab-btn active" data-tab="tab-lbg">
+                <span>📅</span>
+                <span>Lịch Báo Giảng</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-ctlop">
+                <span>🎯</span>
+                <span>Báo Giảng Tích Hợp (CTLOP)</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-lichtuan">
+                <span>🗓️</span>
+                <span>Kế Hoạch Thời Gian (Lịch Tuần)</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-ppct">
+                <span>📖</span>
+                <span>Phân Phối CT &amp; Xuất KHDH</span>
+                <span class="tab-badge" id="ppct-count-badge">1400+ tiết</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-settings">
+                <span>⚙️</span>
+                <span>Cài Đặt &amp; Thời Khóa Biểu</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-guide">
+                <span>📖</span>
+                <span>Hướng Dẫn Sử Dụng</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+
+        <!-- =========================================================================
+             TAB 1: LỊCH BÁO GIẢNG (TUẦN)
+             ========================================================================= -->
+        <section id="tab-lbg" class="tab-content active">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>📅 Lịch Báo Giảng Tự Động Theo Tuần</h2>
+                        <p>Tự động tra cứu số tiết phân phối chương trình và bài dạy theo Thời khóa biểu của lớp</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-secondary btn-sm" id="btn-lbg-reset-tkb" title="Khôi phục TKB gốc chuẩn 35 tiết của khối 5">
+                            <span>🔄</span> <span>Đặt lại TKB gốc</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-lbg-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
+                            <span>📦</span> <span>Xuất / In nhiều tuần</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-lbg-preview">
+                            <span>👁️</span> <span>Xem trước in A4</span>
+                        </button>
+                        <button class="btn btn-accent" id="btn-lbg-excel">
+                            <span>📊</span> <span>Xuất Excel (.xlsx)</span>
+                        </button>
+                        <button class="btn btn-primary" id="btn-lbg-print">
+                            <span>🖨️</span> <span>In Lịch Tuần</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week Navigation Toolbar -->
+                <div class="week-toolbar no-print" id="lbg-week-toolbar"></div>
+
+                <!-- Friday Afternoon Options Bar -->
+                <div class="toolbar-sub-box no-print">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--primary);">⚙️ Tùy chọn Chiều Thứ 6:</span>
+                        <select class="form-select form-select-sm" id="lbg-friday-opt" style="width: auto; font-weight: 600;">
+                            <option value="3">Học đủ 3 tiết (Tiết 1, 2, 3)</option>
+                            <option value="2">Học 2 tiết (Nghỉ tiết 3)</option>
+                            <option value="1">Học 1 tiết (Nghỉ tiết 2, 3)</option>
+                            <option value="0">Nghỉ chiều Thứ 6 (Để trống cả 3 tiết)</option>
+                        </select>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">(Hoặc chọn từng môn là "Nghỉ / Để trống" ở bất kỳ tiết nào)</span>
+                    </div>
+
+                    <!-- Subject Inclusion Filter Panel -->
+                    <div class="toolbar-sub-box" style="display:block; background:#f8fafc; border:1px solid #e2e8f0; margin-top:0.6rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.4rem;">
+                            <div style="font-size:0.88rem; font-weight:700; color:var(--primary-dark);">
+                                🎯 Môn học đưa vào Lịch Báo Giảng:
+                            </div>
+                            <div style="display:flex; gap:0.35rem; flex-wrap:wrap; align-items:center;">
+                                <button class="btn btn-secondary btn-sm" id="btn-incl-all" style="font-size:0.78rem; padding:0.2rem 0.5rem;">Tất cả</button>
+                                <button class="btn btn-secondary btn-sm" id="btn-incl-gvcn" style="font-size:0.78rem; padding:0.2rem 0.5rem;">Môn GVCN</button>
+                                <button class="btn btn-secondary btn-sm" id="btn-incl-specialist" style="font-size:0.78rem; padding:0.2rem 0.5rem;">Môn Chuyên</button>
+                                <span style="font-size:0.78rem; color:var(--text-muted); margin-left:0.35rem;">(Môn bỏ chọn: Vẫn hiện tên môn, để trống Tiết PPCT &amp; Tên bài dạy)</span>
+                            </div>
+                        </div>
+                        <div class="subject-chips" id="lbg-inclusion-chips" style="gap:0.35rem;">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Header Preview inside View -->
+                <div style="text-align: center; margin-bottom: 1.25rem;">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="lbg-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="lbg-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="lbg-grade-class">KHỐI 5 - LỚP 5A</div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="lbg-week-title">LỊCH BÁO GIẢNG TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="lbg-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                </div>
+
+                <!-- Timetable Table -->
+                <div class="table-responsive">
+                    <table class="table-lbg">
+                        <thead>
+                            <tr>
+                                <th style="width: 95px;">Thứ</th>
+                                <th style="width: 65px;">Buổi</th>
+                                <th style="width: 45px;">Tiết</th>
+                                <th style="width: 180px;">Môn học</th>
+                                <th style="width: 75px;">Tiết PPCT</th>
+                                <th>Tên bài dạy (Nhấp đúp vào ô để sửa trực tiếp)</th>
+                                <th style="width: 75px;" class="no-print">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lbg-table-body">
+                            <!-- Populated dynamically by app.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Statistics Bar -->
+                <div class="stats-bar no-print">
+                    <div class="stat-item">
+                        <span class="stat-label">Tiết GVCN dạy:</span>
+                        <span class="stat-value" id="lbg-stat-gvcn">16 tiết</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Tiết GV chuyên dạy:</span>
+                        <span class="stat-value" id="lbg-stat-specialist">6 tiết</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Tiết Tăng cường:</span>
+                        <span class="stat-value" id="lbg-stat-enhanced">0 tiết</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Tổng cộng số tiết:</span>
+                        <span class="stat-value" id="lbg-stat-total">22 tiết</span>
+                    </div>
+                </div>
+
+                <!-- Signatures -->
+                <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 2rem; padding: 0 1rem;">
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.95rem;">DUYỆT CỦA BGH</div>
+                        <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700;" id="lbg-sig-pht">Lê Văn Tám</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.95rem;">KHỐI TRƯỞNG</div>
+                        <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700;" id="lbg-sig-head">Trần Thị Mai</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.95rem;">GIÁO VIÊN CHỦ NHIỆM</div>
+                        <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700;" id="lbg-sig-teacher">Nguyễn Thị Thu Hà</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 2: BÁO GIẢNG TÍCH HỢP (CTLOP)
+             ========================================================================= -->
+        <section id="tab-ctlop" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>🎯 Lịch Báo Giảng Tích Hợp &amp; Điều Chỉnh (CTLOP)</h2>
+                        <p>Bổ sung cột điều chỉnh và tích hợp Năng lực số (NLS), Quyền con người (QCN), QPAN, LTCM, AI,...</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-secondary" id="btn-ctlop-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
+                            <span>📦</span> <span>Xuất / In nhiều tuần</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-ctlop-preview">
+                            <span>👁️</span> <span>Xem trước in A4</span>
+                        </button>
+                        <button class="btn btn-accent" id="btn-ctlop-excel">
+                            <span>📊</span> <span>Xuất Excel (.xlsx)</span>
+                        </button>
+                        <button class="btn btn-primary" id="btn-ctlop-print">
+                            <span>🖨️</span> <span>In Báo Giảng Tích Hợp</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="week-toolbar no-print" id="ctlop-week-toolbar"></div>
+
+                <!-- Friday Afternoon Options Bar -->
+                <div class="toolbar-sub-box no-print">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--primary);">⚙️ Tùy chọn Chiều Thứ 6:</span>
+                        <select class="form-select form-select-sm" id="ctlop-friday-opt" style="width: auto; font-weight: 600;">
+                            <option value="3">Học đủ 3 tiết (Tiết 1, 2, 3)</option>
+                            <option value="2">Học 2 tiết (Nghỉ tiết 3)</option>
+                            <option value="1">Học 1 tiết (Nghỉ tiết 2, 3)</option>
+                            <option value="0">Nghỉ chiều Thứ 6 (Để trống cả 3 tiết)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 1.25rem;">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="ctlop-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="ctlop-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="ctlop-grade-class">KHỐI 5 - LỚP 5A</div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="ctlop-week-title">LỊCH BÁO GIẢNG TÍCH HỢP TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="ctlop-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table-lbg">
+                        <thead>
+                            <tr>
+                                <th style="width: 95px;">Thứ</th>
+                                <th style="width: 65px;">Buổi</th>
+                                <th style="width: 45px;">Tiết</th>
+                                <th style="width: 170px;">Môn học</th>
+                                <th style="width: 75px;">Tiết PPCT</th>
+                                <th style="min-width: 250px;">Tên bài dạy</th>
+                                <th style="min-width: 220px;">Nội dung tích hợp / Điều chỉnh</th>
+                                <th style="width: 75px;" class="no-print">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ctlop-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 3: KẾ HOẠCH THỜI GIAN (LỊCH TUẦN)
+             ========================================================================= -->
+        <section id="tab-lichtuan" class="tab-content">
+            <!-- Smart Auto-Generator Panel -->
+            <div class="panel" style="border: 2px solid #a7f3d0; background: #f0fdf4;">
+                <div class="panel-header" style="border-bottom: 1px solid #bbf7d0;">
+                    <div class="panel-title-group">
+                        <h2 style="color: #065f46;">⚡ Công Cụ Tự Động Tính Kế Hoạch 35 Tuần (Áp dụng cho mọi Năm học)</h2>
+                        <p>Chỉ cần chọn Năm học và Ngày bắt đầu Tuần 1, hệ thống sẽ tự động tính chính xác toàn bộ 35 tuần và các ngày nghỉ lễ!</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end; margin-top: 0.5rem;">
+                    <div class="form-group" style="width: 160px;">
+                        <label class="form-label">Năm học:</label>
+                        <input type="text" class="form-control" id="gen-year" value="2026 - 2027">
+                    </div>
+                    <div class="form-group" style="width: 190px;">
+                        <label class="form-label">Ngày bắt đầu Tuần 1 (Thứ 2):</label>
+                        <input type="date" class="form-control" id="gen-start-date" value="2026-09-07">
+                    </div>
+                    <div class="form-group" style="width: 210px;">
+                        <label class="form-label">Nghỉ Tết Âm lịch:</label>
+                        <select class="form-select" id="gen-tet-opt">
+                            <option value="2">Nghỉ 2 tuần (Sau tuần 20 hoặc 21)</option>
+                            <option value="1">Nghỉ 1 tuần</option>
+                            <option value="0">Không có tuần nghỉ đệm</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success" id="btn-run-week-generator" style="height: 42px;">
+                        <span>⚡</span> <span>Tự Động Tạo Lịch 35 Tuần</span>
+                    </button>
+                    <button class="btn btn-secondary" id="btn-save-lichtuan" style="height: 42px;">
+                        <span>💾</span> <span>Lưu Thay Đổi Bảng</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table of 35 Weeks -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>🗓️ Bảng Kế Hoạch Thời Gian Chi Tiết 35 Tuần</h2>
+                        <p>Nhấp trực tiếp vào bất kỳ ô nào để chỉnh sửa ngày tháng hoặc ghi chú nghỉ lễ</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-primary" id="btn-export-lichtuan-excel">
+                            <span>📊</span> <span>Xuất Excel Lịch Tuần</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-print-lichtuan">
+                            <span>🖨️</span> <span>In Lịch Tuần</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table-lbg">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;">Học kỳ</th>
+                                <th style="width: 90px;">Tuần</th>
+                                <th style="width: 130px;">Từ ngày (dd/mm/yyyy)</th>
+                                <th style="width: 130px;">Đến ngày (dd/mm/yyyy)</th>
+                                <th style="width: 170px;">Tháng</th>
+                                <th style="min-width: 220px;">Số ngày lễ trong tháng (Luật LĐ)</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lichtuan-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 4: PHÂN PHỐI CHƯƠNG TRÌNH & XUẤT KHDH
+             ========================================================================= -->
+        <section id="tab-ppct" class="tab-content">
+            <!-- Box Xuất Kế hoạch dạy học Word -->
+            <div class="panel" style="border: 2px solid #bfdbfe; background: #f8faff;">
+                <div class="panel-header" style="border-bottom: 1px solid #bfdbfe;">
+                    <div class="panel-title-group">
+                        <h2 style="color: var(--primary);">📄 Xuất Kế Hoạch Dạy Học (KHDH) Chuẩn Nghị Định 30/2020/NĐ-CP</h2>
+                        <p>Chọn một hoặc nhiều môn học để xuất cùng 1 file Word (.docx) thống nhất (không lặp tiêu đề/căn cứ) hoặc in ấn trực tiếp</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-secondary btn-sm" id="btn-select-all-khdh">Chọn tất cả</button>
+                        <button class="btn btn-secondary btn-sm" id="btn-deselect-all-khdh">Bỏ chọn tất cả</button>
+                        <button class="btn btn-secondary" id="btn-preview-khdh">
+                            <span>👁️</span> <span>Xem trước KHDH</span>
+                        </button>
+                        <button class="btn btn-primary" id="btn-export-khdh-docx">
+                            <span>📄</span> <span>Tải File Word (.docx)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Subject Checkbox Chips -->
+                <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.35rem;">
+                        Danh sách môn học muốn xuất KHDH (Nhấp để chọn/bỏ chọn):
+                    </div>
+                    <div class="subject-chips" id="khdh-subject-chips">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Legal Bases Input Box -->
+                <div style="background: #ffffff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 1rem; margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <label class="form-label" style="font-weight: 700; color: var(--primary); margin: 0; font-size: 0.95rem;">
+                            📜 Căn Cứ Xây Dựng Kế Hoạch Dạy Học (Sẽ đưa vào đầu bản in &amp; file Word):
+                        </label>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                            <label class="btn btn-sm btn-outline-primary" style="margin: 0; cursor: pointer; padding: 0.25rem 0.65rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.3rem; border: 1px solid var(--primary); background: #fff;">
+                                <span>📥</span> <span>Nạp từ file (.docx, .xlsx, .txt)</span>
+                                <input type="file" id="input-import-bases-file" accept=".docx,.xlsx,.txt" style="display: none;">
+                            </label>
+                            <button type="button" class="btn btn-sm btn-secondary" id="btn-reset-default-bases" style="padding: 0.25rem 0.65rem; font-size: 0.82rem;">
+                                🔄 Căn cứ chuẩn
+                            </button>
+                            <button type="button" class="btn btn-sm btn-success" id="btn-save-bases" style="padding: 0.25rem 0.65rem; font-size: 0.82rem;">
+                                💾 Lưu căn cứ
+                            </button>
+                        </div>
+                    </div>
+                    <textarea class="form-control" id="textarea-khdh-bases" rows="4" style="font-size: 0.88rem; line-height: 1.5; font-family: 'Times New Roman', serif;" placeholder="Nhập mỗi căn cứ trên một dòng (Ví dụ: Căn cứ Thông tư số 28/2020/TT-BGDĐT...)..."></textarea>
+                    <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.35rem;">
+                        💡 Mẹo: Nhập mỗi căn cứ trên một dòng hoặc bấm "Nạp từ file" để hệ thống tự động nhận diện và trích xuất các căn cứ từ file Word/Excel của Thầy/Cô.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box Tra cứu & Nạp/Xuất Phân phối chương trình -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>📖 Quản Lý Phân Phối Chương Trình Lớp 5</h2>
+                        <p>Kho dữ liệu bài dạy đầy đủ của tất cả các môn học. Hỗ trợ nạp nhanh từ Excel hoặc tải file mẫu chuẩn</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-warning btn-sm" id="btn-rename-subject-bulk" title="Đổi tên môn học nhanh chóng cho toàn bộ bảng phân phối chương trình và thời khóa biểu">
+                            <span>🏷️</span> <span>Đổi Tên Môn Nhanh</span>
+                        </button>
+                        <button class="btn btn-success btn-sm" id="btn-add-ppct-row" title="Thêm một dòng bài dạy mới vào phân phối chương trình">
+                            <span>➕</span> <span>Thêm Tiết Học Mới</span>
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="btn-save-ppct" title="Lưu lại các thay đổi sau khi chỉnh sửa trên bảng">
+                            <span>💾</span> <span>Lưu Phân Phối CT</span>
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="btn-download-ppct-template" title="Tải file Excel mẫu với đầy đủ các cột">
+                            <span>📥</span> <span>Tải Mẫu Excel</span>
+                        </button>
+                        <button class="btn btn-accent btn-sm" id="btn-upload-ppct" title="Thêm hoặc cập nhật phân phối chương trình từ file Excel của bạn">
+                            <span>📤</span> <span>Nạp Excel</span>
+                        </button>
+                        <button class="btn btn-secondary btn-sm" id="btn-reset-ppct" title="Khôi phục dữ liệu PPCT gốc ban đầu">
+                            <span>🔄</span> <span>Khôi Phục Gốc</span>
+                        </button>
+                        <input type="file" id="ppct-upload-file" accept=".xlsx,.xls,.csv" style="display:none;">
+                    </div>
+                </div>
+
+                <!-- Filter Toolbar -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label class="form-label">Lọc theo môn học:</label>
+                        <select class="form-select" id="ppct-filter-subject">
+                            <option value="ALL">-- Tất cả các môn --</option>
+                            <option value="Tiếng Việt">Tiếng Việt</option>
+                            <option value="Toán">Toán</option>
+                            <option value="HĐ Trải nghiệm">HĐ Trải nghiệm</option>
+                            <option value="Khoa học">Khoa học</option>
+                            <option value="LS&ĐL">Lịch sử &amp; Địa lí</option>
+                            <option value="Đạo đức">Đạo đức</option>
+                            <option value="Tin học">Tin học</option>
+                            <option value="Công nghệ">Công nghệ</option>
+                            <option value="Tiếng Anh">Tiếng Anh</option>
+                            <option value="GD Thể chất">GD Thể chất</option>
+                            <option value="Âm nhạc">Âm nhạc</option>
+                            <option value="Mĩ thuật">Mĩ thuật</option>
+                            <option value="Đọc Thư viện">Đọc Thư viện</option>
+                            <option value="TC Tiếng Việt">TC Tiếng Việt</option>
+                            <option value="TC Toán">TC Toán</option>
+                            <option value="KNS">KNS</option>
+                            <option value="STEM">STEM</option>
+                            <option value="CD Số">CD Số</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="width: 160px;">
+                        <label class="form-label">Lọc theo tuần:</label>
+                        <select class="form-select" id="ppct-filter-week">
+                            <option value="ALL">-- Tất cả các tuần --</option>
+                            <script>
+                                for(let i=1; i<=35; i++) {
+                                    document.write(`<option value="${i}">Tuần ${i}</option>`);
+                                }
+                            </script>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1.5; min-width: 250px;">
+                        <label class="form-label">Tìm kiếm bài học / Tích hợp:</label>
+                        <input type="text" class="form-control" id="ppct-search" placeholder="Nhập tên bài học, số trang, mã NLS, AI, QCN...">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table-lbg">
+                        <thead>
+                            <tr>
+                                <th style="width: 65px;">Tuần</th>
+                                <th style="width: 150px;">Môn học</th>
+                                <th style="width: 65px;">Tiết/T</th>
+                                <th style="width: 75px;">PPCT</th>
+                                <th style="min-width: 280px;">Tên bài dạy chi tiết (Nhấp để sửa)</th>
+                                <th style="min-width: 200px;">Nội dung tích hợp / Điều chỉnh (Nhấp để sửa)</th>
+                                <th style="width: 110px; text-align: center;">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ppct-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 5: CÀI ĐẶT & THỜI KHÓA BIỂU
+             ========================================================================= -->
+        <section id="tab-settings" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>⚙️ Cài Đặt Thông Tin Đơn Vị &amp; Giáo Viên</h2>
+                        <p>Thông tin này sẽ tự động xuất hiện trên Lịch Báo Giảng và Kế Hoạch Dạy Học theo Nghị định 30/2020/NĐ-CP</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <button class="btn btn-primary" id="btn-save-settings">
+                            <span>💾</span> <span>Lưu Cài Đặt</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="form-group">
+                        <label class="form-label">Cơ quan cấp trên / UBND Phường/Xã:</label>
+                        <input type="text" class="form-control" id="set-governing-body">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tên Trường Tiểu học:</label>
+                        <input type="text" class="form-control" id="set-school-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Khối lớp:</label>
+                        <input type="text" class="form-control" id="set-grade">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tên Lớp (ví dụ: Lớp 5A, Lớp 5/1):</label>
+                        <input type="text" class="form-control" id="set-class-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Năm học:</label>
+                        <input type="text" class="form-control" id="set-academic-year">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Địa danh ban hành văn bản:</label>
+                        <input type="text" class="form-control" id="set-location">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ngày tháng ban hành KHDH:</label>
+                        <input type="text" class="form-control" id="set-date">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Họ tên Giáo viên chủ nhiệm:</label>
+                        <input type="text" class="form-control" id="set-teacher">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Họ tên Khối trưởng chuyên môn:</label>
+                        <input type="text" class="form-control" id="set-head">
+                    </div>
+                </div>
+
+                <!-- BGH & Signer Management Panel -->
+                <div style="margin-top: 1.5rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                    <div style="margin-bottom: 1.25rem;">
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin: 0 0 0.25rem 0;">🏛️ Ban Giám Hiệu &amp; Phân Công Người Ký Duyệt</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Quản lý danh sách Ban Giám Hiệu và lựa chọn riêng người ký duyệt Lịch Báo Giảng (hàng tuần) và Kế Hoạch Dạy Học (cả năm)</p>
+                    </div>
+
+                    <!-- Dual Signer Pickers -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; background: #ffffff; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                        <div>
+                            <label style="font-size: 0.85rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                                <span>📅</span> <span>Người ký duyệt LỊCH BÁO GIẢNG (Hàng tuần):</span>
+                            </label>
+                            <select class="form-select form-select-sm" id="set-bgh-signer-lbg-select" style="font-weight: 700; color: var(--primary);">
+                                <!-- Populated dynamically -->
+                            </select>
+                            <span style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; display: block;">Áp dụng cho: Tab 1 LBG, Tab 2 CTLOP, bản in và file Excel LBG</span>
+                        </div>
+
+                        <div>
+                            <label style="font-size: 0.85rem; font-weight: 700; color: #b45309; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                                <span>📖</span> <span>Người phê duyệt KẾ HOẠCH DẠY HỌC (Cả năm):</span>
+                            </label>
+                            <select class="form-select form-select-sm" id="set-bgh-signer-khdh-select" style="font-weight: 700; color: #b45309;">
+                                <!-- Populated dynamically -->
+                            </select>
+                            <span style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; display: block;">Áp dụng cho: Tab 4 Xem trước KHDH và xuất file Word (.docx)</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+                        <!-- Principal -->
+                        <div style="background: #ffffff; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                            <label class="form-label" style="font-weight: 700; color: var(--text-main);">👨‍💼 Hiệu trưởng (HT):</label>
+                            <input type="text" class="form-control" id="set-principal" placeholder="Nhập họ tên Hiệu trưởng..." value="Phạm Quốc Hùng">
+                            <span style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.35rem; display: block;">Chức vụ khi ký: <strong>HIỆU TRƯỞNG</strong></span>
+                        </div>
+
+                        <!-- Vice Principals List -->
+                        <div style="background: #ffffff; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                <label class="form-label" style="font-weight: 700; color: var(--text-main); margin: 0;">👥 Danh sách Phó Hiệu trưởng (PHT):</label>
+                                <button type="button" class="btn btn-secondary btn-sm" id="btn-add-pht" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;">
+                                    ➕ Thêm PHT
+                                </button>
+                            </div>
+                            <div id="pht-list-container" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <!-- Populated dynamically -->
+                            </div>
+                            <span style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; display: block;">Chức vụ khi ký: <strong>PHÓ HIỆU TRƯỞNG</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Management Section (Version 3.0) -->
+                <div style="margin-top: 1.5rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 1.25rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
+                        <div>
+                            <h3 style="font-size: 1.08rem; font-weight: 700; color: var(--primary); margin: 0 0 0.25rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <span>📚</span> <span>Quản Lý Danh Sách Môn Học Khối 5</span>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Quản lý toàn bộ danh mục môn học, phân loại nhóm phụ trách (GVCN / GV Chuyên / Tăng cường), số tiết quy định và tùy chọn đưa vào Lịch Báo Giảng.</p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-primary btn-sm" id="btn-open-add-subject" onclick="if(window.openSubjectEditorModal) window.openSubjectEditorModal(null);">
+                                <span>➕</span> <span>Thêm Môn Mới</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-open-rename-subject" onclick="if(window.openRenameSubjectModal) window.openRenameSubjectModal();">
+                                <span>✏️</span> <span>Đổi Tên Môn Đồng Loạt</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-default-subjects" onclick="if(window.resetDefaultSubjects) window.resetDefaultSubjects();">
+                                <span>🔄</span> <span>Khôi Phục Môn Chuẩn</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Subject Statistics & Overview Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                            <div style="font-size: 0.78rem; font-weight: 700; color: #1e40af; text-transform: uppercase;">Môn GVCN Dạy</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #1e3a8a; margin-top: 0.2rem;" id="stat-count-gvcn">0 môn</div>
+                        </div>
+                        <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                            <div style="font-size: 0.78rem; font-weight: 700; color: #7e22ce; text-transform: uppercase;">Môn GV Chuyên Trách</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #581c87; margin-top: 0.2rem;" id="stat-count-specialist">0 môn</div>
+                        </div>
+                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                            <div style="font-size: 0.78rem; font-weight: 700; color: #15803d; text-transform: uppercase;">Tăng Cường / Tự Chọn</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #14532d; margin-top: 0.2rem;" id="stat-count-enhanced">0 môn</div>
+                        </div>
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                            <div style="font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase;">Tổng Tiết PPCT Hệ Thống</div>
+                            <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-top: 0.2rem;" id="stat-count-total-ppct">0 tiết</div>
+                        </div>
+                    </div>
+
+                    <!-- Subject Table -->
+                    <div class="table-responsive">
+                        <table class="table-lbg" id="subject-management-table" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px; text-align: center;">STT</th>
+                                    <th style="width: 200px; text-align: left;">Tên Môn Học</th>
+                                    <th style="width: 160px; text-align: center;">Phân Loại Nhóm</th>
+                                    <th style="width: 100px; text-align: center;">Tiết/Tuần</th>
+                                    <th style="width: 110px; text-align: center;">Tiết PPCT</th>
+                                    <th style="width: 140px; text-align: center;">Đưa Vào LBG</th>
+                                    <th style="width: 110px; text-align: center;">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subject-management-tbody">
+                                <!-- Populated dynamically by app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Master Timetable Editor Section -->
+                <div style="margin-top: 1.5rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <div>
+                            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin: 0 0 0.25rem 0;">📅 Quản Lý &amp; In Ấn Khung Thời Khóa Biểu Gốc Khối 5</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Tùy chỉnh số tiết và môn học chuẩn của từng thứ trong tuần. Hỗ trợ in ấn và xuất file Word khổ ngang theo Nghị định 30/2020/NĐ-CP.</p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-primary btn-sm" id="btn-print-master-tkb">
+                                <span>🖨️</span> <span>Xem Trước &amp; In TKB (Khổ ngang)</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-docx-master-tkb">
+                                <span>📄</span> <span>Xuất Word TKB (.docx)</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-xlsx-master-tkb">
+                                <span>📊</span> <span>Xuất Excel TKB (.xlsx)</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-master-timetable">
+                                <span>🔄</span> <span>Khôi phục TKB chuẩn</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm" id="btn-save-master-timetable">
+                                <span>💾</span> <span>Lưu TKB Gốc</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Visual Grid Matrix View of Timetable -->
+                    <div style="margin-bottom: 1.5rem; background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                            <span style="font-weight: 700; font-size: 0.92rem; color: var(--primary);">📊 Bảng Ma Trận Thời Khóa Biểu (Tổng quan cả tuần):</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">💡 Thay đổi tiết ở bảng danh sách bên dưới sẽ cập nhật ngay vào bảng ma trận này</span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table-lbg" id="master-timetable-matrix-table" style="text-align: center; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%;">Buổi</th>
+                                        <th style="width: 8%;">Tiết</th>
+                                        <th style="width: 16.4%;" class="col-alt-day">Thứ 2</th>
+                                        <th style="width: 16.4%;">Thứ 3</th>
+                                        <th style="width: 16.4%;" class="col-alt-day">Thứ 4</th>
+                                        <th style="width: 16.4%;">Thứ 5</th>
+                                        <th style="width: 16.4%;" class="col-alt-day">Thứ 6</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="master-timetable-matrix-tbody">
+                                    <!-- Injected dynamically by app.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 0.5rem;">
+                        <span style="font-weight: 700; font-size: 0.92rem; color: var(--text-main);">📝 Chỉnh sửa chi tiết từng tiết học &amp; Thêm/Bớt slot:</span>
+                    </div>
+                    <div class="table-responsive" style="max-height: 420px;">
+                        <table class="table-lbg" id="master-timetable-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 14%;">Thứ</th>
+                                    <th style="width: 10%;">Buổi</th>
+                                    <th style="width: 8%;">Tiết</th>
+                                    <th style="width: 48%;">Môn học mặc định</th>
+                                    <th style="width: 20%;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="master-timetable-tbody">
+                                <!-- Injected dynamically by app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" id="btn-backup-data">
+                        <span>📥</span> <span>Sao lưu dữ liệu ra file JSON</span>
+                    </button>
+                    <button class="btn btn-secondary" id="btn-restore-data">
+                        <span>📤</span> <span>Khôi phục dữ liệu từ file JSON</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 6: HƯỚNG DẪN SỬ DỤNG PHẦN MỀM (VERSION 3.0)
+             ========================================================================= -->
+        <section class="tab-content" id="tab-guide">
+            <div class="guide-container">
+
+                <!-- Banner Giới Thiệu -->
+                <div class="guide-banner">
+                    <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Lớp 5</h2>
+                    
+                    <!-- Mục Lục Điều Hướng Nhanh -->
+                    <div class="guide-toc">
+                        <a href="#guide-sec-1" class="guide-toc-item">1. Thiết lập Trường &amp; Lớp</a>
+                        <a href="#guide-sec-2" class="guide-toc-item">2. Lịch Báo Giảng Tuần</a>
+                        <a href="#guide-sec-3" class="guide-toc-item">3. Báo Giảng Tích Hợp</a>
+                        <a href="#guide-sec-4" class="guide-toc-item">4. Kế Hoạch Thời Gian</a>
+                        <a href="#guide-sec-5" class="guide-toc-item">5. PPCT &amp; Xuất KHDH</a>
+                        <a href="#guide-sec-6" class="guide-toc-item">6. In Thời Khóa Biểu</a>
+                        <a href="#guide-sec-7" class="guide-toc-item">7. In &amp; Xuất Nhiều Tuần</a>
+                        <a href="#guide-sec-8" class="guide-toc-item">8. Sao Lưu &amp; Chia Sẻ</a>
+                    </div>
+                </div>
+
+                <!-- Mục 1: Cài Đặt -->
+                <div class="guide-card" id="guide-sec-1">
+                    <h3 class="guide-card-title">1. Thiết Lập Thông Tin Ban Đầu (Trường, Lớp, GVCN, BGH)</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 1</span> Mở Tab Cài Đặt</h4>
+                            <p>Chọn tab <strong>Cài Đặt &amp; Thời Khóa Biểu</strong> trên thanh menu phía trên.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 2</span> Nhập thông tin đơn vị</h4>
+                            <p>Điền Cơ quan chủ quản, Tên trường, Lớp, Họ tên GVCN, Tổ trưởng và người ký Ban Giám Hiệu.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 3</span> Lưu cấu hình</h4>
+                            <p>Nhấn nút <strong>Lưu Cài Đặt</strong>. Tên trường và lớp sẽ tự động cập nhật trên toàn hệ thống và trên văn bản Word/Excel.</p>
+                        </div>
+                    </div>
+                    <div class="guide-tip">
+                        <strong>Mẹo:</strong> Nếu trường có nhiều Phó Hiệu trưởng, nhấn <em>[+ Thêm Phó Hiệu Trưởng]</em> để lưu sẵn danh sách người ký duyệt.
+                    </div>
+                </div>
+
+                <!-- Mục 2: Lịch Báo Giảng Tuần -->
+                <div class="guide-card" id="guide-sec-2">
+                    <h3 class="guide-card-title">2. Quản Lý &amp; In Ấn Lịch Báo Giảng Hàng Tuần (Tab 1)</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge">Chọn tuần</span> Xem lịch dạy 35 tuần</h4>
+                            <p>Chọn tuần từ danh sách thả xuống hoặc dùng nút <em>[Tuần trước] / [Tuần sau]</em> để xem lịch dạy tự động.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge">Điều chỉnh</span> Thêm, bớt, đổi môn</h4>
+                            <p>Nhấp vào ô Môn học để đổi môn, bấm nút <em>[+]</em> để thêm tiết hoặc nút thùng rác để xóa tiết trong ngày.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge">Xuất bản</span> In A4 &amp; Xuất Word/Excel</h4>
+                            <p>Bấm <strong>Xem Trước</strong> để kiểm tra trang in A4, hoặc bấm <strong>Xuất File Word (.docx)</strong> chuẩn thể thức Nghị định 30/2020/NĐ-CP.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mục 3: Báo Giảng Tích Hợp -->
+                <div class="guide-card" id="guide-sec-3">
+                    <h3 class="guide-card-title">3. Lịch Báo Giảng Tích Hợp Liên Môn - CTLOP (Tab 2)</h3>
+                    <p style="font-size: 0.9rem; color: #475569; margin-bottom: 0.85rem; line-height: 1.5;">
+                        Phần mềm tích hợp sẵn <strong>621 tiết tích hợp liên môn</strong> theo đúng chỉ đạo chuyên môn của Bộ GD&amp;ĐT:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4>Năng Lực Số (NLS)</h4>
+                            <p>Kỹ năng số, tìm kiếm thông tin an toàn, ứng dụng công nghệ trong học tập.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Quyền Con Người (QCN)</h4>
+                            <p>Giáo dục quyền trẻ em, bình đẳng giới, tôn trọng và sẻ chia.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Quốc Phòng &amp; An Ninh (QPAN)</h4>
+                            <p>Tình yêu quê hương đất nước, chủ quyền biển đảo, truyền thống lịch sử.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Bảo Vệ Môi Trường (BVMT)</h4>
+                            <p>Tiết kiệm tài nguyên, giữ gìn vệ sinh môi trường, ứng phó biến đổi khí hậu.</p>
+                        </div>
+                    </div>
+                    <div class="guide-tip">
+                        <strong>Lưu ý:</strong> Thầy/Cô có thể nhấp trực tiếp vào ô nội dung tích hợp trên bảng để sửa đổi theo yêu cầu cụ thể của tổ khối.
+                    </div>
+                </div>
+
+                <!-- Mục 4: Kế Hoạch Thời Gian -->
+                <div class="guide-card" id="guide-sec-4">
+                    <h3 class="guide-card-title">4. Kế Hoạch Thời Gian &amp; Lịch 35 Tuần (Tab 3)</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 1</span> Thiết lập ngày bắt đầu</h4>
+                            <p>Nhập ngày Thứ Hai của Tuần 1 (ví dụ: 07/09/2026), toàn bộ 35 tuần sẽ tự động tính toán ngày tháng chính xác.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 2</span> Tùy chỉnh nghỉ lễ / nghỉ Tết</h4>
+                            <p>Nhấp vào ô ngày tháng của tuần bất kỳ để điều chỉnh thời gian nếu có kỳ nghỉ lễ, nghỉ Tết kéo dài.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge primary">Bước 3</span> Xuất file lưu trữ</h4>
+                            <p>Bấm nút <strong>Xuất Word Lịch Tuần</strong> để nộp kế hoạch thời gian năm học cho Ban Giám Hiệu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mục 5: PPCT & KHDH -->
+                <div class="guide-card" id="guide-sec-5">
+                    <h3 class="guide-card-title">5. Phân Phối Chương Trình (1.560 tiết) &amp; Xuất Kế Hoạch Dạy Học (Tab 4)</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4>Tra cứu &amp; Chỉnh sửa bài dạy</h4>
+                            <p>Lọc theo môn học hoặc số tuần để xem toàn bộ bài dạy. Nhấp trực tiếp vào ô để sửa tên bài hoặc số tiết PPCT.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Xuất KHDH từng môn / gộp tất cả</h4>
+                            <p>Chọn các môn cần xuất (hoặc bấm <em>Chọn tất cả môn</em>), sau đó bấm <strong>Tải File Word KHDH Gộp (.docx)</strong> có sẵn căn cứ pháp lý.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Đổi tên môn hàng loạt</h4>
+                            <p>Bấm <strong>Đổi tên môn hàng loạt</strong> nếu muốn thay đổi tên môn (ví dụ: đổi <em>LS&amp;ĐL</em> thành <em>Lịch sử và Địa lí</em>) trên toàn bộ 35 tuần.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mục 6: Thời Khóa Biểu -->
+                <div class="guide-card" id="guide-sec-6">
+                    <h3 class="guide-card-title">6. Quản Lý, Xuất File Word &amp; In Thời Khóa Biểu (Tab 5)</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4>Bảng Ma Trận Thời Khóa Biểu</h4>
+                            <p>Xem tổng quan các môn từ Thứ 2 đến Thứ 6 (Sáng &amp; Chiều) trực quan trên bảng lưới ma trận.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Xuất Word Khổ Ngang (Landscape)</h4>
+                            <p>Bấm <strong>Xuất Word TKB (.docx)</strong> để tạo file Word khổ ngang có đầy đủ quốc hiệu, tiêu ngữ và 3 chữ ký duyệt.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>In Ấn A4 Chuẩn Khổ Ngang</h4>
+                            <p>Bấm <strong>Xem Trước &amp; In TKB</strong> để xem và in trực tiếp ra máy in vừa vặn 1 trang A4 ngang.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mục 7: In Nhiều Tuần -->
+                <div class="guide-card" id="guide-sec-7">
+                    <h3 class="guide-card-title">7. Xuất File Word &amp; In Ấn Gộp Nhiều Tuần</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4>Chọn phạm vi tuần</h4>
+                            <p>Tại Tab 1 hoặc Tab 2, bấm <strong>Xuất / In nhiều tuần</strong>, chọn <em>Học kỳ 1 (Tuần 1-18)</em>, <em>Học kỳ 2 (Tuần 19-35)</em> hoặc <em>Cả năm (Tuần 1-35)</em>.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Xuất file Word gộp</h4>
+                            <p>Hệ thống tự động ngắt trang (Page Break) cho mỗi tuần một trang riêng biệt, thuận tiện cho việc in đóng cuốn.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>In gộp trực tiếp</h4>
+                            <p>Bấm <strong>Xem Trước &amp; In Tất Cả</strong> để kiểm tra toàn bộ các tuần và gửi lệnh in ra máy in trong 1 lần duy nhất.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mục 8: Sao Lưu & Online -->
+                <div class="guide-card" id="guide-sec-8">
+                    <h3 class="guide-card-title">8. Sao Lưu Dữ Liệu, Chia Sẻ Khối &amp; Sử Dụng Online Miễn Phí</h3>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4>Sao lưu dữ liệu cá nhân</h4>
+                            <p>Vào Tab 5, bấm <strong>Sao lưu dữ liệu ra file JSON</strong> để lưu trữ an toàn cấu hình và phân phối chương trình về máy.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Chia sẻ cho đồng nghiệp</h4>
+                            <p>Gửi file JSON cho giáo viên cùng khối. Đồng nghiệp chỉ cần bấm <strong>Khôi phục dữ liệu từ file JSON</strong> là có ngay toàn bộ dữ liệu mẫu.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4>Sử dụng Online mọi lúc mọi nơi</h4>
+                            <p>Truy cập đường link GitHub Pages đã xuất bản: <a href="https://chauphan708.github.io/bao-giang-tu-dong/" target="_blank" style="color: var(--primary); font-weight: 700;">https://chauphan708.github.io/bao-giang-tu-dong/</a> để sử dụng trên điện thoại, máy tính bảng iPad hoặc máy tính khác mà không cần cài đặt.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================================
+         MODAL BULK RENAME SUBJECT (ĐỔI TÊN MÔN HỌC HÀNG LOẠT)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="rename-modal">
+        <div class="modal-card" style="max-width: 540px;">
+            <div class="modal-header">
+                <h3 class="modal-title">🏷️ Đổi Tên Môn Học Hàng Loạt</h3>
+                <button class="btn btn-secondary btn-sm" id="modal-rename-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem;">
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+                    Hệ thống sẽ tự động tìm tất cả các tiết học có tên môn cũ trong toàn bộ bảng Phân phối chương trình và thay thế bằng tên môn mới.
+                </p>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">1. Chọn môn học cần đổi tên:</label>
+                    <select class="form-select" id="rename-old-subject">
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">2. Nhập tên môn học mới:</label>
+                    <input type="text" class="form-control" id="rename-new-subject" placeholder="Ví dụ: Tiếng Việt 5, GD Thể chất, Hoạt động trải nghiệm...">
+                </div>
+                <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm);">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                        <input type="checkbox" id="rename-sync-timetable" checked>
+                        <span>Đồng bộ tên môn mới sang Thời khóa biểu và Báo giảng tích hợp</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-rename-cancel-btn">Hủy bỏ</button>
+                <button class="btn btn-primary" id="modal-rename-apply-btn">
+                    <span>✓</span> <span>Áp Dụng Đổi Tên Toàn Bảng</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL BATCH EXPORT & PRINT (XUẤT & IN NHIỀU TUẦN CÙNG LÚC)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="batch-export-modal">
+        <div class="modal-card" style="max-width: 620px;">
+            <div class="modal-header">
+                <h3 class="modal-title">📦 Xuất &amp; In Lịch Báo Giảng Nhiều Tuần Cùng Lúc</h3>
+                <button class="btn btn-secondary btn-sm" id="modal-batch-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem;">
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label class="form-label" style="font-weight: 700; color: var(--primary);">1. Chọn loại tài liệu cần xuất / in:</label>
+                    <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; background: #f8fafc; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
+                            <input type="radio" name="batch-doc-type" value="lbg" checked>
+                            <span>📅 Lịch Báo Giảng Thường</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
+                            <input type="radio" name="batch-doc-type" value="ctlop">
+                            <span>🎯 Báo Giảng Tích Hợp (CTLOP)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label class="form-label" style="font-weight: 700; color: var(--primary);">2. Chọn phạm vi tuần thực hiện:</label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <button type="button" class="btn btn-secondary btn-sm batch-range-btn" data-start="1" data-end="35">
+                            📚 Cả năm (Tuần 1 - 35)
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm batch-range-btn" data-start="1" data-end="18">
+                            🍂 Học kỳ 1 (Tuần 1 - 18)
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm batch-range-btn" data-start="19" data-end="35">
+                            🌸 Học kỳ 2 (Tuần 19 - 35)
+                        </button>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1.25rem; background: #f8fafc; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); flex-wrap: wrap;">
+                        <span style="font-weight: 700; font-size: 0.9rem;">Hoặc chọn tùy ý:</span>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">Từ:</span>
+                            <select class="form-select form-select-sm batch-week-select" id="batch-start-week">
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">Đến:</span>
+                            <select class="form-select form-select-sm batch-week-select" id="batch-end-week">
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 0.86rem; color: #166534;">
+                    💡 <strong>Gợi ý:</strong> File Word gộp nhiều tuần sẽ tự động ngắt trang (Page Break) cho mỗi tuần một trang riêng biệt, đúng chuẩn Nghị định 30/2020/NĐ-CP và sẵn sàng in ấn ngay.
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                <button class="btn btn-secondary" id="modal-batch-cancel-btn">Hủy bỏ</button>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" id="btn-batch-download-docx">
+                        <span>📄</span> <span>Tải File Word Gộp (.docx)</span>
+                    </button>
+                    <button class="btn btn-secondary" id="btn-batch-preview-print">
+                        <span>🖨️</span> <span>Xem Trước &amp; In Tất Cả</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL THÊM / CHỈNH SỬA MÔN HỌC MỚI (VERSION 3.0)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="modal-subject-editor">
+        <div class="modal-card" style="max-width: 520px;">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-subject-title">➕ Thêm Môn Học Mới</h3>
+                <button class="btn btn-secondary btn-sm" id="modal-subject-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="modal-sub-editing-original-name" value="">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">Tên Môn Học: <span style="color: var(--danger);">*</span></label>
+                    <input type="text" class="form-control" id="modal-sub-name" placeholder="Ví dụ: Robotics, Tiếng Pháp, Kỹ năng sống...">
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">Phân Loại Nhóm:</label>
+                    <select class="form-select" id="modal-sub-category">
+                        <option value="GVCN">Môn GVCN Dạy</option>
+                        <option value="Chuyên trách">Môn GV Chuyên Trách</option>
+                        <option value="Tăng cường">Tăng Cường / Tự Chọn</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">Số Tiết Quy Định / Tuần:</label>
+                    <input type="number" class="form-control" id="modal-sub-periods" min="1" max="15" value="1">
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
+                        <input type="checkbox" id="modal-sub-included" checked style="width: 18px; height: 18px;">
+                        <span>Đưa môn này vào Lịch Báo Giảng (Tab 1 &amp; Tab 2)</span>
+                    </label>
+                    <span style="font-size: 0.78rem; color: var(--text-muted); margin-left: 1.6rem;">Nếu bỏ chọn, môn học vẫn có trong Thời Khóa Biểu nhưng cột PPCT và Tên Bài Dạy trong LBG sẽ để trống.</span>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between;">
+                <button class="btn btn-secondary" id="modal-subject-cancel-btn">Hủy bỏ</button>
+                <button class="btn btn-primary" id="modal-subject-save-btn">
+                    <span>💾</span> <span>Lưu Môn Học</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL ĐỔI TÊN MÔN HỌC ĐỒNG LOẠT (VERSION 3.0)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="modal-rename-subject">
+        <div class="modal-card" style="max-width: 520px;">
+            <div class="modal-header">
+                <h3 class="modal-title">✏️ Đổi Tên Môn Học Đồng Loạt</h3>
+                <button class="btn btn-secondary btn-sm" id="modal-rename-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">Chọn Môn Học Hiện Tại:</label>
+                    <select class="form-select" id="modal-rename-old-subject">
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label" style="font-weight: 700;">Nhập Tên Môn Học Mới: <span style="color: var(--danger);">*</span></label>
+                    <input type="text" class="form-control" id="modal-rename-new-name" placeholder="Ví dụ: Lịch sử và Địa lí, Ngoại ngữ 1...">
+                </div>
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 0.85rem; color: #1e40af;">
+                    💡 <strong>Tự động đồng bộ:</strong> Hệ thống sẽ tự động cập nhật tên môn mới này trên toàn bộ:
+                    <ul style="margin: 0.35rem 0 0 1.2rem; padding: 0;">
+                        <li>Danh mục môn học &amp; Cài đặt</li>
+                        <li>Tất cả các tiết trong Thời Khóa Biểu (35 tuần)</li>
+                        <li>Toàn bộ 1.560 tiết Phân Phối Chương Trình (PPCT) &amp; KHDH</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between;">
+                <button class="btn btn-secondary" id="modal-rename-cancel-btn">Hủy bỏ</button>
+                <button class="btn btn-primary" id="modal-rename-save-btn">
+                    <span>🔄</span> <span>Thực Hiện Đổi Tên</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================================
+         MODAL PREVIEW (XEM TRƯỚC VĂN BẢN CHUẨN NGHỊ ĐỊNH 30/2020)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="preview-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-preview-title">Xem trước văn bản</h3>
+                <button class="btn btn-secondary btn-sm" id="modal-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-body" id="modal-preview-body">
+                <!-- Injected paper page HTML -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-close-footer">Đóng lại</button>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-primary" id="modal-btn-docx">
+                        <span>📄</span> <span>Tải File Word (.docx)</span>
+                    </button>
+                    <button class="btn btn-accent" id="modal-btn-xlsx">
+                        <span>📊</span> <span>Tải File Excel (.xlsx)</span>
+                    </button>
+                    <button class="btn btn-secondary" id="modal-btn-print">
+                        <span>🖨️</span> <span>In A4</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Application Scripts -->
+    <script src="data/curriculum_data.js?v=3.4"></script>
+    <script src="js/docx_generator.js?v=3.4"></script>
+    <script src="js/xlsx_generator.js?v=3.4"></script>
+    <script src="js/app.js?v=3.4"></script>
+
+</body>
+</html>

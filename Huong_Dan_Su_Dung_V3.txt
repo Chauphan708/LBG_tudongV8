@@ -1,0 +1,37 @@
+================================================================================
+   HƯỚNG DẪN SỬ DỤNG PHẦN MỀM LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC LỚP 5 (BẢN V3)
+        Bộ sách: Kết Nối Tri Thức Với Cuộc Sống (Năm học 2026 - 2027)
+================================================================================
+
+1. KHỞI ĐỘNG PHẦN MỀM:
+   - Cách 1 (Offline): Nhấp đúp chuột vào file "Mo_Phan_Mem.bat" trong thư mục này.
+   - Cách 2 (Online): Truy cập đường link https://chauphan708.github.io/bao-giang-tu-dong/
+
+2. CÁC TÍNH NĂNG CHÍNH CỦA BẢN V3:
+   - Tab 1: 📅 Lịch Báo Giảng tự động 35 tuần (Thêm / Bớt tiết, Xuất Word/Excel, In A4).
+   - Tab 2: 🎯 Báo Giảng Tích Hợp (CTLOP) với 621 tiết tích hợp liên môn (NLS, QCN, QPAN, AI, BVMT...).
+   - Tab 3: 🗓️ Kế Hoạch Thời Gian (Lịch Tuần) tự động tính toán 35 tuần theo ngày bắt đầu.
+   - Tab 4: 📖 Phân Phối Chương Trình (1.560 tiết) & Xuất Kế Hoạch Dạy Học (KHDH) từng môn / gộp tất cả các môn.
+   - Tab 5: ⚙️ Cài Đặt Trường Lớp, Người Ký & Quản Lý / In Ấn THỜI KHÓA BIỂU (Khổ ngang A4).
+   - Tab 6: 💡 Hướng Dẫn Sử Dụng Trực Quan Toàn Diện tích hợp sẵn ngay trong phần mềm.
+
+3. QUẢN LÝ & IN ẤN THỜI KHÓA BIỂU (MỚI Ở BẢN V3):
+   - Vào Tab 5: "Cài Đặt & Thời Khóa Biểu".
+   - Xem bảng Ma trận Thời khóa biểu tổng quan (Thứ 2 -> Thứ 6 x Sáng / Chiều).
+   - Bấm nút "📄 Xuất Word TKB (.docx)": Tải file Word TKB khổ ngang (Landscape) chuẩn Nghị định 30/2020/NĐ-CP.
+   - Bấm nút "🖨️ Xem Trước & In TKB": Xem và in trực tiếp ra máy in vừa vặn 1 trang A4 khổ ngang.
+   - Bấm nút "📊 Xuất Excel TKB (.xlsx)": Tải file Excel TKB dạng lưới.
+
+4. XUẤT FILE & IN ẤN GỘP NHIỀU TUẦN (HỌC KỲ 1, HỌC KỲ 2, CẢ NĂM):
+   - Tại Tab 1 hoặc Tab 2, bấm nút "📦 Xuất / In nhiều tuần".
+   - Chọn "Cả năm (Tuần 1 - 35)", "Học kỳ 1 (Tuần 1 - 18)", "Học kỳ 2 (Tuần 19 - 35)" hoặc chọn tuần tùy ý.
+   - Bấm "📄 Tải File Word Gộp (.docx)" hoặc "🖨️ Xem Trước & In Tất Cả".
+   - File Word gộp sẽ tự động ngắt trang (Page Break) cho mỗi tuần 1 trang riêng biệt.
+
+5. SAO LƯU & CHIA SẺ DỮ LIỆU TRONG KHỐI 5:
+   - Vào Tab Cài Đặt -> Bấm "📥 Sao lưu dữ liệu ra file JSON".
+   - Gửi file .json cho đồng nghiệp cùng khối.
+   - Đồng nghiệp chỉ cần mở phần mềm -> Bấm "📤 Khôi phục dữ liệu từ file JSON" là có ngay cấu hình chuẩn của trường!
+
+Chúc Quý Thầy/Cô có một năm học mới 2026 - 2027 thật nhiều niềm vui và thành công!
+================================================================================
