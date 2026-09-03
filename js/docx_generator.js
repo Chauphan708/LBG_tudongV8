@@ -79,67 +79,87 @@ window.DocxGenerator = (function() {
             return `<w:p><w:pPr><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t></w:t></w:r></w:p>`;
         }
         return lines.map(line => {
-            return `<w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="20" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(line)}</w:t></w:r></w:p>`;
+            return `<w:p><w:pPr><w:jc w:val="both"/><w:spacing w:after="20" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(line)}</w:t></w:r></w:p>`;
         }).join("");
     }
 
+    function getBaseLesson(lessonStr) {
+        if (!lessonStr) return '';
+        return lessonStr.replace(/\s*[\(\,\–\-]\s*(?:tiết|Tiết)\s*\d+[\)\.]?/gi, '').trim();
+    }
+
     /**
-     * Compute vertical row spans for hierarchical table cells (vMerge)
-     * @param {Array} rows - array of row objects
-     * @param {Array<string>} keys - hierarchical keys e.g. ['week', 'topic', 'lesson']
+     * Compute vertical row spans for KHDH table cells (vMerge)
+     * Handles hierarchical week, topic, lesson group (continuation rows where lesson is empty) and duration
      */
-    function computeRowSpans(rows, keys) {
-        if (!rows || !rows.length) return [];
-        const spans = rows.map(() => ({}));
-        
-        keys.forEach((key, keyIdx) => {
-            const parentKeys = keys.slice(0, keyIdx);
-            let startIndex = 0;
-            
-            while (startIndex < rows.length) {
-                const currentVal = (rows[startIndex][key] || '').toString().trim();
-                let count = 1;
-                
-                while (startIndex + count < rows.length) {
-                    const nextVal = (rows[startIndex + count][key] || '').toString().trim();
-                    
-                    let parentsMatch = true;
-                    for (let pk of parentKeys) {
-                        const curP = (rows[startIndex][pk] || '').toString().trim();
-                        const nextP = (rows[startIndex + count][pk] || '').toString().trim();
-                        if (curP !== nextP) {
-                            parentsMatch = false;
-                            break;
-                        }
-                    }
-                    
-                    if (currentVal && nextVal === currentVal && parentsMatch) {
-                        count++;
+    function computeKhdhSpans(rows, cat) {
+        if (!rows || !rows.length) return { week: [], topic: [], lesson: [], duration: [] };
+        const n = rows.length;
+        const spans = {
+            week: new Array(n).fill(0),
+            topic: new Array(n).fill(0),
+            lesson: new Array(n).fill(0),
+            duration: new Array(n).fill(0)
+        };
+
+        // 1. Week span
+        let i = 0;
+        while (i < n) {
+            let j = i + 1;
+            while (j < n && rows[j].week === rows[i].week) {
+                j++;
+            }
+            spans.week[i] = j - i;
+            for (let k = i + 1; k < j; k++) spans.week[k] = -1;
+            i = j;
+        }
+
+        // 2. Topic span (within same week)
+        i = 0;
+        while (i < n) {
+            let j = i + 1;
+            const topic_i = (rows[i].topic || rows[i].theme || '').trim();
+            while (j < n && rows[j].week === rows[i].week && (rows[j].topic || rows[j].theme || '').trim() === topic_i) {
+                j++;
+            }
+            spans.topic[i] = j - i;
+            for (let k = i + 1; k < j; k++) spans.topic[k] = -1;
+            i = j;
+        }
+
+        // 3. Lesson and Duration span (within same week)
+        i = 0;
+        while (i < n) {
+            let j = i + 1;
+            if (cat === 'tieng_viet' || cat === 'hdtn') {
+                while (j < n && rows[j].week === rows[i].week && !(rows[j].lesson && rows[j].lesson.trim())) {
+                    j++;
+                }
+            } else {
+                const durMatch = (rows[i].duration || '').match(/(\d+)\s*tiết/i);
+                const expectedCount = durMatch ? parseInt(durMatch[1], 10) : 1;
+                const base_i = getBaseLesson(rows[i].lesson);
+
+                while (j < n && rows[j].week === rows[i].week && (j - i < expectedCount)) {
+                    const base_j = getBaseLesson(rows[j].lesson);
+                    if (base_j === base_i || !(rows[j].duration && rows[j].duration.trim())) {
+                        j++;
                     } else {
                         break;
                     }
                 }
-                
-                spans[startIndex][key] = {
-                    isStart: true,
-                    isContinue: false,
-                    span: count,
-                    value: currentVal
-                };
-                
-                for (let i = 1; i < count; i++) {
-                    spans[startIndex + i][key] = {
-                        isStart: false,
-                        isContinue: true,
-                        span: count,
-                        value: currentVal
-                    };
-                }
-                
-                startIndex += count;
             }
-        });
-        
+
+            const count = j - i;
+            spans.lesson[i] = count;
+            spans.duration[i] = count;
+            for (let k = i + 1; k < j; k++) {
+                spans.lesson[k] = -1;
+                spans.duration[k] = -1;
+            }
+            i = j;
+        }
+
         return spans;
     }
 
@@ -226,14 +246,15 @@ window.DocxGenerator = (function() {
             <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/></w:rPr><w:t>NĂM HỌC ${escapeXml(settings.academicYear || '2026 - 2027')}</w:t></w:r>
         </w:p>`;
 
-        const basesList = (Array.isArray(settings.bases) && settings.bases.length > 0)
+        const defaultBases = [
+            "Căn cứ Thông tư số 32/2018/TT-BGDĐT ngày 26/12/2018 Ban hành Chương trình Giáo dục phổ thông tổng thể.",
+            "Căn cứ Thông tư 27/2020/TT-BGDĐT ngày 04/9/2020 về việc ban hành Quy định đánh giá học sinh tiểu học;",
+            "Căn cứ Công văn số 2345/BGDĐT-GDTH ngày 07/6/2021 về việc hướng dẫn xây dựng kế hoạch giáo dục nhà trường."
+        ];
+
+        const basesList = (Array.isArray(settings.bases) && settings.bases.length > 0 && !settings.bases.some(b => b.includes("28/2020")))
             ? settings.bases
-            : [
-                "Căn cứ Thông tư số 28/2020/TT-BGDĐT ngày 04/9/2020 của Bộ trưởng Bộ Giáo dục và Đào tạo ban hành Điều lệ Trường tiểu học;",
-                "Căn cứ Thông tư số 32/2018/TT-BGDĐT ngày 26/12/2018 của Bộ trưởng Bộ Giáo dục và Đào tạo ban hành Chương trình Giáo dục phổ thông 2018;",
-                `Căn cứ Quyết định ban hành Khung kế hoạch thời gian năm học ${settings.academicYear || '2026 - 2027'} của Ủy ban nhân dân Thành phố/Tỉnh;`,
-                `Căn cứ Kế hoạch giáo dục nhà trường năm học ${settings.academicYear || '2026 - 2027'} của ${settings.schoolName || 'Trường Tiểu học Trung Nhứt'};`
-            ];
+            : defaultBases;
 
         basesList.forEach(b => {
             docBody += `
@@ -274,7 +295,7 @@ window.DocxGenerator = (function() {
             // Bảng kế hoạch dạy học tùy biến theo môn học (Khớp chuẩn 9600 dxa theo lề A4)
             if (cat === 'tieng_viet') {
                 // 1. TIẾNG VIỆT (7 Cột: Tuần, Chủ đề/mạch nội dung, Bài học, Tên hoạt động/Nội dung, Tiết/Thời lượng, Điều chỉnh bổ sung, Ghi chú)
-                const spans = computeRowSpans(sub.rows, ['week', 'topic', 'lesson']);
+                const spans = computeKhdhSpans(sub.rows, 'tieng_viet');
 
                 docBody += `
                 <w:tbl>
@@ -337,35 +358,30 @@ window.DocxGenerator = (function() {
                     </w:tr>`;
 
                 sub.rows.forEach((r, rIdx) => {
-                    const sp = spans[rIdx] || {};
                     const integXml = formatIntegrationXml(r.integration);
                     const contentXml = formatContentXml(r.content);
                     const lessonText = r.lesson || '';
                     const topicText = r.topic || r.theme || '';
 
                     // Cột 1: Tuần (Gộp ô vMerge)
-                    let weekCellXml = '';
-                    if (sp.week && sp.week.isStart) {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let weekCellXml = (spans.week[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 2: Chủ đề / Mạch nội dung (Gộp ô vMerge)
-                    let topicCellXml = '';
-                    if (sp.topic && sp.topic.isStart) {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1350" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1350" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let topicCellXml = (spans.topic[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="1350" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="1350" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 3: Bài học (Gộp ô vMerge)
-                    let lessonCellXml = '';
-                    if (sp.lesson && sp.lesson.isStart) {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="1450" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="1450" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let lessonCellXml = (spans.lesson[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="1450" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="1450" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
+
+                    // Cột 5: Thời lượng (Gộp ô vMerge)
+                    let durCellXml = (spans.duration[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="650" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.duration || (spans.duration[rIdx] + ' tiết'))}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="650" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     docBody += `
                     <w:tr>
@@ -374,13 +390,10 @@ window.DocxGenerator = (function() {
                         ${topicCellXml}
                         ${lessonCellXml}
                         <w:tc>
-                            <w:tcPr><w:tcW w:w="2250" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                            <w:tcPr><w:tcW w:w="2250" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
                             ${contentXml}
                         </w:tc>
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="650" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.duration || r.periods || '')}</w:t></w:r></w:p>
-                        </w:tc>
+                        ${durCellXml}
                         <w:tc>
                             <w:tcPr><w:tcW w:w="2650" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                             ${integXml}
@@ -395,7 +408,7 @@ window.DocxGenerator = (function() {
 
             } else if (cat === 'hdtn') {
                 // 2. HOẠT ĐỘNG TRẢI NGHIỆM (6 Cột: Tuần, Chủ đề/mạch nội dung, tên bài học, Tên hoạt động, Thời lượng, Nội dung điều chỉnh, bổ sung)
-                const spans = computeRowSpans(sub.rows, ['week', 'topic', 'lesson']);
+                const spans = computeKhdhSpans(sub.rows, 'hdtn');
 
                 docBody += `
                 <w:tbl>
@@ -453,35 +466,30 @@ window.DocxGenerator = (function() {
                     </w:tr>`;
 
                 sub.rows.forEach((r, rIdx) => {
-                    const sp = spans[rIdx] || {};
                     const integXml = formatIntegrationXml(r.integration);
                     const contentXml = formatContentXml(r.content);
                     const lessonText = r.lesson || '';
                     const topicText = r.topic || r.theme || '';
 
                     // Cột 1: Tuần (Gộp ô vMerge)
-                    let weekCellXml = '';
-                    if (sp.week && sp.week.isStart) {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let weekCellXml = (spans.week[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 2: Chủ đề / Mạch nội dung (Gộp ô vMerge)
-                    let topicCellXml = '';
-                    if (sp.topic && sp.topic.isStart) {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let topicCellXml = (spans.topic[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="1550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="1550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 3: Tên bài học (Gộp ô vMerge)
-                    let lessonCellXml = '';
-                    if (sp.lesson && sp.lesson.isStart) {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let lessonCellXml = (spans.lesson[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
+
+                    // Cột 5: Thời lượng (Gộp ô vMerge)
+                    let durCellXml = (spans.duration[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="700" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.duration || (spans.duration[rIdx] + ' tiết'))}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="700" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     docBody += `
                     <w:tr>
@@ -490,13 +498,10 @@ window.DocxGenerator = (function() {
                         ${topicCellXml}
                         ${lessonCellXml}
                         <w:tc>
-                            <w:tcPr><w:tcW w:w="1900" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                            <w:tcPr><w:tcW w:w="1900" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
                             ${contentXml}
                         </w:tc>
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="700" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.duration || '')}</w:t></w:r></w:p>
-                        </w:tc>
+                        ${durCellXml}
                         <w:tc>
                             <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                             ${integXml}
@@ -507,7 +512,7 @@ window.DocxGenerator = (function() {
 
             } else {
                 // 3. TOÁN, KHOA HỌC, LỊCH SỬ VÀ ĐỊA LÍ, CÔNG NGHỆ, ĐẠO ĐỨC (6 Cột: Tuần, Chủ đề/mạch nội dung, tên bài học, Thời lượng, tiết theo KHMH, Nội dung điều chỉnh, bổ sung)
-                const spans = computeRowSpans(sub.rows, ['week', 'topic', 'lesson']);
+                const spans = computeKhdhSpans(sub.rows, 'khmh');
 
                 docBody += `
                 <w:tbl>
@@ -565,36 +570,31 @@ window.DocxGenerator = (function() {
                     </w:tr>`;
 
                 sub.rows.forEach((r, rIdx) => {
-                    const sp = spans[rIdx] || {};
                     const integXml = formatIntegrationXml(r.integration);
-                    const lessonText = r.lesson || '';
+                    const lessonText = (spans.lesson[rIdx] > 1) ? (getBaseLesson(r.lesson) || r.lesson) : (r.lesson || '');
                     const topicText = r.topic || r.theme || '';
-                    const durText = r.duration || '';
+                    const durText = r.duration || (spans.duration[rIdx] > 0 ? (spans.duration[rIdx] + ' tiết') : '');
                     const khmhPeriodText = r.khmhPeriod || r.content || (rIdx + 1).toString();
 
                     // Cột 1: Tuần (Gộp ô vMerge)
-                    let weekCellXml = '';
-                    if (sp.week && sp.week.isStart) {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        weekCellXml = `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let weekCellXml = (spans.week[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(r.week || '')}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="550" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 2: Chủ đề / Mạch nội dung (Gộp ô vMerge)
-                    let topicCellXml = '';
-                    if (sp.topic && sp.topic.isStart) {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        topicCellXml = `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let topicCellXml = (spans.topic[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(topicText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="1700" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     // Cột 3: Tên bài học (Gộp ô vMerge)
-                    let lessonCellXml = '';
-                    if (sp.lesson && sp.lesson.isStart) {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="2150" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`;
-                    } else {
-                        lessonCellXml = `<w:tc><w:tcPr><w:tcW w:w="2150" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
-                    }
+                    let lessonCellXml = (spans.lesson[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="2150" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(lessonText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="2150" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
+
+                    // Cột 4: Thời lượng (Gộp ô vMerge)
+                    let durCellXml = (spans.duration[rIdx] > 0)
+                        ? `<w:tc><w:tcPr><w:tcW w:w="800" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(durText)}</w:t></w:r></w:p></w:tc>`
+                        : `<w:tc><w:tcPr><w:tcW w:w="800" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr></w:p></w:tc>`;
 
                     docBody += `
                     <w:tr>
@@ -602,10 +602,7 @@ window.DocxGenerator = (function() {
                         ${weekCellXml}
                         ${topicCellXml}
                         ${lessonCellXml}
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="800" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(durText)}</w:t></w:r></w:p>
-                        </w:tc>
+                        ${durCellXml}
                         <w:tc>
                             <w:tcPr><w:tcW w:w="900" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
                             <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:after="0" w:line="220"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="20"/></w:rPr><w:t>${escapeXml(khmhPeriodText)}</w:t></w:r></w:p>
@@ -708,13 +705,17 @@ window.DocxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     }
 
-    function generateLbgDocx(isCtlop, weekNum, weekInfo, schedule, settings, stats) {
+    function generateLbgDocx(isCtlop, weekNum, weekInfo, schedule, settings, stats, orientation = "portrait") {
         const zip = new JSZip();
 
         zip.file("[Content_Types].xml", createContentTypes());
         zip.file("_rels/.rels", createRels());
         zip.file("word/_rels/document.xml.rels", createWordRels());
         zip.file("word/styles.xml", createStyles());
+
+        const isLandscape = (orientation === "landscape");
+        const headerColWidths = isLandscape ? [7200, 7800] : [4600, 5000];
+        const sigColWidth = isLandscape ? "5000" : "3200";
 
         const bghSignerName = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT')
             ? (settings.principal || 'Phạm Quốc Hùng')
@@ -734,12 +735,12 @@ window.DocxGenerator = (function() {
                 </w:tblBorders>
             </w:tblPr>
             <w:tblGrid>
-                <w:gridCol w:w="4600"/>
-                <w:gridCol w:w="5000"/>
+                <w:gridCol w:w="${headerColWidths[0]}"/>
+                <w:gridCol w:w="${headerColWidths[1]}"/>
             </w:tblGrid>
             <w:tr>
                 <w:tc>
-                    <w:tcPr><w:tcW w:w="4600" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                     <w:p>
                         <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
                         <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
@@ -754,7 +755,7 @@ window.DocxGenerator = (function() {
                     </w:p>
                 </w:tc>
                 <w:tc>
-                    <w:tcPr><w:tcW w:w="5000" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                     <w:p>
                         <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
                         <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
@@ -777,9 +778,9 @@ window.DocxGenerator = (function() {
         </w:p>
         `;
 
-        const colWidths = isCtlop
-            ? [900, 750, 550, 1600, 750, 2600, 2450]
-            : [1000, 800, 600, 1900, 800, 4500];
+        const colWidths = isLandscape
+            ? (isCtlop ? [1200, 900, 600, 2400, 1000, 4400, 4500] : [1300, 1000, 700, 2800, 1200, 8000])
+            : (isCtlop ? [900, 750, 550, 1600, 750, 2600, 2450] : [1000, 800, 600, 1900, 800, 4500]);
         const headers = isCtlop
             ? ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
             : ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
@@ -823,6 +824,7 @@ window.DocxGenerator = (function() {
             daySlots.forEach((slot, idx) => {
                 const isDayStart = (idx === 0);
                 const isMornStart = (idx === 0 && morningSlots.length > 0);
+                const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
                 let dayCellXml = isDayStart
                     ? `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r></w:p></w:tc>`
                     : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
@@ -864,7 +866,6 @@ window.DocxGenerator = (function() {
 
         docBody += `</w:tbl>`;
 
-        // Signature Table
         docBody += `
         <w:p><w:pPr><w:spacing w:before="240" w:after="100"/></w:pPr></w:p>
         <w:tbl>
@@ -877,25 +878,25 @@ window.DocxGenerator = (function() {
                 </w:tblBorders>
             </w:tblPr>
             <w:tblGrid>
-                <w:gridCol w:w="3200"/>
-                <w:gridCol w:w="3200"/>
-                <w:gridCol w:w="3200"/>
+                <w:gridCol w:w="${sigColWidth}"/>
+                <w:gridCol w:w="${sigColWidth}"/>
+                <w:gridCol w:w="${sigColWidth}"/>
             </w:tblGrid>
             <w:tr>
                 <w:tc>
-                    <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>DUYỆT CỦA ${escapeXml(bghSignerRole)}</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(bghSignerName)}</w:t></w:r></w:p>
                 </w:tc>
                 <w:tc>
-                    <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>TỔ TRƯỞNG CHUYÊN MÔN</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</w:t></w:r></w:p>
                 </w:tc>
                 <w:tc>
-                    <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>GIÁO VIÊN CHỦ NHIỆM</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                     <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</w:t></w:r></w:p>
@@ -904,15 +905,16 @@ window.DocxGenerator = (function() {
         </w:tbl>
         `;
 
+        const sectPr = isLandscape
+            ? `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`
+            : `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`;
+
         const fullDoc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
     <w:body>
         ${docBody}
-        <w:sectPr>
-            <w:pgSz w:w="11906" w:h="16838"/>
-            <w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/>
-        </w:sectPr>
+        ${sectPr}
     </w:body>
 </w:document>`;
 
@@ -921,13 +923,17 @@ window.DocxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     }
 
-    function generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekScheduleFn, settings) {
+    function generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekScheduleFn, settings, orientation = "portrait") {
         const zip = new JSZip();
 
         zip.file("[Content_Types].xml", createContentTypes());
         zip.file("_rels/.rels", createRels());
         zip.file("word/_rels/document.xml.rels", createWordRels());
         zip.file("word/styles.xml", createStyles());
+
+        const isLandscape = (orientation === "landscape");
+        const headerColWidths = isLandscape ? [7200, 7800] : [4600, 5000];
+        const sigColWidth = isLandscape ? "5000" : "3200";
 
         const bghSignerName = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT')
             ? (settings.principal || 'Phạm Quốc Hùng')
@@ -936,9 +942,9 @@ window.DocxGenerator = (function() {
                 : (settings.vicePrincipal || 'Lê Văn Tám'));
         const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
 
-        const colWidths = isCtlop
-            ? [900, 750, 550, 1600, 750, 2600, 2450]
-            : [1000, 800, 600, 1900, 800, 4500];
+        const colWidths = isLandscape
+            ? (isCtlop ? [1200, 900, 600, 2400, 1000, 4400, 4500] : [1300, 1000, 700, 2800, 1200, 8000])
+            : (isCtlop ? [900, 750, 550, 1600, 750, 2600, 2450] : [1000, 800, 600, 1900, 800, 4500]);
         const headers = isCtlop
             ? ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
             : ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
@@ -959,12 +965,12 @@ window.DocxGenerator = (function() {
                     </w:tblBorders>
                 </w:tblPr>
                 <w:tblGrid>
-                    <w:gridCol w:w="4600"/>
-                    <w:gridCol w:w="5000"/>
+                    <w:gridCol w:w="${headerColWidths[0]}"/>
+                    <w:gridCol w:w="${headerColWidths[1]}"/>
                 </w:tblGrid>
                 <w:tr>
                     <w:tc>
-                        <w:tcPr><w:tcW w:w="4600" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                         <w:p>
                             <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
                             <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
@@ -979,7 +985,7 @@ window.DocxGenerator = (function() {
                         </w:p>
                     </w:tc>
                     <w:tc>
-                        <w:tcPr><w:tcW w:w="5000" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                         <w:p>
                             <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
                             <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
@@ -1066,11 +1072,11 @@ window.DocxGenerator = (function() {
                         </w:tc>
                         <w:tc>
                             <w:tcPr><w:tcW w:w="${colWidths[4]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
                         </w:tc>
                         <w:tc>
                             <w:tcPr><w:tcW w:w="${colWidths[5]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                         </w:tc>
                         ${isCtlop ? `
                         <w:tc>
@@ -1084,7 +1090,6 @@ window.DocxGenerator = (function() {
 
             docBody += `</w:tbl>`;
 
-            // Signature Table
             docBody += `
             <w:p><w:pPr><w:spacing w:before="240" w:after="100"/></w:pPr></w:p>
             <w:tbl>
@@ -1097,25 +1102,25 @@ window.DocxGenerator = (function() {
                     </w:tblBorders>
                 </w:tblPr>
                 <w:tblGrid>
-                    <w:gridCol w:w="3200"/>
-                    <w:gridCol w:w="3200"/>
-                    <w:gridCol w:w="3200"/>
+                    <w:gridCol w:w="${sigColWidth}"/>
+                    <w:gridCol w:w="${sigColWidth}"/>
+                    <w:gridCol w:w="${sigColWidth}"/>
                 </w:tblGrid>
                 <w:tr>
                     <w:tc>
-                        <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>DUYỆT CỦA ${escapeXml(bghSignerRole)}</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(bghSignerName)}</w:t></w:r></w:p>
                     </w:tc>
                     <w:tc>
-                        <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>TỔ TRƯỞNG CHUYÊN MÔN</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</w:t></w:r></w:p>
                     </w:tc>
                     <w:tc>
-                        <w:tcPr><w:tcW w:w="3200" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>GIÁO VIÊN CHỦ NHIỆM</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
                         <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</w:t></w:r></w:p>
@@ -1124,7 +1129,6 @@ window.DocxGenerator = (function() {
             </w:tbl>
             `;
 
-            // If not the last week, insert page break
             if (w < endWeek) {
                 docBody += `
                 <w:p>
@@ -1135,15 +1139,16 @@ window.DocxGenerator = (function() {
             }
         }
 
+        const sectPr = isLandscape
+            ? `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`
+            : `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`;
+
         const fullDoc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
     <w:body>
         ${docBody}
-        <w:sectPr>
-            <w:pgSz w:w="11906" w:h="16838"/>
-            <w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/>
-        </w:sectPr>
+        ${sectPr}
     </w:body>
 </w:document>`;
 

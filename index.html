@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phần Mềm Quản Lý Lịch Báo Giảng & Kế Hoạch Dạy Học Lớp 5</title>
+    <title>Phần Mềm Quản Lý Lịch Báo Giảng &amp; Kế Hoạch Dạy Học Tiểu Học (Khối 1 - 5) - Bản V4</title>
     <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="css/styles.css?v=3.4">
+    <link rel="stylesheet" href="css/styles.css?v=4.0">
     <!-- Offline & Fallback Libraries -->
     <script src="lib/jszip.min.js"></script>
     <script src="lib/FileSaver.min.js"></script>
@@ -21,10 +21,20 @@
                     <img src="assets/img/logo.jpg" alt="CPA Logo" class="brand-logo-img">
                 </div>
                 <div class="brand-info">
-                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC LỚP 5</h1>
+                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5) <span style="font-size: 0.72em; background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 700;">BẢN V4</span></h1>
                 </div>
             </div>
-            <div class="header-meta no-print">
+            <div class="header-meta no-print" style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                <div class="grade-selector-wrap" style="display: flex; align-items: center; gap: 0.4rem; background: rgba(255, 255, 255, 0.18); padding: 0.3rem 0.65rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <label for="global-grade-selector" style="font-weight: 700; color: #fff; font-size: 0.88rem; margin-bottom: 0; white-space: nowrap;">🎒 Khối lớp:</label>
+                    <select id="global-grade-selector" style="font-weight: 800; background: #fff; color: var(--primary); border: none; border-radius: 6px; padding: 0.25rem 0.65rem; font-size: 0.9rem; cursor: pointer; outline: none; box-shadow: 0 1px 3px rgba(0,0,0,0.15);" title="Chuyển đổi phân phối chương trình và lịch dạy giữa các Khối 1, 2, 3, 4, 5">
+                        <option value="1">Khối 1</option>
+                        <option value="2">Khối 2</option>
+                        <option value="3">Khối 3</option>
+                        <option value="4">Khối 4</option>
+                        <option value="5" selected>Khối 5</option>
+                    </select>
+                </div>
                 <span class="badge-info" id="top-badge-school">🏫 TH TRUNG NHỨT — LỚP 5A</span>
             </div>
         </div>
@@ -54,9 +64,10 @@
                 <span>⚙️</span>
                 <span>Cài Đặt &amp; Thời Khóa Biểu</span>
             </button>
-            <button class="tab-btn" data-tab="tab-guide">
-                <span>📖</span>
-                <span>Hướng Dẫn Sử Dụng</span>
+            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" title="Xem Hướng Dẫn Sử Dụng và Lưu Ý An Toàn Dữ Liệu Bản V4">
+                <span class="guide-icon">💡</span>
+                <span style="font-weight: 700;">Hướng Dẫn Sử Dụng</span>
+                <span class="guide-badge-hot">V4 MỚI</span>
             </button>
         </div>
     </nav>
@@ -75,6 +86,10 @@
                         <p>Tự động tra cứu số tiết phân phối chương trình và bài dạy theo Thời khóa biểu của lớp</p>
                     </div>
                     <div class="panel-actions no-print">
+                        <div class="orientation-toggle" id="lbg-orient-toggle" title="Chọn khổ giấy in và xuất Word">
+                            <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-lbg">📄 Khổ Đứng</button>
+                            <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-lbg">📜 Khổ Ngang</button>
+                        </div>
                         <button class="btn btn-secondary btn-sm" id="btn-lbg-reset-tkb" title="Khôi phục TKB gốc chuẩn 35 tiết của khối 5">
                             <span>🔄</span> <span>Đặt lại TKB gốc</span>
                         </button>
@@ -212,6 +227,10 @@
                         <p>Bổ sung cột điều chỉnh và tích hợp Năng lực số (NLS), Quyền con người (QCN), QPAN, LTCM, AI,...</p>
                     </div>
                     <div class="panel-actions no-print">
+                        <div class="orientation-toggle" id="ctlop-orient-toggle" title="Chọn khổ giấy in và xuất Word">
+                            <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-ctlop">📄 Khổ Đứng</button>
+                            <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-ctlop">📜 Khổ Ngang</button>
+                        </div>
                         <button class="btn btn-secondary" id="btn-ctlop-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
                             <span>📦</span> <span>Xuất / In nhiều tuần</span>
                         </button>
@@ -294,13 +313,13 @@
                         <label class="form-label">Ngày bắt đầu Tuần 1 (Thứ 2):</label>
                         <input type="date" class="form-control" id="gen-start-date" value="2026-09-07">
                     </div>
-                    <div class="form-group" style="width: 210px;">
-                        <label class="form-label">Nghỉ Tết Âm lịch:</label>
-                        <select class="form-select" id="gen-tet-opt">
-                            <option value="2">Nghỉ 2 tuần (Sau tuần 20 hoặc 21)</option>
-                            <option value="1">Nghỉ 1 tuần</option>
-                            <option value="0">Không có tuần nghỉ đệm</option>
-                        </select>
+                    <div class="form-group" style="width: 180px;">
+                        <label class="form-label" title="Ngày bắt đầu nghỉ Tết Âm lịch của địa phương">🏮 Tết nghỉ từ ngày:</label>
+                        <input type="date" class="form-control" id="gen-tet-start-date" value="2027-02-08">
+                    </div>
+                    <div class="form-group" style="width: 180px;">
+                        <label class="form-label" title="Ngày kết thúc kỳ nghỉ Tết">🏮 Đến hết ngày:</label>
+                        <input type="date" class="form-control" id="gen-tet-end-date" value="2027-02-21">
                     </div>
                     <button class="btn btn-success" id="btn-run-week-generator" style="height: 42px;">
                         <span>⚡</span> <span>Tự Động Tạo Lịch 35 Tuần</span>
@@ -412,8 +431,8 @@
             <div class="panel">
                 <div class="panel-header">
                     <div class="panel-title-group">
-                        <h2>📖 Quản Lý Phân Phối Chương Trình Lớp 5</h2>
-                        <p>Kho dữ liệu bài dạy đầy đủ của tất cả các môn học. Hỗ trợ nạp nhanh từ Excel hoặc tải file mẫu chuẩn</p>
+                        <h2>📖 Quản Lý Phân Phối Chương Trình <span id="ppct-grade-title" style="color: var(--primary); font-weight: 800;">Khối 5</span></h2>
+                        <p>Kho dữ liệu bài dạy đầy đủ của tất cả các môn học. Hỗ trợ tự động nạp từ file Word (.docx) hoặc Excel (.xlsx)</p>
                     </div>
                     <div class="panel-actions no-print">
                         <button class="btn btn-warning btn-sm" id="btn-rename-subject-bulk" title="Đổi tên môn học nhanh chóng cho toàn bộ bảng phân phối chương trình và thời khóa biểu">
@@ -428,13 +447,13 @@
                         <button class="btn btn-secondary btn-sm" id="btn-download-ppct-template" title="Tải file Excel mẫu với đầy đủ các cột">
                             <span>📥</span> <span>Tải Mẫu Excel</span>
                         </button>
-                        <button class="btn btn-accent btn-sm" id="btn-upload-ppct" title="Thêm hoặc cập nhật phân phối chương trình từ file Excel của bạn">
-                            <span>📤</span> <span>Nạp Excel</span>
+                        <button class="btn btn-accent btn-sm" id="btn-upload-ppct" title="Thêm hoặc cập nhật phân phối chương trình từ file Word (.docx) hoặc Excel (.xlsx)">
+                            <span>📤</span> <span>Nạp Word / Excel</span>
                         </button>
-                        <button class="btn btn-secondary btn-sm" id="btn-reset-ppct" title="Khôi phục dữ liệu PPCT gốc ban đầu">
+                        <button class="btn btn-secondary btn-sm" id="btn-reset-ppct" title="Khôi phục dữ liệu PPCT gốc ban đầu của khối lớp hiện tại">
                             <span>🔄</span> <span>Khôi Phục Gốc</span>
                         </button>
-                        <input type="file" id="ppct-upload-file" accept=".xlsx,.xls,.csv" style="display:none;">
+                        <input type="file" id="ppct-upload-file" accept=".xlsx,.xls,.docx,.csv" style="display:none;">
                     </div>
                 </div>
 
@@ -537,8 +556,23 @@
                         <input type="text" class="form-control" id="set-class-name">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Năm học:</label>
-                        <input type="text" class="form-control" id="set-academic-year">
+                        <label class="form-label" style="font-weight: 700; color: var(--primary); display: flex; justify-content: space-between; align-items: center;">
+                            <span>📅 Năm học:</span>
+                            <span style="font-size: 0.76rem; font-weight: normal; color: var(--text-muted);">(Tự động đồng bộ toàn bộ lịch dạy &amp; KHDH)</span>
+                        </label>
+                        <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+                            <select class="form-select" id="set-academic-year-quick" style="max-width: 145px; font-weight: 600;">
+                                <option value="2024 - 2025">2024 - 2025</option>
+                                <option value="2025 - 2026">2025 - 2026</option>
+                                <option value="2026 - 2027" selected>2026 - 2027</option>
+                                <option value="2027 - 2028">2027 - 2028</option>
+                                <option value="custom">Tùy chỉnh...</option>
+                            </select>
+                            <input type="text" class="form-control" id="set-academic-year" placeholder="Ví dụ: 2026 - 2027" style="font-weight: 700; color: var(--primary); flex: 1; min-width: 120px;">
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-sync-academic-year" style="white-space: nowrap; padding: 0.45rem 0.75rem; font-weight: 700;" title="Đồng bộ năm học này sang tất cả văn bản và kế hoạch 35 tuần">
+                                <span>🔄</span> <span>Đồng bộ</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Địa danh ban hành văn bản:</label>
@@ -748,25 +782,31 @@
                     </div>
                 </div>
 
-                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn btn-secondary" id="btn-backup-data">
-                        <span>📥</span> <span>Sao lưu dữ liệu ra file JSON</span>
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                    <button class="btn btn-secondary" id="btn-backup-data" title="Tải file sao lưu toàn bộ dữ liệu khối hiện tại">
+                        <span>💾</span> <span>Sao lưu toàn bộ dữ liệu ra file JSON</span>
                     </button>
-                    <button class="btn btn-secondary" id="btn-restore-data">
+                    <button class="btn btn-secondary" id="btn-restore-data" title="Nạp lại dữ liệu từ file JSON đã lưu">
                         <span>📤</span> <span>Khôi phục dữ liệu từ file JSON</span>
                     </button>
+                </div>
+                <div style="margin-top: 0.6rem; font-size: 0.83rem; color: var(--text-muted); line-height: 1.5;">
+                    💡 <strong>Phạm vi sao lưu:</strong> File JSON sẽ sao lưu <strong>CẢ HAI</strong>: Toàn bộ <strong>Thời Khóa Biểu</strong> + Toàn bộ <strong>Phân Phối Chương Trình (35 tuần)</strong> + Kế hoạch thời gian (Lịch tuần) + Toàn bộ cấu hình cài đặt trường lớp, giáo viên của khối lớp đang chọn.
                 </div>
             </div>
         </section>
 
         <!-- =========================================================================
-             TAB 6: HƯỚNG DẪN SỬ DỤNG PHẦN MỀM (VERSION 3.0)
+             TAB 6: HƯỚNG DẪN SỬ DỤNG PHẦN MỀM (VERSION 4.0)
              ========================================================================= -->
         <section class="tab-content" id="tab-guide">
             <div class="guide-container">
 
                 <!-- Banner Giới Thiệu -->
                 <div class="guide-banner">
+                    <div style="display:inline-block; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:0.25rem 0.85rem; font-size:0.84rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem;">
+                        🌟 ĐÂY LÀ PHIÊN BẢN V4 (VERSION 4.0)
+                    </div>
                     <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Lớp 5</h2>
                     
                     <!-- Mục Lục Điều Hướng Nhanh -->
@@ -779,6 +819,7 @@
                         <a href="#guide-sec-6" class="guide-toc-item">6. In Thời Khóa Biểu</a>
                         <a href="#guide-sec-7" class="guide-toc-item">7. In &amp; Xuất Nhiều Tuần</a>
                         <a href="#guide-sec-8" class="guide-toc-item">8. Sao Lưu &amp; Chia Sẻ</a>
+                        <a href="#guide-sec-9" class="guide-toc-item" style="color: #1d4ed8; font-weight: 700;">9. An toàn dữ liệu máy tính</a>
                     </div>
                 </div>
 
@@ -947,6 +988,35 @@
                     </div>
                 </div>
 
+                <!-- Mục 9: Lưu Ý An Toàn Dữ Liệu Máy Tính Cá Nhân (Bản V4) -->
+                <div class="guide-card" id="guide-sec-9" style="border: 2px solid #3b82f6; background: #f8fafc;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🛡️</span>
+                        <h3 class="guide-card-title" style="color: #1e40af; margin: 0;">9. Lưu Ý Quan Trọng Về Lưu Trữ &amp; An Toàn Dữ Liệu Trên Máy Tính Cá Nhân</h3>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #334155; margin-bottom: 1rem; line-height: 1.5;">
+                        Phần mềm hoạt động hoàn toàn cục bộ <strong>Client-Side 100%</strong> (mọi thông tin Thời khóa biểu, Giáo án, KHDH và Năm học được lưu an toàn trong bộ nhớ trình duyệt <code>localStorage</code> của máy tính cá nhân Thầy/Cô, không gửi lên bất kỳ máy chủ nào). Để đảm bảo an toàn dữ liệu tuyệt đối, Thầy/Cô cần nắm rõ các nguyên tắc sau:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box" style="border-left: 3px solid #ef4444; background: #ffffff;">
+                            <h4 style="color: #b91c1c;">⚠️ Không dùng chế độ Ẩn danh (Incognito)</h4>
+                            <p>Tránh mở phần mềm bằng cửa sổ ẩn danh (Ctrl+Shift+N). Do cơ chế bảo mật của trình duyệt, toàn bộ dữ liệu Thầy/Cô vừa làm sẽ bị xóa sạch ngay khi đóng tab ẩn danh.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #f59e0b; background: #ffffff;">
+                            <h4 style="color: #b45309;">🧹 Lưu ý khi dọn rác trình duyệt</h4>
+                            <p>Khi dùng các phần mềm dọn dẹp máy tính hoặc xóa lịch sử duyệt web (Clear browsing data), Thầy/Cô hãy bỏ tick chọn mục <em>"Cookies and other site data"</em> hoặc <em>"Offline storage"</em> của trang web để không làm mất bộ nhớ đã lưu.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #10b981; background: #ffffff;">
+                            <h4 style="color: #047857;">📦 Thói quen sao lưu định kỳ (.json)</h4>
+                            <p>Sau mỗi đợt phân công chuyên môn, đổi năm học hoặc xếp xong TKB, hãy vào <strong>Tab 5</strong> bấm <strong>"Sao lưu dữ liệu ra file JSON"</strong>. Cất file vào ổ đĩa D, Google Drive hoặc USB để lưu giữ vĩnh viễn.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #3b82f6; background: #ffffff;">
+                            <h4 style="color: #1d4ed8;">🔄 Khôi phục tức thì khi đổi máy tính</h4>
+                            <p>Khi chuyển sang máy tính mới hoặc cài lại Windows, Thầy/Cô chỉ cần mở phần mềm, vào Tab 5 bấm <strong>"Khôi phục dữ liệu từ file JSON"</strong> và chọn file dự phòng. Toàn bộ 35 tuần và KHDH sẽ phục hồi 100% chỉ trong 1 giây.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1042,6 +1112,20 @@
                                 <!-- Populated dynamically -->
                             </select>
                         </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label class="form-label" style="font-weight: 700; color: var(--primary);">3. Chọn khổ giấy in &amp; xuất file Word:</label>
+                    <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; background: #f8fafc; padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
+                            <input type="radio" name="batch-orientation" value="portrait" checked>
+                            <span>📄 Khổ Đứng (Portrait - Tiêu chuẩn)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
+                            <input type="radio" name="batch-orientation" value="landscape">
+                            <span>📜 Khổ Ngang (Landscape - Rộng rãi, thoáng chữ)</span>
+                        </label>
                     </div>
                 </div>
 
@@ -1150,8 +1234,12 @@
          ========================================================================= -->
     <div class="modal-backdrop" id="preview-modal">
         <div class="modal-card">
-            <div class="modal-header">
+            <div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
                 <h3 class="modal-title" id="modal-preview-title">Xem trước văn bản</h3>
+                <div class="orientation-toggle" id="modal-orient-toggle" title="Chọn khổ giấy xem trước, in và xuất Word">
+                    <button type="button" class="btn active" data-orient="portrait" id="btn-modal-orient-portrait">📄 Khổ Đứng</button>
+                    <button type="button" class="btn" data-orient="landscape" id="btn-modal-orient-landscape">📜 Khổ Ngang</button>
+                </div>
                 <button class="btn btn-secondary btn-sm" id="modal-close-btn">✕ Đóng</button>
             </div>
             <div class="modal-body" id="modal-preview-body">
@@ -1159,7 +1247,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="modal-close-footer">Đóng lại</button>
-                <div style="display: flex; gap: 0.5rem;">
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <button class="btn btn-primary" id="modal-btn-docx">
                         <span>📄</span> <span>Tải File Word (.docx)</span>
                     </button>
@@ -1174,14 +1262,60 @@
         </div>
     </div>
 
+    <!-- Modal Xác Nhận Chế Độ Nạp PPCT -->
+    <div class="modal-backdrop" id="modal-import-mode" style="display: none; z-index: 1050;">
+        <div class="modal-card" style="max-width: 540px;">
+            <div class="modal-header" style="background: var(--primary); color: #fff; padding: 1rem 1.25rem;">
+                <h3 class="modal-title" style="color: #fff; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
+                    <span>📥</span> <span>Tùy Chọn Nạp Phân Phối Chương Trình</span>
+                </h3>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-close-import-modal" style="color: #fff; background: rgba(255,255,255,0.2); border: none;">✕ Đóng</button>
+            </div>
+            <div class="modal-body" style="padding: 1.25rem;">
+                <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-main); font-size: 0.95rem;">
+                    Đã kiểm tra và trích xuất thành công <span id="import-row-count" style="color: var(--primary); font-size: 1.15em; font-weight: 800;">0</span> tiết bài dạy từ file: <br>
+                    <span id="import-file-name" style="font-weight: 700; color: #b45309; word-break: break-all;"></span>
+                </p>
+                <p style="margin-bottom: 1.25rem; font-size: 0.88rem; color: var(--text-muted);">
+                    Thầy/Cô vui lòng chọn phương thức nạp dữ liệu cho <strong>Khối <span id="import-target-grade">5</span></strong>:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.25rem;">
+                    <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-replace">
+                        <input type="radio" name="import-mode" value="replace" checked style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
+                        <div>
+                            <div style="font-weight: 700; color: #b91c1c; font-size: 0.95rem;">🔄 Ghi đè thay thế toàn bộ (Khuyên dùng khi nạp năm học mới)</div>
+                            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">Xóa toàn bộ danh sách PPCT cũ của khối hiện tại và thay thế hoàn toàn 100% bằng dữ liệu mới từ file này.</div>
+                        </div>
+                    </label>
+
+                    <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-merge">
+                        <input type="radio" name="import-mode" value="merge" style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
+                        <div>
+                            <div style="font-weight: 700; color: #047857; font-size: 0.95rem;">➕ Cập nhật &amp; Bổ sung</div>
+                            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">Giữ nguyên các bài dạy cũ, chỉ cập nhật bài dạy nếu trùng tiết và thêm mới các tiết chưa có.</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+                <button type="button" class="btn btn-secondary" id="btn-cancel-import">Hủy Bỏ</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-import">
+                    <span>✓</span> <span>Xác Nhận Nạp File</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Toast Notification Container -->
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Application Scripts -->
-    <script src="data/curriculum_data.js?v=3.4"></script>
-    <script src="js/docx_generator.js?v=3.4"></script>
-    <script src="js/xlsx_generator.js?v=3.4"></script>
-    <script src="js/app.js?v=3.4"></script>
+    <script src="data/curriculum_data.js?v=4.0"></script>
+    <script src="data/curriculum_grades_1_4.js?v=4.0"></script>
+    <script src="js/docx_generator.js?v=4.0"></script>
+    <script src="js/xlsx_generator.js?v=4.0"></script>
+    <script src="js/app.js?v=4.0"></script>
 
 </body>
 </html>

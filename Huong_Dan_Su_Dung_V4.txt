@@ -1,0 +1,70 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC LỚP 5
+PHIÊN BẢN NÂNG CẤP V4 (VERSION 4.0) — CHUẨN NGHỊ ĐỊNH 30/2020/NĐ-CP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo 100% quyền riêng tư
+   và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ TRÊN BẢN V4:
+
+   ✨ 1. TỰ ĐỘNG GỘP Ô (MERGE CELLS) TRONG KẾ HOẠCH DẠY HỌC (KHDH / PPCT):
+      - Cả trên giao diện xem trước HTML và file Word (.docx) xuất ra, hệ thống đã được
+        nâng cấp thuật toán gộp ô dọc đa cấp (rowspan & w:vMerge) chuẩn xác cho 4 cột:
+        + Cột Tuần: Gộp tất cả các tiết trong cùng một tuần thành 1 ô duy nhất.
+        + Cột Chủ đề / Mạch nội dung: Gộp các bài học thuộc cùng chủ đề trong tuần.
+        + Cột Bài học: Nhóm toàn bộ các tiết thuộc cùng một bài dạy (ví dụ: Bài 1 có 3 tiết
+          thì tên bài sẽ được gộp chung trên 3 dòng).
+        + Cột Tiết / Thời lượng: Tự động gộp tương ứng với số tiết của bài học (ví dụ: "3 tiết").
+      - Bảng KHDH xuất ra file Word vuông vắn, không còn dòng trống thừa, đúng quy chuẩn
+        hướng dẫn của Bộ và Sở GD&ĐT.
+
+   ✨ 2. LỰA CHỌN KHỔ GIẤY ĐỨNG (PORTRAIT) & KHỔ GIẤY NGANG (LANDSCAPE):
+      - Bổ sung nút chuyển đổi nhanh "📄 Khổ Đứng" và "📜 Khổ Ngang" tại:
+        + Tab 1: Lịch Báo Giảng tuần.
+        + Tab 2: Lịch Báo Giảng Tích Hợp (CTLOP).
+        + Cửa sổ Xem trước văn bản (Preview Modal) & Lệnh In ấn (Print).
+        + Cửa sổ Xuất hàng loạt 35 tuần (Batch Export Modal).
+      - Cơ chế tự động căn chỉnh (Auto Layout):
+        + Khổ Đứng (Portrait): Tỉ lệ cột được tối ưu gọn gàng cho trang in dọc A4 tiêu chuẩn.
+        + Khổ Ngang (Landscape): Bảng mở rộng sang ngang (chiều ngang 15.000 dxa ~ 26.4cm),
+          rất thích hợp cho các bảng có nội dung tích hợp dài (Quyền con người, Năng lực số,
+          Quốc phòng an ninh...).
+        + Bảng chữ ký chân trang (Ban Giám hiệu - Khối trưởng - GVCN) tự động chia đều cân đối.
+
+   ✨ 3. CHỈNH SỬA & ĐỒNG BỘ NĂM HỌC THÔNG MINH:
+      - Tại Tab 5 (Cài đặt): Thêm bộ chọn nhanh năm học (2025 - 2026, 2026 - 2027, 2027 - 2028...)
+        và ô nhập tự do cho các năm học tiếp theo.
+      - Nút "🔄 Đồng bộ năm học" sẽ tự động rà soát và cập nhật đồng bộ năm học mới sang:
+        + Căn cứ Khung kế hoạch thời gian năm học của UBND Thành phố/Tỉnh.
+        + Căn cứ Kế hoạch giáo dục nhà trường của Trường Tiểu học.
+        + Tự động cập nhật năm bắt đầu trên ngày tháng ban hành văn bản.
+
+   ✨ 4. ĐẢM BẢO AN TOÀN & BẢO MẬT DỮ LIỆU TRÊN MÁY TÍNH CÁ NHÂN:
+      - Tự động chuyển tiếp dữ liệu (Seamless Migration) từ Bản V3, V2, V1 lên Bản V4.
+      - Bổ sung mục Hướng dẫn số 9 chi tiết trong Tab "Hướng dẫn sử dụng" về các lưu ý
+        an toàn dữ liệu trên máy tính cá nhân.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN KHỞI CHẠY PHẦN MỀM:
+   - Cách 1 (Khuyên dùng): Nhấp đúp chuột vào file "Mo_Phan_Mem.bat". Trình duyệt web mặc định
+     (Google Chrome, Microsoft Edge, Cốc Cốc, Firefox...) sẽ mở ngay giao diện phần mềm.
+   - Cách 2: Nhấp đúp chuột trực tiếp vào file "index.html".
+
+--------------------------------------------------------------------------------
+4. NGUYÊN TẮC AN TOÀN DỮ LIỆU CHO GIÁO VIÊN:
+   - Dữ liệu lịch báo giảng và thời khóa biểu được lưu an toàn trong bộ nhớ trình duyệt (localStorage).
+   - ĐỊNH KỲ MỖI TUẦN HOẶC SAU KHI THAY ĐỔI LỚN:
+     + Vào Tab 5 "Cài Đặt & Thời Khóa Biểu".
+     + Nhấn nút "📥 Sao lưu dữ liệu ra file (.json)".
+     + Lưu file tải về vào thư mục an toàn (như D:\Giao_An_Lop_5\) hoặc tải lên Google Drive / USB.
+   - KHI ĐỔI MÁY TÍNH HOẶC CÀI LẠI WIN:
+     + Mở phần mềm trên máy mới, vào Tab 5 -> Nhấn "📤 Khôi phục dữ liệu từ file" -> Chọn file .json.
+     + Toàn bộ lịch dạy, thời khóa biểu và cài đặt sẽ được phục hồi nguyên vẹn 100%!
+
+--------------------------------------------------------------------------------
+Chúc Quý Thầy/Cô có một năm học mới nhiều niềm vui, thành công và tiện lợi trong công tác giảng dạy!
+================================================================================

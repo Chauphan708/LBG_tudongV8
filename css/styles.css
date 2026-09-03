@@ -681,6 +681,46 @@ body {
     color: #000000;
     line-height: 1.35;
     font-size: 13pt;
+    transition: max-width 0.25s ease, padding 0.25s ease;
+}
+
+.paper-page.landscape {
+    max-width: 1100px;
+    padding: 35px 45px;
+}
+
+#preview-modal.is-landscape .modal-card {
+    max-width: 1180px;
+    width: 95vw;
+}
+
+/* Orientation Toggle Switcher */
+.orientation-toggle {
+    display: inline-flex;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--primary-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.orientation-toggle .btn {
+    border: none;
+    border-radius: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.65rem;
+    background: #ffffff;
+    color: var(--primary);
+    transition: all 0.2s ease;
+}
+
+.orientation-toggle .btn:hover {
+    background: var(--primary-lighter);
+}
+
+.orientation-toggle .btn.active {
+    background: var(--primary);
+    color: #ffffff;
 }
 
 .paper-header {
@@ -801,10 +841,28 @@ body {
 /* ==========================================================================
    PRINT STYLES (@media print) - Strict A4 & Decree 30/2020
    ========================================================================== */
+@page {
+    size: A4 portrait;
+    margin: 15mm 10mm 15mm 15mm;
+}
+
+@page landscape-print {
+    size: A4 landscape;
+    margin: 10mm 12mm 10mm 12mm;
+}
+
+@page portrait-print {
+    size: A4 portrait;
+    margin: 15mm 10mm 15mm 15mm;
+}
+
 @media print {
-    @page {
-        size: A4 portrait;
-        margin: 15mm 10mm 15mm 15mm;
+    body.print-landscape {
+        page: landscape-print;
+    }
+
+    body.print-portrait {
+        page: portrait-print;
     }
 
     html, body {
@@ -1260,3 +1318,154 @@ body {
     border-color: #fca5a5;
 }
 
+/* ==========================================================================
+   BẢN V4: Căn giữa & đều ô nội dung dạy học
+   ========================================================================== */
+.khdh-content-cell {
+    text-align: justify !important;
+    vertical-align: middle !important;
+    line-height: 1.5 !important;
+    padding: 6px 9px !important;
+    hyphens: auto;
+}
+
+/* ==========================================================================
+   BẢN V4: Làm nổi bật Tab Hướng Dẫn Sử Dụng
+   ========================================================================== */
+.tab-btn.tab-btn-guide-highlight {
+    background: linear-gradient(135deg, rgba(254, 243, 199, 0.9), rgba(253, 230, 138, 0.95)) !important;
+    border: 1.5px solid #f59e0b !important;
+    color: #92400e !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 5px rgba(245, 158, 11, 0.25) !important;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.tab-btn.tab-btn-guide-highlight:hover {
+    background: linear-gradient(135deg, #fde68a, #fcd34d) !important;
+    border-color: #d97706 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35) !important;
+}
+
+.tab-btn.tab-btn-guide-highlight.active {
+    background: #f59e0b !important;
+    color: #ffffff !important;
+    border-color: #d97706 !important;
+}
+
+.tab-btn.tab-btn-guide-highlight .guide-icon {
+    font-size: 1.15rem;
+    filter: drop-shadow(0 1px 2px rgba(245, 158, 11, 0.4));
+}
+
+.tab-btn.tab-btn-guide-highlight .guide-badge-hot {
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 1px 3px rgba(220, 38, 38, 0.4);
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.tab-btn.tab-btn-guide-highlight.active .guide-badge-hot {
+    background: #ffffff;
+    color: #dc2626;
+}
+
+/* ==========================================================================
+   BẢN V4: Tối ưu co giãn cho thiết bị màn hình nhỏ (Responsive)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .header-meta {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .nav-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+    }
+    .tab-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+    .modal-card {
+        width: 96vw;
+        max-width: 96vw;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-main {
+        padding: 0.75rem;
+    }
+    .brand-info h1 {
+        font-size: 1.1rem;
+    }
+    .panel {
+        padding: 1rem;
+    }
+    .panel-actions {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .modal-body {
+        padding: 0.75rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .paper-page {
+        min-width: 760px;
+        margin: 0 auto;
+        padding: 15mm 10mm;
+    }
+    .table-lbg th, .table-lbg td {
+        padding: 6px 4px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-info h1 {
+        font-size: 0.95rem;
+    }
+    .grade-selector-wrap {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .badge-info {
+        font-size: 0.78rem;
+    }
+}
+
+/* Import Mode Modal Styling */
+.import-mode-card {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+.import-mode-card:hover {
+    border-color: var(--primary);
+    background: #f8fafc;
+}
+.import-mode-card:has(input:checked) {
+    border-color: var(--primary);
+    background: #eff6ff;
+    box-shadow: 0 0 0 1px var(--primary);
+}
