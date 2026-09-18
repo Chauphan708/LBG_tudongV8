@@ -1,0 +1,60 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (LỚP 1 - 5)
+PHIÊN BẢN NÂNG CẤP V5 (VERSION 5.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP & HIỆU CHỈNH TRỌNG TÂM TRÊN BẢN V5:
+
+   ✨ 1. CHUẨN HÓA THỜI KHÓA BIỂU & THỨ TỰ TIẾT THỨ 2 (CHÍNH XÁC 100%):
+      - Đã điều chỉnh dứt điểm vị trí tiết môn Tiếng Anh ngày Thứ 2:
+        + Buổi Sáng Thứ 2 chuẩn 4 tiết (Tiết 1: HĐ Trải nghiệm/Chào cờ; Tiết 2, 3, 4: Tiếng Việt/Toán/Tin học).
+        + Tiết 1 đầu buổi Chiều Thứ 2 chuẩn xác là môn TIẾNG ANH.
+        + Toàn bộ giao diện Lịch Báo Giảng (Tab 1), Lịch Báo Giảng Tích Hợp (Tab 2), 
+          Thời khóa biểu (Tab 5), bản in và file Word (.docx) / Excel (.xlsx) xuất ra
+          đều được phân bổ chuẩn chỉnh: Sáng (1 - 4), Chiều (1 - 3), không bị nhảy lệch ô.
+
+   ✨ 2. HIỆU CHỈNH SỐ TIẾT/TUẦN MÔN TOÁN KHỐI 2 VÀ KHỐI 3:
+      - Trong bảng Quản lý Môn học (Tab 5) và Thời khóa biểu:
+        + Môn TOÁN ở Khối 2 và Khối 3 được xác lập chuẩn xác là 5 TIẾT/TUẦN (Tổng 175 tiết/năm học),
+          hoàn toàn chuẩn khớp với Chương trình GDPT 2018 (Thông tư số 32/2018/TT-BGDĐT) và PPCT.
+        + Môn Hoạt động trải nghiệm chuẩn xác 3 tiết/tuần (105 tiết/năm học).
+
+   ✨ 3. CƠ CHẾ TỰ ĐỘNG CHỮA LỖI & CHUYỂN TIẾP DỮ LIỆU THÔNG MINH (SELF-HEALING & MIGRATION):
+      - Hệ thống tự động nhận diện nếu dữ liệu lưu trước đây của thầy/cô (từ các bản V1 - V4)
+        bị lệch số tiết môn Toán hoặc sai vị trí tiết Thứ 2 thì sẽ TỰ ĐỘNG LÀM SẠCH & CHUẨN HÓA
+        ngay khi mở phần mềm hoặc khi chọn Khối lớp.
+      - Nút "Khôi phục danh mục môn học chuẩn" và "Khôi phục Thời khóa biểu gốc" tại Tab 5
+        đã được nâng cấp để tải chính xác mẫu gốc chuẩn của từng khối (Khối 1, 2, 3, 4, 5 riêng biệt).
+
+   ✨ 4. KẾ THỪA TOÀN BỘ CÁC TÍNH NĂNG ƯU VIỆT CỦA BẢN TRƯỚC:
+      - Tự động gộp ô (Merge Cells dọc) trong Kế hoạch dạy học theo chuẩn Bộ GD&ĐT.
+      - Tùy chọn in ấn & xuất file Khổ Đứng (Portrait) hoặc Khổ Ngang (Landscape).
+      - Nhận diện và đồng bộ thông minh Năm học, Khung thời gian và Căn cứ văn bản pháp lý.
+      - Xuất trọn bộ 35 tuần ra file Word, Excel chỉ bằng 1 cú nhấp chuột.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN KHỞI CHẠY PHẦN MỀM:
+   - Cách 1 (Khuyên dùng): Nhấp đúp chuột vào file "Mo_Phan_Mem.bat". Trình duyệt web mặc định
+     (Google Chrome, Microsoft Edge, Cốc Cốc, Firefox...) sẽ mở ngay giao diện phần mềm.
+   - Cách 2: Nhấp đúp chuột trực tiếp vào file "index.html".
+
+--------------------------------------------------------------------------------
+4. NGUYÊN TẮC AN TOÀN DỮ LIỆU DÀNH CHO THẦY/CÔ:
+   - Dữ liệu lịch báo giảng và thời khóa biểu được lưu an toàn trong bộ nhớ trình duyệt (localStorage).
+   - ĐỊNH KỲ MỖI TUẦN HOẶC SAU KHI HOÀN THÀNH KẾ HOẠCH DẠY HỌC:
+     + Vào Tab 5 "Cài Đặt & Thời Khóa Biểu".
+     + Nhấn nút "📥 Sao lưu dữ liệu ra file (.json)".
+     + Cất file tải về vào thư mục an toàn trên máy tính hoặc USB, Google Drive.
+   - KHI ĐỔI MÁY TÍNH HOẶC CÀI LẠI TRÌNH DUYỆT:
+     + Mở phần mềm trên máy mới -> Vào Tab 5 -> Nhấn "📤 Khôi phục dữ liệu từ file" -> Chọn file sao lưu.
+     + Toàn bộ lịch dạy 35 tuần, thời khóa biểu và các thiết lập sẽ lập tức được khôi phục 100%!
+
+--------------------------------------------------------------------------------
+Kính chúc Quý Thầy/Cô một năm học nhiều sức khỏe, niềm vui và thành công!
+================================================================================

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phần Mềm Quản Lý Lịch Báo Giảng &amp; Kế Hoạch Dạy Học Tiểu Học (Khối 1 - 5) - Bản V4</title>
+    <title>Phần Mềm Quản Lý Lịch Báo Giảng &amp; Kế Hoạch Dạy Học Tiểu Học (Khối 1 - 5) - Bản V7</title>
     <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="css/styles.css?v=4.0">
+    <link rel="stylesheet" href="css/styles.css?v=7.0">
     <!-- Offline & Fallback Libraries -->
     <script src="lib/jszip.min.js"></script>
     <script src="lib/FileSaver.min.js"></script>
@@ -21,7 +21,7 @@
                     <img src="assets/img/logo.jpg" alt="CPA Logo" class="brand-logo-img">
                 </div>
                 <div class="brand-info">
-                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5) <span style="font-size: 0.72em; background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 700;">BẢN V4</span></h1>
+                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5) <span style="font-size: 0.72em; background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 700;">BẢN V7</span></h1>
                 </div>
             </div>
             <div class="header-meta no-print" style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
@@ -35,6 +35,12 @@
                         <option value="5" selected>Khối 5</option>
                     </select>
                 </div>
+                <button type="button" class="btn-top-quick" id="btn-top-settings" title="Mở nhanh mục Cài Đặt và Thời Khóa Biểu">
+                    <span>⚙️</span> Cài Đặt &amp; TKB
+                </button>
+                <button type="button" class="btn-top-quick btn-top-guide" id="btn-top-guide" title="Xem Hướng Dẫn Sử Dụng &amp; Tính Năng Mới V7">
+                    <span>💡</span> Hướng Dẫn V7
+                </button>
                 <span class="badge-info" id="top-badge-school">🏫 TH TRUNG NHỨT — LỚP 5A</span>
             </div>
         </div>
@@ -43,31 +49,36 @@
     <!-- Tab Navigation -->
     <nav class="tab-navigation no-print">
         <div class="nav-container">
-            <button class="tab-btn active" data-tab="tab-lbg">
+            <button class="tab-btn active" data-tab="tab-lbg" id="nav-btn-lbg" title="Lịch Báo Giảng Theo Tuần">
                 <span>📅</span>
                 <span>Lịch Báo Giảng</span>
             </button>
-            <button class="tab-btn" data-tab="tab-ctlop">
+            <button class="tab-btn" data-tab="tab-ctlop" id="nav-btn-ctlop" title="Báo Giảng Tích Hợp CTLOP">
                 <span>🎯</span>
-                <span>Báo Giảng Tích Hợp (CTLOP)</span>
+                <span>BG Tích Hợp (CTLOP)</span>
             </button>
-            <button class="tab-btn" data-tab="tab-lichtuan">
+            <button class="tab-btn" data-tab="tab-lbg-mon" id="nav-btn-lbg-mon" title="Báo Giảng Chi Tiết Từng Môn Học Bản V6">
+                <span>📚</span>
+                <span>Báo Giảng Theo Môn</span>
+                <span class="guide-badge-hot" style="background:#059669; margin-left:4px;">V6</span>
+            </button>
+            <button class="tab-btn" data-tab="tab-lichtuan" id="nav-btn-lichtuan" title="Kế Hoạch Thời Gian 35 Tuần &amp; Tùy Chỉnh Nghỉ Tết">
                 <span>🗓️</span>
-                <span>Kế Hoạch Thời Gian (Lịch Tuần)</span>
+                <span>Lịch Tuần (35 Tuần)</span>
             </button>
-            <button class="tab-btn" data-tab="tab-ppct">
+            <button class="tab-btn" data-tab="tab-ppct" id="nav-btn-ppct" title="Phân Phối Chương Trình &amp; Kế Hoạch Dạy Học">
                 <span>📖</span>
-                <span>Phân Phối CT &amp; Xuất KHDH</span>
+                <span>PPCT &amp; KHDH</span>
                 <span class="tab-badge" id="ppct-count-badge">1400+ tiết</span>
             </button>
-            <button class="tab-btn" data-tab="tab-settings">
+            <button class="tab-btn tab-btn-settings-highlight" data-tab="tab-settings" id="nav-btn-settings" title="Cài Đặt Năm Học &amp; Thời Khóa Biểu">
                 <span>⚙️</span>
-                <span>Cài Đặt &amp; Thời Khóa Biểu</span>
+                <span style="font-weight: 700;">Cài Đặt &amp; TKB</span>
             </button>
-            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" title="Xem Hướng Dẫn Sử Dụng và Lưu Ý An Toàn Dữ Liệu Bản V4">
+            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" id="nav-btn-guide" title="Xem Hướng Dẫn Sử Dụng và Điểm Mới Bản V7">
                 <span class="guide-icon">💡</span>
                 <span style="font-weight: 700;">Hướng Dẫn Sử Dụng</span>
-                <span class="guide-badge-hot">V4 MỚI</span>
+                <span class="guide-badge-hot">V7</span>
             </button>
         </div>
     </nav>
@@ -90,6 +101,12 @@
                             <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-lbg">📄 Khổ Đứng</button>
                             <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-lbg">📜 Khổ Ngang</button>
                         </div>
+                        <button class="btn btn-secondary btn-sm btn-nav-to-lbgmon" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
+                            <span>📚</span> <span>Xem Theo Môn</span>
+                        </button>
+                        <button class="btn btn-secondary btn-sm btn-nav-to-settings" title="Cài đặt năm học, thông tin trường lớp và cấu hình Thời Khóa Biểu">
+                            <span>⚙️</span> <span>Cài Đặt &amp; TKB</span>
+                        </button>
                         <button class="btn btn-secondary btn-sm" id="btn-lbg-reset-tkb" title="Khôi phục TKB gốc chuẩn 35 tiết của khối 5">
                             <span>🔄</span> <span>Đặt lại TKB gốc</span>
                         </button>
@@ -157,7 +174,7 @@
                     <table class="table-lbg">
                         <thead>
                             <tr>
-                                <th style="width: 95px;">Thứ</th>
+                                <th style="width: 105px;">Thứ, ngày</th>
                                 <th style="width: 65px;">Buổi</th>
                                 <th style="width: 45px;">Tiết</th>
                                 <th style="width: 180px;">Môn học</th>
@@ -231,6 +248,9 @@
                             <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-ctlop">📄 Khổ Đứng</button>
                             <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-ctlop">📜 Khổ Ngang</button>
                         </div>
+                        <button class="btn btn-secondary btn-sm btn-nav-to-lbgmon" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
+                            <span>📚</span> <span>Xem Theo Môn</span>
+                        </button>
                         <button class="btn btn-secondary" id="btn-ctlop-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
                             <span>📦</span> <span>Xuất / In nhiều tuần</span>
                         </button>
@@ -273,7 +293,7 @@
                     <table class="table-lbg">
                         <thead>
                             <tr>
-                                <th style="width: 95px;">Thứ</th>
+                                <th style="width: 105px;">Thứ, ngày</th>
                                 <th style="width: 65px;">Buổi</th>
                                 <th style="width: 45px;">Tiết</th>
                                 <th style="width: 170px;">Môn học</th>
@@ -287,6 +307,143 @@
                             <!-- Populated dynamically -->
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             TAB 2B: LỊCH BÁO GIẢNG THEO MÔN HỌC (PHIÊN BẢN V6)
+             ========================================================================= -->
+        <section id="tab-lbg-mon" class="tab-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2>📚 Lịch Báo Giảng Theo Môn Học</h2>
+                        <p>Tập hợp tất cả các tiết trong tuần theo từng môn học (hết môn này đến môn khác), hỗ trợ lọc phân môn và xuất Word/Excel chuẩn</p>
+                    </div>
+                    <div class="panel-actions no-print">
+                        <div class="orientation-toggle" id="lbgmon-orient-toggle" title="Chọn khổ giấy in và xuất Word">
+                            <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-lbgmon">📄 Khổ Đứng</button>
+                            <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-lbgmon">📜 Khổ Ngang</button>
+                        </div>
+                        <button class="btn btn-secondary" id="btn-lbgmon-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
+                            <span>📦</span> <span>Xuất / In nhiều tuần</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-lbgmon-preview">
+                            <span>👁️</span> <span>Xem trước in A4</span>
+                        </button>
+                        <button class="btn btn-accent" id="btn-lbgmon-docx">
+                            <span>📄</span> <span>Xuất Word (.docx)</span>
+                        </button>
+                        <button class="btn btn-accent" id="btn-lbgmon-excel">
+                            <span>📊</span> <span>Xuất Excel (.xlsx)</span>
+                        </button>
+                        <button class="btn btn-primary" id="btn-lbgmon-print">
+                            <span>🖨️</span> <span>In Lịch Theo Môn</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week Navigation Toolbar -->
+                <div class="week-toolbar no-print" id="lbgmon-week-toolbar"></div>
+
+                <!-- Toolbar filter & options -->
+                <div class="toolbar-sub-box no-print" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#f8fafc; border:1px solid #e2e8f0;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--primary);">🎯 Lọc Môn Học:</span>
+                        <select class="form-select form-select-sm" id="lbgmon-subject-filter" style="width: auto; min-width: 220px; font-weight: 700;">
+                            <option value="all">🌟 Tất cả các môn học (Tuần tự từng môn)</option>
+                            <!-- Populated dynamically -->
+                        </select>
+
+                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--primary); margin-left: 0.5rem;">⚡ Nhóm môn:</span>
+                        <select class="form-select form-select-sm" id="lbgmon-category-filter" style="width: auto; font-weight: 600;">
+                            <option value="all">Tất cả nhóm môn</option>
+                            <option value="GVCN">Chỉ môn GVCN dạy</option>
+                            <option value="Chuyên trách">Chỉ môn GV Chuyên trách</option>
+                            <option value="Tăng cường">Chỉ môn Tăng cường / Tự chọn</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--text-main);">
+                            <input type="checkbox" id="lbgmon-show-integration" checked style="width: 16px; height: 16px; cursor: pointer;">
+                            <span>Hiển thị cột Nội dung tích hợp</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Header Preview inside View -->
+                <div style="text-align: center; margin-bottom: 1.25rem;">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="lbgmon-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="lbgmon-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="lbgmon-grade-class">KHỐI 5 - LỚP 5A</div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="lbgmon-week-title">LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="lbgmon-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                </div>
+
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table-lbg" id="table-lbg-mon">
+                        <thead>
+                            <tr>
+                                <th style="width: 170px;">Môn học</th>
+                                <th style="width: 110px;">Thứ / Ngày</th>
+                                <th style="width: 65px;">Buổi</th>
+                                <th style="width: 45px;">Tiết</th>
+                                <th style="width: 75px;">Tiết/tuần</th>
+                                <th style="width: 80px;">Tiết PPCT</th>
+                                <th style="min-width: 250px;">Tên bài dạy</th>
+                                <th style="min-width: 220px;" class="col-mon-integration">Nội dung tích hợp / Điều chỉnh</th>
+                                <th style="width: 75px;" class="no-print">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lbgmon-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Stats summary footer -->
+                <div class="summary-stats-box" style="margin-top: 1rem;">
+                    <div class="stat-card">
+                        <div class="stat-label">Tổng số môn học</div>
+                        <div class="stat-value" id="lbgmon-stat-subjects">0 môn</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Môn GVCN</div>
+                        <div class="stat-value" id="lbgmon-stat-gvcn">0 tiết</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Môn Chuyên trách</div>
+                        <div class="stat-value" id="lbgmon-stat-specialist">0 tiết</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Tổng số tiết học</div>
+                        <div class="stat-value" id="lbgmon-stat-total" style="color: var(--primary);">0 tiết</div>
+                    </div>
+                </div>
+
+                <!-- Signature Block inside Tab -->
+                <div class="paper-signatures-preview" style="margin-top: 1.5rem; display: flex; justify-content: space-between; text-align: center;">
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.92rem;" id="lbgmon-bgh-role">DUYỆT CỦA PHÓ HIỆU TRƯỞNG</div>
+                        <div style="font-style: italic; font-size: 0.82rem; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);" id="lbgmon-sig-pht">Lê Văn Tám</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.92rem;">KHỐI TRƯỞNG</div>
+                        <div style="font-style: italic; font-size: 0.82rem; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);" id="lbgmon-sig-head">Trần Thị Mai</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.92rem;">GIÁO VIÊN CHỦ NHIỆM</div>
+                        <div style="font-style: italic; font-size: 0.82rem; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
+                        <div style="height: 50px;"></div>
+                        <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);" id="lbgmon-sig-teacher">Nguyễn Thị Thu Hà</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -805,21 +962,23 @@
                 <!-- Banner Giới Thiệu -->
                 <div class="guide-banner">
                     <div style="display:inline-block; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:0.25rem 0.85rem; font-size:0.84rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem;">
-                        🌟 ĐÂY LÀ PHIÊN BẢN V4 (VERSION 4.0)
+                        🌟 ĐÂY LÀ PHIÊN BẢN V7 (VERSION 7.0)
                     </div>
-                    <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Lớp 5</h2>
+                    <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Tiểu Học (Khối 1 - 5)</h2>
                     
                     <!-- Mục Lục Điều Hướng Nhanh -->
                     <div class="guide-toc">
                         <a href="#guide-sec-1" class="guide-toc-item">1. Thiết lập Trường &amp; Lớp</a>
                         <a href="#guide-sec-2" class="guide-toc-item">2. Lịch Báo Giảng Tuần</a>
                         <a href="#guide-sec-3" class="guide-toc-item">3. Báo Giảng Tích Hợp</a>
+                        <a href="#guide-sec-3b" class="guide-toc-item" style="color: #059669; font-weight: 700;">3B. Báo Giảng Theo Môn</a>
                         <a href="#guide-sec-4" class="guide-toc-item">4. Kế Hoạch Thời Gian</a>
                         <a href="#guide-sec-5" class="guide-toc-item">5. PPCT &amp; Xuất KHDH</a>
                         <a href="#guide-sec-6" class="guide-toc-item">6. In Thời Khóa Biểu</a>
                         <a href="#guide-sec-7" class="guide-toc-item">7. In &amp; Xuất Nhiều Tuần</a>
                         <a href="#guide-sec-8" class="guide-toc-item">8. Sao Lưu &amp; Chia Sẻ</a>
                         <a href="#guide-sec-9" class="guide-toc-item" style="color: #1d4ed8; font-weight: 700;">9. An toàn dữ liệu máy tính</a>
+                        <a href="#guide-sec-10" class="guide-toc-item" style="color: #d97706; font-weight: 800;">✨ 10. Điểm Mới Bản V7 (Ngày dưới Thứ)</a>
                     </div>
                 </div>
 
@@ -890,6 +1049,28 @@
                     </div>
                     <div class="guide-tip">
                         <strong>Lưu ý:</strong> Thầy/Cô có thể nhấp trực tiếp vào ô nội dung tích hợp trên bảng để sửa đổi theo yêu cầu cụ thể của tổ khối.
+                    </div>
+                </div>
+
+                <!-- Mục 3B: Lịch Báo Giảng Theo Môn Học (Bản V6 Mới) -->
+                <div class="guide-card" id="guide-sec-3b" style="border: 1px solid #a7f3d0; background: #f0fdf4;">
+                    <h3 class="guide-card-title" style="color: #065f46;">✨ 3B. Lịch Báo Giảng Theo Môn Học — Điểm Nổi Bật Bản V6</h3>
+                    <p style="font-size: 0.9rem; color: #166534; margin-bottom: 0.85rem; line-height: 1.5;">
+                        Tính năng mới giúp gom nhóm toàn bộ các tiết dạy trong tuần theo từng môn học (hết môn này đến môn khác), rất thuận tiện cho giáo viên chuyên môn và kiểm tra hồ sơ sổ sách:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge" style="background:#059669; color:#fff;">Gom nhóm môn</span> Liền mạch sư phạm</h4>
+                            <p>Tất cả các tiết trong tuần của môn (vd: 7 tiết Tiếng Việt, 5 tiết Toán) được tập hợp liền nhau kèm ô gộp tên môn đẹp mắt.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge" style="background:#059669; color:#fff;">Bộ lọc thông minh</span> Tra cứu linh hoạt</h4>
+                            <p>Chọn xem "Tất cả các môn" hoặc lọc xem riêng từng môn học cụ thể (Toán, Tiếng Anh, Tin học...) hoặc lọc theo nhóm GVCN / Chuyên trách.</p>
+                        </div>
+                        <div class="guide-step-box">
+                            <h4><span class="guide-badge" style="background:#059669; color:#fff;">Xuất Word &amp; Excel</span> Chuẩn thể thức</h4>
+                            <p>Hỗ trợ in ấn A4, xuất Word (.docx) gộp ô dọc chuẩn Nghị định 30/2020/NĐ-CP, xuất Excel và xuất gộp cả năm 35 tuần.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -988,7 +1169,7 @@
                     </div>
                 </div>
 
-                <!-- Mục 9: Lưu Ý An Toàn Dữ Liệu Máy Tính Cá Nhân (Bản V4) -->
+                <!-- Mục 9: Lưu Ý An Toàn Dữ Liệu Máy Tính Cá Nhân (Bản V5) -->
                 <div class="guide-card" id="guide-sec-9" style="border: 2px solid #3b82f6; background: #f8fafc;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                         <span style="font-size: 1.5rem;">🛡️</span>
@@ -1013,6 +1194,33 @@
                         <div class="guide-step-box" style="border-left: 3px solid #3b82f6; background: #ffffff;">
                             <h4 style="color: #1d4ed8;">🔄 Khôi phục tức thì khi đổi máy tính</h4>
                             <p>Khi chuyển sang máy tính mới hoặc cài lại Windows, Thầy/Cô chỉ cần mở phần mềm, vào Tab 5 bấm <strong>"Khôi phục dữ liệu từ file JSON"</strong> và chọn file dự phòng. Toàn bộ 35 tuần và KHDH sẽ phục hồi 100% chỉ trong 1 giây.</p>
+                        </div>
+                    </div>
+                <!-- Mục 10: Điểm Mới Bản V7 (Bổ sung ngày ở từng thứ dưới thứ) -->
+                <div class="guide-card" id="guide-sec-10" style="border: 2px solid #f59e0b; background: #fffbeb;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1.5rem;">✨</span>
+                        <h3 class="guide-card-title" style="color: #b45309; margin: 0;">10. Điểm Mới Đột Phá Ở Phiên Bản V7: Hiển Thị Ngày Từng Thứ</h3>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #78350f; margin-bottom: 1rem; line-height: 1.5;">
+                        Đáp ứng chính xác nhu cầu hồ sơ sổ sách và kiểm tra chuyên môn, phiên bản <strong>V7 (Version 7.0)</strong> đã nâng cấp cột đầu tiên của Lịch Báo Giảng:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box" style="border-left: 3px solid #f59e0b; background: #ffffff;">
+                            <h4 style="color: #b45309;">📅 Ngày cụ thể dưới từng Thứ</h4>
+                            <p>Cột đầu tiên đổi thành <strong>"Thứ, ngày"</strong>. Từng thứ trong tuần (Thứ 2, Thứ 3, Thứ 4, Thứ 5, Thứ 6) hiển thị rõ ngày tương ứng ngay phía dưới (ví dụ: dòng 1 là <em>Thứ 2</em>, dòng 2 là <em>07/09/2026</em>).</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #10b981; background: #ffffff;">
+                            <h4 style="color: #047857;">📄 Xuất Word (.docx) chuẩn đẹp</h4>
+                            <p>Khi bấm <strong>Xuất File Word (.docx)</strong> cả tuần đơn lẻ hay gộp nhiều tuần, ô ngày thứ được trình bày 2 dòng cân đối, font chữ chuẩn Times New Roman, sẵn sàng nộp và lưu trữ.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #0284c7; background: #ffffff;">
+                            <h4 style="color: #0369a1;">📊 Xuất Excel (.xlsx) 2 dòng</h4>
+                            <p>File Excel tự động ngắt dòng <code>wrapText</code> giữa Thứ và Ngày, căn giữa đẹp mắt, ô gộp chuẩn theo số tiết của từng ngày.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #8b5cf6; background: #ffffff;">
+                            <h4 style="color: #6d28d9;">🖨️ Xem trước &amp; In A4 đồng bộ</h4>
+                            <p>Giao diện xem trực tiếp trên màn hình, khung xem trước (Preview) và bản in A4 (cả Khổ Đứng lẫn Khổ Ngang) đều hiển thị ngày dưới thứ đầy đủ 100%.</p>
                         </div>
                     </div>
                 </div>
@@ -1081,6 +1289,10 @@
                         <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
                             <input type="radio" name="batch-doc-type" value="ctlop">
                             <span>🎯 Báo Giảng Tích Hợp (CTLOP)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; cursor: pointer;">
+                            <input type="radio" name="batch-doc-type" value="lbg-mon">
+                            <span>📚 Báo Giảng Theo Môn Học</span>
                         </label>
                     </div>
                 </div>
@@ -1311,11 +1523,11 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Application Scripts -->
-    <script src="data/curriculum_data.js?v=4.0"></script>
-    <script src="data/curriculum_grades_1_4.js?v=4.0"></script>
-    <script src="js/docx_generator.js?v=4.0"></script>
-    <script src="js/xlsx_generator.js?v=4.0"></script>
-    <script src="js/app.js?v=4.0"></script>
+    <script src="data/curriculum_data.js?v=6.0"></script>
+    <script src="data/curriculum_grades_1_4.js?v=6.0"></script>
+    <script src="js/docx_generator.js?v=6.0"></script>
+    <script src="js/xlsx_generator.js?v=6.0"></script>
+    <script src="js/app.js?v=6.0"></script>
 
 </body>
 </html>

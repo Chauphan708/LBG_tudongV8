@@ -1,0 +1,82 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (LỚP 1 - 5)
+PHIÊN BẢN NÂNG CẤP V6 (VERSION 6.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC TÍNH NĂNG ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V6:
+
+   🌟 1. BỔ SUNG TÍNH NĂNG "LỊCH BÁO GIẢNG THEO MÔN HỌC" (TAB 3 MỚI):
+      - Giúp thầy/cô gom nhóm và theo dõi tập trung toàn bộ các tiết dạy trong tuần của từng môn học:
+        + Hết tất cả các tiết của môn này rồi mới chuyển tiếp sang môn khác (Tuần tự: Tiếng Việt -> Toán -> 
+          Tiếng Anh -> Tự nhiên & Xã hội / Khoa học -> Lịch sử & Địa lí -> Đạo đức -> Hoạt động trải nghiệm -> 
+          Tin học -> Công nghệ -> Giáo dục thể chất -> Âm nhạc -> Mĩ thuật -> Môn tăng cường / Tự chọn).
+        + Trong từng môn học, các tiết được sắp xếp chuẩn theo thứ tự thời gian trong tuần (từ Thứ 2 đến Thứ 6;
+          từ Sáng sang Chiều; từ Tiết 1 đến Tiết 4).
+        + Cột "Tiết/tuần" tự động đếm thứ tự tuần tự của môn học đó trong tuần (1, 2, 3... N).
+        + Tự động gộp ô (Merge Cells) tên môn học ở cột đầu tiên kèm tổng số tiết/tuần cực kỳ thẩm mỹ và trực quan.
+
+   🌟 2. BỘ LỌC MÔN HỌC & PHÂN LOẠI NHÓM MÔN LINH HOẠT:
+      - Bộ lọc Môn học: Cho phép thầy/cô chọn xem toàn bộ các môn học hoặc chọn riêng 1 môn bất kỳ 
+        (VD: Chỉ xem toàn bộ 5 tiết môn Toán trong tuần, hoặc chỉ xem 7 tiết môn Tiếng Việt). Tiêu đề bảng
+        tự động cập nhật linh hoạt: "LỊCH BÁO GIẢNG MÔN TOÁN TUẦN X".
+      - Bộ lọc Nhóm môn: Phân tách nhanh chóng:
+        + Chỉ các môn GVCN dạy chính.
+        + Chỉ các môn Giáo viên Chuyên trách (Tiếng Anh, Tin học, GDTC, Âm nhạc, Mĩ thuật).
+        + Chỉ các môn Tăng cường / Tự chọn / Kĩ năng sống / STEM.
+      - Hộp kiểm Tùy chọn Bật/Tắt Cột "Nội dung tích hợp / Điều chỉnh": Thầy/cô chủ động quyết định hiển thị
+        đầy đủ nội dung tích hợp (NLS, QCN, AI, QPAN, STEM, BVMT...) hoặc ẩn đi để bảng tinh gọn nhất.
+
+   🌟 3. TỐI ƯU THANH ĐIỀU HƯỚNG (NAVIGATION) & NÚT TRUY CẬP NHANH CÀI ĐẶT / HƯỚNG DẪN:
+      - Thiết kế thông minh chống tràn khuất: Cả 7 tab luôn luôn hiển thị trọn vẹn và rõ ràng trên mọi
+        độ phân giải màn hình (từ màn hình laptop 1366x768 đến màn hình độ nét cao Full HD / 2K / 4K).
+      - Bổ sung 2 Nút truy cập nhanh (Quick-Access Buttons) cố định ngay trên thanh tiêu đề đầu trang:
+        + [⚙️ Cài Đặt & TKB]: Nhấp để chuyển ngay đến mục Cài Đặt trường lớp & Thời Khóa Biểu.
+        + [💡 Hướng Dẫn V6]: Nhấp để mở ngay cẩm nang hướng dẫn sử dụng và xem các điểm mới của bản V6.
+      - Tab "⚙️ Cài Đặt & TKB" và "💡 Hướng Dẫn Sử Dụng" được tạo viền và hiệu ứng màu nổi bật,
+        giúp thầy/cô luôn nhận diện được ngay lập tức.
+      - Tích hợp thêm nút shortcut "⚙️ Cài Đặt & TKB" trực tiếp ngay trong thanh công cụ Lịch Báo Giảng.
+
+   🌟 4. XUẤT FILE WORD (.DOCX) & EXCEL (.XLSX) THEO MÔN CHUẨN NGHỊ ĐỊNH 30/2020/NĐ-CP:
+      - Nút "Xuất Word (.docx)": Tạo tệp Word chuẩn OpenXML, có đầy đủ Quốc hiệu, Tiêu ngữ, Tên trường/lớp,
+        bảng lịch báo giảng gộp ô tên môn học, cột ngày tháng chuẩn xác, phần ký duyệt BGH, Tổ trưởng và GVCN.
+      - Nút "Xuất Excel (.xlsx)": Xuất bảng tính Excel tự động định dạng, gộp ô thông minh, tự động căn chỉnh
+        độ rộng cột và độ cao dòng theo độ dài tên bài dạy, sẵn sàng in ấn A4.
+      - Hỗ trợ cả 2 chế độ: Khổ Đứng (Portrait) và Khổ Ngang (Landscape) tùy theo nhu cầu của nhà trường.
+
+   🌟 5. HỖ TRỢ XUẤT & IN HÀNG LOẠT NHIỀU TUẦN THEO MÔN HỌC (BATCH EXPORT):
+      - Hộp thoại "Xuất / In nhiều tuần" bổ sung lựa chọn mới: "Lịch Báo Giảng Theo Môn Học".
+      - Thầy/cô có thể xuất gộp từ Tuần 1 đến Tuần 35 (hoặc Học kỳ 1: Tuần 1 - 18, Học kỳ 2: Tuần 19 - 35)
+        chỉ với 1 cú click chuột. Mỗi tuần được phân trang tự động (Page break) chuẩn đẹp trong Word.
+
+   🌟 6. KẾ THỪA TOÀN BỘ SỰ CHUẨN XÁC TỪ CÁC BẢN TIỀN NHIỆM:
+      - Môn Toán Khối 2 và Khối 3 chuẩn xác 5 tiết/tuần (175 tiết/năm).
+      - Thời khóa biểu Thứ 2 chuẩn xác: Sáng (4 tiết), Chiều Tiết 1 là môn Tiếng Anh.
+      - Cơ chế lưu trữ cách ly theo khối (LBG_APP_DATA_V6_G1..G5) không bao giờ bị đè lẫn nhau.
+      - Hỗ trợ tùy chỉnh ngày nghỉ Tết Âm lịch thông minh tạo lịch 35 tuần tự động.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN KHỞI CHẠY PHẦN MỀM:
+   - Cách 1 (Khuyên dùng): Nhấp đúp chuột vào file "Mo_Phan_Mem.bat". Trình duyệt web mặc định
+     (Google Chrome, Microsoft Edge, Cốc Cốc, Firefox...) sẽ mở ngay giao diện phần mềm.
+   - Cách 2: Nhấp đúp chuột trực tiếp vào file "index.html".
+
+--------------------------------------------------------------------------------
+4. NGUYÊN TẮC AN TOÀN DỮ LIỆU DÀNH CHO THẦY/CÔ:
+   - Dữ liệu lịch báo giảng và thời khóa biểu được lưu an toàn trong bộ nhớ trình duyệt (localStorage).
+   - ĐỊNH KỲ MỖI TUẦN HOẶC SAU KHI HOÀN THÀNH KẾ HOẠCH DẠY HỌC:
+     + Vào Tab 6 "Cài Đặt & Thời Khóa Biểu" (hoặc bấm nút "⚙️ Cài Đặt & TKB" ở góc trên).
+     + Nhấn nút "💾 Sao lưu toàn bộ dữ liệu ra file JSON".
+     + Cất file tải về vào thư mục an toàn trên máy tính hoặc USB, Google Drive.
+   - KHI ĐỔI MÁY TÍNH HOẶC CÀI LẠI TRÌNH DUYỆT:
+     + Mở phần mềm trên máy mới -> Vào Tab 6 -> Nhấn "📤 Khôi phục dữ liệu từ file JSON" -> Chọn file sao lưu.
+     + Toàn bộ lịch dạy 35 tuần, thời khóa biểu và các thiết lập sẽ lập tức được khôi phục 100%!
+
+--------------------------------------------------------------------------------
+Kính chúc Quý Thầy/Cô một năm học mới dồi dào sức khỏe, hạnh phúc và thành công rực rỡ!
+================================================================================

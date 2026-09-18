@@ -705,6 +705,22 @@ window.DocxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     }
 
+    function getDayFullDate(startDateVN, dayStr) {
+        if (!startDateVN) return "";
+        const parts = startDateVN.split('/');
+        if (parts.length < 3) return "";
+        const startD = parseInt(parts[0], 10);
+        const startM = parseInt(parts[1], 10) - 1;
+        const startY = parseInt(parts[2], 10);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const targetDate = new Date(startY, startM, startD + offset);
+        const dStr = String(targetDate.getDate()).padStart(2, '0');
+        const mStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+        const yStr = targetDate.getFullYear();
+        return `${dStr}/${mStr}/${yStr}`;
+    }
+
     function generateLbgDocx(isCtlop, weekNum, weekInfo, schedule, settings, stats, orientation = "portrait") {
         const zip = new JSZip();
 
@@ -714,7 +730,7 @@ window.DocxGenerator = (function() {
         zip.file("word/styles.xml", createStyles());
 
         const isLandscape = (orientation === "landscape");
-        const headerColWidths = isLandscape ? [7200, 7800] : [4600, 5000];
+        const headerColWidths = isLandscape ? [7500, 7500] : [4800, 4800];
         const sigColWidth = isLandscape ? "5000" : "3200";
 
         const bghSignerName = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT')
@@ -779,11 +795,11 @@ window.DocxGenerator = (function() {
         `;
 
         const colWidths = isLandscape
-            ? (isCtlop ? [1200, 900, 600, 2400, 1000, 4400, 4500] : [1300, 1000, 700, 2800, 1200, 8000])
-            : (isCtlop ? [900, 750, 550, 1600, 750, 2600, 2450] : [1000, 800, 600, 1900, 800, 4500]);
+            ? (isCtlop ? [1300, 850, 600, 2400, 1000, 4350, 4500] : [1450, 950, 650, 2800, 1200, 7950])
+            : (isCtlop ? [1050, 700, 500, 1600, 750, 2550, 2450] : [1150, 750, 550, 1900, 800, 4450]);
         const headers = isCtlop
-            ? ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
-            : ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
+            ? ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
+            : ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
 
         docBody += `
         <w:tbl>
@@ -818,6 +834,7 @@ window.DocxGenerator = (function() {
             const daySlots = schedule.filter(s => s.day === day);
             if (daySlots.length === 0) return;
 
+            const dayDate = getDayFullDate(weekInfo.startDateVN, day);
             const morningSlots = daySlots.filter(s => s.session === "Sáng");
             const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
 
@@ -826,7 +843,18 @@ window.DocxGenerator = (function() {
                 const isMornStart = (idx === 0 && morningSlots.length > 0);
                 const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
                 let dayCellXml = isDayStart
-                    ? `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r></w:p></w:tc>`
+                    ? `<w:tc>
+                        <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
+                        </w:p>
+                        ${dayDate ? `
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="18"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
+                        </w:p>` : ''}
+                       </w:tc>`
                     : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
 
                 let sessCellXml = (isMornStart || isAftStart)
@@ -943,11 +971,11 @@ window.DocxGenerator = (function() {
         const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
 
         const colWidths = isLandscape
-            ? (isCtlop ? [1200, 900, 600, 2400, 1000, 4400, 4500] : [1300, 1000, 700, 2800, 1200, 8000])
-            : (isCtlop ? [900, 750, 550, 1600, 750, 2600, 2450] : [1000, 800, 600, 1900, 800, 4500]);
+            ? (isCtlop ? [1300, 850, 600, 2400, 1000, 4350, 4500] : [1450, 950, 650, 2800, 1200, 7950])
+            : (isCtlop ? [1050, 700, 500, 1600, 750, 2550, 2450] : [1150, 750, 550, 1900, 800, 4450]);
         const headers = isCtlop
-            ? ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
-            : ["Thứ", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
+            ? ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
+            : ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
 
         let docBody = "";
 
@@ -1041,6 +1069,7 @@ window.DocxGenerator = (function() {
                 const daySlots = schedule.filter(s => s.day === day);
                 if (daySlots.length === 0) return;
 
+                const dayDate = getDayFullDate(weekInfo.startDateVN, day);
                 const morningSlots = daySlots.filter(s => s.session === "Sáng");
                 const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
 
@@ -1050,7 +1079,18 @@ window.DocxGenerator = (function() {
                     const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
 
                     let dayCellXml = isDayStart
-                        ? `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r></w:p></w:tc>`
+                        ? `<w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p>
+                                <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
+                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
+                            </w:p>
+                            ${dayDate ? `
+                            <w:p>
+                                <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="18"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
+                            </w:p>` : ''}
+                           </w:tc>`
                         : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
 
                     let sessCellXml = (isMornStart || isAftStart)
@@ -1287,7 +1327,8 @@ window.DocxGenerator = (function() {
                 </w:tc>
                 ${days.map((d, i) => {
                     const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                    const slot = slots.find(s => s.day === d && s.session === "Sáng" && s.period === p);
+                    const dayMornSlots = slots.filter(s => s.day === d && s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+                    const slot = dayMornSlots[p - 1];
                     const sub = slot ? slot.subject : "";
                     const shdXml = isAltDay ? `<w:shd w:val="clear" w:color="auto" w:fill="F8FAFC"/>` : ``;
                     return `
@@ -1316,7 +1357,8 @@ window.DocxGenerator = (function() {
                 </w:tc>
                 ${days.map((d, i) => {
                     const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                    const slot = slots.find(s => s.day === d && s.session === "Chiều" && s.period === p);
+                    const dayAftSlots = slots.filter(s => s.day === d && s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+                    const slot = dayAftSlots[p - 1];
                     const sub = slot ? slot.subject : "";
                     const shdXml = isAltDay ? `<w:shd w:val="clear" w:color="auto" w:fill="F8FAFC"/>` : ``;
                     return `
@@ -1388,10 +1430,547 @@ window.DocxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     }
 
+
+    function getDayDateStrBySubject(startDateVN, dayStr) {
+        if (!startDateVN) return dayStr;
+        const parts = startDateVN.split('/');
+        if (parts.length < 3) return dayStr;
+        const startD = parseInt(parts[0], 10);
+        const startM = parseInt(parts[1], 10) - 1;
+        const startY = parseInt(parts[2], 10);
+        const baseDate = new Date(startY, startM, startD);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const targetDate = new Date(baseDate.getTime() + offset * 86400000);
+        const dStr = String(targetDate.getDate()).padStart(2, '0');
+        const mStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+        return `${dayStr} (${dStr}/${mStr})`;
+    }
+
+    function generateLbgBySubjectDocx(data, settings, isCtlop = true, orientation = "portrait", filterSubject = "all") {
+        const zip = new JSZip();
+
+        zip.file("[Content_Types].xml", createContentTypes());
+        zip.file("_rels/.rels", createRels());
+        zip.file("word/_rels/document.xml.rels", createWordRels());
+        zip.file("word/styles.xml", createStyles());
+
+        const isLandscape = (orientation === "landscape");
+        const headerColWidths = isLandscape ? [7200, 7800] : [4600, 5000];
+        const sigColWidth = isLandscape ? "5000" : "3200";
+
+        const bghSignerName = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT')
+            ? (settings.principal || 'Phạm Quốc Hùng')
+            : (Array.isArray(settings.vicePrincipals) && settings.vicePrincipals[(settings.bghSignerLbgIndex !== undefined ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0))]
+                ? settings.vicePrincipals[(settings.bghSignerLbgIndex !== undefined ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0))]
+                : (settings.vicePrincipal || 'Lê Văn Tám'));
+        const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
+
+        const weekNum = data.weekNum || 1;
+        const weekInfo = data.weekInfo || {};
+        const subjectGroups = data.subjectGroups || [];
+
+        let titleText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+        if (filterSubject && filterSubject !== "all") {
+            titleText = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
+        }
+
+        let docBody = `
+        <w:tbl>
+            <w:tblPr>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:jc w:val="center"/>
+                <w:tblBorders>
+                    <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
+                    <w:insideH w:val="none"/><w:insideV w:val="none"/>
+                </w:tblBorders>
+            </w:tblPr>
+            <w:tblGrid>
+                <w:gridCol w:w="${headerColWidths[0]}"/>
+                <w:gridCol w:w="${headerColWidths[1]}"/>
+            </w:tblGrid>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="23"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+        </w:tbl>
+
+        <w:p>
+            <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
+            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="30"/></w:rPr><w:t>${escapeXml(titleText)}</w:t></w:r>
+        </w:p>
+        <w:p>
+            <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
+            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
+        </w:p>
+        `;
+
+        const colWidths = isLandscape
+            ? (isCtlop ? [2200, 1500, 1000, 800, 900, 1100, 3500, 3600] : [2600, 1800, 1100, 900, 1000, 1200, 6000])
+            : (isCtlop ? [1600, 1100, 700, 550, 650, 750, 2150, 2100] : [1800, 1300, 800, 600, 750, 900, 3500]);
+        const headers = isCtlop
+            ? ["Môn học", "Thứ / Ngày", "Buổi", "Tiết", "Tiết/tuần", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
+            : ["Môn học", "Thứ / Ngày", "Buổi", "Tiết", "Tiết/tuần", "Tiết PPCT", "Tên bài dạy"];
+
+        docBody += `
+        <w:tbl>
+            <w:tblPr>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:jc w:val="center"/>
+                <w:tblBorders>
+                    <w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    <w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    <w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    <w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    <w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    <w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                </w:tblBorders>
+            </w:tblPr>
+            <w:tblGrid>
+                ${colWidths.map(w => `<w:gridCol w:w="${w}"/>`).join('')}
+            </w:tblGrid>
+            <w:tr>
+                <w:trPr><w:tblHeader/></w:trPr>
+                ${headers.map((h, i) => `
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${colWidths[i]}" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/><w:vAlign w:val="center"/></w:tcPr>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(h)}</w:t></w:r></w:p>
+                    </w:tc>
+                `).join('')}
+            </w:tr>
+        `;
+
+        if (subjectGroups.length === 0) {
+            docBody += `
+            <w:tr>
+                <w:tc>
+                    <w:tcPr><w:gridSpan w:val="${headers.length}"/><w:vAlign w:val="center"/></w:tcPr>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="21"/></w:rPr><w:t>Không có tiết học nào phù hợp với bộ lọc đã chọn.</w:t></w:r></w:p>
+                </w:tc>
+            </w:tr>
+            `;
+        } else {
+            subjectGroups.forEach(group => {
+                group.slots.forEach((slot, idx) => {
+                    const isGroupStart = (idx === 0);
+                    const dayDateText = getDayDateStrBySubject(weekInfo.startDateVN, slot.day);
+
+                    let subCellXml = isGroupStart
+                        ? `<w:tc>
+                            <w:tcPr>
+                                <w:tcW w:w="${colWidths[0]}" w:type="dxa"/>
+                                <w:vMerge w:val="restart"/>
+                                <w:vAlign w:val="center"/>
+                                <w:shd w:val="clear" w:color="auto" w:fill="FAFAFA"/>
+                            </w:tcPr>
+                            <w:p>
+                                <w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(group.subjectName)}</w:t></w:r>
+                            </w:p>
+                            <w:p>
+                                <w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="18"/><w:color w:val="475569"/></w:rPr><w:t>(${group.slots.length} tiết)</w:t></w:r>
+                            </w:p>
+                           </w:tc>`
+                        : `<w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p>
+                           </w:tc>`;
+
+                    docBody += `
+                    <w:tr>
+                        <w:trPr><w:cantSplit/></w:trPr>
+                        ${subCellXml}
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(dayDateText)}</w:t></w:r></w:p>
+                        </w:tc>
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[2]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.session || '')}</w:t></w:r></w:p>
+                        </w:tc>
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[3]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${slot.period || ''}</w:t></w:r></w:p>
+                        </w:tc>
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[4]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${slot.periodInWeek || (idx + 1)}</w:t></w:r></w:p>
+                        </w:tc>
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[5]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
+                        </w:tc>
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                        </w:tc>
+                        ${isCtlop ? `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[7]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                            ${formatIntegrationXml(slot.integration)}
+                        </w:tc>` : ''}
+                    </w:tr>
+                    `;
+                });
+            });
+        }
+
+        docBody += `</w:tbl>`;
+
+        docBody += `
+        <w:p><w:pPr><w:spacing w:before="240" w:after="100"/></w:pPr></w:p>
+        <w:tbl>
+            <w:tblPr>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:jc w:val="center"/>
+                <w:tblBorders>
+                    <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
+                    <w:insideH w:val="none"/><w:insideV w:val="none"/>
+                </w:tblBorders>
+            </w:tblPr>
+            <w:tblGrid>
+                <w:gridCol w:w="${sigColWidth}"/>
+                <w:gridCol w:w="${sigColWidth}"/>
+                <w:gridCol w:w="${sigColWidth}"/>
+            </w:tblGrid>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>DUYỆT CỦA ${escapeXml(bghSignerRole)}</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(bghSignerName)}</w:t></w:r></w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>TỔ TRƯỞNG CHUYÊN MÔN</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</w:t></w:r></w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>GIÁO VIÊN CHỦ NHIỆM</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                    <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</w:t></w:r></w:p>
+                </w:tc>
+            </w:tr>
+        </w:tbl>
+        `;
+
+        const sectPr = isLandscape
+            ? `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`
+            : `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`;
+
+        const fullDoc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+    <w:body>
+        ${docBody}
+        ${sectPr}
+    </w:body>
+</w:document>`;
+
+        zip.file("word/document.xml", fullDoc);
+
+        return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+    }
+
+    function generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubjectFn, settings, orientation = "portrait", isCtlop = true, filterSubject = "all", filterCategory = "all") {
+        const zip = new JSZip();
+
+        zip.file("[Content_Types].xml", createContentTypes());
+        zip.file("_rels/.rels", createRels());
+        zip.file("word/_rels/document.xml.rels", createWordRels());
+        zip.file("word/styles.xml", createStyles());
+
+        const isLandscape = (orientation === "landscape");
+        const headerColWidths = isLandscape ? [7200, 7800] : [4600, 5000];
+        const sigColWidth = isLandscape ? "5000" : "3200";
+
+        const bghSignerName = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT')
+            ? (settings.principal || 'Phạm Quốc Hùng')
+            : (Array.isArray(settings.vicePrincipals) && settings.vicePrincipals[(settings.bghSignerLbgIndex !== undefined ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0))]
+                ? settings.vicePrincipals[(settings.bghSignerLbgIndex !== undefined ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0))]
+                : (settings.vicePrincipal || 'Lê Văn Tám'));
+        const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
+
+        const colWidths = isLandscape
+            ? (isCtlop ? [2200, 1500, 1000, 800, 900, 1100, 3500, 3600] : [2600, 1800, 1100, 900, 1000, 1200, 6000])
+            : (isCtlop ? [1600, 1100, 700, 550, 650, 750, 2150, 2100] : [1800, 1300, 800, 600, 750, 900, 3500]);
+        const headers = isCtlop
+            ? ["Môn học", "Thứ / Ngày", "Buổi", "Tiết", "Tiết/tuần", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"]
+            : ["Môn học", "Thứ / Ngày", "Buổi", "Tiết", "Tiết/tuần", "Tiết PPCT", "Tên bài dạy"];
+
+        let docBody = "";
+
+        for (let w = startWeek; w <= endWeek; w++) {
+            const data = calculateWeekScheduleBySubjectFn(w, filterSubject, filterCategory);
+            const weekInfo = data.weekInfo || {};
+            const subjectGroups = data.subjectGroups || [];
+
+            let titleText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${w}`;
+            if (filterSubject && filterSubject !== "all") {
+                titleText = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${w}`;
+            }
+
+            docBody += `
+            <w:tbl>
+                <w:tblPr>
+                    <w:tblW w:w="0" w:type="auto"/>
+                    <w:jc w:val="center"/>
+                    <w:tblBorders>
+                        <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
+                        <w:insideH w:val="none"/><w:insideV w:val="none"/>
+                    </w:tblBorders>
+                </w:tblPr>
+                <w:tblGrid>
+                    <w:gridCol w:w="${headerColWidths[0]}"/>
+                    <w:gridCol w:w="${headerColWidths[1]}"/>
+                </w:tblGrid>
+                <w:tr>
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+                        </w:p>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+                        </w:p>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
+                        </w:p>
+                    </w:tc>
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
+                        </w:p>
+                        <w:p>
+                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="23"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
+                        </w:p>
+                    </w:tc>
+                </w:tr>
+            </w:tbl>
+
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="30"/></w:rPr><w:t>${escapeXml(titleText)}</w:t></w:r>
+            </w:p>
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
+            </w:p>
+            `;
+
+            docBody += `
+            <w:tbl>
+                <w:tblPr>
+                    <w:tblW w:w="0" w:type="auto"/>
+                    <w:jc w:val="center"/>
+                    <w:tblBorders>
+                        <w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                        <w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                        <w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                        <w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                        <w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                        <w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+                    </w:tblBorders>
+                </w:tblPr>
+                <w:tblGrid>
+                    ${colWidths.map(wdx => `<w:gridCol w:w="${wdx}"/>`).join('')}
+                </w:tblGrid>
+                <w:tr>
+                    <w:trPr><w:tblHeader/></w:trPr>
+                    ${headers.map((h, i) => `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${colWidths[i]}" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(h)}</w:t></w:r></w:p>
+                        </w:tc>
+                    `).join('')}
+                </w:tr>
+            `;
+
+            if (subjectGroups.length === 0) {
+                docBody += `
+                <w:tr>
+                    <w:tc>
+                        <w:tcPr><w:gridSpan w:val="${headers.length}"/><w:vAlign w:val="center"/></w:tcPr>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="21"/></w:rPr><w:t>Không có tiết học nào phù hợp với bộ lọc đã chọn.</w:t></w:r></w:p>
+                    </w:tc>
+                </w:tr>
+                `;
+            } else {
+                subjectGroups.forEach(group => {
+                    group.slots.forEach((slot, idx) => {
+                        const isGroupStart = (idx === 0);
+                        const dayDateText = getDayDateStrBySubject(weekInfo.startDateVN, slot.day);
+
+                        let subCellXml = isGroupStart
+                            ? `<w:tc>
+                                <w:tcPr>
+                                    <w:tcW w:w="${colWidths[0]}" w:type="dxa"/>
+                                    <w:vMerge w:val="restart"/>
+                                    <w:vAlign w:val="center"/>
+                                    <w:shd w:val="clear" w:color="auto" w:fill="FAFAFA"/>
+                                </w:tcPr>
+                                <w:p>
+                                    <w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(group.subjectName)}</w:t></w:r>
+                                </w:p>
+                                <w:p>
+                                    <w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="18"/><w:color w:val="475569"/></w:rPr><w:t>(${group.slots.length} tiết)</w:t></w:r>
+                                </w:p>
+                               </w:tc>`
+                            : `<w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p>
+                               </w:tc>`;
+
+                        docBody += `
+                        <w:tr>
+                            <w:trPr><w:cantSplit/></w:trPr>
+                            ${subCellXml}
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(dayDateText)}</w:t></w:r></w:p>
+                            </w:tc>
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[2]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.session || '')}</w:t></w:r></w:p>
+                            </w:tc>
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[3]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${slot.period || ''}</w:t></w:r></w:p>
+                            </w:tc>
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[4]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="21"/></w:rPr><w:t>${slot.periodInWeek || (idx + 1)}</w:t></w:r></w:p>
+                            </w:tc>
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[5]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
+                            </w:tc>
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="21"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            </w:tc>
+                            ${isCtlop ? `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${colWidths[7]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                                ${formatIntegrationXml(slot.integration)}
+                            </w:tc>` : ''}
+                        </w:tr>
+                        `;
+                    });
+                });
+            }
+
+            docBody += `</w:tbl>`;
+
+            docBody += `
+            <w:p><w:pPr><w:spacing w:before="240" w:after="100"/></w:pPr></w:p>
+            <w:tbl>
+                <w:tblPr>
+                    <w:tblW w:w="0" w:type="auto"/>
+                    <w:jc w:val="center"/>
+                    <w:tblBorders>
+                        <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
+                        <w:insideH w:val="none"/><w:insideV w:val="none"/>
+                    </w:tblBorders>
+                </w:tblPr>
+                <w:tblGrid>
+                    <w:gridCol w:w="${sigColWidth}"/>
+                    <w:gridCol w:w="${sigColWidth}"/>
+                    <w:gridCol w:w="${sigColWidth}"/>
+                </w:tblGrid>
+                <w:tr>
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>DUYỆT CỦA ${escapeXml(bghSignerRole)}</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(bghSignerName)}</w:t></w:r></w:p>
+                    </w:tc>
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>TỔ TRƯỞNG CHUYÊN MÔN</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</w:t></w:r></w:p>
+                    </w:tc>
+                    <w:tc>
+                        <w:tcPr><w:tcW w:w="${sigColWidth}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>GIÁO VIÊN CHỦ NHIỆM</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="600"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="20"/></w:rPr><w:t>(Ký và ghi rõ họ tên)</w:t></w:r></w:p>
+                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="22"/></w:rPr><w:t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</w:t></w:r></w:p>
+                    </w:tc>
+                </w:tr>
+            </w:tbl>
+            `;
+
+            if (w < endWeek) {
+                docBody += `
+                <w:p>
+                    <w:pPr><w:spacing w:before="0" w:after="0"/></w:pPr>
+                    <w:r><w:br w:type="page"/></w:r>
+                </w:p>
+                `;
+            }
+        }
+
+        const sectPr = isLandscape
+            ? `<w:sectPr><w:pgSz w:w="16838" w:h="11906" w:orient="landscape"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`
+            : `<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="850" w:bottom="1134" w:left="1417" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`;
+
+        const fullDoc = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+    <w:body>
+        ${docBody}
+        ${sectPr}
+    </w:body>
+</w:document>`;
+
+        zip.file("word/document.xml", fullDoc);
+
+        return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+    }
+
+
     return {
         generateKhdhDocx: generateKhdhDocx,
         generateLbgDocx: generateLbgDocx,
         generateMultiWeekLbgDocx: generateMultiWeekLbgDocx,
-        generateTimetableDocx: generateTimetableDocx
+        generateTimetableDocx: generateTimetableDocx,
+        generateLbgBySubjectDocx: generateLbgBySubjectDocx,
+        generateBatchLbgBySubjectDocx: generateBatchLbgBySubjectDocx
     };
 })();

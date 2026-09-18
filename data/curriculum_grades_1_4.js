@@ -133,7 +133,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 2",
+        "day": "Thứ 3",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Anh"
@@ -175,13 +175,13 @@ window.APP_GRADE_DATA = {
         "subject": "Âm nhạc"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 2,
         "subject": "GD Thể chất"
@@ -217,7 +217,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 4",
+        "day": "Thứ 5",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
@@ -259,7 +259,7 @@ window.APP_GRADE_DATA = {
         "subject": "Đọc Thư viện"
       },
       {
-        "day": "Thứ 5",
+        "day": "Thứ 6",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
@@ -14532,7 +14532,7 @@ window.APP_GRADE_DATA = {
       {
         "name": "Toán",
         "category": "GVCN",
-        "defaultPeriods": 4,
+        "defaultPeriods": 5,
         "isIncluded": true
       },
       {
@@ -14550,7 +14550,7 @@ window.APP_GRADE_DATA = {
       {
         "name": "HĐ Trải nghiệm",
         "category": "GVCN",
-        "defaultPeriods": 4,
+        "defaultPeriods": 3,
         "isIncluded": true
       },
       {
@@ -14652,7 +14652,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 2",
+        "day": "Thứ 3",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Anh"
@@ -14694,13 +14694,13 @@ window.APP_GRADE_DATA = {
         "subject": "Âm nhạc"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 2,
         "subject": "Tiếng Việt"
@@ -14736,7 +14736,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 4",
+        "day": "Thứ 5",
         "session": "Sáng",
         "period": 1,
         "subject": "GD Thể chất"
@@ -14751,7 +14751,7 @@ window.APP_GRADE_DATA = {
         "day": "Thứ 5",
         "session": "Sáng",
         "period": 3,
-        "subject": "HĐ Trải nghiệm"
+        "subject": "Toán"
       },
       {
         "day": "Thứ 5",
@@ -14778,7 +14778,7 @@ window.APP_GRADE_DATA = {
         "subject": "Đọc Thư viện"
       },
       {
-        "day": "Thứ 5",
+        "day": "Thứ 6",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
@@ -29051,7 +29051,7 @@ window.APP_GRADE_DATA = {
       {
         "name": "Toán",
         "category": "GVCN",
-        "defaultPeriods": 4,
+        "defaultPeriods": 5,
         "isIncluded": true
       },
       {
@@ -29183,7 +29183,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 2",
+        "day": "Thứ 3",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Anh"
@@ -29225,13 +29225,13 @@ window.APP_GRADE_DATA = {
         "subject": "Âm nhạc"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 2,
         "subject": "Tin học"
@@ -29246,7 +29246,7 @@ window.APP_GRADE_DATA = {
         "day": "Thứ 4",
         "session": "Sáng",
         "period": 4,
-        "subject": "TC Toán"
+        "subject": "GD Thể chất"
       },
       {
         "day": "Thứ 4",
@@ -29267,10 +29267,10 @@ window.APP_GRADE_DATA = {
         "subject": "KNS"
       },
       {
-        "day": "Thứ 4",
+        "day": "Thứ 5",
         "session": "Sáng",
         "period": 1,
-        "subject": "GD Thể chất"
+        "subject": "Toán"
       },
       {
         "day": "Thứ 5",
@@ -29309,7 +29309,7 @@ window.APP_GRADE_DATA = {
         "subject": "Đọc Thư viện"
       },
       {
-        "day": "Thứ 5",
+        "day": "Thứ 6",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
@@ -42775,7 +42775,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 2",
+        "day": "Thứ 3",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Anh"
@@ -42817,13 +42817,13 @@ window.APP_GRADE_DATA = {
         "subject": "Âm nhạc"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"
       },
       {
-        "day": "Thứ 3",
+        "day": "Thứ 4",
         "session": "Sáng",
         "period": 2,
         "subject": "GD Thể chất"
@@ -42859,7 +42859,7 @@ window.APP_GRADE_DATA = {
         "subject": "TC Toán"
       },
       {
-        "day": "Thứ 4",
+        "day": "Thứ 5",
         "session": "Sáng",
         "period": 1,
         "subject": "Toán"
@@ -42901,7 +42901,7 @@ window.APP_GRADE_DATA = {
         "subject": "Đọc Thư viện"
       },
       {
-        "day": "Thứ 5",
+        "day": "Thứ 6",
         "session": "Sáng",
         "period": 1,
         "subject": "Tiếng Việt"

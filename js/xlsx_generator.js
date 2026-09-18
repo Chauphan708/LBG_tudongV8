@@ -156,6 +156,22 @@ window.XlsxGenerator = (function() {
 </styleSheet>`;
     }
 
+    function getDayFullDate(startDateVN, dayStr) {
+        if (!startDateVN) return "";
+        const parts = startDateVN.split('/');
+        if (parts.length < 3) return "";
+        const startD = parseInt(parts[0], 10);
+        const startM = parseInt(parts[1], 10) - 1;
+        const startY = parseInt(parts[2], 10);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const targetDate = new Date(startY, startM, startD + offset);
+        const dStr = String(targetDate.getDate()).padStart(2, '0');
+        const mStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+        const yStr = targetDate.getFullYear();
+        return `${dStr}/${mStr}/${yStr}`;
+    }
+
     /**
      * Generate standard LBG / CTLOP Excel document
      */
@@ -185,7 +201,7 @@ window.XlsxGenerator = (function() {
         <pageSetUpPr fitToPage="1"/>
     </sheetPr>
     <cols>
-        <col min="1" max="1" width="12" customWidth="1"/>
+        <col min="1" max="1" width="13" customWidth="1"/>
         <col min="2" max="2" width="9" customWidth="1"/>
         <col min="3" max="3" width="7" customWidth="1"/>
         <col min="4" max="4" width="${isCtlop ? 18 : 20}" customWidth="1"/>
@@ -254,7 +270,7 @@ window.XlsxGenerator = (function() {
         // Row 8: Table Header
         sheetXml += `
         <row r="8" ht="26" customHeight="1">
-            <c r="A8" s="8" t="inlineStr"><is><t>Thứ</t></is></c>
+            <c r="A8" s="8" t="inlineStr"><is><t>Thứ, ngày</t></is></c>
             <c r="B8" s="8" t="inlineStr"><is><t>Buổi</t></is></c>
             <c r="C8" s="8" t="inlineStr"><is><t>Tiết</t></is></c>
             <c r="D8" s="8" t="inlineStr"><is><t>Môn học</t></is></c>
@@ -271,6 +287,7 @@ window.XlsxGenerator = (function() {
             const daySlots = schedule.filter(s => s.day === day);
             if (daySlots.length === 0) return;
 
+            const dayDate = getDayFullDate(weekInfo.startDateVN, day);
             const dayStartRow = currentRow;
             const morningSlots = daySlots.filter(s => s.session === "Sáng");
             const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
@@ -287,7 +304,7 @@ window.XlsxGenerator = (function() {
                 const isFirstOfMorning = (slot.session === "Sáng" && idx === 0);
                 const isFirstOfAfternoon = (slot.session === "Chiều" && idx === morningSlots.length);
 
-                const dayVal = isFirstOfDay ? day : "";
+                const dayVal = isFirstOfDay ? (dayDate ? `${day}\n${dayDate}` : day) : "";
                 const sessionVal = isFirstOfMorning ? "Sáng" : (isFirstOfAfternoon ? "Chiều" : "");
 
                 // Calculate comfortable row height based on text length
@@ -295,7 +312,7 @@ window.XlsxGenerator = (function() {
                 const integLen = (slot.integration || '').length;
                 const lessonLines = Math.ceil(lessonLen / (isCtlop ? 30 : 44));
                 const integLines = isCtlop ? Math.ceil(integLen / 26) : 1;
-                const numLines = Math.max(1, lessonLines, integLines);
+                const numLines = Math.max(isFirstOfDay && dayDate ? 2 : 1, lessonLines, integLines);
 
                 let rowHt = 24;
                 if (numLines === 2) rowHt = 38;
@@ -304,7 +321,7 @@ window.XlsxGenerator = (function() {
 
                 sheetXml += `
         <row r="${r}" ht="${rowHt}" customHeight="1">
-            <c r="A${r}" s="9" ${dayVal ? 't="inlineStr"' : ''}>${dayVal ? `<is><t>${escapeXml(dayVal)}</t></is>` : ''}</c>
+            <c r="A${r}" s="9" ${dayVal ? 't="inlineStr"' : ''}>${dayVal ? `<is><t xml:space="preserve">${escapeXml(dayVal)}</t></is>` : ''}</c>
             <c r="B${r}" s="10" ${sessionVal ? 't="inlineStr"' : ''}>${sessionVal ? `<is><t>${escapeXml(sessionVal)}</t></is>` : ''}</c>
             <c r="C${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.period || '')}</t></is></c>
             <c r="D${r}" s="12" t="inlineStr"><is><t>${escapeXml(slot.isOff ? '-- Nghỉ / Để trống --' : (slot.subject || ''))}</t></is></c>
@@ -503,7 +520,8 @@ window.XlsxGenerator = (function() {
                 <c r="A${currentRow}" s="6" t="s"><v>${p === 1 ? 'Sáng' : ''}</v></c>
                 <c r="B${currentRow}" s="6" t="s"><v>${p}</v></c>`;
             days.forEach((d, idx) => {
-                const slot = slots.find(s => s.day === d && s.session === "Sáng" && s.period === p);
+                const dayMornSlots = slots.filter(s => s.day === d && s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayMornSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 sheetXml += `<c r="${dayCols[idx]}${currentRow}" s="6" t="s"><v>${escapeXml(sub)}</v></c>`;
             });
@@ -522,7 +540,8 @@ window.XlsxGenerator = (function() {
                 <c r="A${currentRow}" s="6" t="s"><v>${p === 1 ? 'Chiều' : ''}</v></c>
                 <c r="B${currentRow}" s="6" t="s"><v>${p}</v></c>`;
             days.forEach((d, idx) => {
-                const slot = slots.find(s => s.day === d && s.session === "Chiều" && s.period === p);
+                const dayAftSlots = slots.filter(s => s.day === d && s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayAftSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 sheetXml += `<c r="${dayCols[idx]}${currentRow}" s="6" t="s"><v>${escapeXml(sub)}</v></c>`;
             });
@@ -583,8 +602,255 @@ window.XlsxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
     }
 
+
+    function getDayDateStrBySubjectXlsx(startDateVN, dayStr) {
+        if (!startDateVN) return dayStr;
+        const parts = startDateVN.split('/');
+        if (parts.length < 3) return dayStr;
+        const startD = parseInt(parts[0], 10);
+        const startM = parseInt(parts[1], 10) - 1;
+        const startY = parseInt(parts[2], 10);
+        const baseDate = new Date(startY, startM, startD);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const targetDate = new Date(baseDate.getTime() + offset * 86400000);
+        const dStr = String(targetDate.getDate()).padStart(2, '0');
+        const mStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+        return `${dayStr} (${dStr}/${mStr})`;
+    }
+
+    function generateLbgBySubjectXlsx(data, settings, isCtlop = true, filterSubject = "all") {
+        const zip = new JSZip();
+
+        zip.file("[Content_Types].xml", createContentTypes());
+        zip.file("_rels/.rels", createRels());
+        zip.file("docProps/app.xml", createAppXml());
+
+        const weekNum = data.weekNum || 1;
+        const weekInfo = data.weekInfo || {};
+        const subjectGroups = data.subjectGroups || [];
+
+        let mainTitle = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+        if (filterSubject && filterSubject !== "all") {
+            mainTitle = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
+        }
+
+        zip.file("docProps/core.xml", createCoreXml(mainTitle));
+        zip.file("xl/_rels/workbook.xml.rels", createWbRels());
+        zip.file("xl/workbook.xml", createWbXml(`Tuan ${weekNum} Theo Mon`));
+        zip.file("xl/styles.xml", createStylesXml());
+
+        const subtitle = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN || ''} đến ngày ${weekInfo.endDateVN || ''})`;
+        const lastColLetter = isCtlop ? "H" : "G";
+        const mergeCellsList = [];
+
+        let sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+    <dimension ref="A1:${lastColLetter}60"/>
+    <sheetViews>
+        <sheetView tabSelected="1" workbookViewId="0">
+            <pane ySplit="8" topLeftCell="A9" activePane="bottomLeft" state="frozen"/>
+        </sheetView>
+    </sheetViews>
+    <sheetFormatPr defaultRowHeight="20"/>
+    <cols>
+        <col min="1" max="1" width="${isCtlop ? 20 : 22}" customWidth="1"/>
+        <col min="2" max="2" width="16" customWidth="1"/>
+        <col min="3" max="3" width="9" customWidth="1"/>
+        <col min="4" max="4" width="7" customWidth="1"/>
+        <col min="5" max="5" width="10" customWidth="1"/>
+        <col min="6" max="6" width="11" customWidth="1"/>
+        <col min="7" max="7" width="${isCtlop ? 36 : 48}" customWidth="1"/>
+        ${isCtlop ? '<col min="8" max="8" width="36" customWidth="1"/>' : ''}
+    </cols>
+    <sheetData>
+        <!-- Row 1: Header UBND & Quoc Hieu -->
+        <row r="1" ht="22" customHeight="1">
+            <c r="A1" s="1" t="inlineStr"><is><t>${escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT')}</t></is></c>
+            <c r="B1" s="1"/><c r="C1" s="1"/>
+            <c r="D1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
+            <c r="E1" s="4"/><c r="F1" s="4"/><c r="G1" s="4"/>${isCtlop ? '<c r="H1" s="4"/>' : ''}
+        </row>
+        <!-- Row 2: School & Tieu Ngu -->
+        <row r="2" ht="22" customHeight="1">
+            <c r="A2" s="2" t="inlineStr"><is><t>${escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT')}</t></is></c>
+            <c r="B2" s="2"/><c r="C2" s="2"/>
+            <c r="D2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
+            <c r="E2" s="5"/><c r="F2" s="5"/><c r="G2" s="5"/>${isCtlop ? '<c r="H2" s="5"/>' : ''}
+        </row>
+        <!-- Row 3: Grade & Class -->
+        <row r="3" ht="20" customHeight="1">
+            <c r="A3" s="3" t="inlineStr"><is><t>${escapeXml(settings.grade || 'KHỐI 5')} - ${escapeXml(settings.className || 'LỚP 5A')}</t></is></c>
+            <c r="B3" s="3"/><c r="C3" s="3"/>
+            <c r="D3" s="0"/><c r="E3" s="0"/><c r="F3" s="0"/><c r="G3" s="0"/>${isCtlop ? '<c r="H3" s="0"/>' : ''}
+        </row>
+        <!-- Row 4: Space -->
+        <row r="4" ht="10" customHeight="1"/>
+        <!-- Row 5: Title -->
+        <row r="5" ht="26" customHeight="1">
+            <c r="A5" s="6" t="inlineStr"><is><t>${escapeXml(mainTitle)}</t></is></c>
+            <c r="B5" s="6"/><c r="C5" s="6"/><c r="D5" s="6"/><c r="E5" s="6"/><c r="F5" s="6"/><c r="G5" s="6"/>${isCtlop ? '<c r="H5" s="6"/>' : ''}
+        </row>
+        <!-- Row 6: Subtitle -->
+        <row r="6" ht="18" customHeight="1">
+            <c r="A6" s="7" t="inlineStr"><is><t>${escapeXml(subtitle)}</t></is></c>
+            <c r="B6" s="7"/><c r="C6" s="7"/><c r="D6" s="7"/><c r="E6" s="7"/><c r="F6" s="7"/><c r="G6" s="7"/>${isCtlop ? '<c r="H6" s="7"/>' : ''}
+        </row>
+        <!-- Row 7: Space -->
+        <row r="7" ht="10" customHeight="1"/>
+        <!-- Row 8: Table Header -->
+        <row r="8" ht="26" customHeight="1">
+            <c r="A8" s="8" t="inlineStr"><is><t>Môn học</t></is></c>
+            <c r="B8" s="8" t="inlineStr"><is><t>Thứ / Ngày</t></is></c>
+            <c r="C8" s="8" t="inlineStr"><is><t>Buổi</t></is></c>
+            <c r="D8" s="8" t="inlineStr"><is><t>Tiết</t></is></c>
+            <c r="E8" s="8" t="inlineStr"><is><t>Tiết/tuần</t></is></c>
+            <c r="F8" s="8" t="inlineStr"><is><t>Tiết PPCT</t></is></c>
+            <c r="G8" s="8" t="inlineStr"><is><t>Tên bài dạy</t></is></c>
+            ${isCtlop ? '<c r="H8" s="8" t="inlineStr"><is><t>Nội dung tích hợp / Điều chỉnh</t></is></c>' : ''}
+        </row>`;
+
+        mergeCellsList.push("A1:C1");
+        mergeCellsList.push(`D1:${lastColLetter}1`);
+        mergeCellsList.push("A2:C2");
+        mergeCellsList.push(`D2:${lastColLetter}2`);
+        mergeCellsList.push("A3:C3");
+        mergeCellsList.push(`A5:${lastColLetter}5`);
+        mergeCellsList.push(`A6:${lastColLetter}6`);
+
+        let currentRow = 9;
+
+        if (subjectGroups.length === 0) {
+            sheetXml += `
+        <row r="${currentRow}" ht="26" customHeight="1">
+            <c r="A${currentRow}" s="12" t="inlineStr"><is><t>Không có tiết học nào phù hợp với bộ lọc đã chọn.</t></is></c>
+            <c r="B${currentRow}" s="12"/><c r="C${currentRow}" s="12"/><c r="D${currentRow}" s="12"/><c r="E${currentRow}" s="12"/><c r="F${currentRow}" s="12"/><c r="G${currentRow}" s="12"/>${isCtlop ? `<c r="H${currentRow}" s="12"/>` : ''}
+        </row>`;
+            mergeCellsList.push(`A${currentRow}:${lastColLetter}${currentRow}`);
+            currentRow++;
+        } else {
+            subjectGroups.forEach(group => {
+                const groupStartRow = currentRow;
+                const groupCount = group.slots.length;
+
+                group.slots.forEach((slot, idx) => {
+                    const r = currentRow;
+                    const isFirstOfGroup = (idx === 0);
+                    const subVal = isFirstOfGroup ? `${group.subjectName} (${groupCount} tiết)` : "";
+                    const dayDateText = getDayDateStrBySubjectXlsx(weekInfo.startDateVN, slot.day);
+
+                    const lessonLen = (slot.lessonName || '').length;
+                    const integLen = (slot.integration || '').length;
+                    const lessonLines = Math.ceil(lessonLen / (isCtlop ? 30 : 44));
+                    const integLines = isCtlop ? Math.ceil(integLen / 26) : 1;
+                    const numLines = Math.max(1, lessonLines, integLines);
+
+                    let rowHt = 24;
+                    if (numLines === 2) rowHt = 38;
+                    else if (numLines === 3) rowHt = 54;
+                    else if (numLines >= 4) rowHt = numLines * 18;
+
+                    sheetXml += `
+        <row r="${r}" ht="${rowHt}" customHeight="1">
+            <c r="A${r}" s="9" ${subVal ? 't="inlineStr"' : ''}>${subVal ? `<is><t>${escapeXml(subVal)}</t></is>` : ''}</c>
+            <c r="B${r}" s="10" t="inlineStr"><is><t>${escapeXml(dayDateText)}</t></is></c>
+            <c r="C${r}" s="10" t="inlineStr"><is><t>${escapeXml(slot.session || '')}</t></is></c>
+            <c r="D${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.period || '')}</t></is></c>
+            <c r="E${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.periodInWeek || (idx + 1))}</t></is></c>
+            <c r="F${r}" s="13" t="inlineStr"><is><t>${escapeXml(slot.ppct || '')}</t></is></c>
+            <c r="G${r}" s="14" t="inlineStr"><is><t>${escapeXml(slot.lessonName || '')}</t></is></c>
+            ${isCtlop ? `<c r="H${r}" s="15" t="inlineStr"><is><t>${escapeXml(slot.integration || '')}</t></is></c>` : ''}
+        </row>`;
+                    currentRow++;
+                });
+
+                if (groupCount > 1) {
+                    mergeCellsList.push(`A${groupStartRow}:A${currentRow - 1}`);
+                }
+            });
+        }
+
+        // Space before footer
+        sheetXml += `<row r="${currentRow}" ht="14" customHeight="1"/>`;
+        currentRow++;
+
+        // Footer Signatures
+        const footerTitleRow = currentRow;
+        const footerSubRow = currentRow + 1;
+        const footerSpaceRow1 = currentRow + 2;
+        const footerSpaceRow2 = currentRow + 3;
+        const footerSpaceRow3 = currentRow + 4;
+        const footerNameRow = currentRow + 5;
+
+        const bghLbgType = settings.bghSignerLbgType || settings.bghSignerType || 'PHT';
+        const bghLbgIdx = (settings.bghSignerLbgIndex !== undefined) ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0);
+
+        const bghSignerName = (bghLbgType === 'HT') 
+            ? (settings.principal || 'Phạm Quốc Hùng') 
+            : (Array.isArray(settings.vicePrincipals) && settings.vicePrincipals[bghLbgIdx] 
+                ? settings.vicePrincipals[bghLbgIdx] 
+                : (settings.vicePrincipal || 'Lê Văn Tám'));
+        const bghSignerTitle = bghLbgType === 'HT' ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
+
+        sheetXml += `
+        <row r="${footerTitleRow}" ht="20" customHeight="1">
+            <c r="A${footerTitleRow}" s="16" t="inlineStr"><is><t>DUYỆT CỦA ${escapeXml(bghSignerTitle)}</t></is></c>
+            <c r="B${footerTitleRow}" s="16"/>
+            <c r="C${footerTitleRow}" s="16" t="inlineStr"><is><t>TỔ TRƯỞNG CHUYÊN MÔN</t></is></c>
+            <c r="D${footerTitleRow}" s="16"/><c r="E${footerTitleRow}" s="16"/>
+            <c r="F${footerTitleRow}" s="16" t="inlineStr"><is><t>GIÁO VIÊN CHỦ NHIỆM</t></is></c>
+            <c r="G${footerTitleRow}" s="16"/>${isCtlop ? `<c r="H${footerTitleRow}" s="16"/>` : ''}
+        </row>
+        <row r="${footerSubRow}" ht="18" customHeight="1">
+            <c r="A${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
+            <c r="B${footerSubRow}" s="17"/>
+            <c r="C${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
+            <c r="D${footerSubRow}" s="17"/><c r="E${footerSubRow}" s="17"/>
+            <c r="F${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
+            <c r="G${footerSubRow}" s="17"/>${isCtlop ? `<c r="H${footerSubRow}" s="17"/>` : ''}
+        </row>
+        <row r="${footerSpaceRow1}" ht="18" customHeight="1"/>
+        <row r="${footerSpaceRow2}" ht="18" customHeight="1"/>
+        <row r="${footerSpaceRow3}" ht="18" customHeight="1"/>
+        <row r="${footerNameRow}" ht="22" customHeight="1">
+            <c r="A${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(bghSignerName)}</t></is></c>
+            <c r="B${footerNameRow}" s="18"/>
+            <c r="C${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</t></is></c>
+            <c r="D${footerNameRow}" s="18"/><c r="E${footerNameRow}" s="18"/>
+            <c r="F${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</t></is></c>
+            <c r="G${footerNameRow}" s="18"/>${isCtlop ? `<c r="H${footerNameRow}" s="18"/>` : ''}
+        </row>`;
+
+        mergeCellsList.push(`A${footerTitleRow}:B${footerTitleRow}`);
+        mergeCellsList.push(`C${footerTitleRow}:E${footerTitleRow}`);
+        mergeCellsList.push(`F${footerTitleRow}:${lastColLetter}${footerTitleRow}`);
+
+        mergeCellsList.push(`A${footerSubRow}:B${footerSubRow}`);
+        mergeCellsList.push(`C${footerSubRow}:E${footerSubRow}`);
+        mergeCellsList.push(`F${footerSubRow}:${lastColLetter}${footerSubRow}`);
+
+        mergeCellsList.push(`A${footerNameRow}:B${footerNameRow}`);
+        mergeCellsList.push(`C${footerNameRow}:E${footerNameRow}`);
+        mergeCellsList.push(`F${footerNameRow}:${lastColLetter}${footerNameRow}`);
+
+        sheetXml += `
+    </sheetData>
+    <mergeCells count="${mergeCellsList.length}">
+        ${mergeCellsList.map(m => `<mergeCell ref="${m}"/>`).join('\n        ')}
+    </mergeCells>
+    <pageMargins left="0.4" right="0.4" top="0.5" bottom="0.5" header="0.3" footer="0.3"/>
+    <pageSetup orientation="${isCtlop ? 'landscape' : 'portrait'}" paperSize="9" fitToWidth="1" fitToHeight="0"/>
+</worksheet>`;
+
+        zip.file("xl/worksheets/sheet1.xml", sheetXml);
+
+        return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    }
+
+
     return {
         generateLbgXlsx: generateLbgXlsx,
-        generateTimetableXlsx: generateTimetableXlsx
+        generateTimetableXlsx: generateTimetableXlsx,
+        generateLbgBySubjectXlsx: generateLbgBySubjectXlsx
     };
 })();

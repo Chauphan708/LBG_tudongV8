@@ -1,0 +1,69 @@
+﻿================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5)
+PHIÊN BẢN NÂNG CẤP V7 (VERSION 7.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V7:
+
+   🌟 1. BỔ SUNG NGÀY DƯỚI TỪNG THỨ (CỘT ĐẦU TIÊN) KHI XUẤT FILE & IN ẤN:
+      - Cột đầu tiên được nâng cấp và chuẩn hóa tiêu đề thành: "Thứ, ngày".
+      - Ở mỗi thứ trong tuần (Thứ 2, Thứ 3, Thứ 4, Thứ 5, Thứ 6), phần mềm tự động tính toán
+        và hiển thị chính xác ngày/tháng/năm tương ứng ngay phía dưới tên thứ:
+          + Dòng 1: Thứ (VD: Thứ 2)
+          + Dòng 2: Ngày tháng năm (VD: 07/09/2026)
+      - Tự động chuyển giao lịch tháng và năm chuẩn xác (kể cả những tuần giáp ranh giữa 2 tháng
+        hoặc tuần giáp Tết, chuyển giao năm cũ sang năm mới).
+
+   🌟 2. XUẤT FILE WORD (.DOCX) CHUẨN NGHỊ ĐỊNH 30/2020/NĐ-CP:
+      - Trong file Word xuất ra (cả xuất 1 tuần đơn lẻ hoặc xuất gộp 35 tuần):
+        + Ô Thứ, ngày được định dạng 2 dòng cân đối, thẩm mỹ.
+        + Dòng "Thứ" in đậm (Bold), dòng "Ngày" in nghiêng (Italic), cỡ chữ chuẩn.
+        + Đầy đủ Quốc hiệu, Tiêu ngữ, Tên trường/lớp, Báo giảng thường hoặc Báo giảng tích hợp CTLOP.
+        + Hỗ trợ cả 2 khổ giấy: Khổ Đứng (Portrait) và Khổ Ngang (Landscape).
+
+   🌟 3. XUẤT FILE EXCEL (.XLSX) TỰ ĐỘNG NGẮT DÒNG VÀ GỘP Ô:
+      - Trong file Excel xuất ra:
+        + Ô cột A tự động ngắt dòng giữa Thứ và Ngày (wrapText), gộp ô dọc chuẩn theo số tiết
+          của từng ngày.
+        + Tự động căn giữa, định dạng đường viền thanh lịch, sẵn sàng in ấn A4 ngay trên Excel.
+
+   🌟 4. ĐỒNG BỘ 100% GIAO DIỆN XEM TRỰC TIẾP & IN ẤN A4 (PREVIEW / PRINT):
+      - Cả trên màn hình máy tính (Tab 1 Báo giảng và Tab 2 CTLOP) lẫn cửa sổ "Xem trước & In A4":
+        + Cột đầu tiên hiển thị rõ ràng ngày tháng dưới thứ với màu sắc trực quan, hài hòa.
+        + Bản in A4 ra máy in hiển thị ngày dưới thứ rõ ràng, sắc nét, đúng quy chuẩn hồ sơ kiểm tra.
+
+   🌟 5. KẾ THỪA TOÀN BỘ TÍNH NĂNG ƯU VIỆT CỦA BẢN V6:
+      - Đầy đủ tính năng "Báo giảng theo môn học" (gom nhóm toàn bộ các tiết của từng môn).
+      - Đầy đủ bộ lọc môn học, lọc nhóm giáo viên (GVCN / Chuyên trách / Tăng cường).
+      - Đầy đủ 2 nút truy cập nhanh trên header: [⚙️ Cài Đặt & TKB] và [💡 Hướng Dẫn V7].
+      - Phân phối chương trình chuẩn Chương trình GDPT 2018 cho cả 5 khối lớp (Khối 1, 2, 3, 4, 5).
+      - Môn Toán Khối 2 và Khối 3 chuẩn xác 5 tiết/tuần (175 tiết/năm).
+      - Thời khóa biểu Thứ 2 chuẩn: Sáng (4 tiết), Chiều Tiết 1 là môn Tiếng Anh.
+      - Cơ chế lưu trữ cách ly an toàn (LBG_APP_DATA_V7_G1..G5) kèm khả năng tự động khôi phục,
+        kế thừa dữ liệu từ các bản V6, V5, V4 trước đó mà không làm mất bất kỳ dữ liệu nào của thầy/cô.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN SỬ DỤNG NHANH:
+
+   - BƯỚC 1: Giải nén tệp zip "Phan_Mem_Lich_Bao_Giang_Lop_5_V7.zip".
+   - BƯỚC 2: Nhấp đúp chuột vào tệp "index.html" (hoặc "Chay_Phan_Mem.bat") để mở phần mềm
+             trên trình duyệt bất kỳ (Google Chrome, Microsoft Edge, Cốc Cốc, Firefox...).
+   - BƯỚC 3: Chọn Khối lớp (Khối 1 đến Khối 5) ở góc trên bên phải.
+   - BƯỚC 4: Vào tab "Cài Đặt & TKB" điền thông tin trường lớp, thời khóa biểu rồi bấm "Lưu Cài Đặt".
+   - BƯỚC 5: Mở tab "Lịch Báo Giảng" hoặc "BG Tích Hợp (CTLOP)" hoặc "Báo Giảng Theo Môn",
+             chọn tuần cần in hoặc bấm "Xuất Word (.docx)" / "Xuất Excel (.xlsx)".
+   - BƯỚC 6: Thầy/cô sẽ thấy ngay cột đầu tiên có đầy đủ Thứ và Ngày bên dưới chuẩn đẹp!
+
+--------------------------------------------------------------------------------
+4. LƯU Ý BẢO VỆ DỮ LIỆU:
+   - Thầy/cô nên vào tab "Cài Đặt & TKB", bấm "Sao lưu dữ liệu ra file JSON" để lưu về máy tính
+     làm dự phòng vĩnh viễn.
+   - Khi chuyển sang máy tính khác, chỉ cần bấm "Khôi phục dữ liệu từ file JSON" là phục hồi
+     toàn bộ dữ liệu chỉ trong 1 giây.
+================================================================================

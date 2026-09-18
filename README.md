@@ -1,53 +1,51 @@
-# PHẦN MỀM LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (PHIÊN BẢN V4)
+﻿# PHẦN MỀM LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (PHIÊN BẢN V7)
 ### Bộ sách: Kết Nối Tri Thức Với Cuộc Sống (Năm học 2026 - 2027)
 ### Hỗ trợ toàn diện 5 Khối: Khối 1, Khối 2, Khối 3, Khối 4, Khối 5
 
 ---
 
 ## 📖 Giới thiệu
-Ứng dụng web chạy **100% Offline cục bộ** hoặc **Online qua GitHub Pages**, hỗ trợ giáo viên Tiểu học cả 5 khối lớp (1, 2, 3, 4, 5) quản lý, tra cứu và xuất **Lịch Báo Giảng** & **Kế Hoạch Dạy Học (KHDH)** tự động, chuẩn thể thức văn bản theo **Nghị định 30/2020/NĐ-CP**, **Thông tư 32/2018/TT-BGDĐT**, **Thông tư 27/2020/TT-BGDĐT** và **Công văn 2345/BGDĐT-GDTH**.
+Ứng dụng chạy **100% Offline cục bộ** độc lập trên máy tính cá nhân của thầy/cô, hỗ trợ giáo viên Tiểu học cả 5 khối lớp (1, 2, 3, 4, 5) quản lý, tra cứu và xuất **Lịch Báo Giảng Theo Thứ**, **Lịch Báo Giảng Tích Hợp (CTLOP)** và **Lịch Báo Giảng Theo Môn Học** tự động, chuẩn thể thức văn bản theo **Nghị định 30/2020/NĐ-CP**, **Thông tư 32/2018/TT-BGDĐT**, **Thông tư 27/2020/TT-BGDĐT** và **Công văn 2345/BGDĐT-GDTH**.
 
 ---
 
-## ✨ Những Điểm Nâng Cấp Nổi Bật Trong Phiên Bản V4
+## ✨ Những Điểm Đột Phá Mới Trong Phiên Bản V7 (Version 7.0)
 
-1. **Hỗ trợ Đa Khối Lớp (Khối 1 - 5)**:
-   - Tích hợp sẵn Phân phối chương trình chuẩn Kết Nối Tri Thức cho cả 5 khối lớp.
-   - Nút chọn khối nhanh ngay trên thanh tiêu đề, dữ liệu từng khối được cách ly độc lập, không lẫn lộn.
+1. **Bổ Sung Ngày Cụ Thể Dưới Từng Thứ Ở Cột Đầu Tiên Khi Xuất File & In Ấn**:
+   - Cột đầu tiên chuẩn hóa thành **"Thứ, ngày"**.
+   - Ở mỗi ngày trong tuần (Thứ 2 đến Thứ 6), phần mềm tự động tính toán ngày/tháng/năm thực tế từ ngày bắt đầu tuần và hiển thị cân đối ngay dưới tên thứ (VD: Dòng 1 là *Thứ 2*, Dòng 2 là *07/09/2026*).
+   - Tự động chuyển giao lịch tháng và năm chuẩn xác 100% (kể cả những tuần giáp ranh giữa 2 tháng hoặc tuần giáp Tết).
 
-2. **Bộ Nạp File PPCT Tự Động Từ Word (.docx) và Excel (.xlsx)**:
-   - Cho phép giáo viên tải lên file Word hoặc Excel PPCT của trường mình.
-   - Hệ thống tự động phân tích cấu trúc, kiểm tra tính hợp lệ của mẫu cột, hiển thị hộp thoại xác nhận chuyên nghiệp và nạp vào phần mềm.
+2. **Xuất File Word (.docx) Đẹp Mắt, Chuẩn Nghị Định 30/2020/NĐ-CP**:
+   - Ô Thứ và Ngày được tách thành 2 đoạn văn (*Thứ* in đậm, *Ngày* in nghiêng) ngay ngắn, chuẩn font Times New Roman.
+   - Áp dụng đồng bộ cho cả xuất tuần đơn lẻ và xuất gộp cả năm (1 - 35 tuần), cả Khổ Đứng và Khổ Ngang.
 
-3. **Đồng Bộ Tuyệt Đối 100% Giữa PPCT Và Lịch Báo Giảng Tích Hợp**:
-   - Tuân thủ nghiêm ngặt nguyên tắc nghiệp vụ sư phạm (Công văn 2345): Lịch báo giảng phản ánh trung thực Kế hoạch dạy học đã được Hiệu trưởng phê duyệt.
-   - PPCT có nội dung tích hợp thì Lịch báo giảng hiển thị; PPCT để trống thì Lịch báo giảng để trống, tuyệt đối không tự ý phát sinh nội dung ngoài duyệt.
+3. **Xuất File Excel (.xlsx) Tự Động Ngắt Dòng & Gộp Ô Chuẩn Đẹp**:
+   - Tự động ngắt dòng `wrapText` giữa Thứ và Ngày trong ô cột A.
+   - Tự động căn giữa và gộp ô theo số tiết từng ngày, đường viền thanh lịch, sẵn sàng in ấn A4.
 
-4. **Tự Động Tạo Lịch 35 Tuần Theo Ngày Nghỉ Tết Tùy Chỉnh**:
-   - Giáo viên chỉ cần nhập ngày bắt đầu Tuần 1 và khoảng thời gian nghỉ Tết Âm lịch của địa phương mình.
-   - Hệ thống tự động tính toán 35 tuần thực học, tự động dời tuần sau Tết về đúng Thứ Hai đầu tiên và ghi chú các ngày lễ Quốc gia.
+4. **Đồng Bộ Hoàn Toàn Giao Diện Trực Quan & Bản In A4 (Preview / Print)**:
+   - Trên bảng giao diện trực tiếp (Tab 1 Báo giảng và Tab 2 CTLOP) cũng như hộp thoại Xem trước & In A4, cột đầu tiên đều thể hiện ngày dưới thứ rõ ràng, sắc nét.
 
-5. **Giao Diện Co Giãn Linh Hoạt (Responsive) & Nút Hướng Dẫn Nổi Bật**:
-   - Tự động co giãn phù hợp trên mọi kích thước màn hình: Máy tính bàn, Laptop, iPad, Máy tính bảng, Điện thoại.
-   - Biểu tượng Hướng dẫn sử dụng được tạo điểm nhấn nổi bật, dễ quan sát.
-
-6. **Xuất File Đa Dạng & In Ấn Chuyên Nghiệp**:
-   - **Xuất Word (.docx)**: Chuẩn thể thức văn bản, tự động gộp ô dọc (`vMerge`) Thứ/Buổi, đầy đủ chữ ký 3 bên (BGH, Tổ trưởng, GVCN).
-   - **Xuất Excel (.xlsx)**: Đầy đủ định dạng và chuẩn in ấn.
-   - **Xuất & In nhiều tuần**: Cho phép tải 1 file Word chứa trọn vẹn Học kỳ 1, Học kỳ 2 hoặc Cả năm (mỗi tuần tự ngắt trang riêng).
-   - **Xem trước & In A4**: Vừa vặn 1 trang A4 không bị tràn hay lệch trang.
+5. **Kế Thừa Toàn Bộ Tính Năng Mạnh Mẽ Của Bản V6**:
+   - Báo giảng theo môn học (gom nhóm từng môn liền mạch).
+   - Bộ lọc theo môn và theo nhóm giáo viên (GVCN / Chuyên trách / Tăng cường).
+   - Thanh điều hướng thông minh, không tràn khuất, 2 nút truy cập nhanh [⚙️ Cài Đặt & TKB] và [💡 Hướng Dẫn V7].
+   - Môn Toán Khối 2 và Khối 3 chuẩn xác 5 tiết/tuần (175 tiết/năm).
+   - Thời khóa biểu Thứ 2 chuẩn: Sáng 4 tiết, Chiều Tiết 1 là môn Tiếng Anh.
+   - Lưu trữ độc lập cách ly (LBG_APP_DATA_V7_G1..G5) và tự động kế thừa dữ liệu từ các bản V6, V5, V4 trước đó.
 
 ---
 
 ## 🚀 Hướng Dẫn Sử Dụng
 
 ### Cách 1: Sử dụng Offline trên máy tính (Khuyên dùng)
-1. Tải thư mục mã nguồn về máy tính.
-2. Nhấp đúp vào file `Chay_May_Chu_Local.bat` để khởi chạy máy chủ siêu nhẹ và tự động mở trình duyệt (hoặc nhấp `Mo_Phan_Mem.bat`).
+1. Giải nén thư mục phần mềm trên máy tính.
+2. Nhấp đúp vào file `Mo_Phan_Mem.bat` để mở ngay phần mềm trên trình duyệt mặc định (Google Chrome, Microsoft Edge, Cốc Cốc...).
+3. Hoặc nhấp `Chay_May_Chu_Local.bat` để chạy máy chủ offline.
 
-### Cách 2: Sử dụng Online qua GitHub Pages
-1. Truy cập vào đường link GitHub Pages: [https://chauphan708.github.io/bao-giang-tu-dong/](https://chauphan708.github.io/bao-giang-tu-dong/)
-2. Mở và sử dụng trực tiếp trên mọi thiết bị mà không cần cài đặt.
+### Cách 2: Mở trực tiếp
+1. Nhấp đúp chuột trực tiếp vào file `index.html`.
 
 ---
 

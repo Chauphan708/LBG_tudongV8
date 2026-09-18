@@ -5,7 +5,7 @@
  */
 
 (function() {
-    const STORAGE_KEY = "LBG_APP_DATA_V4";
+    const STORAGE_KEY = "LBG_APP_DATA_V7";
     let currentOrientation = "portrait";
 
     function getBaseLesson(lessonStr) {
@@ -118,6 +118,10 @@
     let state = {
         currentTab: "tab-lbg",
         currentWeek: 1,
+        lbgMonFilterSubject: "all",
+        lbgMonFilterCategory: "all",
+        lbgMonShowIntegration: true,
+        lbgMonOrientation: "portrait",
         selectedKhdhSubjects: ["TIẾNG VIỆT", "TOÁN", "KHOA HỌC", "LS&ĐL", "HĐ TRẢI NGHIỆM", "ĐẠO ĐỨC", "CÔNG NGHỆ"],
         includedSubjects: [],
         subjectList: [],
@@ -158,7 +162,84 @@
     state.currentGrade = currentGrade;
 
     function getStorageKey(grade) {
-        return "LBG_APP_DATA_V4_G" + grade;
+        return "LBG_APP_DATA_V7_G" + grade;
+    }
+
+    function getGradeDefaultSubjects(grade) {
+        if (grade === 5) {
+            return JSON.parse(JSON.stringify(DEFAULT_GRADE_5_SUBJECTS));
+        }
+        const gData = window.APP_GRADE_DATA && window.APP_GRADE_DATA[grade];
+        if (gData && gData.subjects) {
+            return JSON.parse(JSON.stringify(gData.subjects));
+        }
+        return JSON.parse(JSON.stringify(DEFAULT_GRADE_5_SUBJECTS));
+    }
+
+    function getGradeDefaultTimetable(grade) {
+        if (grade === 5) {
+            if (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.settings && window.APP_INITIAL_DATA.settings.timetable) {
+                return JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.settings.timetable));
+            }
+        }
+        const gData = window.APP_GRADE_DATA && window.APP_GRADE_DATA[grade];
+        if (gData && gData.timetable) {
+            return JSON.parse(JSON.stringify(gData.timetable));
+        }
+        return [];
+    }
+
+    function sanitizeTimetable(timetable, grade) {
+        const defaultTt = getGradeDefaultTimetable(grade);
+        if (!Array.isArray(timetable) || timetable.length === 0) {
+            return defaultTt;
+        }
+        const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
+        const cleaned = [];
+
+        // Check if Monday is corrupt (e.g. has Tiếng Anh in Sáng, or != 7 slots, or Sáng > 4 slots)
+        const monSlots = timetable.filter(s => s.day === "Thứ 2");
+        const hasMonCorrupt = monSlots.length !== 7 || 
+            monSlots.some(s => s.session === "Sáng" && s.subject && s.subject.toLowerCase().includes("tiếng anh")) ||
+            !monSlots.some(s => s.session === "Chiều" && s.period === 1 && s.subject && s.subject.toLowerCase().includes("tiếng anh"));
+
+        days.forEach(day => {
+            let daySlots = timetable.filter(s => s.day === day);
+            if (day === "Thứ 2" && hasMonCorrupt) {
+                daySlots = defaultTt.filter(s => s.day === "Thứ 2");
+            } else if (daySlots.length === 0) {
+                daySlots = defaultTt.filter(s => s.day === day);
+            }
+
+            // Group & Sort Sáng
+            const morn = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            morn.forEach((s, i) => { s.period = i + 1; s.session = "Sáng"; s.day = day; });
+
+            // Group & Sort Chiều
+            const aft = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            aft.forEach((s, i) => { s.period = i + 1; s.session = "Chiều"; s.day = day; });
+
+            cleaned.push(...morn, ...aft);
+        });
+
+        return cleaned;
+    }
+
+    function sanitizeSubjectList(subjectList, grade) {
+        if (!Array.isArray(subjectList) || subjectList.length === 0) {
+            return getGradeDefaultSubjects(grade);
+        }
+        subjectList.forEach(s => {
+            const norm = normalizeSubjectName(s.name);
+            if (norm === "Toán") {
+                // Theo Chương trình GDPT 2018 (Thông tư 32/2018): Lớp 1 là 3 tiết/tuần (105 tiết); Lớp 2, 3, 4, 5 là 5 tiết/tuần (175 tiết)
+                s.defaultPeriods = (grade === 1) ? 3 : 5;
+            } else if (norm === "HĐ Trải nghiệm") {
+                // Hoạt động trải nghiệm là 3 tiết/tuần (105 tiết/năm)
+                s.defaultPeriods = 3;
+            }
+        });
+        return subjectList;
     }
 
     function loadStateForGrade(grade) {
@@ -206,9 +287,12 @@
         try {
             const gradeKey = getStorageKey(grade);
             let saved = localStorage.getItem(gradeKey);
+            if (!saved) {
+                saved = localStorage.getItem("LBG_APP_DATA_V6_G" + grade) || localStorage.getItem("LBG_APP_DATA_V5_G" + grade) || localStorage.getItem("LBG_APP_DATA_V4_G" + grade);
+            }
             if (!saved && grade === 5) {
                 // Seamless migration from earlier keys
-                saved = localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
+                saved = localStorage.getItem("LBG_APP_DATA_V6") || localStorage.getItem("LBG_APP_DATA_V5") || localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
             }
             if (saved) {
                 const parsed = JSON.parse(saved);
@@ -273,8 +357,19 @@
             }
         }
 
-        if (!state.subjectList || state.subjectList.length === 0) {
-            state.subjectList = JSON.parse(JSON.stringify(DEFAULT_GRADE_5_SUBJECTS));
+        // Sanitize and heal Timetable: ensure all days Sáng (1..4) then Chiều (1..3), Monday has Tiếng Anh at Chiều T1
+        state.timetable = sanitizeTimetable(state.timetable, grade);
+
+        // Sanitize Subject List: ensure Toán is 5 periods/week for Grade 2, 3 and all grades
+        state.subjectList = sanitizeSubjectList(state.subjectList, grade);
+
+        // Sanitize weeklyCustomSlots if any
+        if (state.weeklyCustomSlots) {
+            for (const wk in state.weeklyCustomSlots) {
+                if (Array.isArray(state.weeklyCustomSlots[wk])) {
+                    state.weeklyCustomSlots[wk] = sanitizeTimetable(state.weeklyCustomSlots[wk], grade);
+                }
+            }
         }
 
         // Standardize all PPCT & Timetable subjects
@@ -333,6 +428,8 @@
             const gradeKey = getStorageKey(state.currentGrade);
             localStorage.setItem(gradeKey, JSON.stringify(payload));
             if (state.currentGrade === 5) {
+                localStorage.setItem("LBG_APP_DATA_V6", JSON.stringify(payload));
+                localStorage.setItem("LBG_APP_DATA_V5", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V4", JSON.stringify(payload));
             }
         } catch (e) {
@@ -366,6 +463,7 @@
         renderLbgInclusionChips();
         renderTabLbg(state.currentWeek);
         renderTabCtlop(state.currentWeek);
+        renderTabLbgMon();
         renderTabLichtuan();
         renderTabPpct();
         renderTabSettings();
@@ -378,7 +476,7 @@
         const badge = document.getElementById("ppct-count-badge");
         if (badge) {
             const count = (state.ppct || []).length;
-            badge.innerText = `${count} tiết (Tuần 1 - 35)`;
+            badge.innerText = `${count} tiết`;
         }
     }
 
@@ -939,7 +1037,8 @@
             html += `<td style="font-weight: 700; background: #fafafa; vertical-align: middle;">${p}</td>`;
             days.forEach(d => {
                 const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                const slot = slots.find(s => s.day === d && s.session === "Sáng" && s.period === p);
+                const dayMornSlots = slots.filter(s => s.day === d && s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayMornSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 const isOff = sub === "-- Nghỉ / Để trống --" || !sub;
                 html += `<td style="vertical-align: middle; font-weight: 600; font-size: 0.88rem; ${isAltDay ? 'background-color: #f0f7ff;' : 'background-color: #ffffff;'} ${isOff ? 'color: #94a3b8; font-style: italic;' : 'color: var(--text-main);'}">${escapeHtml(sub || '--')}</td>`;
@@ -956,7 +1055,8 @@
             html += `<td style="font-weight: 700; background: #fafafa; vertical-align: middle;">${p}</td>`;
             days.forEach(d => {
                 const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                const slot = slots.find(s => s.day === d && s.session === "Chiều" && s.period === p);
+                const dayAftSlots = slots.filter(s => s.day === d && s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayAftSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 const isOff = sub === "-- Nghỉ / Để trống --" || !sub;
                 html += `<td style="vertical-align: middle; font-weight: 600; font-size: 0.88rem; ${isAltDay ? 'background-color: #f0f7ff;' : 'background-color: #ffffff;'} ${isOff ? 'color: #94a3b8; font-style: italic;' : 'color: var(--text-main);'}">${escapeHtml(sub || '--')}</td>`;
@@ -978,11 +1078,12 @@
         days.forEach(day => {
             const isAltDay = (day === "Thứ 2" || day === "Thứ 4" || day === "Thứ 6");
             const daySlots = state.timetable.filter(s => s.day === day);
-            const morningSlots = daySlots.filter(s => s.session === "Sáng");
-            const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
-            const totalRows = daySlots.length;
+            const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const orderedDaySlots = [...morningSlots, ...afternoonSlots];
+            const totalRows = orderedDaySlots.length;
 
-            daySlots.forEach((slot, idx) => {
+            orderedDaySlots.forEach((slot, idx) => {
                 const globalIdx = state.timetable.indexOf(slot);
                 const tr = document.createElement("tr");
                 if (isAltDay) tr.classList.add("row-day-alt");
@@ -1164,7 +1265,8 @@
             html += `<td style="font-weight: bold; vertical-align: middle;">${p}</td>`;
             days.forEach(d => {
                 const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                const slot = slots.find(item => item.day === d && item.session === "Sáng" && item.period === p);
+                const dayMornSlots = slots.filter(item => item.day === d && item.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayMornSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 const isOff = sub === "-- Nghỉ / Để trống --" || !sub;
                 html += `<td style="vertical-align: middle; font-weight: 600; padding: 6px 4px; ${isAltDay ? 'background-color: #f8fafc;' : ''} ${isOff ? 'color: #94a3b8; font-style: italic;' : ''}">${escapeHtml(isOff ? '' : sub)}</td>`;
@@ -1181,7 +1283,8 @@
             html += `<td style="font-weight: bold; vertical-align: middle;">${p}</td>`;
             days.forEach(d => {
                 const isAltDay = (d === "Thứ 2" || d === "Thứ 4" || d === "Thứ 6");
-                const slot = slots.find(item => item.day === d && item.session === "Chiều" && item.period === p);
+                const dayAftSlots = slots.filter(item => item.day === d && item.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+                const slot = dayAftSlots[p - 1];
                 const sub = slot ? slot.subject : "";
                 const isOff = sub === "-- Nghỉ / Để trống --" || !sub;
                 html += `<td style="vertical-align: middle; font-weight: 600; padding: 6px 4px; ${isAltDay ? 'background-color: #f8fafc;' : ''} ${isOff ? 'color: #94a3b8; font-style: italic;' : ''}">${escapeHtml(isOff ? '' : sub)}</td>`;
@@ -1264,7 +1367,14 @@
     }
 
     function calculateWeekSchedule(weekNum) {
-        const timetable = getWeekSlots(weekNum);
+        const rawTimetable = getWeekSlots(weekNum);
+        const daysOrder = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
+        const timetable = [];
+        daysOrder.forEach(d => {
+            const morn = rawTimetable.filter(s => s.day === d && s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const aft = rawTimetable.filter(s => s.day === d && s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            timetable.push(...morn, ...aft);
+        });
         const subjectCounts = {};
         const schedule = [];
         
@@ -1374,6 +1484,129 @@
         };
     }
 
+    // Helper: Convert week startDateVN (dd/mm/yyyy) + day name to "Thứ X (dd/mm)"
+    function getDayDateStr(startDateVN, dayStr) {
+        if (!startDateVN) return dayStr;
+        const parts = startDateVN.split("/");
+        if (parts.length < 3) return dayStr;
+        const d = parseInt(parts[0], 10);
+        const m = parseInt(parts[1], 10) - 1;
+        const y = parseInt(parts[2], 10);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const slotDate = new Date(y, m, d + offset);
+        const dd = String(slotDate.getDate()).padStart(2, '0');
+        const mm = String(slotDate.getMonth() + 1).padStart(2, '0');
+        return `${dayStr} (${dd}/${mm})`;
+    }
+
+    // Helper: Calculate exact date (dd/mm/yyyy) for each day of week based on week startDateVN
+    function getDayFullDate(startDateVN, dayStr) {
+        if (!startDateVN) return "";
+        const parts = startDateVN.split('/');
+        if (parts.length < 3) return "";
+        const startD = parseInt(parts[0], 10);
+        const startM = parseInt(parts[1], 10) - 1;
+        const startY = parseInt(parts[2], 10);
+        const dayOffsets = { "Thứ 2": 0, "Thứ 3": 1, "Thứ 4": 2, "Thứ 5": 3, "Thứ 6": 4, "Thứ 7": 5, "Chủ nhật": 6 };
+        const offset = dayOffsets[dayStr] !== undefined ? dayOffsets[dayStr] : 0;
+        const targetDate = new Date(startY, startM, startD + offset);
+        const dStr = String(targetDate.getDate()).padStart(2, '0');
+        const mStr = String(targetDate.getMonth() + 1).padStart(2, '0');
+        const yStr = targetDate.getFullYear();
+        return `${dStr}/${mStr}/${yStr}`;
+    }
+
+    // VERSION 6.0: Calculate schedule grouped by subject
+    function calculateWeekScheduleBySubject(weekNum, filterSubject = "all", filterCategory = "all") {
+        const { weekInfo, schedule, stats } = calculateWeekSchedule(weekNum);
+        const activeSlots = schedule.filter(s => !s.isOff);
+
+        // Order subjects according to state.subjectList
+        const definedOrder = (state.subjectList || []).map(s => normalizeSubjectName(s.name));
+        const presentSubjects = [];
+        const seen = new Set();
+
+        definedOrder.forEach(subName => {
+            if (!seen.has(subName) && activeSlots.some(s => normalizeSubjectName(s.subject) === subName)) {
+                seen.add(subName);
+                presentSubjects.push(subName);
+            }
+        });
+
+        activeSlots.forEach(s => {
+            const norm = normalizeSubjectName(s.subject);
+            if (!seen.has(norm)) {
+                seen.add(norm);
+                presentSubjects.push(norm);
+            }
+        });
+
+        const dayOrder = { "Thứ 2": 1, "Thứ 3": 2, "Thứ 4": 3, "Thứ 5": 4, "Thứ 6": 5 };
+        const sessOrder = { "Sáng": 1, "Chiều": 2 };
+
+        const subjectGroups = [];
+        let totalFilteredPeriods = 0;
+        let gvcnFilteredCount = 0;
+        let specialistFilteredCount = 0;
+
+        presentSubjects.forEach(subName => {
+            const subMeta = (state.subjectList || []).find(s => normalizeSubjectName(s.name) === subName) || {
+                name: subName,
+                category: "GVCN"
+            };
+
+            if (filterCategory && filterCategory !== "all") {
+                if (subMeta.category !== filterCategory) return;
+            }
+
+            if (filterSubject && filterSubject !== "all") {
+                if (normalizeSubjectName(filterSubject) !== subName) return;
+            }
+
+            const slots = activeSlots.filter(s => normalizeSubjectName(s.subject) === subName);
+            slots.sort((a, b) => {
+                const dA = dayOrder[a.day] || 99;
+                const dB = dayOrder[b.day] || 99;
+                if (dA !== dB) return dA - dB;
+                const sA = sessOrder[a.session] || 99;
+                const sB = sessOrder[b.session] || 99;
+                if (sA !== sB) return sA - sB;
+                return (a.period || 0) - (b.period || 0);
+            });
+
+            slots.forEach((slot, idx) => {
+                slot.periodInWeek = idx + 1;
+            });
+
+            if (slots.length > 0) {
+                totalFilteredPeriods += slots.length;
+                if (subMeta.category === "GVCN") gvcnFilteredCount += slots.length;
+                else if (subMeta.category === "Chuyên trách") specialistFilteredCount += slots.length;
+
+                subjectGroups.push({
+                    subjectName: subMeta.name || subName,
+                    canonicalName: subName,
+                    category: subMeta.category || "GVCN",
+                    totalPeriods: slots.length,
+                    slots: slots
+                });
+            }
+        });
+
+        return {
+            weekInfo,
+            subjectGroups,
+            stats: {
+                totalSubjects: subjectGroups.length,
+                totalPeriods: totalFilteredPeriods,
+                gvcnCount: gvcnFilteredCount,
+                specialistCount: specialistFilteredCount,
+                originalStats: stats
+            }
+        };
+    }
+
     // 3. Renderers
     function renderWeekToolbar(containerId, onChangeCallback) {
         const container = document.getElementById(containerId);
@@ -1461,19 +1694,24 @@
         
         days.forEach(day => {
             const isAltDay = (day === "Thứ 2" || day === "Thứ 4" || day === "Thứ 6");
+            const dayDate = getDayFullDate(weekInfo.startDateVN, day);
             const daySlots = schedule.filter(s => s.day === day);
-            const morningSlots = daySlots.filter(s => s.session === "Sáng");
-            const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
-            const totalRows = daySlots.length;
+            const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const orderedDaySlots = [...morningSlots, ...afternoonSlots];
+            const totalRows = orderedDaySlots.length;
 
-            daySlots.forEach((slot, idx) => {
+            orderedDaySlots.forEach((slot, idx) => {
                 const tr = document.createElement("tr");
                 if (isAltDay) tr.classList.add("row-day-alt");
                 if (slot.isOff) tr.classList.add("row-empty-period");
 
                 let dayCellHtml = "";
                 if (idx === 0) {
-                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}">${day}</td>`;
+                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="line-height:1.35;">
+                        <div style="font-weight:700;">${day}</div>
+                        ${dayDate ? `<div style="font-size:0.78rem; font-weight:500; color:var(--text-muted); margin-top:2px;">${dayDate}</div>` : ''}
+                    </td>`;
                 }
 
                 let sessionCellHtml = "";
@@ -1563,6 +1801,263 @@
         });
     }
 
+    // =========================================================================
+    // VERSION 6.0: TAB LỊCH BÁO GIẢNG THEO MÔN HỌC (TAB 2B)
+    // =========================================================================
+    function renderTabLbgMon() {
+        renderWeekToolbar("lbgmon-week-toolbar", () => {
+            renderTabLbgMon();
+            if (state.currentTab === "tab-lbg") renderTabLbg();
+            if (state.currentTab === "tab-ctlop") renderTabCtlop();
+        });
+
+        const weekNum = state.currentWeek;
+        const { weekInfo } = calculateWeekSchedule(weekNum);
+
+        // Update header
+        const govEl = document.getElementById("lbgmon-gov-body");
+        if (govEl) govEl.innerText = (state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
+        const schEl = document.getElementById("lbgmon-school-name");
+        if (schEl) schEl.innerText = (state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
+        const gcEl = document.getElementById("lbgmon-grade-class");
+        if (gcEl) gcEl.innerText = `${state.settings.grade || "KHỐI 5"} - ${state.settings.className || "LỚP 5A"}`;
+        const titleEl = document.getElementById("lbgmon-week-title");
+        if (titleEl) {
+            if (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== "all") {
+                titleEl.innerText = `LỊCH BÁO GIẢNG MÔN ${state.lbgMonFilterSubject.toUpperCase()} - TUẦN ${weekNum}`;
+            } else {
+                titleEl.innerText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+            }
+        }
+        const rangeEl = document.getElementById("lbgmon-date-range");
+        if (rangeEl) rangeEl.innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+
+        // Populate Subject Filter dropdown
+        const subFilterSel = document.getElementById("lbgmon-subject-filter");
+        if (subFilterSel) {
+            const rawSchedule = calculateWeekSchedule(weekNum).schedule.filter(s => !s.isOff);
+            const activeSubs = Array.from(new Set(rawSchedule.map(s => s.subject)));
+            const currentVal = state.lbgMonFilterSubject || "all";
+            
+            let opts = `<option value="all">🌟 Tất cả các môn học (Tuần tự từng môn)</option>`;
+            activeSubs.forEach(s => {
+                opts += `<option value="${escapeHtml(s)}" ${s === currentVal ? 'selected' : ''}>${escapeHtml(s)}</option>`;
+            });
+            subFilterSel.innerHTML = opts;
+
+            subFilterSel.onchange = (e) => {
+                state.lbgMonFilterSubject = e.target.value;
+                renderTabLbgMon();
+            };
+        }
+
+        // Category Filter
+        const catFilterSel = document.getElementById("lbgmon-category-filter");
+        if (catFilterSel) {
+            catFilterSel.value = state.lbgMonFilterCategory || "all";
+            catFilterSel.onchange = (e) => {
+                state.lbgMonFilterCategory = e.target.value;
+                renderTabLbgMon();
+            };
+        }
+
+        // Show/Hide Integration
+        const showIntegCb = document.getElementById("lbgmon-show-integration");
+        if (showIntegCb) {
+            showIntegCb.checked = (state.lbgMonShowIntegration !== false);
+            showIntegCb.onchange = (e) => {
+                state.lbgMonShowIntegration = e.target.checked;
+                renderTabLbgMon();
+            };
+        }
+
+        const showIntegration = (state.lbgMonShowIntegration !== false);
+        const thInteg = document.querySelector("#table-lbg-mon .col-mon-integration");
+        if (thInteg) {
+            thInteg.style.display = showIntegration ? "" : "none";
+        }
+
+        // Calculate data
+        const { subjectGroups, stats } = calculateWeekScheduleBySubject(
+            weekNum,
+            state.lbgMonFilterSubject,
+            state.lbgMonFilterCategory
+        );
+
+        const tbody = document.getElementById("lbgmon-table-body");
+        if (!tbody) return;
+        tbody.innerHTML = "";
+
+        if (subjectGroups.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="${showIntegration ? 9 : 8}" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-style: italic;">
+                        Không có tiết học nào phù hợp với bộ lọc đã chọn trong Tuần ${weekNum}.
+                    </td>
+                </tr>
+            `;
+        } else {
+            subjectGroups.forEach((group, gIdx) => {
+                let badgeClass = "badge-cat-gvcn";
+                let badgeText = "GVCN Dạy";
+                if (group.category === "Chuyên trách") {
+                    badgeClass = "badge-cat-specialist";
+                    badgeText = "GV Chuyên Trách";
+                } else if (group.category === "Tăng cường") {
+                    badgeClass = "badge-cat-enhanced";
+                    badgeText = "Tăng Cường";
+                }
+
+                group.slots.forEach((slot, idx) => {
+                    const tr = document.createElement("tr");
+                    if (gIdx % 2 === 1) tr.classList.add("row-day-alt");
+
+                    let subjectCellHtml = "";
+                    if (idx === 0) {
+                        subjectCellHtml = `
+                            <td rowspan="${group.slots.length}" class="col-subject-header" style="vertical-align: middle; text-align: left; font-weight: 700; background: #f8fafc; border-right: 2px solid #cbd5e1; padding: 0.75rem 0.6rem;">
+                                <div style="font-size: 0.98rem; font-weight: 800; color: var(--primary);">${escapeHtml(group.subjectName)}</div>
+                                <div style="font-size: 0.8rem; color: #475569; font-weight: 600; margin-top: 2px;">Tổng: ${group.slots.length} tiết/tuần</div>
+                                <span class="badge-cat ${badgeClass}" style="margin-top: 4px; font-size: 0.72rem; display: inline-block;">${badgeText}</span>
+                            </td>
+                        `;
+                    }
+
+                    const dayDateStr = getDayDateStr(weekInfo.startDateVN, slot.day);
+
+                    let integrationCellHtml = "";
+                    if (showIntegration) {
+                        integrationCellHtml = `
+                            <td class="col-integration editable-cell" contenteditable="true" data-key="${slot.key}" data-field="integration" style="line-height: 1.45; font-size: 0.88rem; text-align: left;">
+                                ${escapeHtml(slot.integration || '').replace(/\n/g, '<br>')}
+                            </td>
+                        `;
+                    }
+
+                    tr.innerHTML = `
+                        ${subjectCellHtml}
+                        <td style="text-align: center; font-weight: 600; font-size: 0.88rem; vertical-align: middle;">${dayDateStr}</td>
+                        <td style="text-align: center; font-weight: 600; vertical-align: middle; color: ${slot.session === 'Sáng' ? 'var(--primary)' : '#b45309'};">${slot.session}</td>
+                        <td class="col-period" style="vertical-align: middle; font-weight: 700;">${slot.period}</td>
+                        <td style="text-align: center; font-weight: 700; color: var(--primary); vertical-align: middle;">Tiết ${slot.periodInWeek}</td>
+                        <td class="col-ppct editable-cell" contenteditable="true" data-key="${slot.key}" data-field="ppct" style="vertical-align: middle; font-weight: 700;">${slot.ppct}</td>
+                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left;">${escapeHtml(slot.lessonName || '')}</td>
+                        ${integrationCellHtml}
+                        <td class="no-print" style="text-align: center; vertical-align: middle;">
+                            <button type="button" class="btn-row-action btn-clear-mon-slot" data-key="${slot.key}" title="Xóa nội dung tiết này">✕</button>
+                        </td>
+                    `;
+
+                    tbody.appendChild(tr);
+                });
+            });
+        }
+
+        // Stats summary
+        const statSubsEl = document.getElementById("lbgmon-stat-subjects");
+        if (statSubsEl) statSubsEl.innerText = `${stats.totalSubjects} môn`;
+        const statGvcnEl = document.getElementById("lbgmon-stat-gvcn");
+        if (statGvcnEl) statGvcnEl.innerText = `${stats.gvcnCount} tiết`;
+        const statSpecEl = document.getElementById("lbgmon-stat-specialist");
+        if (statSpecEl) statSpecEl.innerText = `${stats.specialistCount} tiết`;
+        const statTotalEl = document.getElementById("lbgmon-stat-total");
+        if (statTotalEl) statTotalEl.innerText = `${stats.totalPeriods} tiết`;
+
+        // Signatures
+        const bghSigner = getBghSignerInfo();
+        const sigTeacherEl = document.getElementById("lbgmon-sig-teacher");
+        if (sigTeacherEl) sigTeacherEl.innerText = state.settings.homeroomTeacher || "Nguyễn Thị Thu Hà";
+        const sigHeadEl = document.getElementById("lbgmon-sig-head");
+        if (sigHeadEl) sigHeadEl.innerText = state.settings.headOfGrade || "Trần Thị Mai";
+        const sigPhtEl = document.getElementById("lbgmon-sig-pht");
+        if (sigPhtEl) sigPhtEl.innerText = bghSigner.name;
+        const bghRoleElem = document.getElementById("lbgmon-bgh-role");
+        if (bghRoleElem) bghRoleElem.innerText = `DUYỆT CỦA ${bghSigner.title}`;
+
+        // Bind editable cells blur
+        tbody.querySelectorAll(".editable-cell").forEach(cell => {
+            cell.addEventListener("blur", (e) => {
+                const key = e.target.dataset.key;
+                const field = e.target.dataset.field;
+                let val = e.target.innerText.trim();
+                val = normalizePunctuationSpacing(val);
+                if (field === "integration") {
+                    e.target.innerHTML = escapeHtml(val).replace(/\n/g, '<br>');
+                } else {
+                    e.target.innerText = val;
+                }
+                if (!state.weeklyScheduleOverrides[key]) state.weeklyScheduleOverrides[key] = {};
+                state.weeklyScheduleOverrides[key][field] = val;
+                saveState();
+            });
+        });
+
+        // Clear slot button
+        tbody.querySelectorAll(".btn-clear-mon-slot").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const key = e.currentTarget.dataset.key;
+                if (!state.weeklyScheduleOverrides[key]) state.weeklyScheduleOverrides[key] = {};
+                state.weeklyScheduleOverrides[key].lessonName = "";
+                state.weeklyScheduleOverrides[key].ppct = "";
+                state.weeklyScheduleOverrides[key].integration = "";
+                saveState();
+                renderTabLbgMon();
+                showToast("Đã xóa nội dung bài dạy của tiết!", "info");
+            });
+        });
+    }
+
+    function previewLbgMonA4() {
+        const orient = state.lbgMonOrientation || "portrait";
+        const isCtlop = (state.lbgMonShowIntegration !== false);
+        openPrintPreviewModal(
+            renderSingleWeekPaperBySubjectHtml(state.currentWeek, isCtlop, orient, state.lbgMonFilterSubject, state.lbgMonFilterCategory),
+            exportLbgMonDocx,
+            exportLbgMonXlsx,
+            () => window.print()
+        );
+    }
+
+    function exportLbgMonDocx() {
+        const orient = state.lbgMonOrientation || "portrait";
+        const isCtlop = (state.lbgMonShowIntegration !== false);
+        if (window.DocxGenerator && window.DocxGenerator.generateLbgBySubjectDocx) {
+            showToast(`Đang tạo file Word (${orient === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) theo môn học...`, "info");
+            const data = calculateWeekScheduleBySubject(state.currentWeek, state.lbgMonFilterSubject, state.lbgMonFilterCategory);
+            window.DocxGenerator.generateLbgBySubjectDocx(data, state.settings, isCtlop, orient, state.lbgMonFilterSubject).then(blob => {
+                const subSuffix = (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== 'all') ? `_${state.lbgMonFilterSubject.replace(/\s+/g, '_')}` : '';
+                const orientSuffix = orient === "landscape" ? "_Kho_Ngang" : "";
+                const filename = `Lich_Bao_Giang_Theo_Mon${subSuffix}_Tuan_${state.currentWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
+                saveAs(blob, filename);
+                showToast(`Đã xuất file Word thành công: ${filename}`, "success");
+            }).catch(err => {
+                console.error("DOCX By Subject error:", err);
+                alert("Lỗi xuất file Word: " + err.message);
+            });
+        } else {
+            alert("Bộ tạo file Word chưa sẵn sàng!");
+        }
+    }
+
+    function exportLbgMonXlsx() {
+        const isCtlop = (state.lbgMonShowIntegration !== false);
+        if (window.XlsxGenerator && window.XlsxGenerator.generateLbgBySubjectXlsx) {
+            showToast("Đang tạo file Excel theo môn học...", "info");
+            const data = calculateWeekScheduleBySubject(state.currentWeek, state.lbgMonFilterSubject, state.lbgMonFilterCategory);
+            window.XlsxGenerator.generateLbgBySubjectXlsx(data, state.settings, isCtlop, state.lbgMonFilterSubject).then(blob => {
+                const subSuffix = (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== 'all') ? `_${state.lbgMonFilterSubject.replace(/\s+/g, '_')}` : '';
+                const filename = `Lich_Bao_Giang_Theo_Mon${subSuffix}_Tuan_${state.currentWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}.xlsx`;
+                saveAs(blob, filename);
+                showToast(`Đã xuất file Excel thành công: ${filename}`, "success");
+            }).catch(err => {
+                console.error("XLSX By Subject error:", err);
+                alert("Lỗi xuất file Excel: " + err.message);
+            });
+        } else {
+            alert("Bộ tạo file Excel chưa sẵn sàng!");
+        }
+    }
+
     // Render Tab 2: Lịch Báo Giảng Tích Hợp (CTLOP)
     function renderTabCtlop() {
         renderWeekToolbar("ctlop-week-toolbar", () => {
@@ -1597,19 +2092,24 @@
         
         days.forEach(day => {
             const isAltDay = (day === "Thứ 2" || day === "Thứ 4" || day === "Thứ 6");
+            const dayDate = getDayFullDate(weekInfo.startDateVN, day);
             const daySlots = schedule.filter(s => s.day === day);
-            const morningSlots = daySlots.filter(s => s.session === "Sáng");
-            const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
-            const totalRows = daySlots.length;
+            const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const orderedDaySlots = [...morningSlots, ...afternoonSlots];
+            const totalRows = orderedDaySlots.length;
 
-            daySlots.forEach((slot, idx) => {
+            orderedDaySlots.forEach((slot, idx) => {
                 const tr = document.createElement("tr");
                 if (isAltDay) tr.classList.add("row-day-alt");
                 if (slot.isOff) tr.classList.add("row-empty-period");
 
                 let dayCellHtml = "";
                 if (idx === 0) {
-                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}">${day}</td>`;
+                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="line-height:1.35;">
+                        <div style="font-weight:700;">${day}</div>
+                        ${dayDate ? `<div style="font-size:0.78rem; font-weight:500; color:var(--text-muted); margin-top:2px;">${dayDate}</div>` : ''}
+                    </td>`;
                 }
 
                 let sessionCellHtml = "";
@@ -2338,7 +2838,7 @@
             filtered = filtered.filter(p => p.lessonName.toLowerCase().includes(searchTerm) || (p.integration && p.integration.toLowerCase().includes(searchTerm)));
         }
 
-        document.getElementById("ppct-count-badge").innerText = `${filtered.length} tiết (Tuần 1 - 35)`;
+        document.getElementById("ppct-count-badge").innerText = `${filtered.length} tiết`;
 
         const tbody = document.getElementById("ppct-table-body");
         tbody.innerHTML = "";
@@ -3037,7 +3537,7 @@
             return;
         }
 
-        state.subjectList = JSON.parse(JSON.stringify(DEFAULT_GRADE_5_SUBJECTS));
+        state.subjectList = getGradeDefaultSubjects(state.currentGrade);
         state.includedSubjects = state.subjectList.filter(s => s.isIncluded !== false).map(s => s.name);
 
         saveState();
@@ -3901,12 +4401,12 @@
             <table class="paper-table">
                 <thead>
                     <tr>
-                        <th style="width:${isCtlop ? (isLand ? '8%' : '10%') : (isLand ? '9%' : '12%')};">Thứ</th>
+                        <th style="width:${isCtlop ? (isLand ? '9%' : '11%') : (isLand ? '10%' : '13%')};">Thứ, ngày</th>
                         <th style="width:${isCtlop ? (isLand ? '6%' : '7%') : (isLand ? '7%' : '8%')};">Buổi</th>
                         <th style="width:${isCtlop ? (isLand ? '4%' : '5%') : (isLand ? '5%' : '6%')};">Tiết</th>
                         <th style="width:${isCtlop ? (isLand ? '16%' : '17%') : (isLand ? '19%' : '20%')};">Môn học</th>
                         <th style="width:${isCtlop ? (isLand ? '7%' : '8%') : (isLand ? '8%' : '10%')};">Tiết PPCT</th>
-                        <th style="width:${isCtlop ? (isLand ? '29%' : '30%') : (isLand ? '52%' : '44%')};">Tên bài dạy</th>
+                        <th style="width:${isCtlop ? (isLand ? '28%' : '29%') : (isLand ? '51%' : '43%')};">Tên bài dạy</th>
                         ${isCtlop ? `<th style="width:${isLand ? '30%' : '23%'};">Nội dung tích hợp / Điều chỉnh</th>` : ''}
                     </tr>
                 </thead>
@@ -3915,11 +4415,18 @@
 
         const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
         days.forEach(day => {
+            const dayDate = getDayFullDate(weekInfo.startDateVN, day);
             const daySlots = schedule.filter(s => s.day === day);
-            const morningSlots = daySlots.filter(s => s.session === "Sáng");
-            const afternoonSlots = daySlots.filter(s => s.session === "Chiều");
-            daySlots.forEach((slot, idx) => {
-                let dayCell = idx === 0 ? `<td rowspan="${daySlots.length}" style="text-align:center; font-weight:bold; vertical-align:middle;">${day}</td>` : "";
+            const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
+            const orderedDaySlots = [...morningSlots, ...afternoonSlots];
+            orderedDaySlots.forEach((slot, idx) => {
+                let dayCell = idx === 0 
+                    ? `<td rowspan="${orderedDaySlots.length}" style="text-align:center; font-weight:bold; vertical-align:middle; line-height:1.35;">
+                        <div>${day}</div>
+                        ${dayDate ? `<div style="font-size:8.5pt; font-weight:normal; color:#475569; margin-top:3px;">${dayDate}</div>` : ''}
+                       </td>` 
+                    : "";
                 let sessionCell = "";
                 if (idx === 0) sessionCell = `<td rowspan="${morningSlots.length}" style="text-align:center; vertical-align:middle;">Sáng</td>`;
                 else if (idx === morningSlots.length) sessionCell = `<td rowspan="${afternoonSlots.length}" style="text-align:center; vertical-align:middle;">Chiều</td>`;
@@ -3946,6 +4453,127 @@
                 `;
             });
         });
+
+        html += `
+                </tbody>
+            </table>
+
+            <div class="paper-footer">
+                <table class="paper-footer-table">
+                    <tr>
+                        <td style="width:33%; text-align:center;">
+                            <div style="font-size:12pt; font-weight:bold;">DUYỆT CỦA ${bghSigner.title}</div>
+                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
+                            <div style="height:65px;"></div>
+                            <div style="font-size:12pt; font-weight:bold;">${bghSigner.name}</div>
+                        </td>
+                        <td style="width:33%; text-align:center;">
+                            <div style="font-size:12pt; font-weight:bold;">KHỐI TRƯỞNG</div>
+                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
+                            <div style="height:65px;"></div>
+                            <div style="font-size:12pt; font-weight:bold;">${state.settings.headOfGrade || 'Trần Thị Mai'}</div>
+                        </td>
+                        <td style="width:34%; text-align:center;">
+                            <div style="font-size:12pt; font-weight:bold;">GIÁO VIÊN CHỦ NHIỆM</div>
+                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
+                            <div style="height:65px;"></div>
+                            <div style="font-size:12pt; font-weight:bold;">${state.settings.homeroomTeacher || 'Nguyễn Thị Thu Hà'}</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        `;
+        return html;
+    }
+
+    // VERSION 6.0: Single week paper page for Subject-wise schedule (HTML for Print & Preview)
+    function renderSingleWeekPaperBySubjectHtml(weekNum, isCtlop, customOrientation = null, filterSubject = "all", filterCategory = "all") {
+        const { weekInfo, subjectGroups, stats } = calculateWeekScheduleBySubject(weekNum, filterSubject, filterCategory);
+        const bghSigner = getBghSignerInfo();
+        const activeOrient = customOrientation || state.lbgMonOrientation || currentOrientation || "portrait";
+        const isLand = (activeOrient === "landscape");
+        const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
+        const paperClass = isLand ? "paper-page landscape" : "paper-page";
+
+        let titleStr = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+        if (filterSubject && filterSubject !== "all") {
+            titleStr = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
+        }
+
+        let html = `
+        <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
+            <div class="paper-header">
+                <table class="paper-header-table">
+                    <tr>
+                        <td style="width:${isLand ? '48%' : '50%'}; text-align:center;">
+                            <div style="font-size:12pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
+                            <div style="font-size:12pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
+                            <div style="font-size:12pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
+                        </td>
+                        <td style="width:${isLand ? '52%' : '50%'}; text-align:center;">
+                            <div style="font-size:12pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                            <div style="font-size:13pt; font-weight:bold; text-decoration:underline;">Độc lập - Tự do - Hạnh phúc</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="paper-title" style="font-size:15pt;">${titleStr}</div>
+            <div class="paper-subtitle">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
+
+            <table class="paper-table">
+                <thead>
+                    <tr>
+                        <th style="width:${isCtlop ? (isLand ? '14%' : '16%') : (isLand ? '18%' : '20%')};">Môn học</th>
+                        <th style="width:${isCtlop ? (isLand ? '10%' : '11%') : (isLand ? '12%' : '13%')};">Thứ / Ngày</th>
+                        <th style="width:${isCtlop ? (isLand ? '6%' : '7%') : (isLand ? '7%' : '8%')};">Buổi</th>
+                        <th style="width:${isCtlop ? (isLand ? '4%' : '5%') : (isLand ? '5%' : '6%')};">Tiết</th>
+                        <th style="width:${isCtlop ? (isLand ? '6%' : '7%') : (isLand ? '7%' : '8%')};">Tiết/tuần</th>
+                        <th style="width:${isCtlop ? (isLand ? '7%' : '8%') : (isLand ? '8%' : '9%')};">Tiết PPCT</th>
+                        <th style="width:${isCtlop ? (isLand ? '25%' : '24%') : (isLand ? '43%' : '36%')};">Tên bài dạy</th>
+                        ${isCtlop ? `<th style="width:${isLand ? '28%' : '22%'};">Nội dung tích hợp / Điều chỉnh</th>` : ''}
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        if (subjectGroups.length === 0) {
+            html += `
+                <tr>
+                    <td colspan="${isCtlop ? 8 : 7}" style="text-align:center; padding:20px; font-style:italic;">Không có tiết học nào phù hợp với bộ lọc đã chọn.</td>
+                </tr>
+            `;
+        } else {
+            subjectGroups.forEach(group => {
+                group.slots.forEach((slot, idx) => {
+                    const dayDateStr = getDayDateStr(weekInfo.startDateVN, slot.day);
+                    let subCell = idx === 0 ? `<td rowspan="${group.slots.length}" style="text-align:left; font-weight:bold; vertical-align:middle; background:#fafafa;">${escapeHtml(group.subjectName)}<br><small style="font-weight:normal; color:#475569;">(${group.slots.length} tiết)</small></td>` : '';
+
+                    let integrationCell = "";
+                    if (isCtlop) {
+                        const formattedInteg = escapeHtml(slot.integration || '')
+                            .replace(/(Lý tưởng cách mạng[^\:]*\:|Quyền con người[^\:]*\:|Tích hợp QCN[^\:]*\:|NLS[^\:]*\:|Năng lực số[^\:]*\:|Tích hợp NLS[^\:]*\:|AI[^\:]*\:|Tích hợp AI[^\:]*\:|BVMT[^\:]*\:|ANQP[^\:]*\:|QPAN[^\:]*\:|Tiết kiệm và bảo vệ nguồn nước[^\:]*\:|Đạo đức, lối sống[^\:]*\:)/g, '<br><strong>$1</strong>')
+                            .replace(/^<br>/, '')
+                            .replace(/\n/g, '<br>');
+                        integrationCell = `<td style="font-size:9pt; line-height:1.4; text-align:left; vertical-align:top;">${formattedInteg}</td>`;
+                    }
+
+                    html += `
+                        <tr>
+                            ${subCell}
+                            <td style="text-align:center; font-weight:bold; vertical-align:middle;">${dayDateStr}</td>
+                            <td style="text-align:center; vertical-align:middle;">${slot.session}</td>
+                            <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>
+                            <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.periodInWeek}</td>
+                            <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
+                            <td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>
+                            ${integrationCell}
+                        </tr>
+                    `;
+                });
+            });
+        }
 
         html += `
                 </tbody>
@@ -4032,8 +4660,27 @@
         }
     }
 
+    function exportBatchLbgBySubjectToDocxDirect(startWeek, endWeek, orientation = "portrait") {
+        if (window.DocxGenerator && window.DocxGenerator.generateBatchLbgBySubjectDocx) {
+            showToast(`Đang tạo file Word (${orientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) theo môn học từ Tuần ${startWeek} đến Tuần ${endWeek}...`, "info");
+            const isCtlop = (state.lbgMonShowIntegration !== false);
+            window.DocxGenerator.generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubject, state.settings, orientation, isCtlop, state.lbgMonFilterSubject, state.lbgMonFilterCategory).then(blob => {
+                const orientSuffix = orientation === "landscape" ? "_Kho_Ngang" : "";
+                const filename = `Lich_Bao_Giang_Theo_Mon_Tuan_${startWeek}_den_${endWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
+                saveAs(blob, filename);
+                showToast(`Đã xuất file Word nhiều tuần theo môn học thành công: ${filename}`, "success");
+            }).catch(err => {
+                console.error("Batch LBG By Subject DOCX error:", err);
+                alert("Lỗi xuất file Word: " + err.message);
+            });
+        } else {
+            alert("Bộ tạo file Word chưa sẵn sàng!");
+        }
+    }
+
     function exportBatchLbgToDocx() {
-        const isCtlop = document.querySelector('input[name="batch-doc-type"]:checked')?.value === 'ctlop';
+        const docType = document.querySelector('input[name="batch-doc-type"]:checked')?.value || 'lbg';
+        const isCtlop = docType === 'ctlop';
         const startWeek = parseInt(document.getElementById("batch-start-week").value) || 1;
         const endWeek = parseInt(document.getElementById("batch-end-week").value) || 35;
         const batchOrient = document.querySelector('input[name="batch-orientation"]:checked')?.value || currentOrientation || 'portrait';
@@ -4043,7 +4690,11 @@
             return;
         }
 
-        exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, batchOrient);
+        if (docType === 'lbg-mon') {
+            exportBatchLbgBySubjectToDocxDirect(startWeek, endWeek, batchOrient);
+        } else {
+            exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, batchOrient);
+        }
         closeBatchExportModal();
     }
 
@@ -4061,19 +4712,53 @@
         setAppOrientation(batchOrient);
 
         let allHtml = "";
+        const docType = document.querySelector('input[name="batch-doc-type"]:checked')?.value || 'lbg';
         for (let w = startWeek; w <= endWeek; w++) {
-            allHtml += renderSingleWeekPaperHtml(w, isCtlop, batchOrient);
+            if (docType === 'lbg-mon') {
+                allHtml += renderSingleWeekPaperBySubjectHtml(w, true, batchOrient, 'all', 'all');
+            } else {
+                allHtml += renderSingleWeekPaperHtml(w, isCtlop, batchOrient);
+            }
         }
 
         const docTitle = isCtlop ? "Lịch Báo Giảng Tích Hợp" : "Lịch Báo Giảng";
         closeBatchExportModal();
+        const exportBatchFn = (docType === 'lbg-mon')
+            ? () => exportBatchLbgBySubjectToDocxDirect(startWeek, endWeek, batchOrient)
+            : () => exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, batchOrient);
         openPreviewModal(
             `Xem trước ${docTitle} từ Tuần ${startWeek} đến Tuần ${endWeek} (${batchOrient === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
             allHtml,
-            () => exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, batchOrient),
+            exportBatchFn,
             null,
             () => printWithOrientation(batchOrient)
         );
+    }
+
+    // Global Tab Switching Helper Function
+    function switchActiveTab(targetTab) {
+        if (!targetTab) return;
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+        const btn = document.querySelector(`.tab-btn[data-tab="${targetTab}"]`);
+        if (btn) btn.classList.add("active");
+
+        state.currentTab = targetTab;
+        const targetEl = document.getElementById(targetTab);
+        if (targetEl) {
+            targetEl.classList.add("active");
+            try {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (e) {}
+        }
+
+        if (targetTab === "tab-lbg") renderTabLbg();
+        else if (targetTab === "tab-ctlop") renderTabCtlop();
+        else if (targetTab === "tab-lbg-mon") renderTabLbgMon();
+        else if (targetTab === "tab-lichtuan") renderTabLichtuan();
+        else if (targetTab === "tab-ppct") renderTabPpct();
+        else if (targetTab === "tab-settings") renderTabSettings();
     }
 
     // 7. App Initialization & Event Bindings
@@ -4082,21 +4767,20 @@
 
         document.querySelectorAll(".tab-btn").forEach(btn => {
             btn.addEventListener("click", () => {
-                document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-                document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
-
-                btn.classList.add("active");
                 const targetTab = btn.dataset.tab;
-                state.currentTab = targetTab;
-                document.getElementById(targetTab).classList.add("active");
-
-                if (targetTab === "tab-lbg") renderTabLbg();
-                else if (targetTab === "tab-ctlop") renderTabCtlop();
-                else if (targetTab === "tab-lichtuan") renderTabLichtuan();
-                else if (targetTab === "tab-ppct") renderTabPpct();
-                else if (targetTab === "tab-settings") renderTabSettings();
+                switchActiveTab(targetTab);
             });
         });
+
+        // Top Quick Access Buttons (Settings & Guide)
+        const btnTopSettings = document.getElementById("btn-top-settings");
+        if (btnTopSettings) {
+            btnTopSettings.addEventListener("click", () => switchActiveTab("tab-settings"));
+        }
+        const btnTopGuide = document.getElementById("btn-top-guide");
+        if (btnTopGuide) {
+            btnTopGuide.addEventListener("click", () => switchActiveTab("tab-guide"));
+        }
 
         // Tab 1 Actions & Orientation
         const btnOrientPort = document.getElementById("btn-orient-portrait");
@@ -4517,16 +5201,14 @@
         const btnResetMasterTt = document.getElementById("btn-reset-master-timetable");
         if (btnResetMasterTt) {
             btnResetMasterTt.addEventListener("click", () => {
-                if (confirm("Bạn có chắc chắn muốn khôi phục lại Thời khóa biểu gốc chuẩn 35 tiết mặc định không?")) {
-                    if (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.settings && window.APP_INITIAL_DATA.settings.timetable) {
-                        state.timetable = JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.settings.timetable));
-                        state.weeklyCustomSlots = {};
-                        saveState();
-                        renderMasterTimetableEditor();
-                        renderTabLbg();
-                        renderTabCtlop();
-                        showToast("Đã khôi phục Thời khóa biểu gốc chuẩn 35 tiết!", "success");
-                    }
+                if (confirm("Bạn có chắc chắn muốn khôi phục lại Thời khóa biểu gốc chuẩn mặc định cho " + (state.settings.grade || `Khối ${state.currentGrade}`) + " không?")) {
+                    state.timetable = getGradeDefaultTimetable(state.currentGrade);
+                    state.weeklyCustomSlots = {};
+                    saveState();
+                    renderMasterTimetableEditor();
+                    renderTabLbg();
+                    renderTabCtlop();
+                    showToast("Đã khôi phục Thời khóa biểu gốc chuẩn mặc định!", "success");
                 }
             });
         }
@@ -4534,7 +5216,7 @@
         document.getElementById("btn-save-settings").addEventListener("click", saveSettingsFromForm);
         document.getElementById("btn-backup-data").addEventListener("click", () => {
             const currentGradeKey = getStorageKey(state.currentGrade);
-            const rawData = localStorage.getItem(currentGradeKey) || localStorage.getItem(STORAGE_KEY);
+            const rawData = localStorage.getItem(currentGradeKey) || localStorage.getItem(STORAGE_KEY) || localStorage.getItem("LBG_APP_DATA_V6_G" + state.currentGrade) || localStorage.getItem("LBG_APP_DATA_V6");
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(rawData || "{}");
             const dlAnchor = document.createElement('a');
             dlAnchor.setAttribute("href", dataStr);
@@ -4609,6 +5291,64 @@
         const btnRenameSubSave = document.getElementById("modal-rename-save-btn");
         if (btnRenameSubSave) btnRenameSubSave.addEventListener("click", applyBulkRenameSubject);
 
+        // VERSION 6.0: Tab Báo Giảng Theo Môn Actions & Orientation
+        const btnOrientPortMon = document.getElementById("btn-orient-portrait-lbgmon");
+        const btnOrientLandMon = document.getElementById("btn-orient-landscape-lbgmon");
+        if (btnOrientPortMon) {
+            btnOrientPortMon.addEventListener("click", () => {
+                state.lbgMonOrientation = "portrait";
+                btnOrientPortMon.classList.add("active");
+                if (btnOrientLandMon) btnOrientLandMon.classList.remove("active");
+                renderTabLbgMon();
+            });
+        }
+        if (btnOrientLandMon) {
+            btnOrientLandMon.addEventListener("click", () => {
+                state.lbgMonOrientation = "landscape";
+                btnOrientLandMon.classList.add("active");
+                if (btnOrientPortMon) btnOrientPortMon.classList.remove("active");
+                renderTabLbgMon();
+            });
+        }
+
+        const btnLbgMonPreview = document.getElementById("btn-lbgmon-preview");
+        if (btnLbgMonPreview) btnLbgMonPreview.addEventListener("click", previewLbgMonA4);
+
+        const btnLbgMonDocx = document.getElementById("btn-lbgmon-docx");
+        if (btnLbgMonDocx) btnLbgMonDocx.addEventListener("click", exportLbgMonDocx);
+
+        const btnLbgMonExcel = document.getElementById("btn-lbgmon-excel");
+        if (btnLbgMonExcel) btnLbgMonExcel.addEventListener("click", exportLbgMonXlsx);
+
+        const btnLbgMonPrint = document.getElementById("btn-lbgmon-print");
+        if (btnLbgMonPrint) btnLbgMonPrint.addEventListener("click", () => {
+            previewLbgMonA4();
+        });
+
+        const btnLbgMonBatch = document.getElementById("btn-lbgmon-batch");
+        if (btnLbgMonBatch) btnLbgMonBatch.addEventListener("click", () => {
+            openBatchExportModal('lbg-mon');
+        });
+
+        // Quick Navigation buttons
+        document.querySelectorAll(".btn-nav-to-lbgmon").forEach(btn => {
+            btn.addEventListener("click", () => {
+                switchActiveTab("tab-lbg-mon");
+            });
+        });
+
+        document.querySelectorAll(".btn-nav-to-settings").forEach(btn => {
+            btn.addEventListener("click", () => {
+                switchActiveTab("tab-settings");
+            });
+        });
+
+        document.querySelectorAll(".btn-nav-to-guide").forEach(btn => {
+            btn.addEventListener("click", () => {
+                switchActiveTab("tab-guide");
+            });
+        });
+
         // Bulk Rename Modal Events (Tab 4 & General)
         const btnRenameBulk = document.getElementById("btn-rename-subject-bulk");
         if (btnRenameBulk) btnRenameBulk.addEventListener("click", openRenameSubjectModal);
@@ -4679,6 +5419,10 @@
         renderTabSettings();
         renderTabLichtuan();
         renderTabPpct();
+        // Expose functions for debugging / testing
+        window.calculateWeekSchedule = calculateWeekSchedule;
+        window.calculateWeekScheduleBySubject = calculateWeekScheduleBySubject;
+        window.renderTabLbgMon = renderTabLbgMon;
     }
 
     if (document.readyState === "loading") {
