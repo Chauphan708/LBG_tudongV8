@@ -561,10 +561,19 @@ body {
 
 .table-lbg .col-subject {
     width: 170px;
+    text-align: center;
+}
+
+.table-lbg .col-subject .subject-selector {
+    text-align: center;
+    text-align-last: center;
 }
 
 .table-lbg .col-lesson {
     min-width: 250px;
+    padding-top: 1pt;
+    padding-bottom: 1pt;
+    line-height: 1.35;
 }
 
 .table-lbg .col-integration {
@@ -804,7 +813,7 @@ body {
 .paper-title {
     text-align: center;
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 13pt;
     margin: 15px 0 5px 0;
     text-transform: uppercase;
 }
@@ -843,6 +852,12 @@ body {
     border: 1px solid #000000;
     padding: 5px 6px;
     vertical-align: middle;
+}
+
+.paper-table td.cell-lesson {
+    padding-top: 1pt !important;
+    padding-bottom: 1pt !important;
+    line-height: 1.35 !important;
 }
 
 .paper-footer {
@@ -1024,7 +1039,7 @@ body {
     .paper-title {
         text-align: center !important;
         font-weight: bold !important;
-        font-size: 14pt !important;
+        font-size: 13pt !important;
         margin-top: 6px !important;
         margin-bottom: 2px !important;
         text-transform: uppercase !important;
@@ -1033,7 +1048,7 @@ body {
     .paper-subtitle {
         text-align: center !important;
         font-style: italic !important;
-        font-size: 11pt !important;
+        font-size: 13pt !important;
         margin-bottom: 12px !important;
     }
 
@@ -1050,6 +1065,12 @@ body {
         color: #000000 !important;
         padding: 4px 6px !important;
         vertical-align: middle !important;
+    }
+
+    .paper-table td.cell-lesson {
+        padding-top: 1pt !important;
+        padding-bottom: 1pt !important;
+        line-height: 1.35 !important;
     }
 
     .paper-table th {

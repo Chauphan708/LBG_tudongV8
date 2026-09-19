@@ -59,7 +59,15 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
             khắc phục triệt để hiện tượng chữ xanh trên nền xanh khó đọc.
           + Nhãn phiên bản V8 đồng bộ nổi bật, sắc nét trên toàn bộ các thanh tiêu đề và tài liệu hướng dẫn.
 
-   🌟 5. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
+   🌟 5. TINH CHỈNH ĐỒNG BỘ BẢNG BIỂU (CANH GIỮA MÔN HỌC, SIZE 13 TIÊU ĐỀ & QUỐC HIỆU, KHOẢNG CÁCH BÀI DẠY 1PT):
+      - Cột Môn học: Được tự động canh giữa (center) cân đối, thanh lịch trên cả giao diện web, bản in A4,
+        tệp Word (.docx) và tệp Excel (.xlsx).
+      - Tiêu đề & Quốc ngữ: Chuẩn hóa đồng bộ cỡ chữ 13pt cho Tiêu đề lịch báo giảng, phần Quốc hiệu - Tiêu ngữ
+        và thông tin cơ quan ban hành theo chuẩn văn bản hành chính Nghị định 30/2020/NĐ-CP.
+      - Tên bài học / Tên bài dạy: Tinh chỉnh khoảng cách lề trên và dưới chữ với đường viền dòng chuẩn ~1pt
+        (padding 1pt / 20 dxa), giúp dòng chữ thoáng đãng, sắc nét, dễ nhìn và không bị dính sát mép dòng kẻ.
+
+   🌟 6. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
       - Cột "Thứ, ngày" tự động hiển thị ngày tháng năm dưới tên thứ chính xác cho từng tuần.
       - Tùy chọn ẩn/hiện cột "Kí tên" và "Ghi chú".
       - Tùy chọn ẩn/hiện chữ ký phê duyệt (BGH, GVCN, Khối trưởng).

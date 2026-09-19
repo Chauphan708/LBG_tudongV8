@@ -81,8 +81,8 @@ window.XlsxGenerator = (function() {
         <font><name val="Times New Roman"/><sz val="13"/><b/><color rgb="FF000000"/></font>
         <!-- 2: Times New Roman 13pt Bold Underline -->
         <font><name val="Times New Roman"/><sz val="13"/><b/><u/><color rgb="FF000000"/></font>
-        <!-- 3: Times New Roman 16pt Bold -->
-        <font><name val="Times New Roman"/><sz val="16"/><b/><color rgb="FF000000"/></font>
+        <!-- 3: Times New Roman 13pt Bold -->
+        <font><name val="Times New Roman"/><sz val="13"/><b/><color rgb="FF000000"/></font>
         <!-- 4: Times New Roman 13pt Italic -->
         <font><name val="Times New Roman"/><sz val="13"/><i/><color rgb="FF000000"/></font>
         <!-- 5: Times New Roman 13pt Regular -->
@@ -126,7 +126,7 @@ window.XlsxGenerator = (function() {
         <xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
         <!-- 5: Header Slogan (Bold, Underline, Center) -->
         <xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
-        <!-- 6: Title Main (14pt Bold, Center) -->
+        <!-- 6: Title Main (13pt Bold, Center) -->
         <xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
         <!-- 7: Subtitle (Italic, Center) -->
         <xf numFmtId="0" fontId="4" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
@@ -138,8 +138,8 @@ window.XlsxGenerator = (function() {
         <xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
         <!-- 11: Table Period (Bold, Border, Center H/V) -->
         <xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
-        <!-- 12: Table Subject (Bold, Border, Left H, Center V, Wrap) -->
-        <xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center" wrapText="1"/></xf>
+        <!-- 12: Table Subject (Bold, Border, Center H, Center V, Wrap) -->
+        <xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>
         <!-- 13: Table PPCT (Bold, Border, Center H/V) -->
         <xf numFmtId="0" fontId="1" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>
         <!-- 14: Table Lesson (Border, Left H, Center V, Wrap) -->

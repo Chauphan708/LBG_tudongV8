@@ -2046,8 +2046,8 @@
                         rowHtml += `<td class="col-period">${slot.period}</td>`;
                     } else if (col.key === 'subject') {
                         rowHtml += `
-                            <td class="col-subject">
-                                <select class="form-select form-select-sm subject-selector" data-key="${slot.key}">
+                            <td class="col-subject" style="text-align:center;">
+                                <select class="form-select form-select-sm subject-selector" data-key="${slot.key}" style="text-align:center; text-align-last:center;">
                                     ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
                                 </select>
                             </td>
@@ -2055,7 +2055,7 @@
                     } else if (col.key === 'ppct') {
                         rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName">${slot.lessonName}</td>`;
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${slot.lessonName}</td>`;
                     } else if (col.key === 'sign') {
                         rowHtml += `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>`;
                     } else if (col.key === 'note') {
@@ -2268,7 +2268,7 @@
                     let subjectCellHtml = "";
                     if (idx === 0) {
                         subjectCellHtml = `
-                            <td rowspan="${group.slots.length}" class="col-subject-header" style="vertical-align: middle; text-align: left; font-weight: 700; background: #f8fafc; border-right: 2px solid #cbd5e1; padding: 0.75rem 0.6rem;">
+                            <td rowspan="${group.slots.length}" class="col-subject-header" style="vertical-align: middle; text-align: center; font-weight: 700; background: #f8fafc; border-right: 2px solid #cbd5e1; padding: 0.75rem 0.6rem;">
                                 <div style="font-size: 0.98rem; font-weight: 800; color: var(--primary);">${escapeHtml(group.subjectName)}</div>
                                 <div style="font-size: 0.8rem; color: #475569; font-weight: 600; margin-top: 2px;">Tổng: ${group.slots.length} tiết/tuần</div>
                                 <span class="badge-cat ${badgeClass}" style="margin-top: 4px; font-size: 0.72rem; display: inline-block;">${badgeText}</span>
@@ -2294,7 +2294,7 @@
                         <td class="col-period" style="vertical-align: middle; font-weight: 700;">${slot.period}</td>
                         <td style="text-align: center; font-weight: 700; color: var(--primary); vertical-align: middle;">Tiết ${slot.periodInWeek}</td>
                         <td class="col-ppct editable-cell" contenteditable="true" data-key="${slot.key}" data-field="ppct" style="vertical-align: middle; font-weight: 700;">${slot.ppct}</td>
-                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left;">${escapeHtml(slot.lessonName || '')}</td>
+                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left; padding-top: 1pt; padding-bottom: 1pt; line-height: 1.35;">${escapeHtml(slot.lessonName || '')}</td>
                         ${integrationCellHtml}
                         <td class="no-print" style="text-align: center; vertical-align: middle;">
                             <button type="button" class="btn-row-action btn-clear-mon-slot" data-key="${slot.key}" title="Xóa nội dung tiết này">✕</button>
@@ -2480,13 +2480,13 @@
                     ${dayCellHtml}
                     ${sessionCellHtml}
                     <td class="col-period">${slot.period}</td>
-                    <td class="col-subject">
-                        <select class="form-select form-select-sm subject-selector" data-key="${slot.key}">
+                    <td class="col-subject" style="text-align:center;">
+                        <select class="form-select form-select-sm subject-selector" data-key="${slot.key}" style="text-align:center; text-align-last:center;">
                             ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
                         </select>
                     </td>
                     <td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>
-                    <td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName">${slot.lessonName}</td>
+                    <td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${slot.lessonName}</td>
                     <td class="col-integration editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="integration" style="line-height:1.45;">${escapeHtml(slot.integration || '').replace(/\n/g, '<br>')}</td>
                     <td class="no-print" style="text-align: center;">
                         <div class="row-actions-group">
@@ -4875,20 +4875,20 @@
                 <table class="paper-header-table">
                     <tr>
                         <td style="width:${isLand ? '48%' : '50%'}; text-align:center;">
-                            <div style="font-size:12pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
-                            <div style="font-size:12pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
-                            <div style="font-size:12pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
+                            <div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
+                            <div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
+                            <div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
                         </td>
                         <td style="width:${isLand ? '52%' : '50%'}; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                            <div style="font-size:13pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
                             <div style="font-size:13pt; font-weight:bold; text-decoration:underline;">Độc lập - Tự do - Hạnh phúc</div>
                         </td>
                     </tr>
                 </table>
             </div>
 
-            <div class="paper-title" style="font-size:15pt;">${isCtlop ? 'LỊCH BÁO GIẢNG TÍCH HỢP' : 'LỊCH BÁO GIẢNG'} TUẦN ${weekNum}</div>
-            <div class="paper-subtitle">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
+            <div class="paper-title" style="font-size:13pt;">${isCtlop ? 'LỊCH BÁO GIẢNG TÍCH HỢP' : 'LỊCH BÁO GIẢNG'} TUẦN ${weekNum}</div>
+            <div class="paper-subtitle" style="font-size:13pt;">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
 
             <table class="paper-table">
                 <thead>
@@ -4935,11 +4935,11 @@
                     } else if (col.key === 'period') {
                         rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>`;
                     } else if (col.key === 'subject') {
-                        rowCellsHtml += `<td style="font-weight:bold; text-align:left; vertical-align:middle;">${escapeHtml(slot.subject)}</td>`;
+                        rowCellsHtml += `<td style="font-weight:bold; text-align:center; vertical-align:middle;">${escapeHtml(slot.subject)}</td>`;
                     } else if (col.key === 'ppct') {
                         rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowCellsHtml += `<td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>`;
+                        rowCellsHtml += `<td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>`;
                     } else if (col.key === 'integ') {
                         rowCellsHtml += integrationCell;
                     } else if (col.key === 'sign') {
@@ -5041,20 +5041,20 @@
                 <table class="paper-header-table">
                     <tr>
                         <td style="width:${isLand ? '48%' : '50%'}; text-align:center;">
-                            <div style="font-size:12pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
-                            <div style="font-size:12pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
-                            <div style="font-size:12pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
+                            <div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
+                            <div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
+                            <div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
                         </td>
                         <td style="width:${isLand ? '52%' : '50%'}; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                            <div style="font-size:13pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
                             <div style="font-size:13pt; font-weight:bold; text-decoration:underline;">Độc lập - Tự do - Hạnh phúc</div>
                         </td>
                     </tr>
                 </table>
             </div>
 
-            <div class="paper-title" style="font-size:15pt;">${titleStr}</div>
-            <div class="paper-subtitle">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
+            <div class="paper-title" style="font-size:13pt;">${titleStr}</div>
+            <div class="paper-subtitle" style="font-size:13pt;">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
 
             <table class="paper-table">
                 <thead>
@@ -5082,7 +5082,7 @@
             subjectGroups.forEach(group => {
                 group.slots.forEach((slot, idx) => {
                     const dayDateStr = getDayDateStr(weekInfo.startDateVN, slot.day);
-                    let subCell = idx === 0 ? `<td rowspan="${group.slots.length}" style="text-align:left; font-weight:bold; vertical-align:middle; background:#fafafa;">${escapeHtml(group.subjectName)}<br><small style="font-weight:normal; color:#475569;">(${group.slots.length} tiết)</small></td>` : '';
+                    let subCell = idx === 0 ? `<td rowspan="${group.slots.length}" style="text-align:center; font-weight:bold; vertical-align:middle; background:#fafafa;">${escapeHtml(group.subjectName)}<br><small style="font-weight:normal; color:#475569;">(${group.slots.length} tiết)</small></td>` : '';
 
                     let integrationCell = "";
                     if (isCtlop) {
@@ -5101,7 +5101,7 @@
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.periodInWeek}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
-                            <td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>
+                            <td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>
                             ${integrationCell}
                         </tr>
                     `;
