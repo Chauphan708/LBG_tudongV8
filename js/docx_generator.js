@@ -721,6 +721,178 @@ window.DocxGenerator = (function() {
         return `${dStr}/${mStr}/${yStr}`;
     }
 
+    function getDocxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop, isLandscape) {
+        const enabledCustomCols = Array.isArray(customColsList) 
+            ? customColsList.filter(c => c && c.enabled !== false) 
+            : [];
+        
+        const cols = [];
+        
+        const pushCustom = (pos) => {
+            enabledCustomCols.filter(c => String(c.pos) === String(pos)).forEach(c => {
+                cols.push({
+                    key: 'custom_' + c.id,
+                    id: c.id,
+                    title: c.name || 'Cột mới',
+                    isCustom: true,
+                    pos: c.pos
+                });
+            });
+        };
+
+        // Pos 1: before day (Cột đầu tiên)
+        pushCustom('1');
+
+        // Day
+        cols.push({ key: 'day', title: 'Thứ, ngày', isCustom: false });
+
+        // Pos 2: after day
+        pushCustom('2');
+
+        // Session
+        cols.push({ key: 'session', title: 'Buổi', isCustom: false });
+
+        // Pos 3: after session
+        pushCustom('3');
+
+        // Period
+        cols.push({ key: 'period', title: 'Tiết', isCustom: false });
+
+        // Pos 4: after period
+        pushCustom('4');
+
+        // Subject
+        cols.push({ key: 'subject', title: 'Môn học', isCustom: false });
+
+        // Pos 5: after subject
+        pushCustom('5');
+
+        // PPCT
+        cols.push({ key: 'ppct', title: 'Tiết PPCT', isCustom: false });
+
+        // Pos 6: after ppct
+        pushCustom('6');
+
+        // Lesson
+        cols.push({ key: 'lesson', title: 'Tên bài dạy', isCustom: false });
+
+        // Pos 7: after lesson
+        pushCustom('7');
+
+        if (isCtlop) {
+            cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false });
+        }
+        if (showSign) {
+            cols.push({ key: 'sign', title: 'Kí tên', isCustom: false });
+        }
+        if (showNote) {
+            cols.push({ key: 'note', title: 'Ghi chú', isCustom: false });
+        }
+
+        // Pos end: at the end of table
+        enabledCustomCols.filter(c => !['1', '2', '3', '4', '5', '6', '7'].includes(String(c.pos))).forEach(c => {
+            cols.push({
+                key: 'custom_' + c.id,
+                id: c.id,
+                title: c.name || 'Cột mới',
+                isCustom: true,
+                pos: c.pos || 'end'
+            });
+        });
+
+        const customCount = enabledCustomCols.length;
+        if (isLandscape) {
+            if (isCtlop) {
+                cols.forEach(col => {
+                    if (col.key === 'day') col.width = 1300;
+                    else if (col.key === 'session') col.width = 850;
+                    else if (col.key === 'period') col.width = 600;
+                    else if (col.key === 'subject') col.width = 2400;
+                    else if (col.key === 'ppct') col.width = 1000;
+                    else if (col.key === 'lesson') col.width = 4100;
+                    else if (col.key === 'integ') col.width = 4320;
+                });
+            } else {
+                const wBase = {
+                    day: 1450,
+                    session: 950,
+                    period: 650,
+                    subject: 2600,
+                    ppct: 1100,
+                    sign: 1200,
+                    note: 1800
+                };
+                let wCustomEach = 1600;
+                if (customCount >= 3) wCustomEach = 1200;
+                else if (customCount === 2) wCustomEach = 1400;
+
+                let used = wBase.day + wBase.session + wBase.period + wBase.subject + wBase.ppct;
+                if (showSign) used += wBase.sign;
+                if (showNote) used += wBase.note;
+                used += (customCount * wCustomEach);
+                const wLesson = Math.max(3000, 14570 - used);
+
+                cols.forEach(col => {
+                    if (col.key === 'day') col.width = wBase.day;
+                    else if (col.key === 'session') col.width = wBase.session;
+                    else if (col.key === 'period') col.width = wBase.period;
+                    else if (col.key === 'subject') col.width = wBase.subject;
+                    else if (col.key === 'ppct') col.width = wBase.ppct;
+                    else if (col.key === 'lesson') col.width = wLesson;
+                    else if (col.key === 'sign') col.width = wBase.sign;
+                    else if (col.key === 'note') col.width = wBase.note;
+                    else if (col.isCustom) col.width = wCustomEach;
+                });
+            }
+        } else {
+            // Portrait
+            if (isCtlop) {
+                cols.forEach(col => {
+                    if (col.key === 'day') col.width = 1050;
+                    else if (col.key === 'session') col.width = 700;
+                    else if (col.key === 'period') col.width = 500;
+                    else if (col.key === 'subject') col.width = 1600;
+                    else if (col.key === 'ppct') col.width = 750;
+                    else if (col.key === 'lesson') col.width = 2550;
+                    else if (col.key === 'integ') col.width = 2450;
+                });
+            } else {
+                const wBase = {
+                    day: 1150,
+                    session: 750,
+                    period: 550,
+                    subject: 1800,
+                    ppct: 750,
+                    sign: 800,
+                    note: 1300
+                };
+                let wCustomEach = 1300;
+                if (customCount >= 3) wCustomEach = 900;
+                else if (customCount === 2) wCustomEach = 1100;
+
+                let used = wBase.day + wBase.session + wBase.period + wBase.subject + wBase.ppct;
+                if (showSign) used += wBase.sign;
+                if (showNote) used += wBase.note;
+                used += (customCount * wCustomEach);
+                const wLesson = Math.max(2200, 9600 - used);
+
+                cols.forEach(col => {
+                    if (col.key === 'day') col.width = wBase.day;
+                    else if (col.key === 'session') col.width = wBase.session;
+                    else if (col.key === 'period') col.width = wBase.period;
+                    else if (col.key === 'subject') col.width = wBase.subject;
+                    else if (col.key === 'ppct') col.width = wBase.ppct;
+                    else if (col.key === 'lesson') col.width = wLesson;
+                    else if (col.key === 'sign') col.width = wBase.sign;
+                    else if (col.key === 'note') col.width = wBase.note;
+                    else if (col.isCustom) col.width = wCustomEach;
+                });
+            }
+        }
+
+        return cols;
+    }
+
     function generateLbgDocx(isCtlop, weekNum, weekInfo, schedule, settings, stats, orientation = "portrait", options = {}) {
         const zip = new JSZip();
 
@@ -796,66 +968,29 @@ window.DocxGenerator = (function() {
 
         const showColSign = !isCtlop && !!(options && options.showColSign);
         const showColNote = !isCtlop && !!(options && options.showColNote);
-        const showColCustom = !isCtlop && !!(options && options.showColCustom);
-        const colCustomName = (options && options.colCustomName) ? options.colCustomName : "Ghi chú";
+        let customCols = [];
+        if (!isCtlop) {
+            if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
+                customCols = options.customCols;
+            } else if (options && options.showColCustom) {
+                customCols = [{
+                    id: 'col_1',
+                    name: options.colCustomName || "Ghi chú",
+                    pos: options.colCustomPos || "end",
+                    enabled: true
+                }];
+            }
+        }
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
 
-        let colWidths = [];
-        let headers = [];
+        const orderedCols = isCtlop
+            ? getDocxLbgOrderedColumns([], false, false, true, isLandscape)
+            : getDocxLbgOrderedColumns(customCols, showColSign, showColNote, false, isLandscape);
 
-        if (isCtlop) {
-            colWidths = isLandscape
-                ? [1300, 850, 600, 2400, 1000, 4350, 4500]
-                : [1050, 700, 500, 1600, 750, 2550, 2450];
-            headers = ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"];
-        } else {
-            headers = ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
-            if (isLandscape) {
-                let wLesson = 7950;
-                let wSign = 1300;
-                let wNote = 2000;
-                let wCustom = 2000;
-                if (showColSign) wLesson -= wSign;
-                if (showColNote) wLesson -= wNote;
-                if (showColCustom) wLesson -= wCustom;
-                colWidths = [1450, 950, 650, 2800, 1200, wLesson];
-                if (showColSign) {
-                    headers.push("Kí tên");
-                    colWidths.push(wSign);
-                }
-                if (showColNote) {
-                    headers.push("Ghi chú");
-                    colWidths.push(wNote);
-                }
-                if (showColCustom) {
-                    headers.push(colCustomName);
-                    colWidths.push(wCustom);
-                }
-            } else {
-                let wLesson = 4450;
-                let wSign = 850;
-                let wNote = 1400;
-                let wCustom = 1400;
-                if (showColSign) wLesson -= wSign;
-                if (showColNote) wLesson -= wNote;
-                if (showColCustom) wLesson -= wCustom;
-                colWidths = [1150, 750, 550, 1900, 800, wLesson];
-                if (showColSign) {
-                    headers.push("Kí tên");
-                    colWidths.push(wSign);
-                }
-                if (showColNote) {
-                    headers.push("Ghi chú");
-                    colWidths.push(wNote);
-                }
-                if (showColCustom) {
-                    headers.push(colCustomName);
-                    colWidths.push(wCustom);
-                }
-            }
-        }
+        const colWidths = orderedCols.map(c => c.width);
+        const headers = orderedCols.map(c => c.title);
 
         docBody += `
         <w:tbl>
@@ -898,58 +1033,79 @@ window.DocxGenerator = (function() {
                 const isDayStart = (idx === 0);
                 const isMornStart = (idx === 0 && morningSlots.length > 0);
                 const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
-                let dayCellXml = isDayStart
-                    ? `<w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
-                        </w:p>
-                        ${dayDate ? `
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/><w:szCs w:val="22"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
-                        </w:p>` : ''}
-                       </w:tc>`
-                    : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
 
-                let sessCellXml = (isMornStart || isAftStart)
-                    ? `<w:tc><w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isMornStart ? 'Sáng' : 'Chiều'}</w:t></w:r></w:p></w:tc>`
-                    : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
-
-                let signCellXml = showColSign ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 1300 : 850}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>` : '';
-                let noteCellXml = showColNote ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 2000 : 1400}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.note || '')}</w:t></w:r></w:p></w:tc>` : '';
-                let customCellXml = showColCustom ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 2000 : 1400}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.customCol || slot.note || '')}</w:t></w:r></w:p></w:tc>` : '';
+                let rowCellsXml = "";
+                orderedCols.forEach(col => {
+                    if (col.key === 'day') {
+                        rowCellsXml += isDayStart
+                            ? `<w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p>
+                                    <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
+                                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
+                                </w:p>
+                                ${dayDate ? `
+                                <w:p>
+                                    <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/><w:szCs w:val="22"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
+                                </w:p>` : ''}
+                               </w:tc>`
+                            : `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                    } else if (col.key === 'session') {
+                        rowCellsXml += (isMornStart || isAftStart)
+                            ? `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isMornStart ? 'Sáng' : 'Chiều'}</w:t></w:r></w:p></w:tc>`
+                            : `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                    } else if (col.key === 'period') {
+                        rowCellsXml += `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${slot.period}</w:t></w:r></w:p>
+                        </w:tc>`;
+                    } else if (col.key === 'subject') {
+                        rowCellsXml += `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.subject)}</w:t></w:r></w:p>
+                        </w:tc>`;
+                    } else if (col.key === 'ppct') {
+                        rowCellsXml += `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
+                        </w:tc>`;
+                    } else if (col.key === 'lesson') {
+                        rowCellsXml += `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                        </w:tc>`;
+                    } else if (col.key === 'integ') {
+                        rowCellsXml += `
+                        <w:tc>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                            ${formatIntegrationXml(slot.integration)}
+                        </w:tc>`;
+                    } else if (col.key === 'sign') {
+                        rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                    } else if (col.key === 'note') {
+                        rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.note || '')}</w:t></w:r></w:p></w:tc>`;
+                    } else if (col.isCustom) {
+                        let val = "";
+                        if (slot.customCols && slot.customCols[col.id] !== undefined) {
+                            val = slot.customCols[col.id];
+                        } else if (slot[`customCol_${col.id}`] !== undefined) {
+                            val = slot[`customCol_${col.id}`];
+                        } else if (col.id === 'col_1') {
+                            val = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
+                        }
+                        rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(val || '')}</w:t></w:r></w:p></w:tc>`;
+                    }
+                });
 
                 docBody += `
                 <w:tr>
                     <w:trPr><w:cantSplit/></w:trPr>
-                    ${dayCellXml}
-                    ${sessCellXml}
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[2]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${slot.period}</w:t></w:r></w:p>
-                    </w:tc>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[3]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                        <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.subject)}</w:t></w:r></w:p>
-                    </w:tc>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[4]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                        <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
-                    </w:tc>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[5]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                        <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
-                    </w:tc>
-                    ${isCtlop ? `
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                        ${formatIntegrationXml(slot.integration)}
-                    </w:tc>` : ''}
-                    ${signCellXml}
-                    ${noteCellXml}
-                    ${customCellXml}
+                    ${rowCellsXml}
                 </w:tr>
                 `;
             });
@@ -1045,66 +1201,29 @@ window.DocxGenerator = (function() {
 
         const showColSign = !isCtlop && !!(options && options.showColSign);
         const showColNote = !isCtlop && !!(options && options.showColNote);
-        const showColCustom = !isCtlop && !!(options && options.showColCustom);
-        const colCustomName = (options && options.colCustomName) ? options.colCustomName : "Ghi chú";
+        let customCols = [];
+        if (!isCtlop) {
+            if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
+                customCols = options.customCols;
+            } else if (options && options.showColCustom) {
+                customCols = [{
+                    id: 'col_1',
+                    name: options.colCustomName || "Ghi chú",
+                    pos: options.colCustomPos || "end",
+                    enabled: true
+                }];
+            }
+        }
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
 
-        let colWidths = [];
-        let headers = [];
+        const orderedCols = isCtlop
+            ? getDocxLbgOrderedColumns([], false, false, true, isLandscape)
+            : getDocxLbgOrderedColumns(customCols, showColSign, showColNote, false, isLandscape);
 
-        if (isCtlop) {
-            colWidths = isLandscape
-                ? [1300, 850, 600, 2400, 1000, 4350, 4500]
-                : [1050, 700, 500, 1600, 750, 2550, 2450];
-            headers = ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"];
-        } else {
-            headers = ["Thứ, ngày", "Buổi", "Tiết", "Môn học", "Tiết PPCT", "Tên bài dạy"];
-            if (isLandscape) {
-                let wLesson = 7950;
-                let wSign = 1300;
-                let wNote = 2000;
-                let wCustom = 2000;
-                if (showColSign) wLesson -= wSign;
-                if (showColNote) wLesson -= wNote;
-                if (showColCustom) wLesson -= wCustom;
-                colWidths = [1450, 950, 650, 2800, 1200, wLesson];
-                if (showColSign) {
-                    headers.push("Kí tên");
-                    colWidths.push(wSign);
-                }
-                if (showColNote) {
-                    headers.push("Ghi chú");
-                    colWidths.push(wNote);
-                }
-                if (showColCustom) {
-                    headers.push(colCustomName);
-                    colWidths.push(wCustom);
-                }
-            } else {
-                let wLesson = 4450;
-                let wSign = 850;
-                let wNote = 1400;
-                let wCustom = 1400;
-                if (showColSign) wLesson -= wSign;
-                if (showColNote) wLesson -= wNote;
-                if (showColCustom) wLesson -= wCustom;
-                colWidths = [1150, 750, 550, 1900, 800, wLesson];
-                if (showColSign) {
-                    headers.push("Kí tên");
-                    colWidths.push(wSign);
-                }
-                if (showColNote) {
-                    headers.push("Ghi chú");
-                    colWidths.push(wNote);
-                }
-                if (showColCustom) {
-                    headers.push(colCustomName);
-                    colWidths.push(wCustom);
-                }
-            }
-        }
+        const colWidths = orderedCols.map(c => c.width);
+        const headers = orderedCols.map(c => c.title);
 
         let docBody = "";
 
@@ -1207,58 +1326,78 @@ window.DocxGenerator = (function() {
                     const isMornStart = (idx === 0 && morningSlots.length > 0);
                     const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
 
-                    let dayCellXml = isDayStart
-                        ? `<w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p>
-                                <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
-                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
-                            </w:p>
-                            ${dayDate ? `
-                            <w:p>
-                                <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
-                                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/><w:szCs w:val="22"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
-                            </w:p>` : ''}
-                           </w:tc>`
-                        : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[0]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
-
-                    let sessCellXml = (isMornStart || isAftStart)
-                        ? `<w:tc><w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isMornStart ? 'Sáng' : 'Chiều'}</w:t></w:r></w:p></w:tc>`
-                        : `<w:tc><w:tcPr><w:tcW w:w="${colWidths[1]}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
-
-                    let signCellXml = showColSign ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 1300 : 850}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>` : '';
-                    let noteCellXml = showColNote ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 2000 : 1400}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.note || '')}</w:t></w:r></w:p></w:tc>` : '';
-                    let customCellXml = showColCustom ? `<w:tc><w:tcPr><w:tcW w:w="${isLandscape ? 2000 : 1400}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.customCol || slot.note || '')}</w:t></w:r></w:p></w:tc>` : '';
+                    let rowCellsXml = "";
+                    orderedCols.forEach(col => {
+                        if (col.key === 'day') {
+                            rowCellsXml += isDayStart
+                                ? `<w:tc>
+                                    <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr>
+                                    <w:p>
+                                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="${dayDate ? '20' : '0'}"/></w:pPr>
+                                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(day)}</w:t></w:r>
+                                    </w:p>
+                                    ${dayDate ? `
+                                    <w:p>
+                                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="200" w:after="0"/></w:pPr>
+                                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="22"/><w:szCs w:val="22"/><w:color w:val="333333"/></w:rPr><w:t>${escapeXml(dayDate)}</w:t></w:r>
+                                    </w:p>` : ''}
+                                   </w:tc>`
+                                : `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                        } else if (col.key === 'session') {
+                            rowCellsXml += (isMornStart || isAftStart)
+                                ? `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge w:val="restart"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isMornStart ? 'Sáng' : 'Chiều'}</w:t></w:r></w:p></w:tc>`
+                                : `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vMerge/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                        } else if (col.key === 'period') {
+                            rowCellsXml += `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${slot.period}</w:t></w:r></w:p>
+                            </w:tc>`;
+                        } else if (col.key === 'subject') {
+                            rowCellsXml += `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.subject)}</w:t></w:r></w:p>
+                            </w:tc>`;
+                        } else if (col.key === 'ppct') {
+                            rowCellsXml += `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
+                            </w:tc>`;
+                        } else if (col.key === 'lesson') {
+                            rowCellsXml += `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            </w:tc>`;
+                        } else if (col.key === 'integ') {
+                            rowCellsXml += `
+                            <w:tc>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                                ${formatIntegrationXml(slot.integration)}
+                            </w:tc>`;
+                        } else if (col.key === 'sign') {
+                            rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr></w:p></w:tc>`;
+                        } else if (col.key === 'note') {
+                            rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.note || '')}</w:t></w:r></w:p></w:tc>`;
+                        } else if (col.isCustom) {
+                            let val = "";
+                            if (slot.customCols && slot.customCols[col.id] !== undefined) {
+                                val = slot.customCols[col.id];
+                            } else if (slot[`customCol_${col.id}`] !== undefined) {
+                                val = slot[`customCol_${col.id}`];
+                            } else if (col.id === 'col_1') {
+                                val = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
+                            }
+                            rowCellsXml += `<w:tc><w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="200" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(val || '')}</w:t></w:r></w:p></w:tc>`;
+                        }
+                    });
 
                     docBody += `
                     <w:tr>
                         <w:trPr><w:cantSplit/></w:trPr>
-                        ${dayCellXml}
-                        ${sessCellXml}
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[2]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${slot.period}</w:t></w:r></w:p>
-                        </w:tc>
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[3]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.subject)}</w:t></w:r></w:p>
-                        </w:tc>
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[4]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
-                        </w:tc>
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[5]}" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
-                        </w:tc>
-                        ${isCtlop ? `
-                        <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                            ${formatIntegrationXml(slot.integration)}
-                        </w:tc>` : ''}
-                        ${signCellXml}
-                        ${noteCellXml}
-                        ${customCellXml}
+                        ${rowCellsXml}
                     </w:tr>
                     `;
                 });

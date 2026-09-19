@@ -29,21 +29,35 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
           + File Thời Khóa Biểu (.docx, .xlsx)
       - Chữ in ra to rõ, chuẩn mực, dễ đọc và đáp ứng đầy đủ tiêu chí hồ sơ kiểm tra của Phòng/Sở GD&ĐT.
 
-   🌟 3. TÙY CHỌN THÊM CỘT TÙY BIẾN VÀ TỰ ĐIỀU CHỈNH TÊN CỘT:
-      - Bổ sung tùy chọn checkbox: "[x] Thêm cột tùy chỉnh" đi kèm ô nhập tên cột ngay bên cạnh.
-      - Thầy/cô có thể tự do thay đổi tiêu đề cột theo nhu cầu thực tế của trường mình, ví dụ:
-        "Nhận xét", "Ghi chú", "ĐDDH", "Thiết bị", "Học liệu", "Địa điểm dạy học",...
-      - Tự động đồng bộ tên cột và dữ liệu nhập trực tiếp trên màn hình sang:
+   🌟 3. TÙY CHỌN THÊM NHIỀU CỘT VÀ TỰ ĐIỀU CHỈNH VỊ TRÍ, TÊN CỘT LINH HOẠT:
+      - Hỗ trợ thêm nhiều cột tùy biến cùng lúc (bấm "+ Thêm cột" không giới hạn số lượng).
+      - Mỗi cột có thể:
+          + Tự do điều chỉnh tên cột (VD: "ĐDDH", "Thiết bị", "Học liệu", "Nhận xét", "Địa điểm",...).
+          + Tự do lựa chọn vị trí chèn trong bảng:
+              * Cột đầu tiên (vị trí 1 - trước cột Thứ, ngày)
+              * Sau Thứ, ngày (vị trí 2)
+              * Sau Buổi (vị trí 3)
+              * Sau Tiết (vị trí 4)
+              * Sau Môn học (vị trí 5)
+              * Sau Tiết PPCT (vị trí 6)
+              * Sau Tên bài dạy (vị trí 7)
+              * Cuối bảng (mặc định)
+          + Tích bật/tắt hiển thị từng cột nhanh chóng hoặc bấm nút xóa (x) khi không dùng.
+      - Tự động đồng bộ chuẩn xác thứ tự cột và dữ liệu nhập trực tiếp trên màn hình sang:
           + Bảng hiển thị trực tiếp trên web
           + Khung xem trước bản in A4 (cả khổ đứng và khổ ngang)
-          + Bản xuất Word (.docx) chuẩn bảng biểu
-          + Bản xuất Excel (.xlsx) tự động co giãn độ rộng phù hợp
-      - Dữ liệu cột tùy chỉnh được lưu trữ an toàn cùng từng tiết học trong tuần.
+          + Bản xuất Word (.docx) chuẩn bảng biểu (tự động phân bổ độ rộng ô)
+          + Bản xuất Excel (.xlsx) chuẩn công thức và độ rộng cột
+      - Dữ liệu của từng cột tùy chỉnh được lưu trữ an toàn, độc lập theo từng ô/tiết học của từng tuần.
 
-   🌟 4. TỐI ƯU HÓA QUY TRÌNH XEM TRƯỚC VÀ LOẠI BỎ CÁC NÚT THỪA:
+   🌟 4. TỐI ƯU HÓA QUY TRÌNH XEM TRƯỚC, BỎ NÚT THỪA & NÂNG CẤP GIAO DIỆN TƯƠNG PHẢN CAO:
       - Tinh gọn các thao tác in ấn: Loại bỏ nút "In lịch tuần" trùng lặp.
       - Nút "Xem trước" và "Xem trước & In A4" hoạt động nhanh, chuẩn xác, hiển thị trung thực 100%
         bố cục trang giấy trước khi xuất hoặc in ra máy in.
+      - Giao diện được nâng cấp màu sắc tương phản cao (High Contrast):
+          + Toàn bộ mục mục lục Hướng Dẫn Sử Dụng được thiết kế dạng thẻ trắng chữ đen tuyền đậm nét (> 18:1),
+            khắc phục triệt để hiện tượng chữ xanh trên nền xanh khó đọc.
+          + Nhãn phiên bản V8 đồng bộ nổi bật, sắc nét trên toàn bộ các thanh tiêu đề và tài liệu hướng dẫn.
 
    🌟 5. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
       - Cột "Thứ, ngày" tự động hiển thị ngày tháng năm dưới tên thứ chính xác cho từng tuần.

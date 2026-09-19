@@ -172,6 +172,121 @@ window.XlsxGenerator = (function() {
         return `${dStr}/${mStr}/${yStr}`;
     }
 
+    function getColLetter(colIdx) {
+        let letter = "";
+        let n = colIdx;
+        while (n > 0) {
+            const mod = (n - 1) % 26;
+            letter = String.fromCharCode(65 + mod) + letter;
+            n = Math.floor((n - mod) / 26);
+        }
+        return letter;
+    }
+
+    function getXlsxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop) {
+        const enabledCustomCols = Array.isArray(customColsList) 
+            ? customColsList.filter(c => c && c.enabled !== false) 
+            : [];
+        
+        const cols = [];
+        
+        const pushCustom = (pos) => {
+            enabledCustomCols.filter(c => String(c.pos) === String(pos)).forEach(c => {
+                cols.push({
+                    key: 'custom_' + c.id,
+                    id: c.id,
+                    title: c.name || 'Cột mới',
+                    isCustom: true,
+                    pos: c.pos,
+                    width: 22
+                });
+            });
+        };
+
+        // Pos 1: before day
+        pushCustom('1');
+
+        // Day
+        cols.push({ key: 'day', title: 'Thứ, ngày', isCustom: false, width: 13 });
+
+        // Pos 2: after day
+        pushCustom('2');
+
+        // Session
+        cols.push({ key: 'session', title: 'Buổi', isCustom: false, width: 9 });
+
+        // Pos 3: after session
+        pushCustom('3');
+
+        // Period
+        cols.push({ key: 'period', title: 'Tiết', isCustom: false, width: 7 });
+
+        // Pos 4: after period
+        pushCustom('4');
+
+        // Subject
+        cols.push({ key: 'subject', title: 'Môn học', isCustom: false, width: isCtlop ? 18 : 20 });
+
+        // Pos 5: after subject
+        pushCustom('5');
+
+        // PPCT
+        cols.push({ key: 'ppct', title: 'Tiết PPCT', isCustom: false, width: 10 });
+
+        // Pos 6: after ppct
+        pushCustom('6');
+
+        // Lesson
+        cols.push({ key: 'lesson', title: 'Tên bài dạy', isCustom: false, width: 44 });
+
+        // Pos 7: after lesson
+        pushCustom('7');
+
+        if (isCtlop) {
+            cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false, width: 30 });
+        }
+        if (showSign) {
+            cols.push({ key: 'sign', title: 'Kí tên', isCustom: false, width: 12 });
+        }
+        if (showNote) {
+            cols.push({ key: 'note', title: 'Ghi chú', isCustom: false, width: 22 });
+        }
+
+        // Pos end: at the end of table
+        enabledCustomCols.filter(c => !['1', '2', '3', '4', '5', '6', '7'].includes(String(c.pos))).forEach(c => {
+            cols.push({
+                key: 'custom_' + c.id,
+                id: c.id,
+                title: c.name || 'Cột mới',
+                isCustom: true,
+                pos: c.pos || 'end',
+                width: 22
+            });
+        });
+
+        const customCount = enabledCustomCols.length;
+        const lessonCol = cols.find(c => c.key === 'lesson');
+        if (lessonCol) {
+            if (isCtlop) {
+                lessonCol.width = 34;
+            } else {
+                let extraCount = (showSign ? 1 : 0) + (showNote ? 1 : 0) + customCount;
+                if (extraCount >= 4) lessonCol.width = 28;
+                else if (extraCount === 3) lessonCol.width = 30;
+                else if (extraCount === 2) lessonCol.width = 34;
+                else if (extraCount === 1) lessonCol.width = 40;
+                else lessonCol.width = 50;
+            }
+        }
+
+        cols.forEach((col, idx) => {
+            col.colIdx = idx + 1;
+            col.colLetter = getColLetter(col.colIdx);
+        });
+
+        return cols;
+    }
+
     /**
      * Generate standard LBG / CTLOP Excel document
      */
@@ -195,68 +310,39 @@ window.XlsxGenerator = (function() {
 
         const showColSign = !isCtlop && !!(options.showColSign);
         const showColNote = !isCtlop && !!(options.showColNote);
-        const showColCustom = !isCtlop && !!(options.showColCustom);
-        const colCustomName = (options.colCustomName && options.colCustomName.trim()) ? options.colCustomName.trim() : 'Ghi chú';
+        let customCols = [];
+        if (!isCtlop) {
+            if (Array.isArray(options.customCols) && options.customCols.length > 0) {
+                customCols = options.customCols;
+            } else if (options.showColCustom) {
+                customCols = [{
+                    id: 'col_1',
+                    name: (options.colCustomName && options.colCustomName.trim()) ? options.colCustomName.trim() : 'Ghi chú',
+                    pos: options.colCustomPos || "end",
+                    enabled: true
+                }];
+            }
+        }
         const showBghSign = (options.showBghSign !== false);
         const showGvcnSign = (options.showGvcnSign !== false);
         const showHeadSign = (options.showHeadSign !== false);
         const isLandscape = (options.orientation === 'landscape' || isCtlop);
 
-        // Calculate dynamic columns
-        let lessonColWidth = 50;
-        if (isCtlop) {
-            lessonColWidth = 34;
-        } else if (showColSign && showColNote && showColCustom) {
-            lessonColWidth = 30;
-        } else if ((showColSign && showColNote) || (showColSign && showColCustom) || (showColNote && showColCustom)) {
-            lessonColWidth = 34;
-        } else if (showColSign) {
-            lessonColWidth = 42;
-        } else if (showColNote || showColCustom) {
-            lessonColWidth = 40;
-        }
+        const orderedCols = getXlsxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop);
+        const totalCols = orderedCols.length;
+        const lastColLetter = getColLetter(totalCols);
 
-        const extraCols = [];
-        if (isCtlop) {
-            extraCols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', width: 30 });
-        } else {
-            if (showColSign) extraCols.push({ key: 'sign', title: 'Kí tên', width: 12 });
-            if (showColNote) extraCols.push({ key: 'note', title: 'Ghi chú', width: 22 });
-            if (showColCustom) extraCols.push({ key: 'custom', title: colCustomName, width: 22 });
-        }
-
-        let signColLetter = null;
-        let noteColLetter = null;
-        let customColLetter = null;
-        extraCols.forEach((ec, idx) => {
-            const letter = String.fromCharCode(71 + idx); // 71 is 'G'
-            if (ec.key === 'sign') signColLetter = letter;
-            if (ec.key === 'note') noteColLetter = letter;
-            if (ec.key === 'custom') customColLetter = letter;
-        });
-
-        const totalCols = 6 + extraCols.length;
-        const lastColLetter = String.fromCharCode(64 + totalCols);
-
-        function makeCellsRow(startCharCode, endCharCode, rowNum, styleId) {
+        function makeCellsRow(startColIdx, endColIdx, rowNum, styleId) {
             let res = "";
-            for (let c = startCharCode; c <= endCharCode; c++) {
-                res += `<c r="${String.fromCharCode(c)}${rowNum}" s="${styleId}"/>`;
+            for (let c = startColIdx; c <= endColIdx; c++) {
+                res += `<c r="${getColLetter(c)}${rowNum}" s="${styleId}"/>`;
             }
             return res;
         }
 
-        let colsXml = `
-        <col min="1" max="1" width="13" customWidth="1"/>
-        <col min="2" max="2" width="9" customWidth="1"/>
-        <col min="3" max="3" width="7" customWidth="1"/>
-        <col min="4" max="4" width="${isCtlop ? 18 : 20}" customWidth="1"/>
-        <col min="5" max="5" width="10" customWidth="1"/>
-        <col min="6" max="6" width="${lessonColWidth}" customWidth="1"/>
-`;
-        extraCols.forEach((ec, idx) => {
-            const colNum = 7 + idx;
-            colsXml += `        <col min="${colNum}" max="${colNum}" width="${ec.width}" customWidth="1"/>\n`;
+        let colsXml = "";
+        orderedCols.forEach(col => {
+            colsXml += `        <col min="${col.colIdx}" max="${col.colIdx}" width="${col.width}" customWidth="1"/>\n`;
         });
 
         let sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -264,42 +350,47 @@ window.XlsxGenerator = (function() {
     <sheetPr>
         <pageSetUpPr fitToPage="1"/>
     </sheetPr>
-    <cols>${colsXml}    </cols>
+    <cols>
+${colsXml}    </cols>
     <sheetData>
 `;
 
         const mergeCellsList = [];
 
+        const splitCol = Math.max(3, Math.min(4, Math.floor(totalCols / 2)));
+        const splitColLetter = getColLetter(splitCol);
+        const nextColLetter = getColLetter(splitCol + 1);
+
         // Row 1: Header UBND & Quoc Hieu
         sheetXml += `
         <row r="1" ht="22" customHeight="1">
             <c r="A1" s="1" t="inlineStr"><is><t>${escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT')}</t></is></c>
-            <c r="B1" s="1"/><c r="C1" s="1"/>
-            <c r="D1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
-            ${makeCellsRow(69, 64 + totalCols, 1, 4)}
+            ${makeCellsRow(2, splitCol, 1, 1)}
+            <c r="${nextColLetter}1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
+            ${makeCellsRow(splitCol + 2, totalCols, 1, 4)}
         </row>`;
-        mergeCellsList.push("A1:C1");
-        mergeCellsList.push(`D1:${lastColLetter}1`);
+        mergeCellsList.push(`A1:${splitColLetter}1`);
+        mergeCellsList.push(`${nextColLetter}1:${lastColLetter}1`);
 
         // Row 2: School & Tieu Ngu
         sheetXml += `
         <row r="2" ht="22" customHeight="1">
             <c r="A2" s="2" t="inlineStr"><is><t>${escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT')}</t></is></c>
-            <c r="B2" s="2"/><c r="C2" s="2"/>
-            <c r="D2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
-            ${makeCellsRow(69, 64 + totalCols, 2, 5)}
+            ${makeCellsRow(2, splitCol, 2, 2)}
+            <c r="${nextColLetter}2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
+            ${makeCellsRow(splitCol + 2, totalCols, 2, 5)}
         </row>`;
-        mergeCellsList.push("A2:C2");
-        mergeCellsList.push(`D2:${lastColLetter}2`);
+        mergeCellsList.push(`A2:${splitColLetter}2`);
+        mergeCellsList.push(`${nextColLetter}2:${lastColLetter}2`);
 
         // Row 3: Grade & Class
         sheetXml += `
         <row r="3" ht="20" customHeight="1">
             <c r="A3" s="3" t="inlineStr"><is><t>${escapeXml(settings.grade || 'KHỐI 5')} - ${escapeXml(settings.className || 'LỚP 5A')}</t></is></c>
-            <c r="B3" s="3"/><c r="C3" s="3"/>
-            ${makeCellsRow(68, 64 + totalCols, 3, 0)}
+            ${makeCellsRow(2, splitCol, 3, 3)}
+            ${makeCellsRow(splitCol + 1, totalCols, 3, 0)}
         </row>`;
-        mergeCellsList.push("A3:C3");
+        mergeCellsList.push(`A3:${splitColLetter}3`);
 
         // Row 4: Space
         sheetXml += `<row r="4" ht="10" customHeight="1"/>`;
@@ -308,7 +399,7 @@ window.XlsxGenerator = (function() {
         sheetXml += `
         <row r="5" ht="26" customHeight="1">
             <c r="A5" s="6" t="inlineStr"><is><t>${escapeXml(mainTitle)}</t></is></c>
-            ${makeCellsRow(66, 64 + totalCols, 5, 6)}
+            ${makeCellsRow(2, totalCols, 5, 6)}
         </row>`;
         mergeCellsList.push(`A5:${lastColLetter}5`);
 
@@ -316,7 +407,7 @@ window.XlsxGenerator = (function() {
         sheetXml += `
         <row r="6" ht="18" customHeight="1">
             <c r="A6" s="7" t="inlineStr"><is><t>${escapeXml(subtitle)}</t></is></c>
-            ${makeCellsRow(66, 64 + totalCols, 6, 7)}
+            ${makeCellsRow(2, totalCols, 6, 7)}
         </row>`;
         mergeCellsList.push(`A6:${lastColLetter}6`);
 
@@ -324,20 +415,10 @@ window.XlsxGenerator = (function() {
         sheetXml += `<row r="7" ht="10" customHeight="1"/>`;
 
         // Row 8: Table Header
-        let headerColsXml = `
-            <c r="A8" s="8" t="inlineStr"><is><t>Thứ, ngày</t></is></c>
-            <c r="B8" s="8" t="inlineStr"><is><t>Buổi</t></is></c>
-            <c r="C8" s="8" t="inlineStr"><is><t>Tiết</t></is></c>
-            <c r="D8" s="8" t="inlineStr"><is><t>Môn học</t></is></c>
-            <c r="E8" s="8" t="inlineStr"><is><t>Tiết PPCT</t></is></c>
-            <c r="F8" s="8" t="inlineStr"><is><t>Tên bài dạy</t></is></c>`;
-        if (isCtlop) {
-            headerColsXml += `\n            <c r="G8" s="8" t="inlineStr"><is><t>Nội dung tích hợp / Điều chỉnh</t></is></c>`;
-        } else {
-            if (showColSign) headerColsXml += `\n            <c r="${signColLetter}8" s="8" t="inlineStr"><is><t>Kí tên</t></is></c>`;
-            if (showColNote) headerColsXml += `\n            <c r="${noteColLetter}8" s="8" t="inlineStr"><is><t>Ghi chú</t></is></c>`;
-            if (showColCustom) headerColsXml += `\n            <c r="${customColLetter}8" s="8" t="inlineStr"><is><t>${escapeXml(colCustomName)}</t></is></c>`;
-        }
+        let headerColsXml = "";
+        orderedCols.forEach(col => {
+            headerColsXml += `\n            <c r="${col.colLetter}8" s="8" t="inlineStr"><is><t>${escapeXml(col.title)}</t></is></c>`;
+        });
 
         sheetXml += `
         <row r="8" ht="26" customHeight="1">${headerColsXml}
@@ -346,6 +427,9 @@ window.XlsxGenerator = (function() {
         // Table Data Rows
         let currentRow = 9;
         const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
+
+        const dayCol = orderedCols.find(c => c.key === 'day') || { colLetter: 'A' };
+        const sessCol = orderedCols.find(c => c.key === 'session') || { colLetter: 'B' };
 
         days.forEach(day => {
             const daySlots = schedule.filter(s => s.day === day);
@@ -374,40 +458,58 @@ window.XlsxGenerator = (function() {
                 // Calculate comfortable row height based on text length
                 const lessonLen = (slot.lessonName || '').length;
                 const integLen = (slot.integration || '').length;
-                const customVal = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
-                const customLen = showColCustom ? customVal.length : 0;
                 const lessonLines = Math.ceil(lessonLen / (isCtlop ? 30 : 44));
                 const integLines = isCtlop ? Math.ceil(integLen / 26) : 1;
-                const customLines = showColCustom ? Math.ceil(customLen / 22) : 1;
-                const numLines = Math.max(isFirstOfDay && dayDate ? 2 : 1, lessonLines, integLines, customLines);
+                let maxCustomLines = 1;
+                orderedCols.filter(c => c.isCustom).forEach(c => {
+                    let cVal = "";
+                    if (slot.customCols && slot.customCols[c.id] !== undefined) cVal = slot.customCols[c.id];
+                    else if (slot[`customCol_${c.id}`] !== undefined) cVal = slot[`customCol_${c.id}`];
+                    else if (c.id === 'col_1') cVal = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
+                    const lines = Math.ceil((cVal || '').length / 22);
+                    if (lines > maxCustomLines) maxCustomLines = lines;
+                });
+                const numLines = Math.max(isFirstOfDay && dayDate ? 2 : 1, lessonLines, integLines, maxCustomLines);
 
                 let rowHt = 24;
                 if (numLines === 2) rowHt = 38;
                 else if (numLines === 3) rowHt = 54;
                 else if (numLines >= 4) rowHt = numLines * 18;
 
-                let rowCellsXml = `
-            <c r="A${r}" s="9" ${dayVal ? 't="inlineStr"' : ''}>${dayVal ? `<is><t xml:space="preserve">${escapeXml(dayVal)}</t></is>` : ''}</c>
-            <c r="B${r}" s="10" ${sessionVal ? 't="inlineStr"' : ''}>${sessionVal ? `<is><t>${escapeXml(sessionVal)}</t></is>` : ''}</c>
-            <c r="C${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.period || '')}</t></is></c>
-            <c r="D${r}" s="12" t="inlineStr"><is><t>${escapeXml(slot.isOff ? '-- Nghỉ / Để trống --' : (slot.subject || ''))}</t></is></c>
-            <c r="E${r}" s="13" t="inlineStr"><is><t>${escapeXml(slot.ppct || '')}</t></is></c>
-            <c r="F${r}" s="14" t="inlineStr"><is><t>${escapeXml(slot.lessonName || '')}</t></is></c>`;
-
-                if (isCtlop) {
-                    rowCellsXml += `\n            <c r="G${r}" s="15" t="inlineStr"><is><t>${escapeXml(slot.integration || '')}</t></is></c>`;
-                } else {
-                    if (showColSign) {
-                        rowCellsXml += `\n            <c r="${signColLetter}${r}" s="10"/>`;
-                    }
-                    if (showColNote) {
+                let rowCellsXml = "";
+                orderedCols.forEach(col => {
+                    if (col.key === 'day') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="9" ${dayVal ? 't="inlineStr"' : ''}>${dayVal ? `<is><t xml:space="preserve">${escapeXml(dayVal)}</t></is>` : ''}</c>`;
+                    } else if (col.key === 'session') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="10" ${sessionVal ? 't="inlineStr"' : ''}>${sessionVal ? `<is><t>${escapeXml(sessionVal)}</t></is>` : ''}</c>`;
+                    } else if (col.key === 'period') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.period || '')}</t></is></c>`;
+                    } else if (col.key === 'subject') {
+                        const subjVal = slot.isOff ? '-- Nghỉ / Để trống --' : (slot.subject || '');
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="12" t="inlineStr"><is><t>${escapeXml(subjVal)}</t></is></c>`;
+                    } else if (col.key === 'ppct') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="13" t="inlineStr"><is><t>${escapeXml(slot.ppct || '')}</t></is></c>`;
+                    } else if (col.key === 'lesson') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="14" t="inlineStr"><is><t>${escapeXml(slot.lessonName || '')}</t></is></c>`;
+                    } else if (col.key === 'integ') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="15" t="inlineStr"><is><t>${escapeXml(slot.integration || '')}</t></is></c>`;
+                    } else if (col.key === 'sign') {
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="10"/>`;
+                    } else if (col.key === 'note') {
                         const noteText = slot.note || '';
-                        rowCellsXml += `\n            <c r="${noteColLetter}${r}" s="14" ${noteText ? 't="inlineStr"' : ''}>${noteText ? `<is><t>${escapeXml(noteText)}</t></is>` : ''}</c>`;
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="14" ${noteText ? 't="inlineStr"' : ''}>${noteText ? `<is><t>${escapeXml(noteText)}</t></is>` : ''}</c>`;
+                    } else if (col.isCustom) {
+                        let cVal = "";
+                        if (slot.customCols && slot.customCols[col.id] !== undefined) {
+                            cVal = slot.customCols[col.id];
+                        } else if (slot[`customCol_${col.id}`] !== undefined) {
+                            cVal = slot[`customCol_${col.id}`];
+                        } else if (col.id === 'col_1') {
+                            cVal = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
+                        }
+                        rowCellsXml += `\n            <c r="${col.colLetter}${r}" s="14" ${cVal ? 't="inlineStr"' : ''}>${cVal ? `<is><t>${escapeXml(cVal)}</t></is>` : ''}</c>`;
                     }
-                    if (showColCustom) {
-                        rowCellsXml += `\n            <c r="${customColLetter}${r}" s="14" ${customVal ? 't="inlineStr"' : ''}>${customVal ? `<is><t>${escapeXml(customVal)}</t></is>` : ''}</c>`;
-                    }
-                }
+                });
 
                 sheetXml += `
         <row r="${r}" ht="${rowHt}" customHeight="1">${rowCellsXml}
@@ -417,13 +519,13 @@ window.XlsxGenerator = (function() {
 
             const dayEndRow = currentRow - 1;
             if (dayEndRow > dayStartRow) {
-                mergeCellsList.push(`A${dayStartRow}:A${dayEndRow}`);
+                mergeCellsList.push(`${dayCol.colLetter}${dayStartRow}:${dayCol.colLetter}${dayEndRow}`);
             }
             if (morningSlots.length > 1) {
-                mergeCellsList.push(`B${morningStartRow}:B${morningEndRow}`);
+                mergeCellsList.push(`${sessCol.colLetter}${morningStartRow}:${sessCol.colLetter}${morningEndRow}`);
             }
             if (afternoonSlots.length > 1) {
-                mergeCellsList.push(`B${afternoonStartRow}:B${afternoonEndRow}`);
+                mergeCellsList.push(`${sessCol.colLetter}${afternoonStartRow}:${sessCol.colLetter}${afternoonEndRow}`);
             }
         });
 
@@ -486,22 +588,22 @@ window.XlsxGenerator = (function() {
                 const span = Math.round(remainingCols / remainingSigners);
                 const startCol = currentCol;
                 const endCol = (i === numSigners - 1) ? totalCols : (startCol + span - 1);
-                const startColLetter = String.fromCharCode(64 + startCol);
-                const endColLetter = String.fromCharCode(64 + endCol);
+                const startColLetter = getColLetter(startCol);
+                const endColLetter = getColLetter(endCol);
 
                 titleCells += `\n            <c r="${startColLetter}${footerTitleRow}" s="16" t="inlineStr"><is><t>${escapeXml(s.role)}</t></is></c>`;
                 for (let c = startCol + 1; c <= endCol; c++) {
-                    titleCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerTitleRow}" s="16"/>`;
+                    titleCells += `\n            <c r="${getColLetter(c)}${footerTitleRow}" s="16"/>`;
                 }
 
                 subCells += `\n            <c r="${startColLetter}${footerSubRow}" s="17" t="inlineStr"><is><t>${escapeXml(s.sub)}</t></is></c>`;
                 for (let c = startCol + 1; c <= endCol; c++) {
-                    subCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerSubRow}" s="17"/>`;
+                    subCells += `\n            <c r="${getColLetter(c)}${footerSubRow}" s="17"/>`;
                 }
 
                 nameCells += `\n            <c r="${startColLetter}${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(s.name)}</t></is></c>`;
                 for (let c = startCol + 1; c <= endCol; c++) {
-                    nameCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerNameRow}" s="18"/>`;
+                    nameCells += `\n            <c r="${getColLetter(c)}${footerNameRow}" s="18"/>`;
                 }
 
                 if (endCol > startCol) {

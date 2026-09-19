@@ -130,6 +130,8 @@
         lbgShowColNote: false,
         lbgShowColCustom: false,
         lbgColCustomName: "Ghi chú",
+        lbgColCustomPos: "end",
+        lbgCustomCols: [],
         lbgShowBghSign: true,
         lbgShowGvcnSign: true,
         lbgShowHeadSign: true,
@@ -370,6 +372,16 @@
                 if (parsed.lbgShowColNote !== undefined) state.lbgShowColNote = parsed.lbgShowColNote;
                 if (parsed.lbgShowColCustom !== undefined) state.lbgShowColCustom = parsed.lbgShowColCustom;
                 if (parsed.lbgColCustomName) state.lbgColCustomName = parsed.lbgColCustomName;
+                if (parsed.lbgColCustomPos) state.lbgColCustomPos = parsed.lbgColCustomPos;
+                if (parsed.lbgCustomCols && Array.isArray(parsed.lbgCustomCols)) {
+                    state.lbgCustomCols = parsed.lbgCustomCols;
+                } else if (parsed.lbgShowColCustom) {
+                    state.lbgCustomCols = [
+                        { id: "col_1", name: parsed.lbgColCustomName || "Ghi chú", pos: parsed.lbgColCustomPos || "end", enabled: true }
+                    ];
+                } else {
+                    state.lbgCustomCols = [];
+                }
                 if (parsed.lbgShowBghSign !== undefined) state.lbgShowBghSign = parsed.lbgShowBghSign;
                 if (parsed.lbgShowGvcnSign !== undefined) state.lbgShowGvcnSign = parsed.lbgShowGvcnSign;
                 if (parsed.lbgShowHeadSign !== undefined) state.lbgShowHeadSign = parsed.lbgShowHeadSign;
@@ -459,8 +471,10 @@
                 lbgExcludedMode: state.lbgExcludedMode,
                 lbgShowColSign: state.lbgShowColSign,
                 lbgShowColNote: state.lbgShowColNote,
-                lbgShowColCustom: state.lbgShowColCustom,
-                lbgColCustomName: state.lbgColCustomName,
+                lbgShowColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
+                lbgColCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName,
+                lbgColCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                lbgCustomCols: state.lbgCustomCols || [],
                 lbgShowBghSign: state.lbgShowBghSign,
                 lbgShowGvcnSign: state.lbgShowGvcnSign,
                 lbgShowHeadSign: state.lbgShowHeadSign,
@@ -470,6 +484,7 @@
             localStorage.setItem(gradeKey, JSON.stringify(payload));
             if (state.currentGrade === 5) {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+                localStorage.setItem("LBG_APP_DATA_V8", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V7", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V6", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V5", JSON.stringify(payload));
@@ -1450,6 +1465,11 @@
             let lessonName = "";
             let integration = "";
 
+            const customColsData = (override.customCols && typeof override.customCols === 'object') ? { ...override.customCols } : {};
+            if (override.customCol !== undefined && customColsData['col_1'] === undefined) {
+                customColsData['col_1'] = override.customCol;
+            }
+
             if (!isOff) {
                 const isIncluded = !state.includedSubjects || state.includedSubjects.length === 0 || 
                     state.includedSubjects.some(s => s === canonicalSub || normalizeSubjectName(s) === canonicalSub);
@@ -1467,6 +1487,8 @@
                         lessonName: override.lessonName !== undefined ? override.lessonName : "",
                         integration: override.integration !== undefined ? override.integration : "",
                         note: override.note !== undefined ? override.note : "",
+                        customCol: override.customCol !== undefined ? override.customCol : (customColsData['col_1'] !== undefined ? customColsData['col_1'] : (override.note !== undefined ? override.note : "")),
+                        customCols: customColsData,
                         key: key
                     });
                     return;
@@ -1510,7 +1532,8 @@
                 lessonName: lessonName,
                 integration: integration,
                 note: override.note !== undefined ? override.note : "",
-                customCol: override.customCol !== undefined ? override.customCol : (override.note !== undefined ? override.note : ""),
+                customCol: override.customCol !== undefined ? override.customCol : (customColsData['col_1'] !== undefined ? customColsData['col_1'] : (override.note !== undefined ? override.note : "")),
+                customCols: customColsData,
                 key: key
             });
         });
@@ -1704,6 +1727,205 @@
         });
     }
 
+    // Helper: Determine ordered columns for LBG table and export
+    function getLbgOrderedColumns(customColsList, showSign, showNote, isCtlop) {
+        const enabledCustomCols = Array.isArray(customColsList) 
+            ? customColsList.filter(c => c && c.enabled !== false) 
+            : [];
+        
+        const cols = [];
+        
+        const pushCustom = (pos) => {
+            enabledCustomCols.filter(c => String(c.pos) === String(pos)).forEach(c => {
+                cols.push({
+                    key: 'custom_' + c.id,
+                    id: c.id,
+                    title: c.name || 'Cột mới',
+                    isCustom: true,
+                    pos: c.pos
+                });
+            });
+        };
+
+        // Pos 1: before day (Cột đầu tiên)
+        pushCustom('1');
+
+        // Day (Thứ, ngày)
+        cols.push({ key: 'day', title: 'Thứ, ngày', isCustom: false });
+
+        // Pos 2: after day
+        pushCustom('2');
+
+        // Session (Buổi)
+        cols.push({ key: 'session', title: 'Buổi', isCustom: false });
+
+        // Pos 3: after session
+        pushCustom('3');
+
+        // Period (Tiết)
+        cols.push({ key: 'period', title: 'Tiết', isCustom: false });
+
+        // Pos 4: after period
+        pushCustom('4');
+
+        // Subject (Môn học)
+        cols.push({ key: 'subject', title: 'Môn học', isCustom: false });
+
+        // Pos 5: after subject
+        pushCustom('5');
+
+        // PPCT (Tiết PPCT)
+        cols.push({ key: 'ppct', title: 'Tiết PPCT', isCustom: false });
+
+        // Pos 6: after ppct
+        pushCustom('6');
+
+        // Lesson (Tên bài dạy)
+        cols.push({ key: 'lesson', title: 'Tên bài dạy', isCustom: false });
+
+        // Pos 7: after lesson
+        pushCustom('7');
+
+        if (isCtlop) {
+            cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false });
+        }
+        if (showSign) {
+            cols.push({ key: 'sign', title: 'Kí tên', isCustom: false });
+        }
+        if (showNote) {
+            cols.push({ key: 'note', title: 'Ghi chú', isCustom: false });
+        }
+
+        // Pos end: at the end of the table
+        enabledCustomCols.filter(c => !['1', '2', '3', '4', '5', '6', '7'].includes(String(c.pos))).forEach(c => {
+            cols.push({
+                key: 'custom_' + c.id,
+                id: c.id,
+                title: c.name || 'Cột mới',
+                isCustom: true,
+                pos: c.pos || 'end'
+            });
+        });
+
+        return cols;
+    }
+
+    // Helper: Render custom columns manager chips in toolbar or preview modal
+    function renderCustomColsManager(containerId, isModal = false) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = "";
+
+        if (!Array.isArray(state.lbgCustomCols)) state.lbgCustomCols = [];
+
+        state.lbgCustomCols.forEach(col => {
+            const chip = document.createElement("div");
+            chip.className = "custom-col-chip";
+            chip.setAttribute("data-id", col.id);
+
+            const chk = document.createElement("input");
+            chk.type = "checkbox";
+            chk.className = "chk-custom-col-toggle";
+            chk.checked = (col.enabled !== false);
+            chk.title = "Bật/Tắt hiển thị cột này";
+            chk.onchange = (e) => {
+                col.enabled = e.target.checked;
+                saveState();
+                renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("modal-custom-cols-list", true);
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            };
+
+            const txt = document.createElement("input");
+            txt.type = "text";
+            txt.className = "txt-custom-col-name";
+            txt.value = col.name || "Ghi chú";
+            txt.placeholder = "Tên cột";
+            txt.title = "Nhập tên cột tuỳ chỉnh";
+            txt.oninput = (e) => {
+                col.name = e.target.value;
+                saveState();
+                const otherId = isModal ? "lbg-custom-cols-list" : "modal-custom-cols-list";
+                const otherInput = document.querySelector(`#${otherId} .custom-col-chip[data-id="${col.id}"] .txt-custom-col-name`);
+                if (otherInput && otherInput.value !== e.target.value) otherInput.value = e.target.value;
+                const theadCell = document.querySelector(`#tab-lbg .col-custom-${col.id}`);
+                if (theadCell) theadCell.innerText = col.name || "Cột mới";
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            };
+            txt.onblur = () => {
+                if (!col.name || !col.name.trim()) col.name = "Cột mới";
+                saveState();
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            };
+
+            const sel = document.createElement("select");
+            sel.className = "sel-custom-col-pos";
+            sel.title = "Chọn vị trí đặt cột trong bảng";
+            const posOptions = [
+                { val: "end", label: "Cuối bảng" },
+                { val: "1", label: "Vị trí 1 (Đầu tiên)" },
+                { val: "2", label: "Vị trí 2 (Sau Thứ)" },
+                { val: "3", label: "Vị trí 3 (Sau Buổi)" },
+                { val: "4", label: "Vị trí 4 (Sau Tiết)" },
+                { val: "5", label: "Vị trí 5 (Sau Môn)" },
+                { val: "6", label: "Vị trí 6 (Sau PPCT)" },
+                { val: "7", label: "Vị trí 7 (Sau Bài)" }
+            ];
+            posOptions.forEach(opt => {
+                const optEl = document.createElement("option");
+                optEl.value = opt.val;
+                optEl.innerText = opt.label;
+                if (String(col.pos || "end") === opt.val) optEl.selected = true;
+                sel.appendChild(optEl);
+            });
+            sel.onchange = (e) => {
+                col.pos = e.target.value;
+                saveState();
+                renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("modal-custom-cols-list", true);
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            };
+
+            const btnDel = document.createElement("button");
+            btnDel.type = "button";
+            btnDel.className = "btn-del-custom-col";
+            btnDel.innerText = "✕";
+            btnDel.title = "Xóa cột này";
+            btnDel.onclick = () => {
+                state.lbgCustomCols = state.lbgCustomCols.filter(c => c.id !== col.id);
+                saveState();
+                renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("modal-custom-cols-list", true);
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            };
+
+            chip.appendChild(chk);
+            chip.appendChild(txt);
+            chip.appendChild(sel);
+            chip.appendChild(btnDel);
+            container.appendChild(chip);
+        });
+    }
+
     // Render Tab 1: Lịch Báo Giảng Thường
     function renderTabLbg() {
         renderWeekToolbar("lbg-week-toolbar", () => {
@@ -1737,10 +1959,6 @@
         if (optColSign) optColSign.checked = !!state.lbgShowColSign;
         const optColNote = document.getElementById("lbg-opt-col-note");
         if (optColNote) optColNote.checked = !!state.lbgShowColNote;
-        const optColCustom = document.getElementById("lbg-opt-col-custom");
-        if (optColCustom) optColCustom.checked = !!state.lbgShowColCustom;
-        const optColCustomName = document.getElementById("lbg-opt-col-custom-name");
-        if (optColCustomName) optColCustomName.value = state.lbgColCustomName || "Ghi chú";
         const optSigBgh = document.getElementById("lbg-opt-sig-bgh");
         if (optSigBgh) optSigBgh.checked = (state.lbgShowBghSign !== false);
         const optSigGvcn = document.getElementById("lbg-opt-sig-gvcn");
@@ -1748,26 +1966,37 @@
         const optSigHead = document.getElementById("lbg-opt-sig-head");
         if (optSigHead) optSigHead.checked = (state.lbgShowHeadSign !== false);
 
+        // Render dynamic custom column chips in Tab 1
+        renderCustomColsManager("lbg-custom-cols-list", false);
+
+        // Compute ordered columns for Tab 1
+        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, state.lbgShowColSign, state.lbgShowColNote, false);
+
         // Dynamically update Table Header columns
         const theadTr = document.querySelector("#tab-lbg .table-lbg thead tr");
         if (theadTr) {
-            let colsHtml = `
-                <th style="width: 105px;">Thứ, ngày</th>
-                <th style="width: 65px;">Buổi</th>
-                <th style="width: 45px;">Tiết</th>
-                <th style="width: 180px;">Môn học</th>
-                <th style="width: 75px;">Tiết PPCT</th>
-                <th>Tên bài dạy (Nhấp đúp vào ô để sửa trực tiếp)</th>
-            `;
-            if (state.lbgShowColSign) {
-                colsHtml += `<th style="width: 80px;" class="col-sign">Kí tên</th>`;
-            }
-            if (state.lbgShowColNote) {
-                colsHtml += `<th style="width: 120px;" class="col-note">Ghi chú</th>`;
-            }
-            if (state.lbgShowColCustom) {
-                colsHtml += `<th style="width: 120px;" class="col-custom">${escapeHtml(state.lbgColCustomName || 'Ghi chú')}</th>`;
-            }
+            let colsHtml = "";
+            orderedCols.forEach(col => {
+                if (col.key === 'day') {
+                    colsHtml += `<th style="width: 105px;">Thứ, ngày</th>`;
+                } else if (col.key === 'session') {
+                    colsHtml += `<th style="width: 65px;">Buổi</th>`;
+                } else if (col.key === 'period') {
+                    colsHtml += `<th style="width: 45px;">Tiết</th>`;
+                } else if (col.key === 'subject') {
+                    colsHtml += `<th style="width: 180px;">Môn học</th>`;
+                } else if (col.key === 'ppct') {
+                    colsHtml += `<th style="width: 75px;">Tiết PPCT</th>`;
+                } else if (col.key === 'lesson') {
+                    colsHtml += `<th>Tên bài dạy (Nhấp đúp vào ô để sửa trực tiếp)</th>`;
+                } else if (col.key === 'sign') {
+                    colsHtml += `<th style="width: 80px;" class="col-sign">Kí tên</th>`;
+                } else if (col.key === 'note') {
+                    colsHtml += `<th style="width: 120px;" class="col-note">Ghi chú</th>`;
+                } else if (col.isCustom) {
+                    colsHtml += `<th style="width: 120px;" class="col-custom col-custom-${col.id}">${escapeHtml(col.title)}</th>`;
+                }
+            });
             colsHtml += `<th style="width: 75px;" class="no-print">Thao tác</th>`;
             theadTr.innerHTML = colsHtml;
         }
@@ -1807,24 +2036,39 @@
                     sessionCellHtml = `<td rowspan="${afternoonSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>`;
                 }
 
-                let colSignTd = state.lbgShowColSign ? `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>` : '';
-                let colNoteTd = state.lbgShowColNote ? `<td class="col-note editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="note" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.note || '')}</td>` : '';
-                let colCustomTd = state.lbgShowColCustom ? `<td class="col-custom editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="customCol" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.customCol || slot.note || '')}</td>` : '';
+                let rowHtml = "";
+                orderedCols.forEach(col => {
+                    if (col.key === 'day') {
+                        if (dayCellHtml) rowHtml += dayCellHtml;
+                    } else if (col.key === 'session') {
+                        if (sessionCellHtml) rowHtml += sessionCellHtml;
+                    } else if (col.key === 'period') {
+                        rowHtml += `<td class="col-period">${slot.period}</td>`;
+                    } else if (col.key === 'subject') {
+                        rowHtml += `
+                            <td class="col-subject">
+                                <select class="form-select form-select-sm subject-selector" data-key="${slot.key}">
+                                    ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
+                                </select>
+                            </td>
+                        `;
+                    } else if (col.key === 'ppct') {
+                        rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
+                    } else if (col.key === 'lesson') {
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName">${slot.lessonName}</td>`;
+                    } else if (col.key === 'sign') {
+                        rowHtml += `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>`;
+                    } else if (col.key === 'note') {
+                        rowHtml += `<td class="col-note editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="note" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.note || '')}</td>`;
+                    } else if (col.isCustom) {
+                        const customVal = (slot.customCols && slot.customCols[col.id] !== undefined)
+                            ? slot.customCols[col.id]
+                            : (col.id === 'col_1' ? (slot.customCol || slot.note || '') : (slot['customCol_' + col.id] || ''));
+                        rowHtml += `<td class="col-custom editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="customCol_${col.id}" data-col-id="${col.id}" style="font-size:0.85rem; text-align:left;">${escapeHtml(customVal)}</td>`;
+                    }
+                });
 
-                tr.innerHTML = `
-                    ${dayCellHtml}
-                    ${sessionCellHtml}
-                    <td class="col-period">${slot.period}</td>
-                    <td class="col-subject">
-                        <select class="form-select form-select-sm subject-selector" data-key="${slot.key}">
-                            ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
-                        </select>
-                    </td>
-                    <td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>
-                    <td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName">${slot.lessonName}</td>
-                    ${colSignTd}
-                    ${colNoteTd}
-                    ${colCustomTd}
+                rowHtml += `
                     <td class="no-print" style="text-align: center;">
                         <div class="row-actions-group">
                             <button type="button" class="btn-row-action btn-add-week-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay phía dưới">+</button>
@@ -1832,6 +2076,7 @@
                         </div>
                     </td>
                 `;
+                tr.innerHTML = rowHtml;
                 tbody.appendChild(tr);
             });
         });
@@ -1876,9 +2121,16 @@
                 const field = e.target.dataset.field;
                 let val = e.target.innerText.trim();
                 val = normalizePunctuationSpacing(val);
-                e.target.innerText = val;
                 if (!state.weeklyScheduleOverrides[key]) state.weeklyScheduleOverrides[key] = {};
                 state.weeklyScheduleOverrides[key][field] = val;
+                const colId = e.target.dataset.colId;
+                if (colId) {
+                    if (!state.weeklyScheduleOverrides[key].customCols) state.weeklyScheduleOverrides[key].customCols = {};
+                    state.weeklyScheduleOverrides[key].customCols[colId] = val;
+                    if (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].id === colId) {
+                        state.weeklyScheduleOverrides[key].customCol = val;
+                    }
+                }
                 saveState();
             });
         });
@@ -4126,18 +4378,15 @@
             optBar.style.display = refreshFn ? "flex" : "none";
             const cbSign = document.getElementById("modal-opt-col-sign");
             const cbNote = document.getElementById("modal-opt-col-note");
-            const cbCustom = document.getElementById("modal-opt-col-custom");
-            const txtCustom = document.getElementById("modal-opt-col-custom-name");
             const cbBgh = document.getElementById("modal-opt-sig-bgh");
             const cbGvcn = document.getElementById("modal-opt-sig-gvcn");
             const cbHead = document.getElementById("modal-opt-sig-head");
             if (cbSign) cbSign.checked = !!state.lbgShowColSign;
             if (cbNote) cbNote.checked = !!state.lbgShowColNote;
-            if (cbCustom) cbCustom.checked = !!state.lbgShowColCustom;
-            if (txtCustom) txtCustom.value = state.lbgColCustomName || "Ghi chú";
             if (cbBgh) cbBgh.checked = (state.lbgShowBghSign !== false);
             if (cbGvcn) cbGvcn.checked = (state.lbgShowGvcnSign !== false);
             if (cbHead) cbHead.checked = (state.lbgShowHeadSign !== false);
+            renderCustomColsManager("modal-custom-cols-list", true);
         }
 
         const btnDocx = document.getElementById("modal-btn-docx");
@@ -4523,8 +4772,10 @@
                 orientation: currentOrientation,
                 showColSign: state.lbgShowColSign,
                 showColNote: state.lbgShowColNote,
-                showColCustom: state.lbgShowColCustom,
-                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
+                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign
@@ -4549,8 +4800,10 @@
             const options = {
                 showColSign: state.lbgShowColSign,
                 showColNote: state.lbgShowColNote,
-                showColCustom: state.lbgShowColCustom,
-                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
+                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign
@@ -4580,41 +4833,41 @@
         const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
         const showSign = !isCtlop && !!state.lbgShowColSign;
         const showNote = !isCtlop && !!state.lbgShowColNote;
-        const showCustom = !isCtlop && !!state.lbgShowColCustom;
-        const customColTitle = state.lbgColCustomName || 'Ghi chú';
+
+        const orderedCols = isCtlop
+            ? getLbgOrderedColumns([], false, false, true)
+            : getLbgOrderedColumns(state.lbgCustomCols, showSign, showNote, false);
+
+        // Compute adaptive column widths
+        const customCount = isCtlop ? 0 : (Array.isArray(state.lbgCustomCols) ? state.lbgCustomCols.filter(c => c && c.enabled !== false).length : 0);
+        let customColWidth = isLand ? '12%' : '12%';
+        if (customCount === 2) customColWidth = isLand ? '10%' : '10%';
+        else if (customCount >= 3) customColWidth = isLand ? '8%' : '8%';
 
         let theadColsHtml = "";
-        if (isCtlop) {
-            theadColsHtml = `
-                <th style="width:${isLand ? '9%' : '11%'};">Thứ, ngày</th>
-                <th style="width:${isLand ? '6%' : '7%'};">Buổi</th>
-                <th style="width:${isLand ? '4%' : '5%'};">Tiết</th>
-                <th style="width:${isLand ? '16%' : '17%'};">Môn học</th>
-                <th style="width:${isLand ? '7%' : '8%'};">Tiết PPCT</th>
-                <th style="width:${isLand ? '28%' : '29%'};">Tên bài dạy</th>
-                <th style="width:${isLand ? '30%' : '23%'};">Nội dung tích hợp / Điều chỉnh</th>
-            `;
-        } else {
-            let wDay = isLand ? '10%' : '12%';
-            let wBuoi = isLand ? '6%' : '7%';
-            let wTiet = isLand ? '4%' : '5%';
-            let wMon = isLand ? '18%' : '18%';
-            let wPpct = isLand ? '7%' : '8%';
-            let wSign = showSign ? (isLand ? '7%' : '8%') : '';
-            let wNote = showNote ? (isLand ? '12%' : '13%') : '';
-            let wCustom = showCustom ? (isLand ? '12%' : '13%') : '';
-            theadColsHtml = `
-                <th style="width:${wDay};">Thứ, ngày</th>
-                <th style="width:${wBuoi};">Buổi</th>
-                <th style="width:${wTiet};">Tiết</th>
-                <th style="width:${wMon};">Môn học</th>
-                <th style="width:${wPpct};">Tiết PPCT</th>
-                <th>Tên bài dạy</th>
-                ${showSign ? `<th style="width:${wSign};">Kí tên</th>` : ''}
-                ${showNote ? `<th style="width:${wNote};">Ghi chú</th>` : ''}
-                ${showCustom ? `<th style="width:${wCustom};">${escapeHtml(customColTitle)}</th>` : ''}
-            `;
-        }
+        orderedCols.forEach(col => {
+            if (col.key === 'day') {
+                theadColsHtml += `<th style="width:${isLand ? '10%' : '11%'};">Thứ, ngày</th>`;
+            } else if (col.key === 'session') {
+                theadColsHtml += `<th style="width:${isLand ? '6%' : '7%'};">Buổi</th>`;
+            } else if (col.key === 'period') {
+                theadColsHtml += `<th style="width:${isLand ? '4%' : '5%'};">Tiết</th>`;
+            } else if (col.key === 'subject') {
+                theadColsHtml += `<th style="width:${isLand ? '17%' : '18%'};">Môn học</th>`;
+            } else if (col.key === 'ppct') {
+                theadColsHtml += `<th style="width:${isLand ? '7%' : '8%'};">Tiết PPCT</th>`;
+            } else if (col.key === 'lesson') {
+                theadColsHtml += `<th>Tên bài dạy</th>`;
+            } else if (col.key === 'integ') {
+                theadColsHtml += `<th style="width:${isLand ? '30%' : '23%'};">Nội dung tích hợp / Điều chỉnh</th>`;
+            } else if (col.key === 'sign') {
+                theadColsHtml += `<th style="width:${isLand ? '7%' : '8%'};">Kí tên</th>`;
+            } else if (col.key === 'note') {
+                theadColsHtml += `<th style="width:${isLand ? '10%' : '11%'};">Ghi chú</th>`;
+            } else if (col.isCustom) {
+                theadColsHtml += `<th style="width:${customColWidth};">${escapeHtml(col.title)}</th>`;
+            }
+        });
 
         let html = `
         <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
@@ -4673,22 +4926,37 @@
                     integrationCell = `<td style="font-size:9.5pt; line-height:1.45; text-align:left; vertical-align:top;">${formattedInteg}</td>`;
                 }
 
-                let signTd = showSign ? `<td style="text-align:center; vertical-align:middle;"></td>` : '';
-                let noteTd = showNote ? `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(slot.note || '')}</td>` : '';
-                let customTd = showCustom ? `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(slot.customCol || slot.note || '')}</td>` : '';
+                let rowCellsHtml = "";
+                orderedCols.forEach(col => {
+                    if (col.key === 'day') {
+                        if (dayCell) rowCellsHtml += dayCell;
+                    } else if (col.key === 'session') {
+                        if (sessionCell) rowCellsHtml += sessionCell;
+                    } else if (col.key === 'period') {
+                        rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>`;
+                    } else if (col.key === 'subject') {
+                        rowCellsHtml += `<td style="font-weight:bold; text-align:left; vertical-align:middle;">${escapeHtml(slot.subject)}</td>`;
+                    } else if (col.key === 'ppct') {
+                        rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>`;
+                    } else if (col.key === 'lesson') {
+                        rowCellsHtml += `<td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>`;
+                    } else if (col.key === 'integ') {
+                        rowCellsHtml += integrationCell;
+                    } else if (col.key === 'sign') {
+                        rowCellsHtml += `<td style="text-align:center; vertical-align:middle;"></td>`;
+                    } else if (col.key === 'note') {
+                        rowCellsHtml += `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(slot.note || '')}</td>`;
+                    } else if (col.isCustom) {
+                        const customVal = (slot.customCols && slot.customCols[col.id] !== undefined)
+                            ? slot.customCols[col.id]
+                            : (col.id === 'col_1' ? (slot.customCol || slot.note || '') : (slot['customCol_' + col.id] || ''));
+                        rowCellsHtml += `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(customVal)}</td>`;
+                    }
+                });
 
                 html += `
                     <tr>
-                        ${dayCell}
-                        ${sessionCell}
-                        <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>
-                        <td style="font-weight:bold; text-align:left; vertical-align:middle;">${escapeHtml(slot.subject)}</td>
-                        <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
-                        <td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>
-                        ${integrationCell}
-                        ${signTd}
-                        ${noteTd}
-                        ${customTd}
+                        ${rowCellsHtml}
                     </tr>
                 `;
             });
@@ -4891,8 +5159,10 @@
             const options = {
                 showColSign: state.lbgShowColSign,
                 showColNote: state.lbgShowColNote,
-                showColCustom: state.lbgShowColCustom,
-                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
+                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign
@@ -5052,21 +5322,9 @@
         };
         bindLbgOption("lbg-opt-col-sign", "lbgShowColSign", false);
         bindLbgOption("lbg-opt-col-note", "lbgShowColNote", false);
-        bindLbgOption("lbg-opt-col-custom", "lbgShowColCustom", false);
         bindLbgOption("lbg-opt-sig-bgh", "lbgShowBghSign", true);
         bindLbgOption("lbg-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("lbg-opt-sig-head", "lbgShowHeadSign", true);
-
-        const txtLbgCustomName = document.getElementById("lbg-opt-col-custom-name");
-        if (txtLbgCustomName) {
-            txtLbgCustomName.addEventListener("input", (e) => {
-                state.lbgColCustomName = e.target.value.trim() || "Ghi chú";
-                const modalTxt = document.getElementById("modal-opt-col-custom-name");
-                if (modalTxt) modalTxt.value = e.target.value;
-                saveState();
-                renderTabLbg();
-            });
-        }
 
         // Modal Preview Options Checkboxes
         const bindModalOption = (id, prop, isDefaultTrue = false) => {
@@ -5077,30 +5335,42 @@
                 saveState();
                 renderTabLbg();
                 if (currentPreviewRefreshFn) {
-                    document.getElementById("modal-preview-body").innerHTML = currentPreviewRefreshFn();
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
                 }
             });
         };
         bindModalOption("modal-opt-col-sign", "lbgShowColSign", false);
         bindModalOption("modal-opt-col-note", "lbgShowColNote", false);
-        bindModalOption("modal-opt-col-custom", "lbgShowColCustom", false);
         bindModalOption("modal-opt-sig-bgh", "lbgShowBghSign", true);
         bindModalOption("modal-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindModalOption("modal-opt-sig-head", "lbgShowHeadSign", true);
 
-        const txtModalCustomName = document.getElementById("modal-opt-col-custom-name");
-        if (txtModalCustomName) {
-            txtModalCustomName.addEventListener("input", (e) => {
-                state.lbgColCustomName = e.target.value.trim() || "Ghi chú";
-                const lbgTxt = document.getElementById("lbg-opt-col-custom-name");
-                if (lbgTxt) lbgTxt.value = e.target.value;
-                saveState();
-                renderTabLbg();
-                if (currentPreviewRefreshFn) {
-                    document.getElementById("modal-preview-body").innerHTML = currentPreviewRefreshFn();
-                }
+        // Add Custom Column Handlers
+        const handleAddNewCustomCol = () => {
+            if (!Array.isArray(state.lbgCustomCols)) state.lbgCustomCols = [];
+            const colNum = state.lbgCustomCols.length + 1;
+            const newId = 'col_' + Date.now();
+            state.lbgCustomCols.push({
+                id: newId,
+                name: `Cột mới ${colNum}`,
+                pos: 'end',
+                enabled: true
             });
-        }
+            saveState();
+            renderCustomColsManager("lbg-custom-cols-list", false);
+            renderCustomColsManager("modal-custom-cols-list", true);
+            renderTabLbg();
+            if (currentPreviewRefreshFn) {
+                const body = document.getElementById("modal-preview-body");
+                if (body) body.innerHTML = currentPreviewRefreshFn();
+            }
+        };
+
+        const btnAddCol1 = document.getElementById("btn-lbg-add-custom-col");
+        if (btnAddCol1) btnAddCol1.onclick = handleAddNewCustomCol;
+        const btnAddCol2 = document.getElementById("btn-modal-add-custom-col");
+        if (btnAddCol2) btnAddCol2.onclick = handleAddNewCustomCol;
 
         document.getElementById("btn-lbg-reset-tkb").addEventListener("click", () => {
             if (confirm(`Bạn có muốn khôi phục Thời khóa biểu của Tuần ${state.currentWeek} về mặc định không?`)) {

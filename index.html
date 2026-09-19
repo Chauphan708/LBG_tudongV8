@@ -57,10 +57,10 @@
                 <span>🎯</span>
                 <span>BG Tích Hợp (CTLOP)</span>
             </button>
-            <button class="tab-btn" data-tab="tab-lbg-mon" id="nav-btn-lbg-mon" title="Báo Giảng Chi Tiết Từng Môn Học Bản V6">
+            <button class="tab-btn" data-tab="tab-lbg-mon" id="nav-btn-lbg-mon" title="Báo Giảng Chi Tiết Từng Môn Học Bản V8">
                 <span>📚</span>
                 <span>Báo Giảng Theo Môn</span>
-                <span class="guide-badge-hot" style="background:#059669; margin-left:4px;">V6</span>
+                <span class="guide-badge-hot" style="background:#059669; margin-left:4px;">V8</span>
             </button>
             <button class="tab-btn" data-tab="tab-lichtuan" id="nav-btn-lichtuan" title="Kế Hoạch Thời Gian 35 Tuần &amp; Tùy Chỉnh Nghỉ Tết">
                 <span>🗓️</span>
@@ -75,10 +75,10 @@
                 <span>⚙️</span>
                 <span style="font-weight: 700;">Cài Đặt &amp; TKB</span>
             </button>
-            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" id="nav-btn-guide" title="Xem Hướng Dẫn Sử Dụng và Điểm Mới Bản V7">
+            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" id="nav-btn-guide" title="Xem Hướng Dẫn Sử Dụng và Điểm Mới Bản V8">
                 <span class="guide-icon">💡</span>
                 <span style="font-weight: 700;">Hướng Dẫn Sử Dụng</span>
-                <span class="guide-badge-hot">V7</span>
+                <span class="guide-badge-hot">V8</span>
             </button>
         </div>
     </nav>
@@ -158,8 +158,8 @@
 
                     <!-- Options for Additional Columns & Signatures -->
                     <div class="toolbar-options-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-sm); padding:0.5rem 0.85rem; margin-top:0.6rem;">
-                        <div style="display:flex; align-items:center; gap:1.15rem; flex-wrap:wrap;">
-                            <span style="font-weight:700; font-size:0.88rem; color:var(--primary);">📋 Cột bổ sung khi in &amp; xuất:</span>
+                        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:var(--primary);">📋 Cột bổ sung:</span>
                             <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị và in thêm cột Kí tên cho giáo viên dạy tiết đó">
                                 <input type="checkbox" id="lbg-opt-col-sign" style="width:16px; height:16px; cursor:pointer;">
                                 <span>✍️ Cột Kí tên</span>
@@ -168,13 +168,11 @@
                                 <input type="checkbox" id="lbg-opt-col-note" style="width:16px; height:16px; cursor:pointer;">
                                 <span>📝 Cột Ghi chú</span>
                             </label>
-                            <div style="display:flex; align-items:center; gap:0.35rem;">
-                                <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Thêm cột tuỳ chỉnh vào bảng và khi in/xuất file">
-                                    <input type="checkbox" id="lbg-opt-col-custom" style="width:16px; height:16px; cursor:pointer;">
-                                    <span>➕ Thêm cột:</span>
-                                </label>
-                                <input type="text" id="lbg-opt-col-custom-name" value="Ghi chú" placeholder="Tên cột" style="width:115px; padding:0.2rem 0.45rem; font-size:0.85rem; border:1px solid #93c5fd; border-radius:4px;" title="Nhập tên cột tuỳ chỉnh (VD: Nhận xét, Ghi chú, ĐDDH, Thiết bị...)">
-                            </div>
+                            <!-- Container for Multiple Dynamic Custom Columns -->
+                            <div id="lbg-custom-cols-list" style="display:inline-flex; align-items:center; gap:0.5rem; flex-wrap:wrap;"></div>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-lbg-add-custom-col" style="font-size:0.82rem; padding:0.22rem 0.6rem; font-weight:700; color:var(--primary); border:1px dashed var(--primary); background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.25rem;" title="Thêm một cột tuỳ chỉnh mới vào bảng với tên và vị trí tuỳ ý">
+                                <span>➕ Thêm cột mới</span>
+                            </button>
                         </div>
                         <div style="display:flex; align-items:center; gap:1.15rem; flex-wrap:wrap;">
                             <span style="font-weight:700; font-size:0.88rem; color:#b45309;">🏛️ Chữ ký khi in:</span>
@@ -998,24 +996,25 @@
 
                 <!-- Banner Giới Thiệu -->
                 <div class="guide-banner">
-                    <div style="display:inline-block; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:0.25rem 0.85rem; font-size:0.84rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem;">
-                        🌟 ĐÂY LÀ PHIÊN BẢN V7 (VERSION 7.0)
+                    <div style="display:inline-block; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:0.25rem 0.85rem; font-size:0.84rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; color:#ffffff;">
+                        🚀 ĐÂY LÀ PHIÊN BẢN V8 (VERSION 8.0) — PHIÊN BẢN MỚI NHẤT
                     </div>
                     <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Tiểu Học (Khối 1 - 5)</h2>
                     
                     <!-- Mục Lục Điều Hướng Nhanh -->
                     <div class="guide-toc">
-                        <a href="#guide-sec-1" class="guide-toc-item">1. Thiết lập Trường &amp; Lớp</a>
-                        <a href="#guide-sec-2" class="guide-toc-item">2. Lịch Báo Giảng Tuần</a>
-                        <a href="#guide-sec-3" class="guide-toc-item">3. Báo Giảng Tích Hợp</a>
-                        <a href="#guide-sec-3b" class="guide-toc-item" style="color: #059669; font-weight: 700;">3B. Báo Giảng Theo Môn</a>
-                        <a href="#guide-sec-4" class="guide-toc-item">4. Kế Hoạch Thời Gian</a>
-                        <a href="#guide-sec-5" class="guide-toc-item">5. PPCT &amp; Xuất KHDH</a>
-                        <a href="#guide-sec-6" class="guide-toc-item">6. In Thời Khóa Biểu</a>
-                        <a href="#guide-sec-7" class="guide-toc-item">7. In &amp; Xuất Nhiều Tuần</a>
-                        <a href="#guide-sec-8" class="guide-toc-item">8. Sao Lưu &amp; Chia Sẻ</a>
-                        <a href="#guide-sec-9" class="guide-toc-item" style="color: #1d4ed8; font-weight: 700;">9. An toàn dữ liệu máy tính</a>
-                        <a href="#guide-sec-10" class="guide-toc-item" style="color: #d97706; font-weight: 800;">✨ 10. Điểm Mới Bản V7 (Ngày dưới Thứ)</a>
+                        <a href="#guide-sec-1" class="guide-toc-item"><span>1. Thiết lập Trường &amp; Lớp</span></a>
+                        <a href="#guide-sec-2" class="guide-toc-item"><span>2. Lịch Báo Giảng Tuần</span></a>
+                        <a href="#guide-sec-3" class="guide-toc-item"><span>3. Báo Giảng Tích Hợp</span></a>
+                        <a href="#guide-sec-3b" class="guide-toc-item"><span>3B. Báo Giảng Theo Môn</span> <span class="guide-badge-hot" style="background:#059669; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V8</span></a>
+                        <a href="#guide-sec-4" class="guide-toc-item"><span>4. Kế Hoạch Thời Gian</span></a>
+                        <a href="#guide-sec-5" class="guide-toc-item"><span>5. PPCT &amp; Xuất KHDH</span></a>
+                        <a href="#guide-sec-6" class="guide-toc-item"><span>6. In Thời Khóa Biểu</span></a>
+                        <a href="#guide-sec-7" class="guide-toc-item"><span>7. In &amp; Xuất Nhiều Tuần</span></a>
+                        <a href="#guide-sec-8" class="guide-toc-item"><span>8. Sao Lưu &amp; Chia Sẻ</span></a>
+                        <a href="#guide-sec-9" class="guide-toc-item"><span>9. An toàn dữ liệu</span> <span style="margin-left:auto; font-size:0.88rem;">🛡️</span></a>
+                        <a href="#guide-sec-10" class="guide-toc-item"><span>10. Điểm Mới Bản V7</span> <span class="guide-badge-hot" style="background:#d97706; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V7</span></a>
+                        <a href="#guide-sec-11" class="guide-toc-item guide-toc-item-v8"><span>✨ 11. Điểm Mới Bản V8</span> <span class="guide-badge-hot" style="background:#dc2626; font-size:0.72rem; padding:2px 6px; margin-left:auto;">V8 Mới</span></a>
                     </div>
                 </div>
 
@@ -1265,12 +1264,16 @@
                 <div class="guide-card" id="guide-sec-11" style="border: 2px solid #2563eb; background: #eff6ff;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                         <span style="font-size: 1.5rem;">🚀</span>
-                        <h3 class="guide-card-title" style="color: #1d4ed8; margin: 0;">11. Điểm Mới Nổi Bật Ở Phiên Bản V8: Ẩn Thanh Tuỳ Chọn Khi In, Size Chữ 13 Chuẩn Nghị Định &amp; Thêm Cột Tuỳ Chỉnh</h3>
+                        <h3 class="guide-card-title" style="color: #1d4ed8; margin: 0;">11. Điểm Mới Nổi Bật Ở Phiên Bản V8: Thêm Nhiều Cột Tùy Ý Vị Trí, Ẩn Thanh Khi In &amp; Size Chữ 13pt Chuẩn</h3>
                     </div>
                     <p style="font-size: 0.9rem; color: #1e40af; margin-bottom: 1rem; line-height: 1.5;">
                         Phiên bản <strong>V8 (Version 8.0)</strong> hoàn thiện toàn diện trải nghiệm in ấn và hồ sơ lưu trữ theo yêu cầu thực tế của quý thầy cô:
                     </p>
                     <div class="guide-step-grid">
+                        <div class="guide-step-box" style="border-left: 3px solid #10b981; background: #ffffff;">
+                            <h4 style="color: #047857;">➕ Thêm NHIỀU CỘT ở VỊ TRÍ TÙY Ý</h4>
+                            <p>Bấm nút <strong>[+ Thêm cột mới]</strong> để thêm 1, 2, 3 hoặc nhiều cột tùy thích (ĐDDH, Nhận xét, Thiết bị...). Tự do đặt tên cột và chọn vị trí đặt cột (ở cột đầu tiên, cột 2, cột 3, cột 4, sau môn học, sau tiết PPCT, sau bài dạy hoặc cuối bảng). Dữ liệu nhập cho từng tiết được lưu an toàn vĩnh viễn.</p>
+                        </div>
                         <div class="guide-step-box" style="border-left: 3px solid #ef4444; background: #ffffff;">
                             <h4 style="color: #dc2626;">🖨️ Bản in hoàn toàn sạch sẽ</h4>
                             <p>Đã khắc phục triệt để tình trạng thanh chọn cột và chữ ký xuất hiện trên trang in. Khi bấm In A4 trực tiếp từ trình duyệt, trang giấy in ra sạch đẹp 100%, không bị dính bất kỳ thanh công cụ hay nút bấm thừa nào.</p>
@@ -1279,13 +1282,9 @@
                             <h4 style="color: #1d4ed8;">📏 Size chữ 13pt chuẩn Nghị định 30</h4>
                             <p>Toàn bộ bảng biểu trong tất cả các file tải về (file Word <code>.docx</code> và file Excel <code>.xlsx</code>) đều được thiết lập cỡ chữ chuẩn <strong>13pt Times New Roman</strong>, đảm bảo chuẩn mực thể thức văn bản hành chính.</p>
                         </div>
-                        <div class="guide-step-box" style="border-left: 3px solid #10b981; background: #ffffff;">
-                            <h4 style="color: #047857;">➕ Thêm cột tuỳ chỉnh linh hoạt</h4>
-                            <p>Bổ sung tính năng <strong>Thêm cột</strong> với ô nhập tên cột tuỳ ý (ví dụ: <em>Nhận xét</em>, <em>Ghi chú</em>, <em>ĐDDH</em>, <em>Thiết bị dạy học</em>,...). Tên cột và nội dung nhập vào được đồng bộ tự động lên màn hình, khung xem trước, in ấn và cả file xuất Word/Excel.</p>
-                        </div>
                         <div class="guide-step-box" style="border-left: 3px solid #8b5cf6; background: #ffffff;">
                             <h4 style="color: #6d28d9;">🏛️ Bật/Tắt chữ ký &amp; Cột bổ sung</h4>
-                            <p>Dễ dàng chọn lựa hiển thị hoặc ẩn từng chữ ký (Ký duyệt BGH, Ký GVCN, Ký Khối trưởng) và các cột (Kí tên, Ghi chú, Cột tuỳ chỉnh) ngay trên thanh công cụ và hộp thoại xem trước.</p>
+                            <p>Dễ dàng chọn lựa hiển thị hoặc ẩn từng chữ ký (Ký duyệt BGH, Ký GVCN, Ký Khối trưởng) và các cột bổ sung ngay trên thanh công cụ và hộp thoại xem trước, đồng bộ tự động sang file tải về.</p>
                         </div>
                     </div>
                 </div>
@@ -1520,7 +1519,7 @@
                 <button class="btn btn-secondary btn-sm" id="modal-close-btn">✕ Đóng</button>
             </div>
             <div class="modal-preview-toolbar no-print" id="modal-preview-options-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.65rem; background:#f8fafc; padding:0.45rem 1rem; border-bottom:1px solid #cbd5e1; font-size:0.84rem;">
-                <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
                     <span style="font-weight:700; color:var(--primary);">📋 Cột in:</span>
                     <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Kí tên khi in">
                         <input type="checkbox" id="modal-opt-col-sign"> <span>Cột Kí tên</span>
@@ -1528,12 +1527,10 @@
                     <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Ghi chú khi in">
                         <input type="checkbox" id="modal-opt-col-note"> <span>Cột Ghi chú</span>
                     </label>
-                    <div style="display:flex; align-items:center; gap:0.3rem;">
-                        <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Thêm cột tuỳ chỉnh khi in">
-                            <input type="checkbox" id="modal-opt-col-custom"> <span>➕ Thêm cột:</span>
-                        </label>
-                        <input type="text" id="modal-opt-col-custom-name" value="Ghi chú" placeholder="Tên cột" style="width:95px; padding:0.15rem 0.35rem; font-size:0.82rem; border:1px solid #93c5fd; border-radius:4px;" title="Tên cột tuỳ chỉnh">
-                    </div>
+                    <div id="modal-custom-cols-list" style="display:inline-flex; align-items:center; gap:0.45rem; flex-wrap:wrap;"></div>
+                    <button type="button" class="btn btn-secondary btn-sm" id="btn-modal-add-custom-col" style="font-size:0.78rem; padding:0.15rem 0.45rem; font-weight:700; color:var(--primary); border:1px dashed var(--primary); background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.2rem;" title="Thêm cột tuỳ chỉnh mới">
+                        <span>➕ Thêm cột</span>
+                    </button>
                 </div>
                 <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
                     <span style="font-weight:700; color:#b45309;">🏛️ Chữ ký in:</span>
@@ -1617,11 +1614,11 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Application Scripts -->
-    <script src="data/curriculum_data.js?v=6.0"></script>
-    <script src="data/curriculum_grades_1_4.js?v=6.0"></script>
-    <script src="js/docx_generator.js?v=6.0"></script>
-    <script src="js/xlsx_generator.js?v=6.0"></script>
-    <script src="js/app.js?v=6.0"></script>
+    <script src="data/curriculum_data.js?v=8.0"></script>
+    <script src="data/curriculum_grades_1_4.js?v=8.0"></script>
+    <script src="js/docx_generator.js?v=8.0"></script>
+    <script src="js/xlsx_generator.js?v=8.0"></script>
+    <script src="js/app.js?v=8.0"></script>
 
 </body>
 </html>

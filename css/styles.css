@@ -1190,24 +1190,90 @@ body {
 }
 
 .guide-toc-item {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: var(--radius-md);
-    padding: 0.55rem 0.85rem;
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 0.6rem 0.9rem;
+    color: #0f172a;
+    font-size: 0.86rem;
+    font-weight: 700;
     text-decoration: none;
-    transition: all 0.15s ease;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .guide-toc-item:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-1px);
-    color: #ffffff;
+    background: #f8fafc;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    color: #1e40af;
+}
+
+.guide-toc-item.guide-toc-item-v8 {
+    background: #fef2f2;
+    border-color: #fca5a5;
+    color: #b91c1c;
+}
+
+.guide-toc-item.guide-toc-item-v8:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+/* Custom Column Chips in Toolbar & Modal */
+.custom-col-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #ffffff;
+    border: 1px solid #93c5fd;
+    border-radius: 4px;
+    padding: 0.2rem 0.45rem;
+    font-size: 0.84rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.custom-col-chip input[type="text"] {
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+    padding: 0.15rem 0.35rem;
+    font-size: 0.82rem;
+    width: 105px;
+    font-weight: 600;
+    color: #1e293b;
+}
+.custom-col-chip input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--primary);
+}
+.custom-col-chip select {
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+    padding: 0.15rem 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    background: #f8fafc;
+    cursor: pointer;
+}
+.btn-del-custom-col {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0 0.2rem;
+    line-height: 1;
+    transition: transform 0.12s ease;
+}
+.btn-del-custom-col:hover {
+    transform: scale(1.25);
+    color: #b91c1c;
 }
 
 .guide-card {
