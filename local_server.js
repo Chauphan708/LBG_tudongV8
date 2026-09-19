@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 8080;
-const ROOT_DIR = path.resolve('C:/Users/Admin/.gemini/antigravity/scratch/Phan_Mem_Lich_Bao_Giang_Lop_5_V4');
+const ROOT_DIR = __dirname;
 
 const MIME_TYPES = {
     '.html': 'text/html; charset=utf-8',
@@ -59,7 +59,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, '127.0.0.1', () => {
     console.log(`\n======================================================`);
-    console.log(`🚀 Phần Mềm Lịch Báo Giảng & KHDH Lớp 5 (Bản V4)`);
+    console.log(`🚀 Phần Mềm Lịch Báo Giảng & KHDH Tiểu Học (Bản V8)`);
     console.log(`🌐 Đang chạy Offline Local tại: http://localhost:${PORT}`);
     console.log(`======================================================\n`);
 });
