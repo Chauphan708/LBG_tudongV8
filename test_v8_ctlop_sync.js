@@ -8,10 +8,10 @@ let errors = 0;
 
 // 1. Kiểm tra CSS
 const cssContent = fs.readFileSync(path.join(__dirname, 'css/styles.css'), 'utf8');
-if (cssContent.includes('padding-left: 1pt') && cssContent.includes('text-indent: 0.5pt')) {
-    console.log("✔ [CSS] styles.css chứa quy tắc padding-left: 1pt và text-indent: 0.5pt");
+if (cssContent.includes('padding-left: 1pt') && cssContent.includes('text-indent: 2pt')) {
+    console.log("✔ [CSS] styles.css chứa quy tắc padding-left: 1pt và text-indent: 2pt");
 } else {
-    console.error("❌ [CSS] Thiếu padding-left: 1pt hoặc text-indent: 0.5pt trong styles.css");
+    console.error("❌ [CSS] Thiếu padding-left: 1pt hoặc text-indent: 2pt trong styles.css");
     errors++;
 }
 
@@ -41,10 +41,10 @@ requiredIds.forEach(id => {
 
 // 3. Kiểm tra JS DOCX Generator logic
 const docxContent = fs.readFileSync(path.join(__dirname, 'js/docx_generator.js'), 'utf8');
-if (docxContent.includes('w:left w:w="20"') && docxContent.includes('w:ind w:firstLine="10"')) {
-    console.log("✔ [DOCX] docx_generator.js có lề trái 1pt (w:w=20) và thụt đầu dòng 0.5pt (w:firstLine=10)");
+if (docxContent.includes('w:left w:w="20"') && docxContent.includes('w:ind w:firstLine="40"')) {
+    console.log("✔ [DOCX] docx_generator.js có lề trái 1pt (w:w=20) và thụt đầu dòng 2pt (w:firstLine=40)");
 } else {
-    console.error("❌ [DOCX] docx_generator.js thiếu w:left w:w=20 hoặc w:ind w:firstLine=10");
+    console.error("❌ [DOCX] docx_generator.js thiếu w:left w:w=20 hoặc w:ind w:firstLine=40");
     errors++;
 }
 
@@ -126,8 +126,8 @@ async function testDocxGeneration() {
             errors++;
         }
 
-        if (docXml.includes('w:firstLine="10"') && docXml.includes('w:left w:w="20"')) {
-            console.log("✔ [DOCX Test] Định dạng w:left=20 dxa (1pt) và w:firstLine=10 dxa (0.5pt) xuất hiện trong bảng");
+        if (docXml.includes('w:firstLine="40"') && docXml.includes('w:left w:w="20"')) {
+            console.log("✔ [DOCX Test] Định dạng w:left=20 dxa (1pt) và w:firstLine=40 dxa (2pt) xuất hiện trong bảng");
         } else {
             console.error("❌ [DOCX Test] Thiếu định dạng lề ô hoặc thụt đầu dòng trong bảng DOCX");
             errors++;

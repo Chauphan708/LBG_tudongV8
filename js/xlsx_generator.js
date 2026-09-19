@@ -444,7 +444,10 @@ ${colsXml}    </cols>
         const sessCol = orderedCols.find(c => c.key === 'session') || { colLetter: 'B' };
 
         days.forEach(day => {
-            const daySlots = schedule.filter(s => s.day === day);
+            let daySlots = schedule.filter(s => s.day === day);
+            if (options && options.hideEmptyRows) {
+                daySlots = daySlots.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --');
+            }
             if (daySlots.length === 0) return;
 
             const dayDate = getDayFullDate(weekInfo.startDateVN, day);
@@ -461,8 +464,8 @@ ${colsXml}    </cols>
             daySlots.forEach((slot, idx) => {
                 const r = currentRow;
                 const isFirstOfDay = (idx === 0);
-                const isFirstOfMorning = (slot.session === "Sáng" && idx === 0);
-                const isFirstOfAfternoon = (slot.session === "Chiều" && idx === morningSlots.length);
+                const isFirstOfMorning = (morningSlots.length > 0 && idx === 0);
+                const isFirstOfAfternoon = (afternoonSlots.length > 0 && idx === morningSlots.length);
 
                 const dayVal = isFirstOfDay ? (dayDate ? `${day}\n${dayDate}` : day) : "";
                 const sessionVal = isFirstOfMorning ? "Sáng" : (isFirstOfAfternoon ? "Chiều" : "");

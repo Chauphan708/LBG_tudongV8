@@ -65,7 +65,7 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
       - Tiêu đề & Quốc ngữ: Chuẩn hóa đồng bộ cỡ chữ 13pt cho Tiêu đề lịch báo giảng, phần Quốc hiệu - Tiêu ngữ
         và thông tin cơ quan ban hành theo chuẩn văn bản hành chính Nghị định 30/2020/NĐ-CP.
       - Tên bài học / Tên bài dạy: Tinh chỉnh lề trái của ô cách chữ 1pt (padding-left: 1pt / 20 dxa),
-        thụt đầu dòng 0.5pt (text-indent: 0.5pt / w:firstLine="10"), kết hợp khoảng cách lề trên/dưới 1pt,
+        thụt đầu dòng 2pt (text-indent: 2pt / w:firstLine="40"), kết hợp khoảng cách lề trên/dưới 1pt (20 dxa),
         giúp dòng chữ vào hàng thẳng tắp, thoáng đãng, sắc nét, dễ nhìn và chuẩn mực văn bản trình bày.
 
    🌟 6. ĐỒNG BỘ TOÀN DIỆN CHO BÁO GIẢNG TÍCH HỢP (CTLOP - TAB 2):
@@ -78,7 +78,16 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
           + Bản in / xem trước A4 (khổ đứng và khổ ngang).
           + Bản xuất Word (.docx) và bản xuất Excel (.xlsx) của Báo giảng tích hợp.
 
-   🌟 7. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
+   🌟 7. TÙY CHỌN XÓA / GIỮ HÀNG TIẾT NGHỈ & ĐỂ TRỐNG KHI XUẤT FILE VÀ IN ẤN:
+      - Linh hoạt loại bỏ các hàng tiết nghỉ / để trống (như các buổi chiều không dạy, tiết trống,...):
+          + Tích chọn "Xóa hàng tiết nghỉ / để trống khi xuất & in": Phần mềm tự động loại bỏ các dòng tiết nghỉ
+            khỏi tệp xuất Word (.docx), Excel (.xlsx) và khung in A4; tự động tính toán lại gộp dòng (rowspan / vMerge)
+            cho cột Buổi (Sáng/Chiều) và Thứ, ngày. Nếu cả buổi chiều hoặc sáng nghỉ thì ẩn gọn gàng buổi đó.
+          + Bỏ tích: Giữ nguyên các hàng để trống như bình thường.
+      - Tùy chọn được đồng bộ tức thì trên thanh công cụ Tab 1 (Lịch Báo Giảng), Tab 2 (Báo Giảng Tích Hợp),
+        cửa sổ Xem Trước & In A4 và cửa sổ Xuất Gộp Nhiều Tuần.
+
+   🌟 8. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
       - Cột "Thứ, ngày" tự động hiển thị ngày tháng năm dưới tên thứ chính xác cho từng tuần.
       - Tùy chọn ẩn/hiện cột "Kí tên" và "Ghi chú".
       - Tùy chọn ẩn/hiện chữ ký phê duyệt (BGH, GVCN, Khối trưởng).

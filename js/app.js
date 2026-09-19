@@ -385,6 +385,7 @@
                 if (parsed.lbgShowBghSign !== undefined) state.lbgShowBghSign = parsed.lbgShowBghSign;
                 if (parsed.lbgShowGvcnSign !== undefined) state.lbgShowGvcnSign = parsed.lbgShowGvcnSign;
                 if (parsed.lbgShowHeadSign !== undefined) state.lbgShowHeadSign = parsed.lbgShowHeadSign;
+                if (parsed.lbgHideEmptyRows !== undefined) state.lbgHideEmptyRows = parsed.lbgHideEmptyRows;
             }
         } catch (e) {
             console.warn("Could not load localStorage for Grade " + grade + ":", e);
@@ -478,6 +479,7 @@
                 lbgShowBghSign: state.lbgShowBghSign,
                 lbgShowGvcnSign: state.lbgShowGvcnSign,
                 lbgShowHeadSign: state.lbgShowHeadSign,
+                lbgHideEmptyRows: !!state.lbgHideEmptyRows,
                 currentGrade: state.currentGrade
             };
             const gradeKey = getStorageKey(state.currentGrade);
@@ -1975,6 +1977,8 @@
         if (optSigGvcn) optSigGvcn.checked = (state.lbgShowGvcnSign !== false);
         const optSigHead = document.getElementById("lbg-opt-sig-head");
         if (optSigHead) optSigHead.checked = (state.lbgShowHeadSign !== false);
+        const optHideEmpty = document.getElementById("lbg-opt-hide-empty-rows");
+        if (optHideEmpty) optHideEmpty.checked = !!state.lbgHideEmptyRows;
 
         // Render dynamic custom column chips in Tab 1
         renderCustomColsManager("lbg-custom-cols-list", false);
@@ -2065,7 +2069,7 @@
                     } else if (col.key === 'ppct') {
                         rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:2pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
                     } else if (col.key === 'sign') {
                         rowHtml += `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>`;
                     } else if (col.key === 'note') {
@@ -2304,7 +2308,7 @@
                         <td class="col-period" style="vertical-align: middle; font-weight: 700;">${slot.period}</td>
                         <td style="text-align: center; font-weight: 700; color: var(--primary); vertical-align: middle;">Tiết ${slot.periodInWeek}</td>
                         <td class="col-ppct editable-cell" contenteditable="true" data-key="${slot.key}" data-field="ppct" style="vertical-align: middle; font-weight: 700;">${slot.ppct}</td>
-                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left; padding-top: 1pt; padding-bottom: 1pt; padding-left: 1pt; text-indent: 0.5pt; line-height: 1.35;">${escapeHtml(slot.lessonName || '')}</td>
+                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left; padding-top: 1pt; padding-bottom: 1pt; padding-left: 1pt; text-indent: 2pt; line-height: 1.35;">${escapeHtml(slot.lessonName || '')}</td>
                         ${integrationCellHtml}
                         <td class="no-print" style="text-align: center; vertical-align: middle;">
                             <button type="button" class="btn-row-action btn-clear-mon-slot" data-key="${slot.key}" title="Xóa nội dung tiết này">✕</button>
@@ -2462,6 +2466,8 @@
         if (ctlopOptSigGvcn) ctlopOptSigGvcn.checked = (state.lbgShowGvcnSign !== false);
         const ctlopOptSigHead = document.getElementById("ctlop-opt-sig-head");
         if (ctlopOptSigHead) ctlopOptSigHead.checked = (state.lbgShowHeadSign !== false);
+        const ctlopOptHideEmpty = document.getElementById("ctlop-opt-hide-empty-rows");
+        if (ctlopOptHideEmpty) ctlopOptHideEmpty.checked = !!state.lbgHideEmptyRows;
 
         // Render dynamic custom column chips in Tab 2
         renderCustomColsManager("ctlop-custom-cols-list", false);
@@ -2554,7 +2560,7 @@
                     } else if (col.key === 'ppct') {
                         rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:2pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
                     } else if (col.key === 'integ') {
                         rowHtml += `<td class="col-integration editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="integration" style="line-height:1.45;">${escapeHtml(slot.integration || '').replace(/\n/g, '<br>')}</td>`;
                     } else if (col.key === 'sign') {
@@ -4496,6 +4502,8 @@
             if (cbBgh) cbBgh.checked = (state.lbgShowBghSign !== false);
             if (cbGvcn) cbGvcn.checked = (state.lbgShowGvcnSign !== false);
             if (cbHead) cbHead.checked = (state.lbgShowHeadSign !== false);
+            const cbHide = document.getElementById("modal-opt-hide-empty-rows");
+            if (cbHide) cbHide.checked = !!state.lbgHideEmptyRows;
             renderCustomColsManager("modal-custom-cols-list", true);
         }
 
@@ -4888,7 +4896,8 @@
                 customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
-                showHeadSign: state.lbgShowHeadSign
+                showHeadSign: state.lbgShowHeadSign,
+                hideEmptyRows: !!state.lbgHideEmptyRows
             }).then(blob => {
                 saveAs(blob, filename);
                 showToast(`Đã xuất file Excel chuẩn in A4: ${filename}`, "success");
@@ -4916,7 +4925,8 @@
                 customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
-                showHeadSign: state.lbgShowHeadSign
+                showHeadSign: state.lbgShowHeadSign,
+                hideEmptyRows: !!state.lbgHideEmptyRows
             };
             window.DocxGenerator.generateLbgDocx(isCtlop, state.currentWeek, weekInfo, schedule, state.settings, stats, orient, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
@@ -5010,7 +5020,12 @@
         const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
         days.forEach(day => {
             const dayDate = getDayFullDate(weekInfo.startDateVN, day);
-            const daySlots = schedule.filter(s => s.day === day);
+            let daySlots = schedule.filter(s => s.day === day);
+            if (state.lbgHideEmptyRows) {
+                daySlots = daySlots.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --');
+            }
+            if (daySlots.length === 0) return;
+
             const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
             const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
             const orderedDaySlots = [...morningSlots, ...afternoonSlots];
@@ -5022,8 +5037,8 @@
                        </td>` 
                     : "";
                 let sessionCell = "";
-                if (idx === 0) sessionCell = `<td rowspan="${morningSlots.length}" style="text-align:center; vertical-align:middle;">Sáng</td>`;
-                else if (idx === morningSlots.length) sessionCell = `<td rowspan="${afternoonSlots.length}" style="text-align:center; vertical-align:middle;">Chiều</td>`;
+                if (morningSlots.length > 0 && idx === 0) sessionCell = `<td rowspan="${morningSlots.length}" style="text-align:center; vertical-align:middle;">Sáng</td>`;
+                else if (afternoonSlots.length > 0 && idx === morningSlots.length) sessionCell = `<td rowspan="${afternoonSlots.length}" style="text-align:center; vertical-align:middle;">Chiều</td>`;
 
                 let integrationCell = "";
                 if (isCtlop) {
@@ -5047,7 +5062,7 @@
                     } else if (col.key === 'ppct') {
                         rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowCellsHtml += `<td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>`;
+                        rowCellsHtml += `<td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:2pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>`;
                     } else if (col.key === 'integ') {
                         rowCellsHtml += integrationCell;
                     } else if (col.key === 'sign') {
@@ -5209,7 +5224,7 @@
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.periodInWeek}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
-                            <td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>
+                            <td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:2pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>
                             ${integrationCell}
                         </tr>
                     `;
@@ -5254,6 +5269,9 @@
             selEnd.value = "35";
         }
 
+        const batchHideChk = document.getElementById("batch-opt-hide-empty-rows");
+        if (batchHideChk) batchHideChk.checked = !!state.lbgHideEmptyRows;
+
         document.getElementById("batch-export-modal").classList.add("show");
     }
 
@@ -5273,7 +5291,8 @@
                 customCols: state.lbgCustomCols || [],
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
-                showHeadSign: state.lbgShowHeadSign
+                showHeadSign: state.lbgShowHeadSign,
+                hideEmptyRows: !!state.lbgHideEmptyRows
             };
             window.DocxGenerator.generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekSchedule, state.settings, orientation, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
@@ -5434,6 +5453,7 @@
         bindLbgOption("lbg-opt-sig-bgh", "lbgShowBghSign", true);
         bindLbgOption("lbg-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("lbg-opt-sig-head", "lbgShowHeadSign", true);
+        bindLbgOption("lbg-opt-hide-empty-rows", "lbgHideEmptyRows", false);
 
         // Bind CTLOP Checkboxes
         bindLbgOption("ctlop-opt-col-sign", "lbgShowColSign", false);
@@ -5441,6 +5461,7 @@
         bindLbgOption("ctlop-opt-sig-bgh", "lbgShowBghSign", true);
         bindLbgOption("ctlop-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("ctlop-opt-sig-head", "lbgShowHeadSign", true);
+        bindLbgOption("ctlop-opt-hide-empty-rows", "lbgHideEmptyRows", false);
 
         // Modal Preview Options Checkboxes
         const bindModalOption = (id, prop, isDefaultTrue = false) => {
@@ -5462,6 +5483,21 @@
         bindModalOption("modal-opt-sig-bgh", "lbgShowBghSign", true);
         bindModalOption("modal-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindModalOption("modal-opt-sig-head", "lbgShowHeadSign", true);
+        bindModalOption("modal-opt-hide-empty-rows", "lbgHideEmptyRows", false);
+
+        const batchHideChkEl = document.getElementById("batch-opt-hide-empty-rows");
+        if (batchHideChkEl) {
+            batchHideChkEl.addEventListener("change", (e) => {
+                state.lbgHideEmptyRows = !!e.target.checked;
+                saveState();
+                renderTabLbg();
+                renderTabCtlop();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            });
+        }
 
         // Add Custom Column Handlers
         const handleAddNewCustomCol = () => {

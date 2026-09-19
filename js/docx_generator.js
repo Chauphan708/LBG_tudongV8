@@ -1090,7 +1090,10 @@ window.DocxGenerator = (function() {
 
         const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
         days.forEach(day => {
-            const daySlots = schedule.filter(s => s.day === day);
+            let daySlots = schedule.filter(s => s.day === day);
+            if (options && options.hideEmptyRows) {
+                daySlots = daySlots.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --');
+            }
             if (daySlots.length === 0) return;
 
             const dayDate = getDayFullDate(weekInfo.startDateVN, day);
@@ -1099,8 +1102,8 @@ window.DocxGenerator = (function() {
 
             daySlots.forEach((slot, idx) => {
                 const isDayStart = (idx === 0);
-                const isMornStart = (idx === 0 && morningSlots.length > 0);
-                const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
+                const isMornStart = (morningSlots.length > 0 && idx === 0);
+                const isAftStart = (afternoonSlots.length > 0 && idx === morningSlots.length);
 
                 let rowCellsXml = "";
                 orderedCols.forEach(col => {
@@ -1145,7 +1148,7 @@ window.DocxGenerator = (function() {
                         rowCellsXml += `
                         <w:tc>
                             <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="40"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                         </w:tc>`;
                     } else if (col.key === 'integ') {
                         rowCellsXml += `
@@ -1378,7 +1381,10 @@ window.DocxGenerator = (function() {
 
             const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
             days.forEach(day => {
-                const daySlots = schedule.filter(s => s.day === day);
+                let daySlots = schedule.filter(s => s.day === day);
+                if (options && options.hideEmptyRows) {
+                    daySlots = daySlots.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --');
+                }
                 if (daySlots.length === 0) return;
 
                 const dayDate = getDayFullDate(weekInfo.startDateVN, day);
@@ -1387,8 +1393,8 @@ window.DocxGenerator = (function() {
 
                 daySlots.forEach((slot, idx) => {
                     const isDayStart = (idx === 0);
-                    const isMornStart = (idx === 0 && morningSlots.length > 0);
-                    const isAftStart = (idx === morningSlots.length && afternoonSlots.length > 0);
+                    const isMornStart = (morningSlots.length > 0 && idx === 0);
+                    const isAftStart = (afternoonSlots.length > 0 && idx === morningSlots.length);
 
                     let rowCellsXml = "";
                     orderedCols.forEach(col => {
@@ -1433,7 +1439,7 @@ window.DocxGenerator = (function() {
                             rowCellsXml += `
                             <w:tc>
                                 <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="40"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                             </w:tc>`;
                         } else if (col.key === 'integ') {
                             rowCellsXml += `
@@ -1978,7 +1984,7 @@ window.DocxGenerator = (function() {
                         </w:tc>
                         <w:tc>
                             <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="40"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                         </w:tc>
                         ${isCtlop ? `
                         <w:tc>
@@ -2233,7 +2239,7 @@ window.DocxGenerator = (function() {
                             </w:tc>
                             <w:tc>
                                 <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="40"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                             </w:tc>
                             ${isCtlop ? `
                             <w:tc>

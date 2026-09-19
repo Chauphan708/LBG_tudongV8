@@ -188,6 +188,10 @@
                                 <input type="checkbox" id="lbg-opt-sig-head" checked style="width:16px; height:16px; cursor:pointer;">
                                 <span>Khối trưởng</span>
                             </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Tự động xóa các hàng tiết nghỉ / để trống khi xem trước, in ấn và xuất file">
+                                <input type="checkbox" id="lbg-opt-hide-empty-rows" style="width:16px; height:16px; cursor:pointer;">
+                                <span style="color:#b91c1c;">🚫 Xóa hàng tiết nghỉ</span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -343,6 +347,10 @@
                             <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký của Khối trưởng / Tổ trưởng chuyên môn">
                                 <input type="checkbox" id="ctlop-opt-sig-head" checked style="width:16px; height:16px; cursor:pointer;">
                                 <span>Khối trưởng</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Tự động xóa các hàng tiết nghỉ / để trống khi xem trước, in ấn và xuất file">
+                                <input type="checkbox" id="ctlop-opt-hide-empty-rows" style="width:16px; height:16px; cursor:pointer;">
+                                <span style="color:#b91c1c;">🚫 Xóa hàng tiết nghỉ</span>
                             </label>
                         </div>
                     </div>
@@ -1459,6 +1467,13 @@
                     </div>
                 </div>
 
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; font-weight: 700; color: #b91c1c; cursor: pointer; background: #fff1f2; border: 1px solid #fecdd3; border-radius: var(--radius-sm); padding: 0.65rem 0.95rem;">
+                        <input type="checkbox" id="batch-opt-hide-empty-rows" style="width: 17px; height: 17px; cursor: pointer;">
+                        <span>🚫 Tự động xóa hàng tiết nghỉ / để trống khi xuất file</span>
+                    </label>
+                </div>
+
                 <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-sm); padding: 0.75rem 1rem; font-size: 0.86rem; color: #166534;">
                     💡 <strong>Gợi ý:</strong> File Word gộp nhiều tuần sẽ tự động ngắt trang (Page Break) cho mỗi tuần một trang riêng biệt, đúng chuẩn Nghị định 30/2020/NĐ-CP và sẵn sàng in ấn ngay.
                 </div>
@@ -1596,6 +1611,9 @@
                     </label>
                     <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký của Khối trưởng / Tổ trưởng">
                         <input type="checkbox" id="modal-opt-sig-head" checked> <span>Khối trưởng</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Tự động xóa các hàng tiết nghỉ / để trống khi xem trước, in ấn và xuất file">
+                        <input type="checkbox" id="modal-opt-hide-empty-rows"> <span style="color:#b91c1c;">🚫 Xóa hàng tiết nghỉ</span>
                     </label>
                 </div>
             </div>

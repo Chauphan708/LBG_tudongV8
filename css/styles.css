@@ -574,7 +574,7 @@ body {
     padding-top: 1pt;
     padding-bottom: 1pt;
     padding-left: 1pt;
-    text-indent: 0.5pt;
+    text-indent: 2pt;
     text-align: left;
     line-height: 1.35;
 }
@@ -861,7 +861,7 @@ body {
     padding-top: 1pt !important;
     padding-bottom: 1pt !important;
     padding-left: 1pt !important;
-    text-indent: 0.5pt !important;
+    text-indent: 2pt !important;
     text-align: left !important;
     line-height: 1.35 !important;
 }
@@ -1077,7 +1077,7 @@ body {
         padding-top: 1pt !important;
         padding-bottom: 1pt !important;
         padding-left: 1pt !important;
-        text-indent: 0.5pt !important;
+        text-indent: 2pt !important;
         text-align: left !important;
         line-height: 1.35 !important;
     }
