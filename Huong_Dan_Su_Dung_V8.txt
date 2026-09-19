@@ -1,0 +1,77 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5)
+PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP CHUYÊN NGHIỆP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V8:
+
+   🌟 1. KHẮC PHỤC TRIỆT ĐỂ HIỆN TƯỢNG IN THỪA THANH CÔNG CỤ (PRINT CLEANUP):
+      - Khi in ấn qua lệnh Print của trình duyệt (Ctrl + P hoặc bấm In ấn), toàn bộ thanh điều khiển
+        tùy chọn (các checkbox ẩn/hiện cột, ẩn/hiện chữ ký) được tự động ẩn hoàn toàn khỏi trang giấy in.
+      - Trang giấy in ra đạt độ sạch sẽ, tinh tươm 100%, không còn bị dính khung tùy chọn thừa
+        như các phiên bản trước.
+
+   🌟 2. CHUẨN HÓA CỠ CHỮ 13PT CHO TOÀN BỘ CÁC FILE XUẤT TẢI VỀ:
+      - Tuân thủ quy định chuẩn văn bản hành chính theo Nghị định 30/2020/NĐ-CP của Chính phủ.
+      - Toàn bộ các bảng biểu và nội dung trong tệp xuất Word (.docx) và Excel (.xlsx) được chuẩn hóa
+        về cỡ chữ 13pt (Times New Roman 13pt):
+          + File Lịch Báo Giảng hàng tuần (.docx, .xlsx)
+          + File Lịch Báo Giảng tích hợp CTLOP (.docx, .xlsx)
+          + File Lịch Báo Giảng theo môn học (.docx, .xlsx)
+          + File Xuất gộp nhiều tuần (.docx)
+          + File Kế Hoạch Dạy Học chi tiết (.docx)
+          + File Thời Khóa Biểu (.docx, .xlsx)
+      - Chữ in ra to rõ, chuẩn mực, dễ đọc và đáp ứng đầy đủ tiêu chí hồ sơ kiểm tra của Phòng/Sở GD&ĐT.
+
+   🌟 3. TÙY CHỌN THÊM CỘT TÙY BIẾN VÀ TỰ ĐIỀU CHỈNH TÊN CỘT:
+      - Bổ sung tùy chọn checkbox: "[x] Thêm cột tùy chỉnh" đi kèm ô nhập tên cột ngay bên cạnh.
+      - Thầy/cô có thể tự do thay đổi tiêu đề cột theo nhu cầu thực tế của trường mình, ví dụ:
+        "Nhận xét", "Ghi chú", "ĐDDH", "Thiết bị", "Học liệu", "Địa điểm dạy học",...
+      - Tự động đồng bộ tên cột và dữ liệu nhập trực tiếp trên màn hình sang:
+          + Bảng hiển thị trực tiếp trên web
+          + Khung xem trước bản in A4 (cả khổ đứng và khổ ngang)
+          + Bản xuất Word (.docx) chuẩn bảng biểu
+          + Bản xuất Excel (.xlsx) tự động co giãn độ rộng phù hợp
+      - Dữ liệu cột tùy chỉnh được lưu trữ an toàn cùng từng tiết học trong tuần.
+
+   🌟 4. TỐI ƯU HÓA QUY TRÌNH XEM TRƯỚC VÀ LOẠI BỎ CÁC NÚT THỪA:
+      - Tinh gọn các thao tác in ấn: Loại bỏ nút "In lịch tuần" trùng lặp.
+      - Nút "Xem trước" và "Xem trước & In A4" hoạt động nhanh, chuẩn xác, hiển thị trung thực 100%
+        bố cục trang giấy trước khi xuất hoặc in ra máy in.
+
+   🌟 5. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
+      - Cột "Thứ, ngày" tự động hiển thị ngày tháng năm dưới tên thứ chính xác cho từng tuần.
+      - Tùy chọn ẩn/hiện cột "Kí tên" và "Ghi chú".
+      - Tùy chọn ẩn/hiện chữ ký phê duyệt (BGH, GVCN, Khối trưởng).
+      - Đồng bộ tên Hiệu trưởng thời gian thực khi chỉnh sửa trong Cài đặt.
+      - Nút "Khổ Ngang" và "Khổ Đứng" chuyển đổi mượt mà.
+      - Báo giảng theo môn học và khôi phục cột tích hợp Lớp 5 đầy đủ.
+      - Tương thích dữ liệu ngược 100%: Tự động kế thừa toàn bộ dữ liệu từ bản V7, V6, V5, V4.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN SỬ DỤNG NHANH BẢN V8:
+
+   - BƯỚC 1: Giải nén tệp zip "Phan_Mem_Lich_Bao_Giang_Lop_5_V8.zip".
+   - BƯỚC 2: Nhấp đúp chuột vào tệp "index.html" (hoặc "Mo_Phan_Mem.bat") để mở phần mềm
+             trên trình duyệt bất kỳ (Google Chrome, Microsoft Edge, Cốc Cốc, Firefox...).
+   - BƯỚC 3: Chọn Khối lớp (Khối 1 đến Khối 5) ở góc trên bên phải màn hình.
+   - BƯỚC 4: Vào tab "Cài Đặt & TKB" kiểm tra thông tin trường, lớp, giáo viên, thời khóa biểu.
+   - BƯỚC 5: Tại tab "Lịch Báo Giảng", thầy/cô có thể:
+             + Tích chọn "Thêm cột" và gõ tên cột mong muốn (VD: "Thiết bị", "Nhận xét",...).
+             + Nhập trực tiếp nội dung vào ô của cột mới trên bảng.
+             + Bấm "Xem trước & In A4" để xem trước và in sạch đẹp không dính thanh công cụ.
+             + Bấm "Xuất Word (.docx)" hoặc "Xuất Excel (.xlsx)" để nhận file chuẩn cỡ chữ 13pt!
+
+--------------------------------------------------------------------------------
+4. LƯU Ý BẢO VỆ DỮ LIỆU:
+   - Thầy/cô nên vào tab "Cài Đặt & TKB", bấm "Sao lưu dữ liệu ra file JSON" để lưu về máy tính
+     làm dự phòng vĩnh viễn.
+   - Khi chuyển sang máy tính khác, chỉ cần bấm "Khôi phục dữ liệu từ file JSON" là phục hồi
+     toàn bộ dữ liệu chỉ trong 1 giây.
+================================================================================

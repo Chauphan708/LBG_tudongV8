@@ -945,7 +945,9 @@ body {
     .no-print,
     .modal-backdrop:not(#preview-modal),
     #preview-modal .modal-header,
-    #preview-modal .modal-footer {
+    #preview-modal .modal-footer,
+    #modal-preview-options-bar,
+    .modal-preview-toolbar {
         display: none !important;
     }
 

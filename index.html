@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phần Mềm Quản Lý Lịch Báo Giảng &amp; Kế Hoạch Dạy Học Tiểu Học (Khối 1 - 5) - Bản V7</title>
+    <title>Phần Mềm Quản Lý Lịch Báo Giảng &amp; Kế Hoạch Dạy Học Tiểu Học (Khối 1 - 5) - Bản V8</title>
     <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
-    <link rel="stylesheet" href="css/styles.css?v=7.0">
+    <link rel="stylesheet" href="css/styles.css?v=8.0">
     <!-- Offline & Fallback Libraries -->
     <script src="lib/jszip.min.js"></script>
     <script src="lib/FileSaver.min.js"></script>
@@ -21,7 +21,7 @@
                     <img src="assets/img/logo.jpg" alt="CPA Logo" class="brand-logo-img">
                 </div>
                 <div class="brand-info">
-                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5) <span style="font-size: 0.72em; background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 700;">BẢN V7</span></h1>
+                    <h1>LỊCH BÁO GIẢNG &amp; KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5) <span style="font-size: 0.72em; background: rgba(255,255,255,0.2); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 700;">BẢN V8</span></h1>
                 </div>
             </div>
             <div class="header-meta no-print" style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
@@ -38,8 +38,8 @@
                 <button type="button" class="btn-top-quick" id="btn-top-settings" title="Mở nhanh mục Cài Đặt và Thời Khóa Biểu">
                     <span>⚙️</span> Cài Đặt &amp; TKB
                 </button>
-                <button type="button" class="btn-top-quick btn-top-guide" id="btn-top-guide" title="Xem Hướng Dẫn Sử Dụng &amp; Tính Năng Mới V7">
-                    <span>💡</span> Hướng Dẫn V7
+                <button type="button" class="btn-top-quick btn-top-guide" id="btn-top-guide" title="Xem Hướng Dẫn Sử Dụng &amp; Tính Năng Mới V8">
+                    <span>💡</span> Hướng Dẫn V8
                 </button>
                 <span class="badge-info" id="top-badge-school">🏫 TH TRUNG NHỨT — LỚP 5A</span>
             </div>
@@ -113,14 +113,11 @@
                         <button class="btn btn-secondary" id="btn-lbg-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
                             <span>📦</span> <span>Xuất / In nhiều tuần</span>
                         </button>
-                        <button class="btn btn-secondary" id="btn-lbg-preview">
+                        <button class="btn btn-primary" id="btn-lbg-preview">
                             <span>👁️</span> <span>Xem trước in A4</span>
                         </button>
                         <button class="btn btn-accent" id="btn-lbg-excel">
                             <span>📊</span> <span>Xuất Excel (.xlsx)</span>
-                        </button>
-                        <button class="btn btn-primary" id="btn-lbg-print">
-                            <span>🖨️</span> <span>In Lịch Tuần</span>
                         </button>
                     </div>
                 </div>
@@ -156,6 +153,43 @@
                         </div>
                         <div class="subject-chips" id="lbg-inclusion-chips" style="gap:0.35rem;">
                             <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Options for Additional Columns & Signatures -->
+                    <div class="toolbar-options-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-sm); padding:0.5rem 0.85rem; margin-top:0.6rem;">
+                        <div style="display:flex; align-items:center; gap:1.15rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:var(--primary);">📋 Cột bổ sung khi in &amp; xuất:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị và in thêm cột Kí tên cho giáo viên dạy tiết đó">
+                                <input type="checkbox" id="lbg-opt-col-sign" style="width:16px; height:16px; cursor:pointer;">
+                                <span>✍️ Cột Kí tên</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị và in thêm cột Ghi chú ở cuối bảng">
+                                <input type="checkbox" id="lbg-opt-col-note" style="width:16px; height:16px; cursor:pointer;">
+                                <span>📝 Cột Ghi chú</span>
+                            </label>
+                            <div style="display:flex; align-items:center; gap:0.35rem;">
+                                <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Thêm cột tuỳ chỉnh vào bảng và khi in/xuất file">
+                                    <input type="checkbox" id="lbg-opt-col-custom" style="width:16px; height:16px; cursor:pointer;">
+                                    <span>➕ Thêm cột:</span>
+                                </label>
+                                <input type="text" id="lbg-opt-col-custom-name" value="Ghi chú" placeholder="Tên cột" style="width:115px; padding:0.2rem 0.45rem; font-size:0.85rem; border:1px solid #93c5fd; border-radius:4px;" title="Nhập tên cột tuỳ chỉnh (VD: Nhận xét, Ghi chú, ĐDDH, Thiết bị...)">
+                            </div>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1.15rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:#b45309;">🏛️ Chữ ký khi in:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký duyệt của Ban Giám Hiệu">
+                                <input type="checkbox" id="lbg-opt-sig-bgh" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Ký duyệt BGH</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký tên của Giáo viên chủ nhiệm">
+                                <input type="checkbox" id="lbg-opt-sig-gvcn" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Ký tên GVCN</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký của Khối trưởng / Tổ trưởng chuyên môn">
+                                <input type="checkbox" id="lbg-opt-sig-head" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Khối trưởng</span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -210,20 +244,20 @@
                 </div>
 
                 <!-- Signatures -->
-                <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 2rem; padding: 0 1rem;">
-                    <div>
-                        <div style="font-weight: 700; font-size: 0.95rem;">DUYỆT CỦA BGH</div>
+                <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 2rem; padding: 0 1rem;" id="lbg-signatures-container">
+                    <div id="lbg-sig-box-bgh" style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.95rem;" id="lbg-bgh-role">DUYỆT CỦA BGH</div>
                         <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
                         <div style="height: 50px;"></div>
                         <div style="font-weight: 700;" id="lbg-sig-pht">Lê Văn Tám</div>
                     </div>
-                    <div>
+                    <div id="lbg-sig-box-head" style="flex: 1;">
                         <div style="font-weight: 700; font-size: 0.95rem;">KHỐI TRƯỞNG</div>
                         <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
                         <div style="height: 50px;"></div>
                         <div style="font-weight: 700;" id="lbg-sig-head">Trần Thị Mai</div>
                     </div>
-                    <div>
+                    <div id="lbg-sig-box-gvcn" style="flex: 1;">
                         <div style="font-weight: 700; font-size: 0.95rem;">GIÁO VIÊN CHỦ NHIỆM</div>
                         <div style="font-size: 0.8rem; font-style: italic; color: var(--text-muted);">(Ký và ghi rõ họ tên)</div>
                         <div style="height: 50px;"></div>
@@ -254,7 +288,7 @@
                         <button class="btn btn-secondary" id="btn-ctlop-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
                             <span>📦</span> <span>Xuất / In nhiều tuần</span>
                         </button>
-                        <button class="btn btn-secondary" id="btn-ctlop-preview">
+                        <button class="btn btn-primary" id="btn-ctlop-preview">
                             <span>👁️</span> <span>Xem trước in A4</span>
                         </button>
                         <button class="btn btn-accent" id="btn-ctlop-excel">
@@ -609,6 +643,9 @@
                         </button>
                         <button class="btn btn-secondary btn-sm" id="btn-reset-ppct" title="Khôi phục dữ liệu PPCT gốc ban đầu của khối lớp hiện tại">
                             <span>🔄</span> <span>Khôi Phục Gốc</span>
+                        </button>
+                        <button class="btn btn-success btn-sm" id="btn-recover-integration" title="Khôi phục toàn bộ 621 nội dung tích hợp (NLS, AI, QCN, QPAN, BVMT) cho Khối 5">
+                            <span>✨</span> <span>Phục Hồi Tích Hợp Lớp 5</span>
                         </button>
                         <input type="file" id="ppct-upload-file" accept=".xlsx,.xls,.docx,.csv" style="display:none;">
                     </div>
@@ -1225,6 +1262,34 @@
                     </div>
                 </div>
 
+                <div class="guide-card" id="guide-sec-11" style="border: 2px solid #2563eb; background: #eff6ff;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🚀</span>
+                        <h3 class="guide-card-title" style="color: #1d4ed8; margin: 0;">11. Điểm Mới Nổi Bật Ở Phiên Bản V8: Ẩn Thanh Tuỳ Chọn Khi In, Size Chữ 13 Chuẩn Nghị Định &amp; Thêm Cột Tuỳ Chỉnh</h3>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #1e40af; margin-bottom: 1rem; line-height: 1.5;">
+                        Phiên bản <strong>V8 (Version 8.0)</strong> hoàn thiện toàn diện trải nghiệm in ấn và hồ sơ lưu trữ theo yêu cầu thực tế của quý thầy cô:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box" style="border-left: 3px solid #ef4444; background: #ffffff;">
+                            <h4 style="color: #dc2626;">🖨️ Bản in hoàn toàn sạch sẽ</h4>
+                            <p>Đã khắc phục triệt để tình trạng thanh chọn cột và chữ ký xuất hiện trên trang in. Khi bấm In A4 trực tiếp từ trình duyệt, trang giấy in ra sạch đẹp 100%, không bị dính bất kỳ thanh công cụ hay nút bấm thừa nào.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #2563eb; background: #ffffff;">
+                            <h4 style="color: #1d4ed8;">📏 Size chữ 13pt chuẩn Nghị định 30</h4>
+                            <p>Toàn bộ bảng biểu trong tất cả các file tải về (file Word <code>.docx</code> và file Excel <code>.xlsx</code>) đều được thiết lập cỡ chữ chuẩn <strong>13pt Times New Roman</strong>, đảm bảo chuẩn mực thể thức văn bản hành chính.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #10b981; background: #ffffff;">
+                            <h4 style="color: #047857;">➕ Thêm cột tuỳ chỉnh linh hoạt</h4>
+                            <p>Bổ sung tính năng <strong>Thêm cột</strong> với ô nhập tên cột tuỳ ý (ví dụ: <em>Nhận xét</em>, <em>Ghi chú</em>, <em>ĐDDH</em>, <em>Thiết bị dạy học</em>,...). Tên cột và nội dung nhập vào được đồng bộ tự động lên màn hình, khung xem trước, in ấn và cả file xuất Word/Excel.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #8b5cf6; background: #ffffff;">
+                            <h4 style="color: #6d28d9;">🏛️ Bật/Tắt chữ ký &amp; Cột bổ sung</h4>
+                            <p>Dễ dàng chọn lựa hiển thị hoặc ẩn từng chữ ký (Ký duyệt BGH, Ký GVCN, Ký Khối trưởng) và các cột (Kí tên, Ghi chú, Cột tuỳ chỉnh) ngay trên thanh công cụ và hộp thoại xem trước.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1453,6 +1518,35 @@
                     <button type="button" class="btn" data-orient="landscape" id="btn-modal-orient-landscape">📜 Khổ Ngang</button>
                 </div>
                 <button class="btn btn-secondary btn-sm" id="modal-close-btn">✕ Đóng</button>
+            </div>
+            <div class="modal-preview-toolbar no-print" id="modal-preview-options-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.65rem; background:#f8fafc; padding:0.45rem 1rem; border-bottom:1px solid #cbd5e1; font-size:0.84rem;">
+                <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                    <span style="font-weight:700; color:var(--primary);">📋 Cột in:</span>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Kí tên khi in">
+                        <input type="checkbox" id="modal-opt-col-sign"> <span>Cột Kí tên</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Ghi chú khi in">
+                        <input type="checkbox" id="modal-opt-col-note"> <span>Cột Ghi chú</span>
+                    </label>
+                    <div style="display:flex; align-items:center; gap:0.3rem;">
+                        <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Thêm cột tuỳ chỉnh khi in">
+                            <input type="checkbox" id="modal-opt-col-custom"> <span>➕ Thêm cột:</span>
+                        </label>
+                        <input type="text" id="modal-opt-col-custom-name" value="Ghi chú" placeholder="Tên cột" style="width:95px; padding:0.15rem 0.35rem; font-size:0.82rem; border:1px solid #93c5fd; border-radius:4px;" title="Tên cột tuỳ chỉnh">
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                    <span style="font-weight:700; color:#b45309;">🏛️ Chữ ký in:</span>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký duyệt của BGH">
+                        <input type="checkbox" id="modal-opt-sig-bgh" checked> <span>Ký BGH</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký tên của GVCN">
+                        <input type="checkbox" id="modal-opt-sig-gvcn" checked> <span>Ký GVCN</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn phần ký của Khối trưởng / Tổ trưởng">
+                        <input type="checkbox" id="modal-opt-sig-head" checked> <span>Khối trưởng</span>
+                    </label>
+                </div>
             </div>
             <div class="modal-body" id="modal-preview-body">
                 <!-- Injected paper page HTML -->

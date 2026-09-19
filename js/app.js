@@ -5,7 +5,7 @@
  */
 
 (function() {
-    const STORAGE_KEY = "LBG_APP_DATA_V7";
+    const STORAGE_KEY = "LBG_APP_DATA_V8";
     let currentOrientation = "portrait";
 
     function getBaseLesson(lessonStr) {
@@ -126,6 +126,13 @@
         includedSubjects: [],
         subjectList: [],
         lbgExcludedMode: "off",
+        lbgShowColSign: false,
+        lbgShowColNote: false,
+        lbgShowColCustom: false,
+        lbgColCustomName: "Ghi chú",
+        lbgShowBghSign: true,
+        lbgShowGvcnSign: true,
+        lbgShowHeadSign: true,
         settings: {
             governingBody: "UBND PHƯỜNG TRUNG NHỨT",
             schoolName: "TRƯỜNG TIỂU HỌC TRUNG NHỨT",
@@ -162,7 +169,7 @@
     state.currentGrade = currentGrade;
 
     function getStorageKey(grade) {
-        return "LBG_APP_DATA_V7_G" + grade;
+        return "LBG_APP_DATA_V8_G" + grade;
     }
 
     function getGradeDefaultSubjects(grade) {
@@ -288,11 +295,11 @@
             const gradeKey = getStorageKey(grade);
             let saved = localStorage.getItem(gradeKey);
             if (!saved) {
-                saved = localStorage.getItem("LBG_APP_DATA_V6_G" + grade) || localStorage.getItem("LBG_APP_DATA_V5_G" + grade) || localStorage.getItem("LBG_APP_DATA_V4_G" + grade);
+                saved = localStorage.getItem("LBG_APP_DATA_V7_G" + grade) || localStorage.getItem("LBG_APP_DATA_V6_G" + grade) || localStorage.getItem("LBG_APP_DATA_V5_G" + grade) || localStorage.getItem("LBG_APP_DATA_V4_G" + grade);
             }
             if (!saved && grade === 5) {
                 // Seamless migration from earlier keys
-                saved = localStorage.getItem("LBG_APP_DATA_V6") || localStorage.getItem("LBG_APP_DATA_V5") || localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
+                saved = localStorage.getItem("LBG_APP_DATA_V7") || localStorage.getItem("LBG_APP_DATA_V6") || localStorage.getItem("LBG_APP_DATA_V5") || localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
             }
             if (saved) {
                 const parsed = JSON.parse(saved);
@@ -312,6 +319,26 @@
                     state.ppct = parsed.ppct;
                     if (grade !== 5) {
                         state.khdh = buildKhdhForGrade(grade, state.ppct);
+                    }
+                }
+                // Smart Auto-Healing for Grade 5 Integration: Restore full official 621 integration items if wiped in earlier sessions
+                if (grade === 5 && window.APP_INITIAL_DATA && Array.isArray(window.APP_INITIAL_DATA.ppct)) {
+                    const defaultPpct = window.APP_INITIAL_DATA.ppct;
+                    const validCount = state.ppct.filter(x => x.integration && x.integration.trim()).length;
+                    if (validCount < 500) {
+                        state.ppct.forEach(item => {
+                            if (!item.integration || !item.integration.trim()) {
+                                const normSub = normalizeSubjectName(item.subject);
+                                const found = defaultPpct.find(d =>
+                                    d.week === item.week &&
+                                    normalizeSubjectName(d.subject) === normSub &&
+                                    (d.ppct === item.ppct || d.periodInWeek === item.periodInWeek)
+                                );
+                                if (found && found.integration) {
+                                    item.integration = found.integration;
+                                }
+                            }
+                        });
                     }
                 }
                 if (parsed.timetable && parsed.timetable.length) state.timetable = parsed.timetable;
@@ -339,6 +366,13 @@
                     state.subjectList = parsed.subjectList;
                 }
                 if (parsed.lbgExcludedMode) state.lbgExcludedMode = parsed.lbgExcludedMode;
+                if (parsed.lbgShowColSign !== undefined) state.lbgShowColSign = parsed.lbgShowColSign;
+                if (parsed.lbgShowColNote !== undefined) state.lbgShowColNote = parsed.lbgShowColNote;
+                if (parsed.lbgShowColCustom !== undefined) state.lbgShowColCustom = parsed.lbgShowColCustom;
+                if (parsed.lbgColCustomName) state.lbgColCustomName = parsed.lbgColCustomName;
+                if (parsed.lbgShowBghSign !== undefined) state.lbgShowBghSign = parsed.lbgShowBghSign;
+                if (parsed.lbgShowGvcnSign !== undefined) state.lbgShowGvcnSign = parsed.lbgShowGvcnSign;
+                if (parsed.lbgShowHeadSign !== undefined) state.lbgShowHeadSign = parsed.lbgShowHeadSign;
             }
         } catch (e) {
             console.warn("Could not load localStorage for Grade " + grade + ":", e);
@@ -423,11 +457,20 @@
                 includedSubjects: state.includedSubjects,
                 subjectList: state.subjectList,
                 lbgExcludedMode: state.lbgExcludedMode,
+                lbgShowColSign: state.lbgShowColSign,
+                lbgShowColNote: state.lbgShowColNote,
+                lbgShowColCustom: state.lbgShowColCustom,
+                lbgColCustomName: state.lbgColCustomName,
+                lbgShowBghSign: state.lbgShowBghSign,
+                lbgShowGvcnSign: state.lbgShowGvcnSign,
+                lbgShowHeadSign: state.lbgShowHeadSign,
                 currentGrade: state.currentGrade
             };
             const gradeKey = getStorageKey(state.currentGrade);
             localStorage.setItem(gradeKey, JSON.stringify(payload));
             if (state.currentGrade === 5) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+                localStorage.setItem("LBG_APP_DATA_V7", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V6", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V5", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V4", JSON.stringify(payload));
@@ -1423,6 +1466,7 @@
                         ppct: "",
                         lessonName: override.lessonName !== undefined ? override.lessonName : "",
                         integration: override.integration !== undefined ? override.integration : "",
+                        note: override.note !== undefined ? override.note : "",
                         key: key
                     });
                     return;
@@ -1465,6 +1509,8 @@
                 ppct: ppct,
                 lessonName: lessonName,
                 integration: integration,
+                note: override.note !== undefined ? override.note : "",
+                customCol: override.customCol !== undefined ? override.customCol : (override.note !== undefined ? override.note : ""),
                 key: key
             });
         });
@@ -1686,6 +1732,46 @@
         document.getElementById("lbg-week-title").innerText = `LỊCH BÁO GIẢNG TUẦN ${state.currentWeek}`;
         document.getElementById("lbg-date-range").innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
 
+        // Sync LBG Options checkboxes
+        const optColSign = document.getElementById("lbg-opt-col-sign");
+        if (optColSign) optColSign.checked = !!state.lbgShowColSign;
+        const optColNote = document.getElementById("lbg-opt-col-note");
+        if (optColNote) optColNote.checked = !!state.lbgShowColNote;
+        const optColCustom = document.getElementById("lbg-opt-col-custom");
+        if (optColCustom) optColCustom.checked = !!state.lbgShowColCustom;
+        const optColCustomName = document.getElementById("lbg-opt-col-custom-name");
+        if (optColCustomName) optColCustomName.value = state.lbgColCustomName || "Ghi chú";
+        const optSigBgh = document.getElementById("lbg-opt-sig-bgh");
+        if (optSigBgh) optSigBgh.checked = (state.lbgShowBghSign !== false);
+        const optSigGvcn = document.getElementById("lbg-opt-sig-gvcn");
+        if (optSigGvcn) optSigGvcn.checked = (state.lbgShowGvcnSign !== false);
+        const optSigHead = document.getElementById("lbg-opt-sig-head");
+        if (optSigHead) optSigHead.checked = (state.lbgShowHeadSign !== false);
+
+        // Dynamically update Table Header columns
+        const theadTr = document.querySelector("#tab-lbg .table-lbg thead tr");
+        if (theadTr) {
+            let colsHtml = `
+                <th style="width: 105px;">Thứ, ngày</th>
+                <th style="width: 65px;">Buổi</th>
+                <th style="width: 45px;">Tiết</th>
+                <th style="width: 180px;">Môn học</th>
+                <th style="width: 75px;">Tiết PPCT</th>
+                <th>Tên bài dạy (Nhấp đúp vào ô để sửa trực tiếp)</th>
+            `;
+            if (state.lbgShowColSign) {
+                colsHtml += `<th style="width: 80px;" class="col-sign">Kí tên</th>`;
+            }
+            if (state.lbgShowColNote) {
+                colsHtml += `<th style="width: 120px;" class="col-note">Ghi chú</th>`;
+            }
+            if (state.lbgShowColCustom) {
+                colsHtml += `<th style="width: 120px;" class="col-custom">${escapeHtml(state.lbgColCustomName || 'Ghi chú')}</th>`;
+            }
+            colsHtml += `<th style="width: 75px;" class="no-print">Thao tác</th>`;
+            theadTr.innerHTML = colsHtml;
+        }
+
         const tbody = document.getElementById("lbg-table-body");
         tbody.innerHTML = "";
 
@@ -1721,6 +1807,10 @@
                     sessionCellHtml = `<td rowspan="${afternoonSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>`;
                 }
 
+                let colSignTd = state.lbgShowColSign ? `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>` : '';
+                let colNoteTd = state.lbgShowColNote ? `<td class="col-note editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="note" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.note || '')}</td>` : '';
+                let colCustomTd = state.lbgShowColCustom ? `<td class="col-custom editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="customCol" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.customCol || slot.note || '')}</td>` : '';
+
                 tr.innerHTML = `
                     ${dayCellHtml}
                     ${sessionCellHtml}
@@ -1732,6 +1822,9 @@
                     </td>
                     <td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>
                     <td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName">${slot.lessonName}</td>
+                    ${colSignTd}
+                    ${colNoteTd}
+                    ${colCustomTd}
                     <td class="no-print" style="text-align: center;">
                         <div class="row-actions-group">
                             <button type="button" class="btn-row-action btn-add-week-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay phía dưới">+</button>
@@ -1754,6 +1847,14 @@
         document.getElementById("lbg-sig-pht").innerText = bghSigner.name;
         const bghRoleElem = document.getElementById("lbg-bgh-role");
         if (bghRoleElem) bghRoleElem.innerText = `DUYỆT CỦA ${bghSigner.title}`;
+
+        // Toggle signatures visibility in Tab 1
+        const boxBgh = document.getElementById("lbg-sig-box-bgh");
+        const boxHead = document.getElementById("lbg-sig-box-head");
+        const boxGvcn = document.getElementById("lbg-sig-box-gvcn");
+        if (boxBgh) boxBgh.style.display = (state.lbgShowBghSign !== false) ? "block" : "none";
+        if (boxHead) boxHead.style.display = (state.lbgShowHeadSign !== false) ? "block" : "none";
+        if (boxGvcn) boxGvcn.style.display = (state.lbgShowGvcnSign !== false) ? "block" : "none";
 
         tbody.querySelectorAll(".subject-selector").forEach(sel => {
             sel.addEventListener("change", (e) => {
@@ -2010,11 +2111,15 @@
     function previewLbgMonA4() {
         const orient = state.lbgMonOrientation || "portrait";
         const isCtlop = (state.lbgMonShowIntegration !== false);
-        openPrintPreviewModal(
-            renderSingleWeekPaperBySubjectHtml(state.currentWeek, isCtlop, orient, state.lbgMonFilterSubject, state.lbgMonFilterCategory),
+        setAppOrientation(orient);
+        const refreshFn = () => renderSingleWeekPaperBySubjectHtml(state.currentWeek, isCtlop, orient, state.lbgMonFilterSubject, state.lbgMonFilterCategory);
+        openPreviewModal(
+            `Xem trước Lịch Báo Giảng Theo Môn (Tuần ${state.currentWeek})`,
+            refreshFn(),
             exportLbgMonDocx,
             exportLbgMonXlsx,
-            () => window.print()
+            () => printWithOrientation(orient),
+            refreshFn
         );
     }
 
@@ -3730,6 +3835,20 @@
         renderSubjectManagementTable();
         renderMasterTimetableEditor();
         updateTopHeaderBadge();
+
+        const principalInput = document.getElementById("set-principal");
+        if (principalInput && !principalInput.dataset.bound) {
+            principalInput.dataset.bound = "true";
+            const handlePrincipalChange = (e) => {
+                state.settings.principal = e.target.value.trim();
+                renderBghSignerDropdown();
+                renderTabLbg();
+                renderTabCtlop();
+                renderTabLbgMon();
+            };
+            principalInput.addEventListener("input", handlePrincipalChange);
+            principalInput.addEventListener("change", handlePrincipalChange);
+        }
     }
 
     function renderPhtListInputs() {
@@ -3791,13 +3910,15 @@
 
         // 1. LBG Signer Select
         if (selectLbg) {
+            const curVal = selectLbg.value;
             const lbgType = state.settings.bghSignerLbgType || state.settings.bghSignerType || "PHT";
             const lbgIdx = (state.settings.bghSignerLbgIndex !== undefined) ? state.settings.bghSignerLbgIndex : (state.settings.bghSignerIndex || 0);
+            const isHTSelected = curVal ? (curVal === 'HT:0') : (lbgType === 'HT');
 
-            let lbgHtml = `<option value="HT:0" ${lbgType === 'HT' ? 'selected' : ''}>👨‍💼 Hiệu trưởng: ${htName}</option>`;
+            let lbgHtml = `<option value="HT:0" ${isHTSelected ? 'selected' : ''}>👨‍💼 Hiệu trưởng: ${escapeHtml(htName)}</option>`;
             vps.forEach((pht, idx) => {
-                const isSel = (lbgType === 'PHT' && lbgIdx === idx);
-                lbgHtml += `<option value="PHT:${idx}" ${isSel ? 'selected' : ''}>👥 Phó Hiệu trưởng ${idx + 1}: ${pht || ('PHT ' + (idx + 1))}</option>`;
+                const isSel = curVal ? (curVal === `PHT:${idx}`) : (lbgType === 'PHT' && lbgIdx === idx);
+                lbgHtml += `<option value="PHT:${idx}" ${isSel ? 'selected' : ''}>👥 Phó Hiệu trưởng ${idx + 1}: ${escapeHtml(pht || ('PHT ' + (idx + 1)))}</option>`;
             });
             selectLbg.innerHTML = lbgHtml;
             selectLbg.onchange = (e) => {
@@ -3809,18 +3930,21 @@
                 saveState();
                 renderTabLbg();
                 renderTabCtlop();
+                renderTabLbgMon();
             };
         }
 
         // 2. KHDH Signer Select
         if (selectKhdh) {
+            const curVal = selectKhdh.value;
             const khdhType = state.settings.bghSignerKhdhType || "HT";
             const khdhIdx = (state.settings.bghSignerKhdhIndex !== undefined) ? state.settings.bghSignerKhdhIndex : 0;
+            const isHTSelected = curVal ? (curVal === 'HT:0') : (khdhType === 'HT');
 
-            let khdhHtml = `<option value="HT:0" ${khdhType === 'HT' ? 'selected' : ''}>👨‍💼 Hiệu trưởng: ${htName}</option>`;
+            let khdhHtml = `<option value="HT:0" ${isHTSelected ? 'selected' : ''}>👨‍💼 Hiệu trưởng: ${escapeHtml(htName)}</option>`;
             vps.forEach((pht, idx) => {
-                const isSel = (khdhType === 'PHT' && khdhIdx === idx);
-                khdhHtml += `<option value="PHT:${idx}" ${isSel ? 'selected' : ''}>👥 Phó Hiệu trưởng ${idx + 1}: ${pht || ('PHT ' + (idx + 1))}</option>`;
+                const isSel = curVal ? (curVal === `PHT:${idx}`) : (khdhType === 'PHT' && khdhIdx === idx);
+                khdhHtml += `<option value="PHT:${idx}" ${isSel ? 'selected' : ''}>👥 Phó Hiệu trưởng ${idx + 1}: ${escapeHtml(pht || ('PHT ' + (idx + 1)))}</option>`;
             });
             selectKhdh.innerHTML = khdhHtml;
             selectKhdh.onchange = (e) => {
@@ -3830,6 +3954,38 @@
                 saveState();
             };
         }
+    }
+
+    function restoreGrade5DefaultIntegration() {
+        if (state.currentGrade !== 5) {
+            showToast("Chức năng này áp dụng cho Khối lớp 5.", "info");
+            return;
+        }
+        if (!window.APP_INITIAL_DATA || !Array.isArray(window.APP_INITIAL_DATA.ppct)) {
+            alert("Không tìm thấy dữ liệu tích hợp gốc của Khối 5!");
+            return;
+        }
+        const defaultPpct = window.APP_INITIAL_DATA.ppct;
+        let countRestored = 0;
+        state.ppct.forEach(item => {
+            const normSub = normalizeSubjectName(item.subject);
+            const found = defaultPpct.find(d => 
+                d.week === item.week && 
+                normalizeSubjectName(d.subject) === normSub && 
+                (d.ppct === item.ppct || d.periodInWeek === item.periodInWeek)
+            );
+            if (found && found.integration && found.integration.trim()) {
+                if (item.integration !== found.integration) {
+                    item.integration = found.integration;
+                    countRestored++;
+                }
+            }
+        });
+        saveState();
+        renderTabPpct();
+        renderTabCtlop();
+        renderTabLbgMon();
+        showToast(`Đã phục hồi thành công ${countRestored} nội dung tích hợp cho Khối 5!`, "success");
     }
 
     function saveSettingsFromForm() {
@@ -3919,8 +4075,8 @@
         currentOrientation = newOrient;
 
         // Sync Tab 1 buttons
-        const lbgPort = document.getElementById("btn-orient-portrait");
-        const lbgLand = document.getElementById("btn-orient-landscape");
+        const lbgPort = document.getElementById("btn-orient-portrait-lbg") || document.getElementById("btn-orient-portrait");
+        const lbgLand = document.getElementById("btn-orient-landscape-lbg") || document.getElementById("btn-orient-landscape");
         if (lbgPort && lbgLand) {
             if (newOrient === "landscape") {
                 lbgLand.classList.add("active");
@@ -3946,14 +4102,43 @@
 
         // Sync modal if open
         updateModalOrientationUI(newOrient);
+        if (currentPreviewRefreshFn) {
+            const modalEl = document.getElementById("preview-modal");
+            if (modalEl && modalEl.classList.contains("show")) {
+                document.getElementById("modal-preview-body").innerHTML = currentPreviewRefreshFn();
+            }
+        }
     }
 
-    function openPreviewModal(title, contentHtml, onDownloadDocx, onDownloadXlsx, onPrint) {
+    let currentPreviewRefreshFn = null;
+
+    function openPreviewModal(title, contentHtml, onDownloadDocx, onDownloadXlsx, onPrint, refreshFn = null) {
+        currentPreviewRefreshFn = refreshFn;
         const modal = document.getElementById("preview-modal");
         document.getElementById("modal-preview-title").innerText = title;
         document.getElementById("modal-preview-body").innerHTML = contentHtml;
 
         updateModalOrientationUI(currentOrientation);
+
+        // Handle modal toolbar options bar
+        const optBar = document.getElementById("modal-preview-options-bar");
+        if (optBar) {
+            optBar.style.display = refreshFn ? "flex" : "none";
+            const cbSign = document.getElementById("modal-opt-col-sign");
+            const cbNote = document.getElementById("modal-opt-col-note");
+            const cbCustom = document.getElementById("modal-opt-col-custom");
+            const txtCustom = document.getElementById("modal-opt-col-custom-name");
+            const cbBgh = document.getElementById("modal-opt-sig-bgh");
+            const cbGvcn = document.getElementById("modal-opt-sig-gvcn");
+            const cbHead = document.getElementById("modal-opt-sig-head");
+            if (cbSign) cbSign.checked = !!state.lbgShowColSign;
+            if (cbNote) cbNote.checked = !!state.lbgShowColNote;
+            if (cbCustom) cbCustom.checked = !!state.lbgShowColCustom;
+            if (txtCustom) txtCustom.value = state.lbgColCustomName || "Ghi chú";
+            if (cbBgh) cbBgh.checked = (state.lbgShowBghSign !== false);
+            if (cbGvcn) cbGvcn.checked = (state.lbgShowGvcnSign !== false);
+            if (cbHead) cbHead.checked = (state.lbgShowHeadSign !== false);
+        }
 
         const btnDocx = document.getElementById("modal-btn-docx");
         const btnXlsx = document.getElementById("modal-btn-xlsx");
@@ -4334,7 +4519,15 @@
                 weekNum: state.currentWeek,
                 weekInfo: weekInfo,
                 schedule: schedule,
-                isCtlop: isCtlop
+                isCtlop: isCtlop,
+                orientation: currentOrientation,
+                showColSign: state.lbgShowColSign,
+                showColNote: state.lbgShowColNote,
+                showColCustom: state.lbgShowColCustom,
+                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showBghSign: state.lbgShowBghSign,
+                showGvcnSign: state.lbgShowGvcnSign,
+                showHeadSign: state.lbgShowHeadSign
             }).then(blob => {
                 saveAs(blob, filename);
                 showToast(`Đã xuất file Excel chuẩn in A4: ${filename}`, "success");
@@ -4353,7 +4546,16 @@
         if (window.DocxGenerator && window.DocxGenerator.generateLbgDocx) {
             showToast(`Đang tạo file Word (${orient === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) chuẩn Nghị định 30...`, "info");
             const { weekInfo, schedule, stats } = calculateWeekSchedule(state.currentWeek);
-            window.DocxGenerator.generateLbgDocx(isCtlop, state.currentWeek, weekInfo, schedule, state.settings, stats, orient).then(blob => {
+            const options = {
+                showColSign: state.lbgShowColSign,
+                showColNote: state.lbgShowColNote,
+                showColCustom: state.lbgShowColCustom,
+                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showBghSign: state.lbgShowBghSign,
+                showGvcnSign: state.lbgShowGvcnSign,
+                showHeadSign: state.lbgShowHeadSign
+            };
+            window.DocxGenerator.generateLbgDocx(isCtlop, state.currentWeek, weekInfo, schedule, state.settings, stats, orient, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
                 const orientSuffix = orient === "landscape" ? "_Kho_Ngang" : "";
                 const filename = `${prefix}_Tuan_${state.currentWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
@@ -4374,8 +4576,45 @@
         const bghSigner = getBghSignerInfo();
         const activeOrient = customOrientation || currentOrientation || "portrait";
         const isLand = (activeOrient === "landscape");
-        const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
         const paperClass = isLand ? "paper-page landscape" : "paper-page";
+        const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
+        const showSign = !isCtlop && !!state.lbgShowColSign;
+        const showNote = !isCtlop && !!state.lbgShowColNote;
+        const showCustom = !isCtlop && !!state.lbgShowColCustom;
+        const customColTitle = state.lbgColCustomName || 'Ghi chú';
+
+        let theadColsHtml = "";
+        if (isCtlop) {
+            theadColsHtml = `
+                <th style="width:${isLand ? '9%' : '11%'};">Thứ, ngày</th>
+                <th style="width:${isLand ? '6%' : '7%'};">Buổi</th>
+                <th style="width:${isLand ? '4%' : '5%'};">Tiết</th>
+                <th style="width:${isLand ? '16%' : '17%'};">Môn học</th>
+                <th style="width:${isLand ? '7%' : '8%'};">Tiết PPCT</th>
+                <th style="width:${isLand ? '28%' : '29%'};">Tên bài dạy</th>
+                <th style="width:${isLand ? '30%' : '23%'};">Nội dung tích hợp / Điều chỉnh</th>
+            `;
+        } else {
+            let wDay = isLand ? '10%' : '12%';
+            let wBuoi = isLand ? '6%' : '7%';
+            let wTiet = isLand ? '4%' : '5%';
+            let wMon = isLand ? '18%' : '18%';
+            let wPpct = isLand ? '7%' : '8%';
+            let wSign = showSign ? (isLand ? '7%' : '8%') : '';
+            let wNote = showNote ? (isLand ? '12%' : '13%') : '';
+            let wCustom = showCustom ? (isLand ? '12%' : '13%') : '';
+            theadColsHtml = `
+                <th style="width:${wDay};">Thứ, ngày</th>
+                <th style="width:${wBuoi};">Buổi</th>
+                <th style="width:${wTiet};">Tiết</th>
+                <th style="width:${wMon};">Môn học</th>
+                <th style="width:${wPpct};">Tiết PPCT</th>
+                <th>Tên bài dạy</th>
+                ${showSign ? `<th style="width:${wSign};">Kí tên</th>` : ''}
+                ${showNote ? `<th style="width:${wNote};">Ghi chú</th>` : ''}
+                ${showCustom ? `<th style="width:${wCustom};">${escapeHtml(customColTitle)}</th>` : ''}
+            `;
+        }
 
         let html = `
         <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
@@ -4401,13 +4640,7 @@
             <table class="paper-table">
                 <thead>
                     <tr>
-                        <th style="width:${isCtlop ? (isLand ? '9%' : '11%') : (isLand ? '10%' : '13%')};">Thứ, ngày</th>
-                        <th style="width:${isCtlop ? (isLand ? '6%' : '7%') : (isLand ? '7%' : '8%')};">Buổi</th>
-                        <th style="width:${isCtlop ? (isLand ? '4%' : '5%') : (isLand ? '5%' : '6%')};">Tiết</th>
-                        <th style="width:${isCtlop ? (isLand ? '16%' : '17%') : (isLand ? '19%' : '20%')};">Môn học</th>
-                        <th style="width:${isCtlop ? (isLand ? '7%' : '8%') : (isLand ? '8%' : '10%')};">Tiết PPCT</th>
-                        <th style="width:${isCtlop ? (isLand ? '28%' : '29%') : (isLand ? '51%' : '43%')};">Tên bài dạy</th>
-                        ${isCtlop ? `<th style="width:${isLand ? '30%' : '23%'};">Nội dung tích hợp / Điều chỉnh</th>` : ''}
+                        ${theadColsHtml}
                     </tr>
                 </thead>
                 <tbody>
@@ -4440,6 +4673,10 @@
                     integrationCell = `<td style="font-size:9.5pt; line-height:1.45; text-align:left; vertical-align:top;">${formattedInteg}</td>`;
                 }
 
+                let signTd = showSign ? `<td style="text-align:center; vertical-align:middle;"></td>` : '';
+                let noteTd = showNote ? `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(slot.note || '')}</td>` : '';
+                let customTd = showCustom ? `<td style="text-align:left; vertical-align:middle; font-size:8.5pt;">${escapeHtml(slot.customCol || slot.note || '')}</td>` : '';
+
                 html += `
                     <tr>
                         ${dayCell}
@@ -4449,6 +4686,9 @@
                         <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
                         <td style="text-align:left; vertical-align:middle;">${escapeHtml(slot.lessonName || '')}</td>
                         ${integrationCell}
+                        ${signTd}
+                        ${noteTd}
+                        ${customTd}
                     </tr>
                 `;
             });
@@ -4458,33 +4698,59 @@
                 </tbody>
             </table>
 
-            <div class="paper-footer">
-                <table class="paper-footer-table">
-                    <tr>
-                        <td style="width:33%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">DUYỆT CỦA ${bghSigner.title}</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${bghSigner.name}</div>
-                        </td>
-                        <td style="width:33%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">KHỐI TRƯỞNG</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${state.settings.headOfGrade || 'Trần Thị Mai'}</div>
-                        </td>
-                        <td style="width:34%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">GIÁO VIÊN CHỦ NHIỆM</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${state.settings.homeroomTeacher || 'Nguyễn Thị Thu Hà'}</div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            ${renderPaperFooterSignatures(bghSigner)}
         </div>
         `;
         return html;
+    }
+
+    // Helper: Generate dynamic signatures footer according to user preferences
+    function renderPaperFooterSignatures(bghSigner) {
+        const signers = [];
+        if (state.lbgShowBghSign !== false) {
+            signers.push({
+                title: `DUYỆT CỦA ${bghSigner.title}`,
+                sub: "(Ký và ghi rõ họ tên)",
+                name: bghSigner.name
+            });
+        }
+        if (state.lbgShowHeadSign !== false) {
+            signers.push({
+                title: "KHỐI TRƯỞNG",
+                sub: "(Ký và ghi rõ họ tên)",
+                name: state.settings.headOfGrade || 'Trần Thị Mai'
+            });
+        }
+        if (state.lbgShowGvcnSign !== false) {
+            signers.push({
+                title: "GIÁO VIÊN CHỦ NHIỆM",
+                sub: "(Ký và ghi rõ họ tên)",
+                name: state.settings.homeroomTeacher || 'Nguyễn Thị Thu Hà'
+            });
+        }
+
+        if (signers.length === 0) return '';
+
+        const colWidthPercent = Math.floor(100 / signers.length);
+        return `
+            <div class="paper-footer">
+                <table class="paper-footer-table">
+                    <tr>
+                        ${signers.map((s, idx) => {
+                            const w = (idx === signers.length - 1) ? (100 - colWidthPercent * (signers.length - 1)) : colWidthPercent;
+                            return `
+                                <td style="width:${w}%; text-align:center;">
+                                    <div style="font-size:12pt; font-weight:bold;">${escapeHtml(s.title)}</div>
+                                    <div style="font-size:11pt; font-style:italic;">${escapeHtml(s.sub)}</div>
+                                    <div style="height:65px;"></div>
+                                    <div style="font-size:12pt; font-weight:bold;">${escapeHtml(s.name)}</div>
+                                </td>
+                            `;
+                        }).join('')}
+                    </tr>
+                </table>
+            </div>
+        `;
     }
 
     // VERSION 6.0: Single week paper page for Subject-wise schedule (HTML for Print & Preview)
@@ -4579,30 +4845,7 @@
                 </tbody>
             </table>
 
-            <div class="paper-footer">
-                <table class="paper-footer-table">
-                    <tr>
-                        <td style="width:33%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">DUYỆT CỦA ${bghSigner.title}</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${bghSigner.name}</div>
-                        </td>
-                        <td style="width:33%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">KHỐI TRƯỞNG</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${state.settings.headOfGrade || 'Trần Thị Mai'}</div>
-                        </td>
-                        <td style="width:34%; text-align:center;">
-                            <div style="font-size:12pt; font-weight:bold;">GIÁO VIÊN CHỦ NHIỆM</div>
-                            <div style="font-size:11pt; font-style:italic;">(Ký và ghi rõ họ tên)</div>
-                            <div style="height:65px;"></div>
-                            <div style="font-size:12pt; font-weight:bold;">${state.settings.homeroomTeacher || 'Nguyễn Thị Thu Hà'}</div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            ${renderPaperFooterSignatures(bghSigner)}
         </div>
         `;
         return html;
@@ -4645,7 +4888,16 @@
     function exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, orientation = "portrait") {
         if (window.DocxGenerator && window.DocxGenerator.generateMultiWeekLbgDocx) {
             showToast(`Đang tạo file Word (${orientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) từ Tuần ${startWeek} đến Tuần ${endWeek}...`, "info");
-            window.DocxGenerator.generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekSchedule, state.settings, orientation).then(blob => {
+            const options = {
+                showColSign: state.lbgShowColSign,
+                showColNote: state.lbgShowColNote,
+                showColCustom: state.lbgShowColCustom,
+                colCustomName: state.lbgColCustomName || "Ghi chú",
+                showBghSign: state.lbgShowBghSign,
+                showGvcnSign: state.lbgShowGvcnSign,
+                showHeadSign: state.lbgShowHeadSign
+            };
+            window.DocxGenerator.generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekSchedule, state.settings, orientation, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
                 const orientSuffix = orientation === "landscape" ? "_Kho_Ngang" : "";
                 const filename = `${prefix}_Tuan_${startWeek}_den_${endWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
@@ -4783,10 +5035,72 @@
         }
 
         // Tab 1 Actions & Orientation
-        const btnOrientPort = document.getElementById("btn-orient-portrait");
-        const btnOrientLand = document.getElementById("btn-orient-landscape");
+        const btnOrientPort = document.getElementById("btn-orient-portrait-lbg") || document.getElementById("btn-orient-portrait");
+        const btnOrientLand = document.getElementById("btn-orient-landscape-lbg") || document.getElementById("btn-orient-landscape");
         if (btnOrientPort) btnOrientPort.addEventListener("click", () => setAppOrientation("portrait"));
         if (btnOrientLand) btnOrientLand.addEventListener("click", () => setAppOrientation("landscape"));
+
+        // Tab 1 Options Checkboxes
+        const bindLbgOption = (id, prop, isDefaultTrue = false) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener("change", (e) => {
+                state[prop] = isDefaultTrue ? e.target.checked : !!e.target.checked;
+                saveState();
+                renderTabLbg();
+            });
+        };
+        bindLbgOption("lbg-opt-col-sign", "lbgShowColSign", false);
+        bindLbgOption("lbg-opt-col-note", "lbgShowColNote", false);
+        bindLbgOption("lbg-opt-col-custom", "lbgShowColCustom", false);
+        bindLbgOption("lbg-opt-sig-bgh", "lbgShowBghSign", true);
+        bindLbgOption("lbg-opt-sig-gvcn", "lbgShowGvcnSign", true);
+        bindLbgOption("lbg-opt-sig-head", "lbgShowHeadSign", true);
+
+        const txtLbgCustomName = document.getElementById("lbg-opt-col-custom-name");
+        if (txtLbgCustomName) {
+            txtLbgCustomName.addEventListener("input", (e) => {
+                state.lbgColCustomName = e.target.value.trim() || "Ghi chú";
+                const modalTxt = document.getElementById("modal-opt-col-custom-name");
+                if (modalTxt) modalTxt.value = e.target.value;
+                saveState();
+                renderTabLbg();
+            });
+        }
+
+        // Modal Preview Options Checkboxes
+        const bindModalOption = (id, prop, isDefaultTrue = false) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener("change", (e) => {
+                state[prop] = isDefaultTrue ? e.target.checked : !!e.target.checked;
+                saveState();
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    document.getElementById("modal-preview-body").innerHTML = currentPreviewRefreshFn();
+                }
+            });
+        };
+        bindModalOption("modal-opt-col-sign", "lbgShowColSign", false);
+        bindModalOption("modal-opt-col-note", "lbgShowColNote", false);
+        bindModalOption("modal-opt-col-custom", "lbgShowColCustom", false);
+        bindModalOption("modal-opt-sig-bgh", "lbgShowBghSign", true);
+        bindModalOption("modal-opt-sig-gvcn", "lbgShowGvcnSign", true);
+        bindModalOption("modal-opt-sig-head", "lbgShowHeadSign", true);
+
+        const txtModalCustomName = document.getElementById("modal-opt-col-custom-name");
+        if (txtModalCustomName) {
+            txtModalCustomName.addEventListener("input", (e) => {
+                state.lbgColCustomName = e.target.value.trim() || "Ghi chú";
+                const lbgTxt = document.getElementById("lbg-opt-col-custom-name");
+                if (lbgTxt) lbgTxt.value = e.target.value;
+                saveState();
+                renderTabLbg();
+                if (currentPreviewRefreshFn) {
+                    document.getElementById("modal-preview-body").innerHTML = currentPreviewRefreshFn();
+                }
+            });
+        }
 
         document.getElementById("btn-lbg-reset-tkb").addEventListener("click", () => {
             if (confirm(`Bạn có muốn khôi phục Thời khóa biểu của Tuần ${state.currentWeek} về mặc định không?`)) {
@@ -4800,28 +5114,35 @@
         }
 
         document.getElementById("btn-lbg-preview").addEventListener("click", () => {
+            const refreshFn = () => renderSingleWeekPaperHtml(state.currentWeek, false);
             openPreviewModal(
                 `Xem trước Lịch Báo Giảng Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
-                renderSingleWeekPaperHtml(state.currentWeek, false),
+                refreshFn(),
                 () => exportLbgToDocx(false),
                 () => exportLbgToExcel(false),
-                () => printWithOrientation(currentOrientation)
+                () => printWithOrientation(currentOrientation),
+                refreshFn
             );
         });
 
         document.getElementById("btn-lbg-excel").addEventListener("click", () => exportLbgToExcel(false));
-        document.getElementById("btn-lbg-print").addEventListener("click", () => {
-            openPreviewModal(
-                `Xem trước Lịch Báo Giảng Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
-                renderSingleWeekPaperHtml(state.currentWeek, false),
-                () => exportLbgToDocx(false),
-                () => exportLbgToExcel(false),
-                () => printWithOrientation(currentOrientation)
-            );
-            setTimeout(() => {
-                printWithOrientation(currentOrientation);
-            }, 250);
-        });
+        const btnLbgPrint = document.getElementById("btn-lbg-print");
+        if (btnLbgPrint) {
+            btnLbgPrint.addEventListener("click", () => {
+                const refreshFn = () => renderSingleWeekPaperHtml(state.currentWeek, false);
+                openPreviewModal(
+                    `Xem trước Lịch Báo Giảng Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
+                    refreshFn(),
+                    () => exportLbgToDocx(false),
+                    () => exportLbgToExcel(false),
+                    () => printWithOrientation(currentOrientation),
+                    refreshFn
+                );
+                setTimeout(() => {
+                    printWithOrientation(currentOrientation);
+                }, 250);
+            });
+        }
 
         // Tab 2 Actions (CTLOP) & Orientation
         const btnCtlopOrientPort = document.getElementById("btn-ctlop-orient-portrait");
@@ -4835,28 +5156,35 @@
         }
 
         document.getElementById("btn-ctlop-preview").addEventListener("click", () => {
+            const refreshFn = () => renderSingleWeekPaperHtml(state.currentWeek, true);
             openPreviewModal(
                 `Xem trước Lịch Báo Giảng Tích Hợp Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
-                renderSingleWeekPaperHtml(state.currentWeek, true),
+                refreshFn(),
                 () => exportLbgToDocx(true),
                 () => exportLbgToExcel(true),
-                () => printWithOrientation(currentOrientation)
+                () => printWithOrientation(currentOrientation),
+                refreshFn
             );
         });
 
         document.getElementById("btn-ctlop-excel").addEventListener("click", () => exportLbgToExcel(true));
-        document.getElementById("btn-ctlop-print").addEventListener("click", () => {
-            openPreviewModal(
-                `Xem trước Lịch Báo Giảng Tích Hợp Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
-                renderSingleWeekPaperHtml(state.currentWeek, true),
-                () => exportLbgToDocx(true),
-                () => exportLbgToExcel(true),
-                () => printWithOrientation(currentOrientation)
-            );
-            setTimeout(() => {
-                printWithOrientation(currentOrientation);
-            }, 250);
-        });
+        const btnCtlopPrint = document.getElementById("btn-ctlop-print");
+        if (btnCtlopPrint) {
+            btnCtlopPrint.addEventListener("click", () => {
+                const refreshFn = () => renderSingleWeekPaperHtml(state.currentWeek, true);
+                openPreviewModal(
+                    `Xem trước Lịch Báo Giảng Tích Hợp Tuần ${state.currentWeek} (${currentOrientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'})`,
+                    refreshFn(),
+                    () => exportLbgToDocx(true),
+                    () => exportLbgToExcel(true),
+                    () => printWithOrientation(currentOrientation),
+                    refreshFn
+                );
+                setTimeout(() => {
+                    printWithOrientation(currentOrientation);
+                }, 250);
+            });
+        }
 
         // Modal Preview Orientation Buttons
         const btnModalOrientPort = document.getElementById("btn-modal-orient-portrait");
@@ -5123,6 +5451,15 @@
             }
         });
 
+        const btnRecoverInteg = document.getElementById("btn-recover-integration");
+        if (btnRecoverInteg) {
+            btnRecoverInteg.addEventListener("click", () => {
+                if (confirm("Bạn có chắc chắn muốn phục hồi toàn bộ nội dung tích hợp gốc (NLS, AI, QCN, QPAN, BVMT) cho Khối 5 không?")) {
+                    restoreGrade5DefaultIntegration();
+                }
+            });
+        }
+
         // PPCT Import Mode Modal Listeners
         const btnCloseImport = document.getElementById("btn-close-import-modal");
         const btnCancelImport = document.getElementById("btn-cancel-import");
@@ -5216,7 +5553,7 @@
         document.getElementById("btn-save-settings").addEventListener("click", saveSettingsFromForm);
         document.getElementById("btn-backup-data").addEventListener("click", () => {
             const currentGradeKey = getStorageKey(state.currentGrade);
-            const rawData = localStorage.getItem(currentGradeKey) || localStorage.getItem(STORAGE_KEY) || localStorage.getItem("LBG_APP_DATA_V6_G" + state.currentGrade) || localStorage.getItem("LBG_APP_DATA_V6");
+            const rawData = localStorage.getItem(currentGradeKey) || localStorage.getItem(STORAGE_KEY) || localStorage.getItem("LBG_APP_DATA_V7_G" + state.currentGrade) || localStorage.getItem("LBG_APP_DATA_V7") || localStorage.getItem("LBG_APP_DATA_V6_G" + state.currentGrade) || localStorage.getItem("LBG_APP_DATA_V6");
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(rawData || "{}");
             const dlAnchor = document.createElement('a');
             dlAnchor.setAttribute("href", dataStr);

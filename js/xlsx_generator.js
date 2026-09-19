@@ -75,24 +75,24 @@ window.XlsxGenerator = (function() {
         return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
     <fonts count="9">
-        <!-- 0: Times New Roman 11pt Regular -->
-        <font><name val="Times New Roman"/><sz val="11"/><color rgb="FF000000"/></font>
-        <!-- 1: Times New Roman 11pt Bold -->
-        <font><name val="Times New Roman"/><sz val="11"/><b/><color rgb="FF000000"/></font>
-        <!-- 2: Times New Roman 12pt Bold Underline -->
-        <font><name val="Times New Roman"/><sz val="12"/><b/><u/><color rgb="FF000000"/></font>
-        <!-- 3: Times New Roman 14pt Bold -->
-        <font><name val="Times New Roman"/><sz val="14"/><b/><color rgb="FF000000"/></font>
-        <!-- 4: Times New Roman 11pt Italic -->
-        <font><name val="Times New Roman"/><sz val="11"/><i/><color rgb="FF000000"/></font>
-        <!-- 5: Times New Roman 10pt Regular -->
-        <font><name val="Times New Roman"/><sz val="10"/><color rgb="FF000000"/></font>
-        <!-- 6: Times New Roman 11pt Bold Underline -->
-        <font><name val="Times New Roman"/><sz val="11"/><b/><u/><color rgb="FF000000"/></font>
-        <!-- 7: Times New Roman 10pt Italic -->
-        <font><name val="Times New Roman"/><sz val="10"/><i/><color rgb="FF000000"/></font>
-        <!-- 8: Times New Roman 10pt Bold Underline (for School Header) -->
-        <font><name val="Times New Roman"/><sz val="10.5"/><b/><u/><color rgb="FF000000"/></font>
+        <!-- 0: Times New Roman 13pt Regular -->
+        <font><name val="Times New Roman"/><sz val="13"/><color rgb="FF000000"/></font>
+        <!-- 1: Times New Roman 13pt Bold -->
+        <font><name val="Times New Roman"/><sz val="13"/><b/><color rgb="FF000000"/></font>
+        <!-- 2: Times New Roman 13pt Bold Underline -->
+        <font><name val="Times New Roman"/><sz val="13"/><b/><u/><color rgb="FF000000"/></font>
+        <!-- 3: Times New Roman 16pt Bold -->
+        <font><name val="Times New Roman"/><sz val="16"/><b/><color rgb="FF000000"/></font>
+        <!-- 4: Times New Roman 13pt Italic -->
+        <font><name val="Times New Roman"/><sz val="13"/><i/><color rgb="FF000000"/></font>
+        <!-- 5: Times New Roman 13pt Regular -->
+        <font><name val="Times New Roman"/><sz val="13"/><color rgb="FF000000"/></font>
+        <!-- 6: Times New Roman 13pt Bold Underline -->
+        <font><name val="Times New Roman"/><sz val="13"/><b/><u/><color rgb="FF000000"/></font>
+        <!-- 7: Times New Roman 12pt Italic -->
+        <font><name val="Times New Roman"/><sz val="12"/><i/><color rgb="FF000000"/></font>
+        <!-- 8: Times New Roman 13pt Bold Underline (for School Header) -->
+        <font><name val="Times New Roman"/><sz val="13"/><b/><u/><color rgb="FF000000"/></font>
     </fonts>
     <fills count="3">
         <fill><patternFill patternType="none"/></fill>
@@ -193,22 +193,78 @@ window.XlsxGenerator = (function() {
         zip.file("xl/workbook.xml", createWbXml(sheetName));
         zip.file("xl/styles.xml", createStylesXml());
 
-        const lastColLetter = isCtlop ? "G" : "F";
+        const showColSign = !isCtlop && !!(options.showColSign);
+        const showColNote = !isCtlop && !!(options.showColNote);
+        const showColCustom = !isCtlop && !!(options.showColCustom);
+        const colCustomName = (options.colCustomName && options.colCustomName.trim()) ? options.colCustomName.trim() : 'Ghi chú';
+        const showBghSign = (options.showBghSign !== false);
+        const showGvcnSign = (options.showGvcnSign !== false);
+        const showHeadSign = (options.showHeadSign !== false);
+        const isLandscape = (options.orientation === 'landscape' || isCtlop);
+
+        // Calculate dynamic columns
+        let lessonColWidth = 50;
+        if (isCtlop) {
+            lessonColWidth = 34;
+        } else if (showColSign && showColNote && showColCustom) {
+            lessonColWidth = 30;
+        } else if ((showColSign && showColNote) || (showColSign && showColCustom) || (showColNote && showColCustom)) {
+            lessonColWidth = 34;
+        } else if (showColSign) {
+            lessonColWidth = 42;
+        } else if (showColNote || showColCustom) {
+            lessonColWidth = 40;
+        }
+
+        const extraCols = [];
+        if (isCtlop) {
+            extraCols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', width: 30 });
+        } else {
+            if (showColSign) extraCols.push({ key: 'sign', title: 'Kí tên', width: 12 });
+            if (showColNote) extraCols.push({ key: 'note', title: 'Ghi chú', width: 22 });
+            if (showColCustom) extraCols.push({ key: 'custom', title: colCustomName, width: 22 });
+        }
+
+        let signColLetter = null;
+        let noteColLetter = null;
+        let customColLetter = null;
+        extraCols.forEach((ec, idx) => {
+            const letter = String.fromCharCode(71 + idx); // 71 is 'G'
+            if (ec.key === 'sign') signColLetter = letter;
+            if (ec.key === 'note') noteColLetter = letter;
+            if (ec.key === 'custom') customColLetter = letter;
+        });
+
+        const totalCols = 6 + extraCols.length;
+        const lastColLetter = String.fromCharCode(64 + totalCols);
+
+        function makeCellsRow(startCharCode, endCharCode, rowNum, styleId) {
+            let res = "";
+            for (let c = startCharCode; c <= endCharCode; c++) {
+                res += `<c r="${String.fromCharCode(c)}${rowNum}" s="${styleId}"/>`;
+            }
+            return res;
+        }
+
+        let colsXml = `
+        <col min="1" max="1" width="13" customWidth="1"/>
+        <col min="2" max="2" width="9" customWidth="1"/>
+        <col min="3" max="3" width="7" customWidth="1"/>
+        <col min="4" max="4" width="${isCtlop ? 18 : 20}" customWidth="1"/>
+        <col min="5" max="5" width="10" customWidth="1"/>
+        <col min="6" max="6" width="${lessonColWidth}" customWidth="1"/>
+`;
+        extraCols.forEach((ec, idx) => {
+            const colNum = 7 + idx;
+            colsXml += `        <col min="${colNum}" max="${colNum}" width="${ec.width}" customWidth="1"/>\n`;
+        });
 
         let sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
     <sheetPr>
         <pageSetUpPr fitToPage="1"/>
     </sheetPr>
-    <cols>
-        <col min="1" max="1" width="13" customWidth="1"/>
-        <col min="2" max="2" width="9" customWidth="1"/>
-        <col min="3" max="3" width="7" customWidth="1"/>
-        <col min="4" max="4" width="${isCtlop ? 18 : 20}" customWidth="1"/>
-        <col min="5" max="5" width="10" customWidth="1"/>
-        <col min="6" max="6" width="${isCtlop ? 34 : 50}" customWidth="1"/>
-        ${isCtlop ? '<col min="7" max="7" width="30" customWidth="1"/>' : ''}
-    </cols>
+    <cols>${colsXml}    </cols>
     <sheetData>
 `;
 
@@ -220,7 +276,7 @@ window.XlsxGenerator = (function() {
             <c r="A1" s="1" t="inlineStr"><is><t>${escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT')}</t></is></c>
             <c r="B1" s="1"/><c r="C1" s="1"/>
             <c r="D1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
-            <c r="E1" s="4"/><c r="F1" s="4"/>${isCtlop ? '<c r="G1" s="4"/>' : ''}
+            ${makeCellsRow(69, 64 + totalCols, 1, 4)}
         </row>`;
         mergeCellsList.push("A1:C1");
         mergeCellsList.push(`D1:${lastColLetter}1`);
@@ -231,7 +287,7 @@ window.XlsxGenerator = (function() {
             <c r="A2" s="2" t="inlineStr"><is><t>${escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT')}</t></is></c>
             <c r="B2" s="2"/><c r="C2" s="2"/>
             <c r="D2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
-            <c r="E2" s="5"/><c r="F2" s="5"/>${isCtlop ? '<c r="G2" s="5"/>' : ''}
+            ${makeCellsRow(69, 64 + totalCols, 2, 5)}
         </row>`;
         mergeCellsList.push("A2:C2");
         mergeCellsList.push(`D2:${lastColLetter}2`);
@@ -241,7 +297,7 @@ window.XlsxGenerator = (function() {
         <row r="3" ht="20" customHeight="1">
             <c r="A3" s="3" t="inlineStr"><is><t>${escapeXml(settings.grade || 'KHỐI 5')} - ${escapeXml(settings.className || 'LỚP 5A')}</t></is></c>
             <c r="B3" s="3"/><c r="C3" s="3"/>
-            <c r="D3" s="0"/><c r="E3" s="0"/><c r="F3" s="0"/>${isCtlop ? '<c r="G3" s="0"/>' : ''}
+            ${makeCellsRow(68, 64 + totalCols, 3, 0)}
         </row>`;
         mergeCellsList.push("A3:C3");
 
@@ -252,7 +308,7 @@ window.XlsxGenerator = (function() {
         sheetXml += `
         <row r="5" ht="26" customHeight="1">
             <c r="A5" s="6" t="inlineStr"><is><t>${escapeXml(mainTitle)}</t></is></c>
-            <c r="B5" s="6"/><c r="C5" s="6"/><c r="D5" s="6"/><c r="E5" s="6"/><c r="F5" s="6"/>${isCtlop ? '<c r="G5" s="6"/>' : ''}
+            ${makeCellsRow(66, 64 + totalCols, 5, 6)}
         </row>`;
         mergeCellsList.push(`A5:${lastColLetter}5`);
 
@@ -260,7 +316,7 @@ window.XlsxGenerator = (function() {
         sheetXml += `
         <row r="6" ht="18" customHeight="1">
             <c r="A6" s="7" t="inlineStr"><is><t>${escapeXml(subtitle)}</t></is></c>
-            <c r="B6" s="7"/><c r="C6" s="7"/><c r="D6" s="7"/><c r="E6" s="7"/><c r="F6" s="7"/>${isCtlop ? '<c r="G6" s="7"/>' : ''}
+            ${makeCellsRow(66, 64 + totalCols, 6, 7)}
         </row>`;
         mergeCellsList.push(`A6:${lastColLetter}6`);
 
@@ -268,15 +324,23 @@ window.XlsxGenerator = (function() {
         sheetXml += `<row r="7" ht="10" customHeight="1"/>`;
 
         // Row 8: Table Header
-        sheetXml += `
-        <row r="8" ht="26" customHeight="1">
+        let headerColsXml = `
             <c r="A8" s="8" t="inlineStr"><is><t>Thứ, ngày</t></is></c>
             <c r="B8" s="8" t="inlineStr"><is><t>Buổi</t></is></c>
             <c r="C8" s="8" t="inlineStr"><is><t>Tiết</t></is></c>
             <c r="D8" s="8" t="inlineStr"><is><t>Môn học</t></is></c>
             <c r="E8" s="8" t="inlineStr"><is><t>Tiết PPCT</t></is></c>
-            <c r="F8" s="8" t="inlineStr"><is><t>Tên bài dạy</t></is></c>
-            ${isCtlop ? '<c r="G8" s="8" t="inlineStr"><is><t>Nội dung tích hợp / Điều chỉnh</t></is></c>' : ''}
+            <c r="F8" s="8" t="inlineStr"><is><t>Tên bài dạy</t></is></c>`;
+        if (isCtlop) {
+            headerColsXml += `\n            <c r="G8" s="8" t="inlineStr"><is><t>Nội dung tích hợp / Điều chỉnh</t></is></c>`;
+        } else {
+            if (showColSign) headerColsXml += `\n            <c r="${signColLetter}8" s="8" t="inlineStr"><is><t>Kí tên</t></is></c>`;
+            if (showColNote) headerColsXml += `\n            <c r="${noteColLetter}8" s="8" t="inlineStr"><is><t>Ghi chú</t></is></c>`;
+            if (showColCustom) headerColsXml += `\n            <c r="${customColLetter}8" s="8" t="inlineStr"><is><t>${escapeXml(colCustomName)}</t></is></c>`;
+        }
+
+        sheetXml += `
+        <row r="8" ht="26" customHeight="1">${headerColsXml}
         </row>`;
 
         // Table Data Rows
@@ -310,24 +374,43 @@ window.XlsxGenerator = (function() {
                 // Calculate comfortable row height based on text length
                 const lessonLen = (slot.lessonName || '').length;
                 const integLen = (slot.integration || '').length;
+                const customVal = slot.customCol !== undefined ? slot.customCol : (slot.note || '');
+                const customLen = showColCustom ? customVal.length : 0;
                 const lessonLines = Math.ceil(lessonLen / (isCtlop ? 30 : 44));
                 const integLines = isCtlop ? Math.ceil(integLen / 26) : 1;
-                const numLines = Math.max(isFirstOfDay && dayDate ? 2 : 1, lessonLines, integLines);
+                const customLines = showColCustom ? Math.ceil(customLen / 22) : 1;
+                const numLines = Math.max(isFirstOfDay && dayDate ? 2 : 1, lessonLines, integLines, customLines);
 
                 let rowHt = 24;
                 if (numLines === 2) rowHt = 38;
                 else if (numLines === 3) rowHt = 54;
                 else if (numLines >= 4) rowHt = numLines * 18;
 
-                sheetXml += `
-        <row r="${r}" ht="${rowHt}" customHeight="1">
+                let rowCellsXml = `
             <c r="A${r}" s="9" ${dayVal ? 't="inlineStr"' : ''}>${dayVal ? `<is><t xml:space="preserve">${escapeXml(dayVal)}</t></is>` : ''}</c>
             <c r="B${r}" s="10" ${sessionVal ? 't="inlineStr"' : ''}>${sessionVal ? `<is><t>${escapeXml(sessionVal)}</t></is>` : ''}</c>
             <c r="C${r}" s="11" t="inlineStr"><is><t>${escapeXml(slot.period || '')}</t></is></c>
             <c r="D${r}" s="12" t="inlineStr"><is><t>${escapeXml(slot.isOff ? '-- Nghỉ / Để trống --' : (slot.subject || ''))}</t></is></c>
             <c r="E${r}" s="13" t="inlineStr"><is><t>${escapeXml(slot.ppct || '')}</t></is></c>
-            <c r="F${r}" s="14" t="inlineStr"><is><t>${escapeXml(slot.lessonName || '')}</t></is></c>
-            ${isCtlop ? `<c r="G${r}" s="15" t="inlineStr"><is><t>${escapeXml(slot.integration || '')}</t></is></c>` : ''}
+            <c r="F${r}" s="14" t="inlineStr"><is><t>${escapeXml(slot.lessonName || '')}</t></is></c>`;
+
+                if (isCtlop) {
+                    rowCellsXml += `\n            <c r="G${r}" s="15" t="inlineStr"><is><t>${escapeXml(slot.integration || '')}</t></is></c>`;
+                } else {
+                    if (showColSign) {
+                        rowCellsXml += `\n            <c r="${signColLetter}${r}" s="10"/>`;
+                    }
+                    if (showColNote) {
+                        const noteText = slot.note || '';
+                        rowCellsXml += `\n            <c r="${noteColLetter}${r}" s="14" ${noteText ? 't="inlineStr"' : ''}>${noteText ? `<is><t>${escapeXml(noteText)}</t></is>` : ''}</c>`;
+                    }
+                    if (showColCustom) {
+                        rowCellsXml += `\n            <c r="${customColLetter}${r}" s="14" ${customVal ? 't="inlineStr"' : ''}>${customVal ? `<is><t>${escapeXml(customVal)}</t></is>` : ''}</c>`;
+                    }
+                }
+
+                sheetXml += `
+        <row r="${r}" ht="${rowHt}" customHeight="1">${rowCellsXml}
         </row>`;
                 currentRow++;
             });
@@ -349,13 +432,6 @@ window.XlsxGenerator = (function() {
         currentRow++;
 
         // Footer Signatures
-        const footerTitleRow = currentRow;
-        const footerSubRow = currentRow + 1;
-        const footerSpaceRow1 = currentRow + 2;
-        const footerSpaceRow2 = currentRow + 3;
-        const footerSpaceRow3 = currentRow + 4;
-        const footerNameRow = currentRow + 5;
-
         const bghLbgType = settings.bghSignerLbgType || settings.bghSignerType || 'PHT';
         const bghLbgIdx = (settings.bghSignerLbgIndex !== undefined) ? settings.bghSignerLbgIndex : (settings.bghSignerIndex || 0);
 
@@ -366,46 +442,88 @@ window.XlsxGenerator = (function() {
                 : (settings.vicePrincipal || 'Lê Văn Tám'));
         const bghSignerTitle = bghLbgType === 'HT' ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
 
-        sheetXml += `
-        <row r="${footerTitleRow}" ht="20" customHeight="1">
-            <c r="A${footerTitleRow}" s="16" t="inlineStr"><is><t>DUYỆT CỦA ${escapeXml(bghSignerTitle)}</t></is></c>
-            <c r="B${footerTitleRow}" s="16"/>
-            <c r="C${footerTitleRow}" s="16" t="inlineStr"><is><t>KHỐI TRƯỞNG</t></is></c>
-            <c r="D${footerTitleRow}" s="16"/>
-            <c r="E${footerTitleRow}" s="16" t="inlineStr"><is><t>GIÁO VIÊN CHỦ NHIỆM</t></is></c>
-            <c r="F${footerTitleRow}" s="16"/>${isCtlop ? `<c r="G${footerTitleRow}" s="16"/>` : ''}
+        const signers = [];
+        if (showBghSign) {
+            signers.push({
+                role: `DUYỆT CỦA ${bghSignerTitle}`,
+                sub: `(Ký và ghi rõ họ tên)`,
+                name: bghSignerName
+            });
+        }
+        if (showHeadSign) {
+            signers.push({
+                role: `KHỐI TRƯỞNG`,
+                sub: `(Ký và ghi rõ họ tên)`,
+                name: settings.headOfGrade || 'Trần Thị Mai'
+            });
+        }
+        if (showGvcnSign) {
+            signers.push({
+                role: `GIÁO VIÊN CHỦ NHIỆM`,
+                sub: `(Ký và ghi rõ họ tên)`,
+                name: settings.homeroomTeacher || 'Nguyễn Thị Thu Hà'
+            });
+        }
+
+        if (signers.length > 0) {
+            const footerTitleRow = currentRow;
+            const footerSubRow = currentRow + 1;
+            const footerSpaceRow1 = currentRow + 2;
+            const footerSpaceRow2 = currentRow + 3;
+            const footerSpaceRow3 = currentRow + 4;
+            const footerNameRow = currentRow + 5;
+
+            const numSigners = signers.length;
+            let currentCol = 1;
+            let titleCells = "";
+            let subCells = "";
+            let nameCells = "";
+
+            for (let i = 0; i < numSigners; i++) {
+                const s = signers[i];
+                const remainingCols = totalCols - currentCol + 1;
+                const remainingSigners = numSigners - i;
+                const span = Math.round(remainingCols / remainingSigners);
+                const startCol = currentCol;
+                const endCol = (i === numSigners - 1) ? totalCols : (startCol + span - 1);
+                const startColLetter = String.fromCharCode(64 + startCol);
+                const endColLetter = String.fromCharCode(64 + endCol);
+
+                titleCells += `\n            <c r="${startColLetter}${footerTitleRow}" s="16" t="inlineStr"><is><t>${escapeXml(s.role)}</t></is></c>`;
+                for (let c = startCol + 1; c <= endCol; c++) {
+                    titleCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerTitleRow}" s="16"/>`;
+                }
+
+                subCells += `\n            <c r="${startColLetter}${footerSubRow}" s="17" t="inlineStr"><is><t>${escapeXml(s.sub)}</t></is></c>`;
+                for (let c = startCol + 1; c <= endCol; c++) {
+                    subCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerSubRow}" s="17"/>`;
+                }
+
+                nameCells += `\n            <c r="${startColLetter}${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(s.name)}</t></is></c>`;
+                for (let c = startCol + 1; c <= endCol; c++) {
+                    nameCells += `\n            <c r="${String.fromCharCode(64 + c)}${footerNameRow}" s="18"/>`;
+                }
+
+                if (endCol > startCol) {
+                    mergeCellsList.push(`${startColLetter}${footerTitleRow}:${endColLetter}${footerTitleRow}`);
+                    mergeCellsList.push(`${startColLetter}${footerSubRow}:${endColLetter}${footerSubRow}`);
+                    mergeCellsList.push(`${startColLetter}${footerNameRow}:${endColLetter}${footerNameRow}`);
+                }
+
+                currentCol = endCol + 1;
+            }
+
+            sheetXml += `
+        <row r="${footerTitleRow}" ht="20" customHeight="1">${titleCells}
         </row>
-        <row r="${footerSubRow}" ht="18" customHeight="1">
-            <c r="A${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
-            <c r="B${footerSubRow}" s="17"/>
-            <c r="C${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
-            <c r="D${footerSubRow}" s="17"/>
-            <c r="E${footerSubRow}" s="17" t="inlineStr"><is><t>(Ký và ghi rõ họ tên)</t></is></c>
-            <c r="F${footerSubRow}" s="17"/>${isCtlop ? `<c r="G${footerSubRow}" s="17"/>` : ''}
+        <row r="${footerSubRow}" ht="18" customHeight="1">${subCells}
         </row>
         <row r="${footerSpaceRow1}" ht="18" customHeight="1"/>
         <row r="${footerSpaceRow2}" ht="18" customHeight="1"/>
         <row r="${footerSpaceRow3}" ht="18" customHeight="1"/>
-        <row r="${footerNameRow}" ht="22" customHeight="1">
-            <c r="A${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(bghSignerName)}</t></is></c>
-            <c r="B${footerNameRow}" s="18"/>
-            <c r="C${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(settings.headOfGrade || 'Trần Thị Mai')}</t></is></c>
-            <c r="D${footerNameRow}" s="18"/>
-            <c r="E${footerNameRow}" s="18" t="inlineStr"><is><t>${escapeXml(settings.homeroomTeacher || 'Nguyễn Thị Thu Hà')}</t></is></c>
-            <c r="F${footerNameRow}" s="18"/>${isCtlop ? `<c r="G${footerNameRow}" s="18"/>` : ''}
+        <row r="${footerNameRow}" ht="22" customHeight="1">${nameCells}
         </row>`;
-
-        mergeCellsList.push(`A${footerTitleRow}:B${footerTitleRow}`);
-        mergeCellsList.push(`C${footerTitleRow}:D${footerTitleRow}`);
-        mergeCellsList.push(`E${footerTitleRow}:${lastColLetter}${footerTitleRow}`);
-
-        mergeCellsList.push(`A${footerSubRow}:B${footerSubRow}`);
-        mergeCellsList.push(`C${footerSubRow}:D${footerSubRow}`);
-        mergeCellsList.push(`E${footerSubRow}:${lastColLetter}${footerSubRow}`);
-
-        mergeCellsList.push(`A${footerNameRow}:B${footerNameRow}`);
-        mergeCellsList.push(`C${footerNameRow}:D${footerNameRow}`);
-        mergeCellsList.push(`E${footerNameRow}:${lastColLetter}${footerNameRow}`);
+        }
 
         sheetXml += `
     </sheetData>
@@ -413,7 +531,7 @@ window.XlsxGenerator = (function() {
         ${mergeCellsList.map(m => `<mergeCell ref="${m}"/>`).join('\n        ')}
     </mergeCells>
     <pageMargins left="0.4" right="0.4" top="0.5" bottom="0.5" header="0.3" footer="0.3"/>
-    <pageSetup orientation="${isCtlop ? 'landscape' : 'portrait'}" paperSize="9" fitToWidth="1" fitToHeight="0"/>
+    <pageSetup orientation="${isLandscape ? 'landscape' : 'portrait'}" paperSize="9" fitToWidth="1" fitToHeight="0"/>
 </worksheet>`;
 
         zip.file("xl/worksheets/sheet1.xml", sheetXml);
