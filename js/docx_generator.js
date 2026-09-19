@@ -803,15 +803,51 @@ window.DocxGenerator = (function() {
         const customCount = enabledCustomCols.length;
         if (isLandscape) {
             if (isCtlop) {
-                cols.forEach(col => {
-                    if (col.key === 'day') col.width = 1300;
-                    else if (col.key === 'session') col.width = 850;
-                    else if (col.key === 'period') col.width = 600;
-                    else if (col.key === 'subject') col.width = 2400;
-                    else if (col.key === 'ppct') col.width = 1000;
-                    else if (col.key === 'lesson') col.width = 4100;
-                    else if (col.key === 'integ') col.width = 4320;
-                });
+                if (customCount === 0 && !showSign && !showNote) {
+                    cols.forEach(col => {
+                        if (col.key === 'day') col.width = 1300;
+                        else if (col.key === 'session') col.width = 850;
+                        else if (col.key === 'period') col.width = 600;
+                        else if (col.key === 'subject') col.width = 2400;
+                        else if (col.key === 'ppct') col.width = 1000;
+                        else if (col.key === 'lesson') col.width = 4100;
+                        else if (col.key === 'integ') col.width = 4320;
+                    });
+                } else {
+                    const wBase = {
+                        day: 1300,
+                        session: 850,
+                        period: 600,
+                        subject: 2200,
+                        ppct: 950,
+                        sign: 1000,
+                        note: 1400
+                    };
+                    let wCustomEach = 1400;
+                    if (customCount >= 3) wCustomEach = 1000;
+                    else if (customCount === 2) wCustomEach = 1200;
+
+                    let used = wBase.day + wBase.session + wBase.period + wBase.subject + wBase.ppct;
+                    if (showSign) used += wBase.sign;
+                    if (showNote) used += wBase.note;
+                    used += (customCount * wCustomEach);
+                    const rem = Math.max(5000, 14570 - used);
+                    const wLesson = Math.floor(rem * 0.48);
+                    const wInteg = rem - wLesson;
+
+                    cols.forEach(col => {
+                        if (col.key === 'day') col.width = wBase.day;
+                        else if (col.key === 'session') col.width = wBase.session;
+                        else if (col.key === 'period') col.width = wBase.period;
+                        else if (col.key === 'subject') col.width = wBase.subject;
+                        else if (col.key === 'ppct') col.width = wBase.ppct;
+                        else if (col.key === 'lesson') col.width = wLesson;
+                        else if (col.key === 'integ') col.width = wInteg;
+                        else if (col.key === 'sign') col.width = wBase.sign;
+                        else if (col.key === 'note') col.width = wBase.note;
+                        else if (col.isCustom) col.width = wCustomEach;
+                    });
+                }
             } else {
                 const wBase = {
                     day: 1450,
@@ -847,15 +883,51 @@ window.DocxGenerator = (function() {
         } else {
             // Portrait
             if (isCtlop) {
-                cols.forEach(col => {
-                    if (col.key === 'day') col.width = 1050;
-                    else if (col.key === 'session') col.width = 700;
-                    else if (col.key === 'period') col.width = 500;
-                    else if (col.key === 'subject') col.width = 1600;
-                    else if (col.key === 'ppct') col.width = 750;
-                    else if (col.key === 'lesson') col.width = 2550;
-                    else if (col.key === 'integ') col.width = 2450;
-                });
+                if (customCount === 0 && !showSign && !showNote) {
+                    cols.forEach(col => {
+                        if (col.key === 'day') col.width = 1050;
+                        else if (col.key === 'session') col.width = 700;
+                        else if (col.key === 'period') col.width = 500;
+                        else if (col.key === 'subject') col.width = 1600;
+                        else if (col.key === 'ppct') col.width = 750;
+                        else if (col.key === 'lesson') col.width = 2550;
+                        else if (col.key === 'integ') col.width = 2450;
+                    });
+                } else {
+                    const wBase = {
+                        day: 1050,
+                        session: 700,
+                        period: 500,
+                        subject: 1500,
+                        ppct: 750,
+                        sign: 750,
+                        note: 1100
+                    };
+                    let wCustomEach = 1000;
+                    if (customCount >= 3) wCustomEach = 800;
+                    else if (customCount === 2) wCustomEach = 900;
+
+                    let used = wBase.day + wBase.session + wBase.period + wBase.subject + wBase.ppct;
+                    if (showSign) used += wBase.sign;
+                    if (showNote) used += wBase.note;
+                    used += (customCount * wCustomEach);
+                    const rem = Math.max(3800, 9600 - used);
+                    const wLesson = Math.floor(rem * 0.49);
+                    const wInteg = rem - wLesson;
+
+                    cols.forEach(col => {
+                        if (col.key === 'day') col.width = wBase.day;
+                        else if (col.key === 'session') col.width = wBase.session;
+                        else if (col.key === 'period') col.width = wBase.period;
+                        else if (col.key === 'subject') col.width = wBase.subject;
+                        else if (col.key === 'ppct') col.width = wBase.ppct;
+                        else if (col.key === 'lesson') col.width = wLesson;
+                        else if (col.key === 'integ') col.width = wInteg;
+                        else if (col.key === 'sign') col.width = wBase.sign;
+                        else if (col.key === 'note') col.width = wBase.note;
+                        else if (col.isCustom) col.width = wCustomEach;
+                    });
+                }
             } else {
                 const wBase = {
                     day: 1150,
@@ -966,28 +1038,24 @@ window.DocxGenerator = (function() {
         </w:p>
         `;
 
-        const showColSign = !isCtlop && !!(options && options.showColSign);
-        const showColNote = !isCtlop && !!(options && options.showColNote);
+        const showColSign = !!(options && options.showColSign);
+        const showColNote = !!(options && options.showColNote);
         let customCols = [];
-        if (!isCtlop) {
-            if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
-                customCols = options.customCols;
-            } else if (options && options.showColCustom) {
-                customCols = [{
-                    id: 'col_1',
-                    name: options.colCustomName || "Ghi chú",
-                    pos: options.colCustomPos || "end",
-                    enabled: true
-                }];
-            }
+        if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
+            customCols = options.customCols;
+        } else if (options && options.showColCustom) {
+            customCols = [{
+                id: 'col_1',
+                name: options.colCustomName || "Ghi chú",
+                pos: options.colCustomPos || "end",
+                enabled: true
+            }];
         }
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
 
-        const orderedCols = isCtlop
-            ? getDocxLbgOrderedColumns([], false, false, true, isLandscape)
-            : getDocxLbgOrderedColumns(customCols, showColSign, showColNote, false, isLandscape);
+        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape);
 
         const colWidths = orderedCols.map(c => c.width);
         const headers = orderedCols.map(c => c.title);
@@ -1076,8 +1144,8 @@ window.DocxGenerator = (function() {
                     } else if (col.key === 'lesson') {
                         rowCellsXml += `
                         <w:tc>
-                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                         </w:tc>`;
                     } else if (col.key === 'integ') {
                         rowCellsXml += `
@@ -1199,28 +1267,24 @@ window.DocxGenerator = (function() {
                 : (settings.vicePrincipal || 'Lê Văn Tám'));
         const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
 
-        const showColSign = !isCtlop && !!(options && options.showColSign);
-        const showColNote = !isCtlop && !!(options && options.showColNote);
+        const showColSign = !!(options && options.showColSign);
+        const showColNote = !!(options && options.showColNote);
         let customCols = [];
-        if (!isCtlop) {
-            if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
-                customCols = options.customCols;
-            } else if (options && options.showColCustom) {
-                customCols = [{
-                    id: 'col_1',
-                    name: options.colCustomName || "Ghi chú",
-                    pos: options.colCustomPos || "end",
-                    enabled: true
-                }];
-            }
+        if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
+            customCols = options.customCols;
+        } else if (options && options.showColCustom) {
+            customCols = [{
+                id: 'col_1',
+                name: options.colCustomName || "Ghi chú",
+                pos: options.colCustomPos || "end",
+                enabled: true
+            }];
         }
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
 
-        const orderedCols = isCtlop
-            ? getDocxLbgOrderedColumns([], false, false, true, isLandscape)
-            : getDocxLbgOrderedColumns(customCols, showColSign, showColNote, false, isLandscape);
+        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape);
 
         const colWidths = orderedCols.map(c => c.width);
         const headers = orderedCols.map(c => c.title);
@@ -1368,8 +1432,8 @@ window.DocxGenerator = (function() {
                         } else if (col.key === 'lesson') {
                             rowCellsXml += `
                             <w:tc>
-                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                                <w:tcPr><w:tcW w:w="${col.width}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                             </w:tc>`;
                         } else if (col.key === 'integ') {
                             rowCellsXml += `
@@ -1913,8 +1977,8 @@ window.DocxGenerator = (function() {
                             <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
                         </w:tc>
                         <w:tc>
-                            <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                            <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
+                            <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                         </w:tc>
                         ${isCtlop ? `
                         <w:tc>
@@ -2168,8 +2232,8 @@ window.DocxGenerator = (function() {
                                 <w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="0"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.ppct || '')}</w:t></w:r></w:p>
                             </w:tc>
                             <w:tc>
-                                <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
-                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
+                                <w:tcPr><w:tcW w:w="${colWidths[6]}" w:type="dxa"/><w:vAlign w:val="center"/><w:tcMar><w:top w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/></w:tcMar></w:tcPr>
+                                <w:p><w:pPr><w:jc w:val="left"/><w:spacing w:line="220" w:before="20" w:after="20"/><w:ind w:firstLine="10"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(slot.lessonName || '')}</w:t></w:r></w:p>
                             </w:tc>
                             ${isCtlop ? `
                             <w:tc>

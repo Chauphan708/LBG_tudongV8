@@ -1832,8 +1832,10 @@
                 col.enabled = e.target.checked;
                 saveState();
                 renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("ctlop-custom-cols-list", false);
                 renderCustomColsManager("modal-custom-cols-list", true);
                 renderTabLbg();
+                renderTabCtlop();
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -1849,11 +1851,14 @@
             txt.oninput = (e) => {
                 col.name = e.target.value;
                 saveState();
-                const otherId = isModal ? "lbg-custom-cols-list" : "modal-custom-cols-list";
-                const otherInput = document.querySelector(`#${otherId} .custom-col-chip[data-id="${col.id}"] .txt-custom-col-name`);
-                if (otherInput && otherInput.value !== e.target.value) otherInput.value = e.target.value;
-                const theadCell = document.querySelector(`#tab-lbg .col-custom-${col.id}`);
-                if (theadCell) theadCell.innerText = col.name || "Cột mới";
+                ["lbg-custom-cols-list", "ctlop-custom-cols-list", "modal-custom-cols-list"].forEach(listId => {
+                    const otherInput = document.querySelector(`#${listId} .custom-col-chip[data-id="${col.id}"] .txt-custom-col-name`);
+                    if (otherInput && otherInput.value !== e.target.value) otherInput.value = e.target.value;
+                });
+                const theadCell1 = document.querySelector(`#tab-lbg .col-custom-${col.id}`);
+                if (theadCell1) theadCell1.innerText = col.name || "Cột mới";
+                const theadCell2 = document.querySelector(`#tab-ctlop .col-custom-${col.id}`);
+                if (theadCell2) theadCell2.innerText = col.name || "Cột mới";
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -1863,6 +1868,7 @@
                 if (!col.name || !col.name.trim()) col.name = "Cột mới";
                 saveState();
                 renderTabLbg();
+                renderTabCtlop();
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -1893,8 +1899,10 @@
                 col.pos = e.target.value;
                 saveState();
                 renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("ctlop-custom-cols-list", false);
                 renderCustomColsManager("modal-custom-cols-list", true);
                 renderTabLbg();
+                renderTabCtlop();
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -1910,8 +1918,10 @@
                 state.lbgCustomCols = state.lbgCustomCols.filter(c => c.id !== col.id);
                 saveState();
                 renderCustomColsManager("lbg-custom-cols-list", false);
+                renderCustomColsManager("ctlop-custom-cols-list", false);
                 renderCustomColsManager("modal-custom-cols-list", true);
                 renderTabLbg();
+                renderTabCtlop();
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -2055,7 +2065,7 @@
                     } else if (col.key === 'ppct') {
                         rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${slot.lessonName}</td>`;
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
                     } else if (col.key === 'sign') {
                         rowHtml += `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>`;
                     } else if (col.key === 'note') {
@@ -2294,7 +2304,7 @@
                         <td class="col-period" style="vertical-align: middle; font-weight: 700;">${slot.period}</td>
                         <td style="text-align: center; font-weight: 700; color: var(--primary); vertical-align: middle;">Tiết ${slot.periodInWeek}</td>
                         <td class="col-ppct editable-cell" contenteditable="true" data-key="${slot.key}" data-field="ppct" style="vertical-align: middle; font-weight: 700;">${slot.ppct}</td>
-                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left; padding-top: 1pt; padding-bottom: 1pt; line-height: 1.35;">${escapeHtml(slot.lessonName || '')}</td>
+                        <td class="col-lesson editable-cell" contenteditable="true" data-key="${slot.key}" data-field="lessonName" style="vertical-align: middle; text-align: left; padding-top: 1pt; padding-bottom: 1pt; padding-left: 1pt; text-indent: 0.5pt; line-height: 1.35;">${escapeHtml(slot.lessonName || '')}</td>
                         ${integrationCellHtml}
                         <td class="no-print" style="text-align: center; vertical-align: middle;">
                             <button type="button" class="btn-row-action btn-clear-mon-slot" data-key="${slot.key}" title="Xóa nội dung tiết này">✕</button>
@@ -2441,6 +2451,55 @@
         document.getElementById("ctlop-week-title").innerText = `LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ${state.currentWeek}`;
         document.getElementById("ctlop-date-range").innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
 
+        // Sync CTLOP Options checkboxes with state
+        const ctlopOptColSign = document.getElementById("ctlop-opt-col-sign");
+        if (ctlopOptColSign) ctlopOptColSign.checked = !!state.lbgShowColSign;
+        const ctlopOptColNote = document.getElementById("ctlop-opt-col-note");
+        if (ctlopOptColNote) ctlopOptColNote.checked = !!state.lbgShowColNote;
+        const ctlopOptSigBgh = document.getElementById("ctlop-opt-sig-bgh");
+        if (ctlopOptSigBgh) ctlopOptSigBgh.checked = (state.lbgShowBghSign !== false);
+        const ctlopOptSigGvcn = document.getElementById("ctlop-opt-sig-gvcn");
+        if (ctlopOptSigGvcn) ctlopOptSigGvcn.checked = (state.lbgShowGvcnSign !== false);
+        const ctlopOptSigHead = document.getElementById("ctlop-opt-sig-head");
+        if (ctlopOptSigHead) ctlopOptSigHead.checked = (state.lbgShowHeadSign !== false);
+
+        // Render dynamic custom column chips in Tab 2
+        renderCustomColsManager("ctlop-custom-cols-list", false);
+
+        // Compute ordered columns for Tab 2 (CTLOP)
+        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, state.lbgShowColSign, state.lbgShowColNote, true);
+
+        // Dynamically update Table Header columns for Tab 2
+        const theadTr = document.querySelector("#tab-ctlop .table-lbg thead tr");
+        if (theadTr) {
+            let colsHtml = "";
+            orderedCols.forEach(col => {
+                if (col.key === 'day') {
+                    colsHtml += `<th style="width: 105px;">Thứ, ngày</th>`;
+                } else if (col.key === 'session') {
+                    colsHtml += `<th style="width: 65px;">Buổi</th>`;
+                } else if (col.key === 'period') {
+                    colsHtml += `<th style="width: 45px;">Tiết</th>`;
+                } else if (col.key === 'subject') {
+                    colsHtml += `<th style="width: 170px;">Môn học</th>`;
+                } else if (col.key === 'ppct') {
+                    colsHtml += `<th style="width: 75px;">Tiết PPCT</th>`;
+                } else if (col.key === 'lesson') {
+                    colsHtml += `<th style="min-width: 250px;">Tên bài dạy</th>`;
+                } else if (col.key === 'integ') {
+                    colsHtml += `<th style="min-width: 220px;" class="col-integration">Nội dung tích hợp / Điều chỉnh</th>`;
+                } else if (col.key === 'sign') {
+                    colsHtml += `<th style="width: 80px;" class="col-sign">Kí tên</th>`;
+                } else if (col.key === 'note') {
+                    colsHtml += `<th style="width: 120px;" class="col-note">Ghi chú</th>`;
+                } else if (col.isCustom) {
+                    colsHtml += `<th style="width: 120px;" class="col-custom col-custom-${col.id}">${escapeHtml(col.title)}</th>`;
+                }
+            });
+            colsHtml += `<th style="width: 75px;" class="no-print">Thao tác</th>`;
+            theadTr.innerHTML = colsHtml;
+        }
+
         const tbody = document.getElementById("ctlop-table-body");
         tbody.innerHTML = "";
 
@@ -2476,18 +2535,41 @@
                     sessionCellHtml = `<td rowspan="${afternoonSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>`;
                 }
 
-                tr.innerHTML = `
-                    ${dayCellHtml}
-                    ${sessionCellHtml}
-                    <td class="col-period">${slot.period}</td>
-                    <td class="col-subject" style="text-align:center;">
-                        <select class="form-select form-select-sm subject-selector" data-key="${slot.key}" style="text-align:center; text-align-last:center;">
-                            ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
-                        </select>
-                    </td>
-                    <td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>
-                    <td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${slot.lessonName}</td>
-                    <td class="col-integration editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="integration" style="line-height:1.45;">${escapeHtml(slot.integration || '').replace(/\n/g, '<br>')}</td>
+                let rowHtml = "";
+                orderedCols.forEach(col => {
+                    if (col.key === 'day') {
+                        if (dayCellHtml) rowHtml += dayCellHtml;
+                    } else if (col.key === 'session') {
+                        if (sessionCellHtml) rowHtml += sessionCellHtml;
+                    } else if (col.key === 'period') {
+                        rowHtml += `<td class="col-period">${slot.period}</td>`;
+                    } else if (col.key === 'subject') {
+                        rowHtml += `
+                            <td class="col-subject" style="text-align:center;">
+                                <select class="form-select form-select-sm subject-selector" data-key="${slot.key}" style="text-align:center; text-align-last:center;">
+                                    ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
+                                </select>
+                            </td>
+                        `;
+                    } else if (col.key === 'ppct') {
+                        rowHtml += `<td class="col-ppct editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="ppct">${slot.ppct}</td>`;
+                    } else if (col.key === 'lesson') {
+                        rowHtml += `<td class="col-lesson editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="lessonName" style="padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; text-align:left; line-height:1.35;">${slot.lessonName}</td>`;
+                    } else if (col.key === 'integ') {
+                        rowHtml += `<td class="col-integration editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="integration" style="line-height:1.45;">${escapeHtml(slot.integration || '').replace(/\n/g, '<br>')}</td>`;
+                    } else if (col.key === 'sign') {
+                        rowHtml += `<td class="col-sign" style="text-align:center; color:#94a3b8; font-size:0.8rem;"></td>`;
+                    } else if (col.key === 'note') {
+                        rowHtml += `<td class="col-note editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="note" style="font-size:0.85rem; text-align:left;">${escapeHtml(slot.note || '')}</td>`;
+                    } else if (col.isCustom) {
+                        const customVal = (slot.customCols && slot.customCols[col.id] !== undefined)
+                            ? slot.customCols[col.id]
+                            : (col.id === 'col_1' ? (slot.customCol || slot.note || '') : (slot['customCol_' + col.id] || ''));
+                        rowHtml += `<td class="col-custom editable-cell" contenteditable="${!slot.isOff}" data-key="${slot.key}" data-field="customCol_${col.id}" data-col-id="${col.id}" style="font-size:0.85rem; text-align:left;">${escapeHtml(customVal)}</td>`;
+                    }
+                });
+
+                rowHtml += `
                     <td class="no-print" style="text-align: center;">
                         <div class="row-actions-group">
                             <button type="button" class="btn-row-action btn-add-week-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay phía dưới">+</button>
@@ -2495,9 +2577,28 @@
                         </div>
                     </td>
                 `;
+                tr.innerHTML = rowHtml;
                 tbody.appendChild(tr);
             });
         });
+
+        // Update signature box in Tab 2
+        const bghSigner = getBghSignerInfo();
+        const ctlopTeacher = document.getElementById("ctlop-sig-teacher");
+        if (ctlopTeacher) ctlopTeacher.innerText = state.settings.homeroomTeacher || "Nguyễn Thị Thu Hà";
+        const ctlopHead = document.getElementById("ctlop-sig-head");
+        if (ctlopHead) ctlopHead.innerText = state.settings.headOfGrade || "Trần Thị Mai";
+        const ctlopPht = document.getElementById("ctlop-sig-pht");
+        if (ctlopPht) ctlopPht.innerText = bghSigner.name;
+        const ctlopBghRoleElem = document.getElementById("ctlop-bgh-role");
+        if (ctlopBghRoleElem) ctlopBghRoleElem.innerText = `DUYỆT CỦA ${bghSigner.title}`;
+
+        const boxCtlopBgh = document.getElementById("ctlop-sig-box-bgh");
+        const boxCtlopHead = document.getElementById("ctlop-sig-box-head");
+        const boxCtlopGvcn = document.getElementById("ctlop-sig-box-gvcn");
+        if (boxCtlopBgh) boxCtlopBgh.style.display = (state.lbgShowBghSign !== false) ? "block" : "none";
+        if (boxCtlopHead) boxCtlopHead.style.display = (state.lbgShowHeadSign !== false) ? "block" : "none";
+        if (boxCtlopGvcn) boxCtlopGvcn.style.display = (state.lbgShowGvcnSign !== false) ? "block" : "none";
 
         tbody.querySelectorAll(".subject-selector").forEach(sel => {
             sel.addEventListener("change", (e) => {
@@ -2509,6 +2610,7 @@
                 delete state.weeklyScheduleOverrides[key].integration;
                 saveState();
                 renderTabCtlop();
+                renderTabLbg();
             });
         });
 
@@ -2525,6 +2627,14 @@
                 }
                 if (!state.weeklyScheduleOverrides[key]) state.weeklyScheduleOverrides[key] = {};
                 state.weeklyScheduleOverrides[key][field] = val;
+                const colId = e.target.dataset.colId;
+                if (colId) {
+                    if (!state.weeklyScheduleOverrides[key].customCols) state.weeklyScheduleOverrides[key].customCols = {};
+                    state.weeklyScheduleOverrides[key].customCols[colId] = val;
+                    if (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].id === colId) {
+                        state.weeklyScheduleOverrides[key].customCol = val;
+                    }
+                }
                 saveState();
             });
         });
@@ -4831,18 +4941,16 @@
         const isLand = (activeOrient === "landscape");
         const paperClass = isLand ? "paper-page landscape" : "paper-page";
         const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
-        const showSign = !isCtlop && !!state.lbgShowColSign;
-        const showNote = !isCtlop && !!state.lbgShowColNote;
+        const showSign = !!state.lbgShowColSign;
+        const showNote = !!state.lbgShowColNote;
 
-        const orderedCols = isCtlop
-            ? getLbgOrderedColumns([], false, false, true)
-            : getLbgOrderedColumns(state.lbgCustomCols, showSign, showNote, false);
+        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, showSign, showNote, isCtlop);
 
         // Compute adaptive column widths
-        const customCount = isCtlop ? 0 : (Array.isArray(state.lbgCustomCols) ? state.lbgCustomCols.filter(c => c && c.enabled !== false).length : 0);
-        let customColWidth = isLand ? '12%' : '12%';
-        if (customCount === 2) customColWidth = isLand ? '10%' : '10%';
-        else if (customCount >= 3) customColWidth = isLand ? '8%' : '8%';
+        const customCount = Array.isArray(state.lbgCustomCols) ? state.lbgCustomCols.filter(c => c && c.enabled !== false).length : 0;
+        let customColWidth = isLand ? '12%' : '10%';
+        if (customCount === 2) customColWidth = isLand ? '10%' : '8%';
+        else if (customCount >= 3) customColWidth = isLand ? '8%' : '7%';
 
         let theadColsHtml = "";
         orderedCols.forEach(col => {
@@ -4939,7 +5047,7 @@
                     } else if (col.key === 'ppct') {
                         rowCellsHtml += `<td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>`;
                     } else if (col.key === 'lesson') {
-                        rowCellsHtml += `<td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>`;
+                        rowCellsHtml += `<td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>`;
                     } else if (col.key === 'integ') {
                         rowCellsHtml += integrationCell;
                     } else if (col.key === 'sign') {
@@ -5101,7 +5209,7 @@
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.period}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${slot.periodInWeek}</td>
                             <td style="text-align:center; font-weight:bold; vertical-align:middle;">${escapeHtml(slot.ppct || '')}</td>
-                            <td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>
+                            <td class="cell-lesson" style="text-align:left; vertical-align:middle; padding-top:1pt; padding-bottom:1pt; padding-left:1pt; text-indent:0.5pt; line-height:1.35;">${escapeHtml(slot.lessonName || '')}</td>
                             ${integrationCell}
                         </tr>
                     `;
@@ -5310,7 +5418,7 @@
         if (btnOrientPort) btnOrientPort.addEventListener("click", () => setAppOrientation("portrait"));
         if (btnOrientLand) btnOrientLand.addEventListener("click", () => setAppOrientation("landscape"));
 
-        // Tab 1 Options Checkboxes
+        // Tab 1 & Tab 2 Options Checkboxes
         const bindLbgOption = (id, prop, isDefaultTrue = false) => {
             const el = document.getElementById(id);
             if (!el) return;
@@ -5318,6 +5426,7 @@
                 state[prop] = isDefaultTrue ? e.target.checked : !!e.target.checked;
                 saveState();
                 renderTabLbg();
+                renderTabCtlop();
             });
         };
         bindLbgOption("lbg-opt-col-sign", "lbgShowColSign", false);
@@ -5325,6 +5434,13 @@
         bindLbgOption("lbg-opt-sig-bgh", "lbgShowBghSign", true);
         bindLbgOption("lbg-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("lbg-opt-sig-head", "lbgShowHeadSign", true);
+
+        // Bind CTLOP Checkboxes
+        bindLbgOption("ctlop-opt-col-sign", "lbgShowColSign", false);
+        bindLbgOption("ctlop-opt-col-note", "lbgShowColNote", false);
+        bindLbgOption("ctlop-opt-sig-bgh", "lbgShowBghSign", true);
+        bindLbgOption("ctlop-opt-sig-gvcn", "lbgShowGvcnSign", true);
+        bindLbgOption("ctlop-opt-sig-head", "lbgShowHeadSign", true);
 
         // Modal Preview Options Checkboxes
         const bindModalOption = (id, prop, isDefaultTrue = false) => {
@@ -5334,6 +5450,7 @@
                 state[prop] = isDefaultTrue ? e.target.checked : !!e.target.checked;
                 saveState();
                 renderTabLbg();
+                renderTabCtlop();
                 if (currentPreviewRefreshFn) {
                     const body = document.getElementById("modal-preview-body");
                     if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -5359,8 +5476,10 @@
             });
             saveState();
             renderCustomColsManager("lbg-custom-cols-list", false);
+            renderCustomColsManager("ctlop-custom-cols-list", false);
             renderCustomColsManager("modal-custom-cols-list", true);
             renderTabLbg();
+            renderTabCtlop();
             if (currentPreviewRefreshFn) {
                 const body = document.getElementById("modal-preview-body");
                 if (body) body.innerHTML = currentPreviewRefreshFn();
@@ -5371,6 +5490,8 @@
         if (btnAddCol1) btnAddCol1.onclick = handleAddNewCustomCol;
         const btnAddCol2 = document.getElementById("btn-modal-add-custom-col");
         if (btnAddCol2) btnAddCol2.onclick = handleAddNewCustomCol;
+        const btnAddCol3 = document.getElementById("btn-ctlop-add-custom-col");
+        if (btnAddCol3) btnAddCol3.onclick = handleAddNewCustomCol;
 
         document.getElementById("btn-lbg-reset-tkb").addEventListener("click", () => {
             if (confirm(`Bạn có muốn khôi phục Thời khóa biểu của Tuần ${state.currentWeek} về mặc định không?`)) {
@@ -5504,9 +5625,6 @@
 
         const btnBatchPreviewPrint = document.getElementById("btn-batch-preview-print");
         if (btnBatchPreviewPrint) btnBatchPreviewPrint.addEventListener("click", previewBatchLbg);
-
-        document.getElementById("btn-ctlop-excel").addEventListener("click", () => exportLbgToExcel(true));
-        document.getElementById("btn-ctlop-print").addEventListener("click", () => window.print());
 
         // Global Grade Selector
         const globalGradeSel = document.getElementById("global-grade-selector");

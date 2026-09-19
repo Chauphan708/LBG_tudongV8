@@ -59,15 +59,26 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
             khắc phục triệt để hiện tượng chữ xanh trên nền xanh khó đọc.
           + Nhãn phiên bản V8 đồng bộ nổi bật, sắc nét trên toàn bộ các thanh tiêu đề và tài liệu hướng dẫn.
 
-   🌟 5. TINH CHỈNH ĐỒNG BỘ BẢNG BIỂU (CANH GIỮA MÔN HỌC, SIZE 13 TIÊU ĐỀ & QUỐC HIỆU, KHOẢNG CÁCH BÀI DẠY 1PT):
+   🌟 5. TINH CHỈNH ĐỒNG BỘ BẢNG BIỂU (CANH GIỮA MÔN HỌC, SIZE 13 TIÊU ĐỀ & QUỐC HIỆU, ĐỊNH DẠNG TÊN BÀI DẠY):
       - Cột Môn học: Được tự động canh giữa (center) cân đối, thanh lịch trên cả giao diện web, bản in A4,
         tệp Word (.docx) và tệp Excel (.xlsx).
       - Tiêu đề & Quốc ngữ: Chuẩn hóa đồng bộ cỡ chữ 13pt cho Tiêu đề lịch báo giảng, phần Quốc hiệu - Tiêu ngữ
         và thông tin cơ quan ban hành theo chuẩn văn bản hành chính Nghị định 30/2020/NĐ-CP.
-      - Tên bài học / Tên bài dạy: Tinh chỉnh khoảng cách lề trên và dưới chữ với đường viền dòng chuẩn ~1pt
-        (padding 1pt / 20 dxa), giúp dòng chữ thoáng đãng, sắc nét, dễ nhìn và không bị dính sát mép dòng kẻ.
+      - Tên bài học / Tên bài dạy: Tinh chỉnh lề trái của ô cách chữ 1pt (padding-left: 1pt / 20 dxa),
+        thụt đầu dòng 0.5pt (text-indent: 0.5pt / w:firstLine="10"), kết hợp khoảng cách lề trên/dưới 1pt,
+        giúp dòng chữ vào hàng thẳng tắp, thoáng đãng, sắc nét, dễ nhìn và chuẩn mực văn bản trình bày.
 
-   🌟 6. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
+   🌟 6. ĐỒNG BỘ TOÀN DIỆN CHO BÁO GIẢNG TÍCH HỢP (CTLOP - TAB 2):
+      - Đồng bộ đầy đủ thanh công cụ quản lý cột và tùy chọn hiển thị cho Báo giảng tích hợp:
+          + Thêm nhiều cột tùy chỉnh linh hoạt không giới hạn (tự chọn vị trí 1 đến 7 hoặc cuối bảng).
+          + Tùy chọn bật/tắt hiển thị cột "Kí tên" và "Ghi chú".
+          + Tùy chọn bật/tắt hiển thị khối chữ ký (BGH, Khối trưởng, GVCN) ngay trên bảng web và trang in.
+      - Đồng bộ tự động thứ tự cột, độ rộng thích ứng và định dạng tên bài dạy sang:
+          + Bảng hiển thị Tab 2 trên web (có thể nhập trực tiếp dữ liệu cột tùy chỉnh).
+          + Bản in / xem trước A4 (khổ đứng và khổ ngang).
+          + Bản xuất Word (.docx) và bản xuất Excel (.xlsx) của Báo giảng tích hợp.
+
+   🌟 7. ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT ĐÃ NÂNG CẤP TỪ BẢN V7:
       - Cột "Thứ, ngày" tự động hiển thị ngày tháng năm dưới tên thứ chính xác cho từng tuần.
       - Tùy chọn ẩn/hiện cột "Kí tên" và "Ghi chú".
       - Tùy chọn ẩn/hiện chữ ký phê duyệt (BGH, GVCN, Khối trưởng).

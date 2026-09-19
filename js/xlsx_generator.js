@@ -266,9 +266,23 @@ window.XlsxGenerator = (function() {
 
         const customCount = enabledCustomCols.length;
         const lessonCol = cols.find(c => c.key === 'lesson');
+        const integCol = cols.find(c => c.key === 'integ');
         if (lessonCol) {
             if (isCtlop) {
-                lessonCol.width = 34;
+                let extraCount = (showSign ? 1 : 0) + (showNote ? 1 : 0) + customCount;
+                if (extraCount >= 4) {
+                    lessonCol.width = 24;
+                    if (integCol) integCol.width = 22;
+                } else if (extraCount >= 2) {
+                    lessonCol.width = 28;
+                    if (integCol) integCol.width = 25;
+                } else if (extraCount === 1) {
+                    lessonCol.width = 30;
+                    if (integCol) integCol.width = 28;
+                } else {
+                    lessonCol.width = 34;
+                    if (integCol) integCol.width = 30;
+                }
             } else {
                 let extraCount = (showSign ? 1 : 0) + (showNote ? 1 : 0) + customCount;
                 if (extraCount >= 4) lessonCol.width = 28;
@@ -308,20 +322,18 @@ window.XlsxGenerator = (function() {
         zip.file("xl/workbook.xml", createWbXml(sheetName));
         zip.file("xl/styles.xml", createStylesXml());
 
-        const showColSign = !isCtlop && !!(options.showColSign);
-        const showColNote = !isCtlop && !!(options.showColNote);
+        const showColSign = !!(options.showColSign);
+        const showColNote = !!(options.showColNote);
         let customCols = [];
-        if (!isCtlop) {
-            if (Array.isArray(options.customCols) && options.customCols.length > 0) {
-                customCols = options.customCols;
-            } else if (options.showColCustom) {
-                customCols = [{
-                    id: 'col_1',
-                    name: (options.colCustomName && options.colCustomName.trim()) ? options.colCustomName.trim() : 'Ghi chú',
-                    pos: options.colCustomPos || "end",
-                    enabled: true
-                }];
-            }
+        if (Array.isArray(options.customCols) && options.customCols.length > 0) {
+            customCols = options.customCols;
+        } else if (options.showColCustom) {
+            customCols = [{
+                id: 'col_1',
+                name: (options.colCustomName && options.colCustomName.trim()) ? options.colCustomName.trim() : 'Ghi chú',
+                pos: options.colCustomPos || "end",
+                enabled: true
+            }];
         }
         const showBghSign = (options.showBghSign !== false);
         const showGvcnSign = (options.showGvcnSign !== false);
