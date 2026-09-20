@@ -6294,6 +6294,60 @@
         renderTabSettings();
         renderTabLichtuan();
         renderTabPpct();
+
+        // Welcome Guide Modal (Popup hướng dẫn cho người dùng lần đầu mở phần mềm)
+        const WELCOME_KEY = "LBG_V8_WELCOME_SHOWN";
+        const welcomeModal = document.getElementById("modal-welcome-guide");
+        const btnWelcomeClose = document.getElementById("btn-welcome-close");
+        const btnWelcomeStart = document.getElementById("btn-welcome-start");
+        const btnWelcomeDetail = document.getElementById("btn-welcome-detail");
+
+        function closeWelcomeModal() {
+            if (welcomeModal) {
+                welcomeModal.classList.remove("show");
+                welcomeModal.style.display = "none";
+            }
+            try {
+                localStorage.setItem(WELCOME_KEY, "true");
+            } catch (e) {}
+        }
+
+        function openWelcomeModal() {
+            if (welcomeModal) {
+                welcomeModal.classList.add("show");
+                welcomeModal.style.display = "flex";
+            }
+        }
+
+        if (btnWelcomeClose) btnWelcomeClose.addEventListener("click", closeWelcomeModal);
+        if (btnWelcomeStart) btnWelcomeStart.addEventListener("click", closeWelcomeModal);
+        if (btnWelcomeDetail) {
+            btnWelcomeDetail.addEventListener("click", () => {
+                closeWelcomeModal();
+                switchActiveTab("tab-guide");
+                const targetSec = document.getElementById("guide-sec-quickstart");
+                if (targetSec) targetSec.scrollIntoView({ behavior: "smooth" });
+            });
+        }
+
+        if (welcomeModal) {
+            welcomeModal.addEventListener("click", (e) => {
+                if (e.target === welcomeModal) {
+                    closeWelcomeModal();
+                }
+            });
+        }
+
+        window.openWelcomeGuideModal = openWelcomeModal;
+
+        // Tự động kiểm tra hiển thị 1 lần duy nhất cho người dùng mới
+        try {
+            const hasSeenWelcome = localStorage.getItem(WELCOME_KEY);
+            if (!hasSeenWelcome) {
+                setTimeout(openWelcomeModal, 400);
+            }
+        } catch (e) {}
+
         // Expose functions for debugging / testing
         window.calculateWeekSchedule = calculateWeekSchedule;
         window.calculateWeekScheduleBySubject = calculateWeekScheduleBySubject;

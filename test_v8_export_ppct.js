@@ -51,7 +51,18 @@ test('Huong_Dan_Chi_Tiet_V8.txt tồn tại và có đầy đủ mục lục A-F
     detailGuide.includes('PHẦN E.') && detailGuide.includes('PHẦN F.'));
 test('Huong_Dan_Chi_Tiet_V8.txt hướng dẫn nút Xuất Excel PPCT', detailGuide.includes('D9. XUẤT FILE EXCEL PHÂN PHỐI CHƯƠNG TRÌNH (PPCT)'));
 
-// 6. Check Huong_Dan_Su_Dung_V8.txt
-test('Huong_Dan_Su_Dung_V8.txt ghi nhận tính năng Xuất Excel PPCT tại mục 9', guideV8.includes('9. XUẤT FILE EXCEL PHÂN PHỐI CHƯƠNG TRÌNH (PPCT) TOÀN DIỆN:'));
+// 7. Check Welcome Guide Modal (Popup mở lần đầu tiên)
+test('index.html có modal #modal-welcome-guide', indexHtml.includes('id="modal-welcome-guide"'));
+test('index.html modal có nút #btn-welcome-close và #btn-welcome-start', 
+    indexHtml.includes('id="btn-welcome-close"') && indexHtml.includes('id="btn-welcome-start"'));
+test('app.js có cơ chế kiểm tra LBG_V8_WELCOME_SHOWN chỉ hiện 1 lần duy nhất', 
+    appJs.includes('LBG_V8_WELCOME_SHOWN') && appJs.includes('openWelcomeModal'));
+test('index.html chứa dòng LƯU Ý PHÂN PHỐI CHƯƠNG TRÌNH ở Bước 3', 
+    indexHtml.includes('LƯU Ý: PHẢI XEM THẬT KĨ VỀ PHÂN PHỐI CHƯƠNG TRÌNH, ĐIỀU CHỈNH, BỔ SUNG CHO PHÙ HỢP TRƯỚC KHI SỬ DỤNG'));
+test('modal-welcome-guide chứa dòng LƯU Ý PHÂN PHỐI CHƯƠNG TRÌNH', 
+    indexHtml.includes('LƯU Ý: PHẢI XEM THẬT KĨ VỀ PHÂN PHỐI CHƯƠNG TRÌNH, ĐIỀU CHỈNH, BỔ SUNG CHO PHÙ HỢP TRƯỚC KHI SỬ DỤNG'));
+test('Huong_Dan_Chi_Tiet_V8.txt chứa dòng LƯU Ý PHÂN PHỐI CHƯƠNG TRÌNH', 
+    detailGuide.includes('LƯU Ý: PHẢI XEM THẬT KĨ VỀ PHÂN PHỐI CHƯƠNG TRÌNH, ĐIỀU CHỈNH, BỔ SUNG CHO PHÙ HỢP TRƯỚC KHI SỬ DỤNG'));
 
 console.log(`\n🎉 TẤT CẢ ${passCount} BÀI KIỂM TRA ĐỀU VƯỢT QUA XUẤT SẮC! (100% PASS)`);
+

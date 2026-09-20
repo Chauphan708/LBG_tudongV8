@@ -1108,9 +1108,12 @@
                         </div>
                         <div class="guide-step-box" style="border-left: 4px solid #8b5cf6; background: #ffffff;">
                             <h4 style="color: #6d28d9;"><span class="guide-badge" style="background:#8b5cf6; color:#fff;">BƯỚC 3</span> Kiểm tra PPCT &amp; Xuất KHDH (Đầu năm / Khi cần)</h4>
-                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45;">
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45; margin-bottom: 0.5rem;">
                                 Vào tab <strong>📖 PPCT &amp; KHDH</strong>: Kiểm tra kho bài dạy đã nạp sẵn. Chỉnh sửa, thêm bớt cho phù hợp với thực tế. Bấm <strong>📊 Xuất Excel PPCT</strong> để tải file Excel phân phối chương trình đầy đủ (có cột tích hợp) hoặc bấm <strong>📄 Tải File Word KHDH</strong> để nộp BGH.
                             </p>
+                            <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 0.45rem 0.65rem; font-size: 0.82rem; color: #b91c1c; font-weight: 800; line-height: 1.4;">
+                                ⚠️ LƯU Ý: PHẢI XEM THẬT KĨ VỀ PHÂN PHỐI CHƯƠNG TRÌNH, ĐIỀU CHỈNH, BỔ SUNG CHO PHÙ HỢP TRƯỚC KHI SỬ DỤNG.
+                            </div>
                         </div>
                         <div class="guide-step-box" style="border-left: 4px solid #f59e0b; background: #ffffff;">
                             <h4 style="color: #b45309;"><span class="guide-badge" style="background:#f59e0b; color:#fff;">BƯỚC 4</span> Sử dụng Lịch Báo Giảng hàng tuần</h4>
@@ -1413,7 +1416,98 @@
             </div>
         </section>
 
-    </main>
+    <!-- =========================================================================
+         MODAL WELCOME GUIDE (POPUP HƯỚNG DẪN LẦN ĐẦU TIÊN MỞ PHẦN MỀM)
+         ========================================================================= -->
+    <div class="modal-backdrop" id="modal-welcome-guide" style="z-index: 1100;">
+        <div class="modal-card" style="max-width: 840px; max-height: 92vh; border: 2px solid var(--primary-light);">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: #ffffff; padding: 1.1rem 1.5rem;">
+                <div>
+                    <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #93c5fd; margin-bottom: 0.2rem;">
+                        🚀 CHÀO MỪNG ĐẾN VỚI PHẦN MỀM BẢN V8 (VERSION 8.0)
+                    </div>
+                    <h3 class="modal-title" style="color: #ffffff; font-size: 1.22rem; font-weight: 800; margin: 0;">
+                        📖 Hướng Dẫn Nhanh: Quy Trình 4 Bước Chuẩn Sử Dụng Phần Mềm
+                    </h3>
+                </div>
+                <button class="btn btn-secondary btn-sm" id="btn-welcome-close" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; border-radius: 6px; cursor: pointer;" title="Đóng hướng dẫn">✕ Đóng</button>
+            </div>
+            <div class="modal-body" style="padding: 1.35rem 1.5rem; overflow-y: auto; background: #f8fafc;">
+                <p style="font-size: 0.93rem; color: #334155; line-height: 1.55; margin-bottom: 1.15rem;">
+                    Kính chào Quý Thầy/Cô! Phần mềm hoạt động hoàn toàn cục bộ <em>(Offline 100%, không cần kết nối mạng)</em>. Để bắt đầu sử dụng nhanh chóng và đạt hiệu quả cao nhất, Quý Thầy/Cô vui lòng thực hiện đúng theo <strong>4 bước tuần tự</strong> dưới đây:
+                </p>
+
+                <div class="guide-step-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0.85rem;">
+                    <!-- Bước 1 -->
+                    <div class="guide-step-box" style="border-left: 4px solid #3b82f6; background: #ffffff; padding: 0.95rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+                        <h4 style="color: #1d4ed8; margin: 0 0 0.45rem 0; font-size: 0.98rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span class="guide-badge primary" style="background:#2563eb; color:#fff; padding: 2px 7px; border-radius: 4px; font-size: 0.76rem;">BƯỚC 1</span>
+                            <span>Cài đặt &amp; Xếp TKB gốc (Làm 1 lần đầu năm)</span>
+                        </h4>
+                        <p style="font-size: 0.86rem; color: #475569; line-height: 1.48; margin: 0;">
+                            Vào tab <strong>⚙️ Cài Đặt &amp; TKB</strong>: Điền tên trường, tên lớp, năm học, tên GVCN, chọn người ký duyệt BGH. Kéo xuống phần TKB: điều chỉnh môn học chuẩn của lớp cho từng thứ trong tuần và bấm <strong>💾 Lưu TKB Gốc</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Bước 2 -->
+                    <div class="guide-step-box" style="border-left: 4px solid #10b981; background: #ffffff; padding: 0.95rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+                        <h4 style="color: #047857; margin: 0 0 0.45rem 0; font-size: 0.98rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span class="guide-badge" style="background:#10b981; color:#fff; padding: 2px 7px; border-radius: 4px; font-size: 0.76rem;">BƯỚC 2</span>
+                            <span>Tạo Lịch 35 Tuần (Làm 1 lần đầu năm)</span>
+                        </h4>
+                        <p style="font-size: 0.86rem; color: #475569; line-height: 1.48; margin: 0;">
+                            Vào tab <strong>🗓️ Lịch Tuần (35 Tuần)</strong>: Điền ngày Thứ Hai bắt đầu Tuần 1 và ngày nghỉ Tết Âm lịch, bấm <strong>Tự Động Tạo Lịch 35 Tuần</strong>. Phần mềm tự động tính chính xác ngày tháng và ngày nghỉ lễ cho cả 35 tuần.
+                        </p>
+                    </div>
+
+                    <!-- Bước 3 -->
+                    <div class="guide-step-box" style="border-left: 4px solid #8b5cf6; background: #ffffff; padding: 0.95rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+                        <h4 style="color: #6d28d9; margin: 0 0 0.45rem 0; font-size: 0.98rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span class="guide-badge" style="background:#8b5cf6; color:#fff; padding: 2px 7px; border-radius: 4px; font-size: 0.76rem;">BƯỚC 3</span>
+                            <span>Kiểm tra PPCT &amp; Xuất KHDH (Đầu năm / Khi cần)</span>
+                        </h4>
+                        <p style="font-size: 0.86rem; color: #475569; line-height: 1.48; margin-bottom: 0.5rem;">
+                            Vào tab <strong>📖 PPCT &amp; KHDH</strong>: Kiểm tra kho bài dạy đã nạp sẵn. Chỉnh sửa, thêm bớt cho phù hợp với thực tế. Bấm <strong>📊 Xuất Excel PPCT</strong> để tải file Excel phân phối chương trình đầy đủ (kèm cột tích hợp) hoặc bấm <strong>📄 Tải File Word KHDH</strong> để nộp BGH.
+                        </p>
+                        <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 5px; padding: 0.45rem 0.7rem; font-size: 0.82rem; color: #b91c1c; font-weight: 800; line-height: 1.42;">
+                            ⚠️ LƯU Ý: PHẢI XEM THẬT KĨ VỀ PHÂN PHỐI CHƯƠNG TRÌNH, ĐIỀU CHỈNH, BỔ SUNG CHO PHÙ HỢP TRƯỚC KHI SỬ DỤNG.
+                        </div>
+                    </div>
+
+                    <!-- Bước 4 -->
+                    <div class="guide-step-box" style="border-left: 4px solid #f59e0b; background: #ffffff; padding: 0.95rem; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+                        <h4 style="color: #b45309; margin: 0 0 0.45rem 0; font-size: 0.98rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span class="guide-badge" style="background:#f59e0b; color:#fff; padding: 2px 7px; border-radius: 4px; font-size: 0.76rem;">BƯỚC 4</span>
+                            <span>Sử dụng Lịch Báo Giảng hàng tuần</span>
+                        </h4>
+                        <p style="font-size: 0.86rem; color: #475569; line-height: 1.48; margin: 0;">
+                            Đầu mỗi tuần, vào tab <strong>📅 Lịch Báo Giảng</strong> (hoặc <strong>🎯 BG Tích Hợp</strong> / <strong>📚 Theo Môn</strong>): Chọn tuần cần dạy. Hệ thống tự động ghép PPCT vào TKB. Chỉnh sửa bài dạy nếu có đổi buổi, sau đó bấm <strong>👁️ Xem trước in A4</strong> hoặc <strong>Xuất Word / Excel</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem; padding: 0.65rem 0.95rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; font-size: 0.86rem; color: #1e40af; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.5;">
+                    <span style="font-size: 1.15rem; line-height: 1;">🛡️</span>
+                    <div>
+                        <strong>NGUYÊN TẮC BẢO VỆ DỮ LIỆU:</strong> Tránh mở phần mềm bằng cửa sổ ẩn danh (Incognito). Sau khi cấu hình xong hoặc định kỳ hàng tháng, hãy vào tab <em>⚙️ Cài Đặt &amp; TKB</em> bấm <strong>💾 Sao lưu toàn bộ dữ liệu ra file JSON</strong> để lưu về máy tính hoặc USB.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.65rem; padding: 0.9rem 1.5rem; background: #ffffff; border-top: 1px solid var(--border-color);">
+                <div style="font-size: 0.82rem; color: #64748b; font-style: italic;">
+                    💡 Popup này chỉ tự động xuất hiện 1 lần duy nhất đầu tiên. Thầy/Cô có thể xem lại bất cứ lúc nào tại Tab "Hướng Dẫn Sử Dụng".
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" id="btn-welcome-detail">
+                        <span>📖</span> <span>Xem Hướng Dẫn Chi Tiết</span>
+                    </button>
+                    <button class="btn btn-primary" id="btn-welcome-start" style="font-weight: 700; background: #2563eb; padding: 0.55rem 1.25rem;">
+                        <span>✓</span> <span>Đã Hiểu &amp; Bắt Đầu Sử Dụng</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- =========================================================================
          MODAL BULK RENAME SUBJECT (ĐỔI TÊN MÔN HỌC HÀNG LOẠT)
