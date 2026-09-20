@@ -39,6 +39,8 @@ test('exportPpctToExcel có tìm kiếm từ khóa', appJs.includes('searchInput
 
 // 4. Check Tab 7 Guide in index.html
 test('index.html có mục ⭐ QUY TRÌNH 4 BƯỚC THIẾT THỰC', indexHtml.includes('QUY TRÌNH 4 BƯỚC THIẾT THỰC ĐỂ BẮT ĐẦU SỬ DỤNG PHẦN MỀM HIỆU QUẢ'));
+test('index.html Bước 3 có câu "Kiểm tra kho bài dạy đã nạp sẵn. Chỉnh sửa, thêm bớt cho phù hợp với thực tế."', 
+    indexHtml.includes('Kiểm tra kho bài dạy đã nạp sẵn. Chỉnh sửa, thêm bớt cho phù hợp với thực tế.'));
 test('index.html Tab Guide hướng dẫn nút Xuất Excel PPCT', indexHtml.includes('Xuất Excel PPCT (V8 Mới)'));
 test('index.html Tab Guide có mục Điểm Mới V8 với Xuất Excel PPCT', indexHtml.includes('Xuất Excel PPCT Toàn Diện'));
 

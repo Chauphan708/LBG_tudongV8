@@ -197,6 +197,7 @@ B4. BƯỚC 4 — KIỂM TRA VÀ CHỈNH SỬA PHÂN PHỐI CHƯƠNG TRÌNH (TAB
 
   2) Kéo xuống phần "Quản Lý Phân Phối Chương Trình":
      • Phần mềm đã nạp sẵn khoảng 1.400 - 1.560 tiết PPCT cho tất cả các môn.
+     • Kiểm tra kho bài dạy đã nạp sẵn. Chỉnh sửa, thêm bớt cho phù hợp với thực tế.
      • Sử dụng bộ lọc: Chọn Môn học, chọn Tuần, hoặc gõ tìm kiếm nhanh
        để tra cứu bài dạy.
 
