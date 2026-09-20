@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
@@ -78,9 +78,9 @@ console.log("✓ Test 4: app.js tương thích V7, bảo toàn dữ liệu và �
 
 // 5. Kiểm tra index.html
 const htmlContent = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-assert.ok(htmlContent.includes('Bản V7'), "index.html title chưa cập nhật Bản V7");
-assert.ok(htmlContent.includes('BẢN V7'), "index.html header badge chưa cập nhật BẢN V7");
-assert.ok(htmlContent.includes('Hướng Dẫn V7'), "index.html quick button chưa có Hướng Dẫn V7");
+assert.ok(htmlContent.includes('Bản V7') || htmlContent.includes('Bản V8'), "index.html title chưa cập nhật Bản V7 hoặc V8");
+assert.ok(htmlContent.includes('BẢN V7') || htmlContent.includes('BẢN V8'), "index.html header badge chưa cập nhật BẢN V7 hoặc V8");
+assert.ok(htmlContent.includes('Hướng Dẫn V7') || htmlContent.includes('Hướng Dẫn V8'), "index.html quick button chưa có Hướng Dẫn V7 hoặc V8");
 assert.ok(htmlContent.includes('>Thứ, ngày</th>'), "index.html table thead chưa đổi sang Thứ, ngày");
 assert.ok(htmlContent.includes('id="guide-sec-10"'), "index.html thiếu mục hướng dẫn Điểm Mới Bản V7");
 console.log("✓ Test 5: index.html cập nhật giao diện, tiêu đề và hướng dẫn V7 chuẩn xác -> ĐẠT");

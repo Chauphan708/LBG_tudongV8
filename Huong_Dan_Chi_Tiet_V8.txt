@@ -1,0 +1,575 @@
+================================================================================
+                 HƯỚNG DẪN SỬ DỤNG PHẦN MỀM
+     QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5)
+                    PHIÊN BẢN V8 (VERSION 8.0)
+================================================================================
+
+📌 Phần mềm chạy 100% cục bộ (Offline) trên máy tính cá nhân, không cần internet,
+không gửi dữ liệu ra bên ngoài, đảm bảo tuyệt đối quyền riêng tư và bảo mật.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MỤC LỤC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  PHẦN A. KHỞI ĐỘNG VÀ TỔNG QUAN PHẦN MỀM
+    A1. Cách mở phần mềm
+    A2. Tổng quan giao diện và 7 tab chức năng
+    A3. Chọn Khối lớp
+
+  PHẦN B. THIẾT LẬP BAN ĐẦU (LÀM 1 LẦN ĐẦU NĂM HỌC)
+    B1. Bước 1 — Cài đặt thông tin trường, lớp, giáo viên (Tab 5)
+    B2. Bước 2 — Thiết lập Thời Khóa Biểu gốc (Tab 5)
+    B3. Bước 3 — Tạo lịch 35 tuần năm học (Tab 3)
+    B4. Bước 4 — Kiểm tra và chỉnh sửa Phân Phối Chương Trình (Tab 4)
+    B5. Bước 5 — Xuất Kế Hoạch Dạy Học nộp BGH (Tab 4)
+
+  PHẦN C. SỬ DỤNG HÀNG TUẦN
+    C1. Xem và in Lịch Báo Giảng hàng tuần (Tab 1)
+    C2. Xem và in Báo Giảng Tích Hợp CTLOP (Tab 2)
+    C3. Xem và in Báo Giảng Theo Môn (Tab 2B)
+    C4. Xuất gộp nhiều tuần (HK1, HK2, Cả năm)
+
+  PHẦN D. CÁC TÍNH NĂNG NÂNG CAO
+    D1. Thêm cột tùy chỉnh (ĐDDH, Nhận xét, Thiết bị,...)
+    D2. Ẩn/hiện cột Kí tên, cột Ghi chú
+    D3. Bật/tắt chữ ký BGH, GVCN, Khối trưởng
+    D4. Xóa hàng tiết nghỉ / để trống khi xuất file
+    D5. Chọn lọc môn đưa vào Lịch Báo Giảng
+    D6. Tùy chọn chiều Thứ 6
+    D7. Đổi tên môn học hàng loạt
+    D8. Thêm/sửa/xóa môn học
+    D9. Xuất file Excel Phân Phối Chương Trình (PPCT)
+
+  PHẦN E. SAO LƯU VÀ AN TOÀN DỮ LIỆU
+    E1. Sao lưu dữ liệu ra file JSON
+    E2. Khôi phục dữ liệu từ file JSON
+    E3. Các lưu ý quan trọng về an toàn dữ liệu
+
+  PHẦN F. CÁC ĐỊNH DẠNG FILE XUẤT
+    F1. Tổng hợp các loại file có thể xuất
+    F2. Quy chuẩn định dạng văn bản (Nghị định 30/2020/NĐ-CP)
+
+
+================================================================================
+PHẦN A. KHỞI ĐỘNG VÀ TỔNG QUAN PHẦN MỀM
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+A1. CÁCH MỞ PHẦN MỀM
+───────────────────────────────────────────────────────────────────────────────
+
+  ⮞ Cách 1: Nhấp đúp chuột vào file "index.html" trong thư mục phần mềm.
+     File sẽ tự động mở trên trình duyệt mặc định (Chrome, Edge, Cốc Cốc, Firefox).
+
+  ⮞ Cách 2: Nhấp đúp vào file "Mo_Phan_Mem.bat" để mở tự động.
+
+  ⮞ Cách 3 (Online): Truy cập trực tiếp tại:
+     https://lbg-tudong.vercel.app
+     hoặc
+     https://chauphan708.github.io/bao-giang-tu-dong/
+
+  ⚠ LƯU Ý: Không mở phần mềm bằng cửa sổ ẨN DANH (Incognito / InPrivate).
+    Chế độ ẩn danh sẽ xóa toàn bộ dữ liệu ngay khi đóng tab.
+
+
+───────────────────────────────────────────────────────────────────────────────
+A2. TỔNG QUAN GIAO DIỆN VÀ 7 TAB CHỨC NĂNG
+───────────────────────────────────────────────────────────────────────────────
+
+  Phần mềm gồm 7 tab chính, được bố trí trên thanh menu ngang:
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │ Tab │ Tên                        │ Mục đích chính                     │
+  ├─────┼────────────────────────────┼────────────────────────────────────-┤
+  │  1  │ 📅 Lịch Báo Giảng         │ Xem, sửa, in và xuất LBG tuần     │
+  │  2  │ 🎯 BG Tích Hợp (CTLOP)   │ LBG có cột nội dung tích hợp      │
+  │  3  │ 📚 Báo Giảng Theo Môn     │ LBG gom nhóm theo từng môn học    │
+  │  4  │ 🗓️ Lịch Tuần (35 Tuần)   │ Kế hoạch thời gian cả năm học     │
+  │  5  │ 📖 PPCT & KHDH            │ Phân Phối CT + Xuất Kế Hoạch DH   │
+  │  6  │ ⚙️ Cài Đặt & TKB         │ Thông tin trường + Thời Khóa Biểu │
+  │  7  │ 💡 Hướng Dẫn Sử Dụng     │ Sổ tay hướng dẫn và tính năng mới │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  ⮞ Thứ tự sử dụng đề xuất khi bắt đầu năm học mới:
+     Tab 6 (Cài Đặt) → Tab 4 (Lịch Tuần) → Tab 5 (PPCT) → Tab 1/2/3 (Báo Giảng)
+
+
+───────────────────────────────────────────────────────────────────────────────
+A3. CHỌN KHỐI LỚP
+───────────────────────────────────────────────────────────────────────────────
+
+  ⮞ Góc trên bên phải màn hình có ô "🎒 Khối lớp:" chọn từ Khối 1 đến Khối 5.
+  ⮞ Mỗi khối lưu trữ DỮ LIỆU ĐỘC LẬP: TKB, PPCT, cài đặt, lịch tuần.
+  ⮞ Khi chuyển khối, toàn bộ dữ liệu và cấu hình sẽ tự động chuyển theo.
+
+  💡 Mẹo: Nếu thầy/cô dạy 2 khối, có thể chuyển qua lại giữa các khối
+     mà dữ liệu của từng khối không bị lẫn lộn.
+
+
+================================================================================
+PHẦN B. THIẾT LẬP BAN ĐẦU (LÀM 1 LẦN ĐẦU NĂM HỌC)
+================================================================================
+
+  ⚠ QUAN TRỌNG: Hoàn thành Phần B trước khi sử dụng hàng tuần.
+     Chỉ cần làm 1 lần đầu năm học, sau đó không cần làm lại.
+
+───────────────────────────────────────────────────────────────────────────────
+B1. BƯỚC 1 — CÀI ĐẶT THÔNG TIN TRƯỜNG, LỚP, GIÁO VIÊN (TAB 6: CÀI ĐẶT)
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Bấm vào tab "⚙️ Cài Đặt & TKB" trên thanh menu (hoặc bấm nút tắt ⚙️
+     ở góc phải header).
+
+  2) Điền các thông tin sau:
+     • Cơ quan cấp trên (VD: "UBND PHƯỜNG TRUNG NHỨT")
+     • Tên trường (VD: "TRƯỜNG TIỂU HỌC TRUNG NHỨT")
+     • Khối lớp (VD: "Khối 5")
+     • Tên lớp (VD: "Lớp 5A" hoặc "Lớp 5/1")
+     • Năm học: Chọn nhanh từ menu hoặc nhập tùy chỉnh (VD: "2026 - 2027")
+     • Địa danh ban hành (VD: "Cần Thơ")
+     • Ngày tháng ban hành KHDH (VD: "ngày 28 tháng 8 năm 2026")
+     • Họ tên GVCN, Khối trưởng
+
+  3) Thiết lập Ban Giám Hiệu:
+     • Nhập họ tên Hiệu trưởng.
+     • Bấm [+ Thêm PHT] để thêm Phó Hiệu trưởng (có thể thêm nhiều người).
+     • Chọn riêng người ký duyệt LBG hàng tuần và người phê duyệt KHDH cả năm.
+
+  4) Bấm nút "💾 Lưu Cài Đặt" để lưu.
+
+  ✅ Sau khi lưu, tên trường, lớp, giáo viên sẽ tự động hiển thị trên:
+     - Tiêu đề Lịch Báo Giảng (Tab 1, Tab 2)
+     - Phần chữ ký phê duyệt
+     - Tất cả file Word và Excel xuất tải về
+
+───────────────────────────────────────────────────────────────────────────────
+B2. BƯỚC 2 — THIẾT LẬP THỜI KHÓA BIỂU GỐC (TAB 6: CÀI ĐẶT)
+───────────────────────────────────────────────────────────────────────────────
+
+  Kéo xuống phần "📅 Quản Lý & In Ấn Khung Thời Khóa Biểu Gốc" trong Tab 6.
+
+  1) Xem BẢNG MA TRẬN TKB (bảng lưới tổng quan Sáng/Chiều từ Thứ 2 đến Thứ 6)
+     để nắm tổng quan cấu trúc.
+
+  2) Tại BẢNG CHI TIẾT TỪNG TIẾT phía dưới:
+     • Nhấp vào ô dropdown "Môn học mặc định" để đổi môn cho từng tiết.
+     • Bấm [+] để thêm tiết vào buổi Sáng hoặc Chiều của một thứ.
+     • Bấm [🗑️] để xóa bớt tiết thừa.
+
+  3) Bấm "💾 Lưu TKB Gốc" khi hoàn tất.
+
+  💡 TKB gốc là khung chuẩn áp dụng cho 35 tuần. Nếu tuần nào có thay đổi
+     (đổi tiết, hoán buổi), thầy/cô có thể sửa trực tiếp ở Tab 1 mà không
+     ảnh hưởng đến TKB gốc.
+
+  ⮞ Các nút hữu ích:
+     • "🖨️ Xem Trước & In TKB (Khổ ngang)" — In TKB ra giấy A4 ngang.
+     • "📄 Xuất Word TKB (.docx)" — Tải file Word TKB có quốc hiệu + chữ ký.
+     • "📊 Xuất Excel TKB (.xlsx)" — Tải file Excel TKB.
+
+───────────────────────────────────────────────────────────────────────────────
+B3. BƯỚC 3 — TẠO LỊCH 35 TUẦN NĂM HỌC (TAB 4: LỊCH TUẦN)
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Bấm vào tab "🗓️ Lịch Tuần (35 Tuần)".
+
+  2) Nhập các thông tin:
+     • Năm học (tự động đồng bộ từ Tab Cài Đặt).
+     • Ngày Thứ 2 bắt đầu Tuần 1 (VD: 07/09/2026).
+     • Ngày bắt đầu nghỉ Tết Âm lịch.
+     • Ngày kết thúc nghỉ Tết Âm lịch.
+
+  3) Bấm nút "Tự Động Tạo Lịch 35 Tuần".
+     → Hệ thống tự động tính toán ngày bắt đầu và kết thúc của mỗi tuần,
+       tự động ghi chú các ngày nghỉ lễ (Quốc khánh, Nghỉ Tết, 30/4, 1/5,...).
+
+  4) Kiểm tra bảng 35 tuần, chỉnh sửa nếu cần, sau đó bấm "Lưu Lịch Tuần".
+
+  ⮞ Xuất file:
+     • "Xuất Word Lịch Tuần" — Nộp kế hoạch thời gian cho BGH.
+     • "Xuất Excel Lịch Tuần" — Bảng tính 35 tuần.
+
+───────────────────────────────────────────────────────────────────────────────
+B4. BƯỚC 4 — KIỂM TRA VÀ CHỈNH SỬA PHÂN PHỐI CHƯƠNG TRÌNH (TAB 5: PPCT)
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Bấm vào tab "📖 PPCT & KHDH".
+
+  2) Kéo xuống phần "Quản Lý Phân Phối Chương Trình":
+     • Phần mềm đã nạp sẵn khoảng 1.400 - 1.560 tiết PPCT cho tất cả các môn.
+     • Sử dụng bộ lọc: Chọn Môn học, chọn Tuần, hoặc gõ tìm kiếm nhanh
+       để tra cứu bài dạy.
+
+  3) Chỉnh sửa trực tiếp trên bảng:
+     • Nhấp vào ô "Tên bài dạy" để sửa tên bài.
+     • Nhấp vào ô "Nội dung tích hợp / Điều chỉnh" để sửa nội dung tích hợp.
+     • Bấm [➕ Thêm Tiết Học Mới] để thêm dòng mới.
+     • Bấm nút [🗑️] ở cột Thao tác để xóa dòng.
+
+  4) Bấm "💾 Lưu Phân Phối CT" sau khi chỉnh sửa xong.
+
+  ⮞ Các chức năng quan trọng:
+     • "📥 Tải Mẫu Excel" — Tải file Excel mẫu để nhập PPCT theo cấu trúc chuẩn.
+     • "📊 Xuất Excel PPCT" — Xuất toàn bộ dữ liệu PPCT thực tế ra file Excel
+       (có đầy đủ 6 cột: Tuần, Môn học, Tiết/Tuần, Tiết PPCT, Tên bài dạy,
+       Nội dung tích hợp / Điều chỉnh). Hỗ trợ xuất theo bộ lọc hiện tại.
+     • "📤 Nạp Word / Excel" — Nạp PPCT từ file bên ngoài:
+       · Ghi đè toàn bộ: Thay thế 100% PPCT cũ bằng dữ liệu từ file.
+       · Cập nhật & Bổ sung: Giữ PPCT cũ, chỉ cập nhật/thêm mới tiết chưa có.
+     • "🏷️ Đổi Tên Môn Nhanh" — Đổi tên một môn trên toàn bộ 35 tuần
+       (VD: đổi "LS&ĐL" thành "Lịch sử và Địa lí").
+     • "✨ Phục Hồi Tích Hợp Lớp 5" — Khôi phục 621 nội dung tích hợp
+       (NLS, AI, QCN, QPAN, BVMT, LTCM, STEM) cho Khối 5.
+     • "🔄 Khôi Phục Gốc" — Đưa PPCT về dữ liệu ban đầu (chưa chỉnh sửa).
+
+───────────────────────────────────────────────────────────────────────────────
+B5. BƯỚC 5 — XUẤT KẾ HOẠCH DẠY HỌC NỘP BGH (TAB 5: PPCT & KHDH)
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Tại Tab 5, phần trên cùng "Xuất Kế Hoạch Dạy Học (KHDH)":
+     • Chọn các môn cần xuất KHDH bằng cách tích chọn các chip môn học.
+     • Hoặc bấm "Chọn Tất Cả Môn" để xuất toàn bộ.
+
+  2) Kiểm tra phần "Căn cứ pháp lý":
+     • Phần mềm đã điền sẵn: Thông tư 32/2018, Thông tư 27/2020, CV 2345/2021.
+     • Có thể chỉnh sửa trực tiếp hoặc bấm "Nạp từ file" để nhập từ .docx/.txt.
+
+  3) Bấm "📄 Tải File Word KHDH (.docx)" để tải file Word chuẩn Nghị định 30.
+     • Nếu chọn 1 môn: File tên dạng "KH_Day_Hoc_Mon_Toan_Lop_5.docx".
+     • Nếu chọn nhiều môn: File gộp tất cả, tên dạng "KH_Day_Hoc_Cac_Mon_Lop_5.docx".
+     • Khi xuất gộp: Quốc hiệu, căn cứ pháp lý và chữ ký chỉ xuất hiện 1 lần
+       ở đầu và cuối file (không lặp lại giữa các môn).
+
+  💡 Cấu trúc bảng KHDH tự động phân hóa theo nhóm môn:
+     • Tiếng Việt: 7 cột (có thêm "Chủ đề/Mạch nội dung" và "Hoạt động")
+     • Hoạt động trải nghiệm: 6 cột riêng
+     • Các môn còn lại: 6 cột chuẩn KHMH
+
+
+================================================================================
+PHẦN C. SỬ DỤNG HÀNG TUẦN
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+C1. XEM VÀ IN LỊCH BÁO GIẢNG HÀNG TUẦN (TAB 1: LỊCH BÁO GIẢNG)
+───────────────────────────────────────────────────────────────────────────────
+
+  ★ Đây là tab sử dụng thường xuyên nhất (mỗi tuần 1 lần).
+
+  1) Bấm vào tab "📅 Lịch Báo Giảng".
+
+  2) CHỌN TUẦN: Sử dụng thanh chọn tuần phía trên bảng.
+     • Bấm nút [◀ Tuần trước] / [Tuần sau ▶] để di chuyển.
+     • Hoặc nhấp vào ô dropdown chọn Tuần 1 đến Tuần 35.
+
+  3) KIỂM TRA BẢNG LBG:
+     • Hệ thống tự động điền sẵn: Thứ ngày, Buổi, Tiết, Môn học, Tiết PPCT,
+       Tên bài dạy dựa trên TKB + PPCT đã thiết lập.
+     • Cột "Thứ, ngày" hiển thị ngày cụ thể dưới tên thứ (VD: Thứ 2 / 07/09/2026).
+
+  4) CHỈNH SỬA NHANH TRỰC TIẾP TRÊN BẢNG:
+     • Nhấp ĐÚP vào ô "Tên bài dạy" để sửa nội dung bài.
+     • Nhấp vào ô "Môn học" để đổi sang môn khác (menu dropdown).
+     • Bấm [+] ở cột Thao tác để thêm tiết mới vào buổi.
+     • Bấm [🗑️] để xóa tiết.
+
+  5) XUẤT VÀ IN:
+     • "👁️ Xem trước in A4" — Mở cửa sổ xem trước trang in.
+       Trong cửa sổ xem trước có thể: Đổi khổ đứng/ngang, bật/tắt cột,
+       bật/tắt chữ ký, tải Word, tải Excel, in trực tiếp.
+     • "📄 Khổ Đứng" / "📜 Khổ Ngang" — Chuyển đổi khổ giấy.
+     • "📊 Xuất Excel (.xlsx)" — Tải file Excel chuẩn 13pt.
+     • Trong cửa sổ xem trước: "📄 Tải Word (.docx)" để tải file Word.
+
+  6) THANH THỐNG KÊ (phía dưới bảng):
+     Hiển thị số tiết GVCN dạy, GV chuyên dạy, Tăng cường và Tổng cộng.
+
+───────────────────────────────────────────────────────────────────────────────
+C2. XEM VÀ IN BÁO GIẢNG TÍCH HỢP CTLOP (TAB 2)
+───────────────────────────────────────────────────────────────────────────────
+
+  Tab 2 giống Tab 1 nhưng có thêm cột "Nội dung tích hợp / Điều chỉnh":
+  • NLS (Năng lực số), AI (Trí tuệ nhân tạo), QCN (Quyền con người),
+    QPAN (Quốc phòng an ninh), BVMT (Bảo vệ môi trường),
+    LTCM (Giáo dục địa phương), STEM,...
+
+  ⮞ Cách sử dụng tương tự Tab 1:
+     1) Chọn tuần.
+     2) Kiểm tra bảng — nhấp vào ô nội dung tích hợp để chỉnh sửa.
+     3) Xuất Word, Excel hoặc In A4.
+
+  💡 Phần mềm đã tích hợp sẵn 621 nội dung tích hợp cho Khối 5.
+     Thầy/cô có thể sửa đổi theo yêu cầu của tổ khối.
+
+───────────────────────────────────────────────────────────────────────────────
+C3. XEM VÀ IN BÁO GIẢNG THEO MÔN (TAB 3: BÁO GIẢNG THEO MÔN)
+───────────────────────────────────────────────────────────────────────────────
+
+  Tab 3 gom nhóm các tiết dạy theo MÔN HỌC thay vì theo ngày:
+  • VD: 7 tiết Tiếng Việt được gom liền nhau, sau đó 5 tiết Toán, rồi Khoa học,...
+
+  ⮞ Rất tiện cho:
+     • Giáo viên bộ môn kiểm tra tiến độ giảng dạy.
+     • Ban Giám Hiệu kiểm tra hồ sơ sổ sách theo phân môn.
+
+  1) Chọn tuần.
+  2) Dùng bộ lọc để xem:
+     • "Tất cả các môn" hoặc chọn riêng 1 môn cụ thể.
+     • Lọc theo nhóm: GVCN / Chuyên trách / Tăng cường.
+  3) Tích chọn "Hiển thị cột tích hợp" nếu cần xem nội dung tích hợp.
+  4) Xuất Word (.docx), Excel (.xlsx) hoặc In A4.
+
+───────────────────────────────────────────────────────────────────────────────
+C4. XUẤT GỘP NHIỀU TUẦN (HK1, HK2, CẢ NĂM)
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Tại Tab 1 hoặc Tab 2, bấm nút "📦 Xuất / In nhiều tuần".
+
+  2) Cửa sổ hộp thoại xuất hiện, cho phép:
+     a) Chọn loại tài liệu:
+        • 📅 Lịch Báo Giảng Thường (Tab 1)
+        • 🎯 Báo Giảng Tích Hợp CTLOP (Tab 2)
+        • 📚 Báo Giảng Theo Môn Học (Tab 3)
+
+     b) Chọn phạm vi tuần:
+        • Cả năm (Tuần 1 - 35)
+        • Học kỳ 1 (Tuần 1 - 18)
+        • Học kỳ 2 (Tuần 19 - 35)
+        • Hoặc chọn tùy ý (VD: Tuần 5 đến Tuần 12)
+
+     c) Chọn khổ giấy: Khổ Đứng (Portrait) hoặc Khổ Ngang (Landscape).
+
+     d) Tùy chọn: "🚫 Xóa hàng tiết nghỉ / để trống" nếu muốn gọn gàng.
+
+  3) Bấm:
+     • "📄 Tải File Word Gộp (.docx)" — Mỗi tuần 1 trang, tự động ngắt trang.
+     • "🖨️ Xem Trước & In Tất Cả" — Xem trước toàn bộ rồi in 1 lệnh.
+
+
+================================================================================
+PHẦN D. CÁC TÍNH NĂNG NÂNG CAO
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+D1. THÊM CỘT TÙY CHỈNH (ĐDDH, NHẬN XÉT, THIẾT BỊ,...)
+───────────────────────────────────────────────────────────────────────────────
+
+  Phần mềm cho phép thêm KHÔNG GIỚI HẠN số cột tùy chỉnh:
+
+  1) Tại thanh công cụ "📋 Cột bổ sung:" (Tab 1 hoặc Tab 2):
+     • Bấm [➕ Thêm cột mới].
+
+  2) Cửa sổ hiện ra:
+     • Gõ tên cột (VD: "ĐDDH", "Thiết bị", "Nhận xét", "Học liệu",...).
+     • Chọn vị trí đặt cột trong bảng:
+       Vị trí 1 (đầu bảng) → 2 (sau Thứ ngày) → 3 (sau Buổi) →
+       4 (sau Tiết) → 5 (sau Môn học) → 6 (sau Tiết PPCT) →
+       7 (sau Tên bài dạy) → Cuối bảng (mặc định).
+
+  3) Nhập dữ liệu trực tiếp vào ô của cột mới trên bảng.
+     → Dữ liệu được lưu an toàn cho từng tiết, từng tuần.
+
+  4) Cột tùy chỉnh tự động đồng bộ sang:
+     ✅ Bảng hiển thị trên web
+     ✅ Khung xem trước in A4
+     ✅ File Word (.docx) — tự động phân bổ độ rộng ô
+     ✅ File Excel (.xlsx)
+
+  ⮞ Bấm [x] trên nhãn cột để xóa cột đó.
+  ⮞ Bấm vào checkbox cạnh tên cột để ẩn/hiện.
+
+───────────────────────────────────────────────────────────────────────────────
+D2. ẨN/HIỆN CỘT KÍ TÊN, CỘT GHI CHÚ
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại thanh công cụ "📋 Cột bổ sung:" (Tab 1 và Tab 2):
+  • ✍️ Cột Kí tên: Tích chọn để thêm cột Kí tên cho mỗi tiết dạy.
+  • 📝 Cột Ghi chú: Tích chọn để thêm cột Ghi chú ở cuối bảng.
+
+  → Áp dụng cả trên màn hình, bản in và file xuất.
+
+───────────────────────────────────────────────────────────────────────────────
+D3. BẬT/TẮT CHỮ KÝ BGH, GVCN, KHỐI TRƯỞNG
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại thanh công cụ "🏛️ Chữ ký khi in:" (Tab 1 và Tab 2):
+  • Ký duyệt BGH: Tích/bỏ tích để hiện/ẩn phần chữ ký Ban Giám Hiệu.
+  • Ký tên GVCN: Tích/bỏ tích để hiện/ẩn phần chữ ký Giáo viên chủ nhiệm.
+  • Khối trưởng: Tích/bỏ tích để hiện/ẩn phần chữ ký Khối trưởng.
+
+  → Áp dụng trên bản in A4, file Word và Excel xuất tải về.
+
+───────────────────────────────────────────────────────────────────────────────
+D4. XÓA HÀNG TIẾT NGHỈ / ĐỂ TRỐNG KHI XUẤT FILE
+───────────────────────────────────────────────────────────────────────────────
+
+  Khi có các buổi chiều không dạy hoặc tiết trống:
+
+  • Tích chọn "🚫 Xóa hàng tiết nghỉ" tại thanh công cụ (Tab 1, Tab 2,
+    cửa sổ Xem Trước, hoặc cửa sổ Xuất Gộp Nhiều Tuần).
+  • Phần mềm sẽ tự động:
+    - Loại bỏ các dòng tiết nghỉ khỏi file Word, Excel và khung in A4.
+    - Tính toán lại gộp dòng (rowspan / vMerge) cho cột Buổi và Thứ ngày.
+    - Nếu cả buổi chiều hoặc sáng nghỉ → ẩn gọn buổi đó.
+
+  • Bỏ tích: Giữ nguyên các hàng trống như bình thường.
+
+  ⚠ Tùy chọn này đồng bộ tức thì trên cả 4 vị trí:
+     Tab 1, Tab 2, cửa sổ Xem Trước, cửa sổ Xuất Gộp.
+
+───────────────────────────────────────────────────────────────────────────────
+D5. CHỌN LỌC MÔN ĐƯA VÀO LỊCH BÁO GIẢNG
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại thanh công cụ "🎯 Môn học đưa vào Lịch Báo Giảng:" (Tab 1):
+
+  • Bấm [Tất cả] — Hiển thị tất cả các môn.
+  • Bấm [Môn GVCN] — Chỉ hiển thị các môn do GVCN phụ trách.
+  • Bấm [Môn Chuyên] — Chỉ hiển thị các môn GV chuyên trách dạy.
+
+  • Hoặc bấm vào từng chip tên môn để bật/tắt riêng lẻ.
+
+  💡 Môn bị bỏ chọn: Vẫn hiện tên môn trên bảng, nhưng để trống Tiết PPCT
+     và Tên bài dạy (để phân biệt với các môn GVCN phụ trách).
+
+───────────────────────────────────────────────────────────────────────────────
+D6. TÙY CHỌN CHIỀU THỨ 6
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại thanh công cụ "⚙️ Tùy chọn Chiều Thứ 6:" (Tab 1 và Tab 2):
+  Chọn một trong 4 chế độ:
+  • Học đủ 3 tiết (Tiết 1, 2, 3)
+  • Học 2 tiết (Nghỉ tiết 3)
+  • Học 1 tiết (Nghỉ tiết 2, 3)
+  • Nghỉ chiều Thứ 6 (Để trống cả 3 tiết)
+
+  → Áp dụng cho tuần đang xem. Mỗi tuần có thể chọn khác nhau.
+
+───────────────────────────────────────────────────────────────────────────────
+D7. ĐỔI TÊN MÔN HỌC HÀNG LOẠT
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Tại Tab 5 (PPCT), bấm "🏷️ Đổi Tên Môn Nhanh".
+  2) Chọn môn cần đổi tên từ danh sách.
+  3) Nhập tên mới (VD: đổi "LS&ĐL" → "Lịch sử và Địa lí").
+  4) Tích chọn "Đồng bộ sang TKB và Báo giảng tích hợp" (mặc định bật).
+  5) Bấm "✓ Áp Dụng Đổi Tên Toàn Bảng".
+
+  → Tên môn mới sẽ được cập nhật trên toàn bộ 35 tuần, TKB và báo giảng.
+
+───────────────────────────────────────────────────────────────────────────────
+D8. THÊM/SỬA/XÓA MÔN HỌC
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại Tab 6 (Cài Đặt), phần "📚 Quản Lý Danh Sách Môn Học":
+  • Bấm [➕ Thêm Môn Mới] để tạo môn mới (đặt tên, chọn nhóm GVCN/Chuyên/TC).
+  • Bấm [✏️] trên bảng môn học để sửa thông tin.
+  • Bấm [🗑️] để xóa môn.
+  • Bấm [🔄 Khôi Phục Môn Chuẩn] để trả danh mục về mặc định.
+
+───────────────────────────────────────────────────────────────────────────────
+D9. XUẤT FILE EXCEL PHÂN PHỐI CHƯƠNG TRÌNH (PPCT)
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại Tab 5 (PPCT & KHDH), bấm nút "📊 Xuất Excel PPCT":
+  • Xuất toàn bộ dữ liệu PPCT thực tế ra file Excel (.xlsx).
+  • File gồm 6 cột: Tuần, Môn học, Tiết/Tuần, Tiết PPCT, Tên bài dạy,
+    Nội dung tích hợp / Điều chỉnh.
+  • Có tiêu đề, Quốc hiệu, tiêu ngữ, thông tin trường lớp chuẩn hành chính.
+  • Hỗ trợ xuất theo bộ lọc: Nếu đang lọc theo Môn hoặc Tuần hoặc tìm kiếm,
+    file Excel chỉ chứa những tiết phù hợp với bộ lọc.
+
+
+================================================================================
+PHẦN E. SAO LƯU VÀ AN TOÀN DỮ LIỆU
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+E1. SAO LƯU DỮ LIỆU RA FILE JSON
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Vào Tab 6 (Cài Đặt & TKB).
+  2) Kéo xuống cuối trang, bấm "💾 Sao lưu toàn bộ dữ liệu ra file JSON".
+  3) File JSON sẽ tải về máy, chứa:
+     ✅ Toàn bộ Thời Khóa Biểu
+     ✅ Toàn bộ Phân Phối Chương Trình (35 tuần)
+     ✅ Kế hoạch thời gian (Lịch tuần)
+     ✅ Cấu hình trường lớp, giáo viên, BGH
+     ✅ Tất cả dữ liệu cột tùy chỉnh
+
+  💡 Khuyến nghị: Sao lưu định kỳ sau mỗi đợt phân công chuyên môn,
+     đầu năm học, hoặc sau khi chỉnh sửa TKB/PPCT quan trọng.
+     Lưu file JSON vào Google Drive, USB hoặc ổ đĩa D.
+
+───────────────────────────────────────────────────────────────────────────────
+E2. KHÔI PHỤC DỮ LIỆU TỪ FILE JSON
+───────────────────────────────────────────────────────────────────────────────
+
+  1) Vào Tab 6 (Cài Đặt & TKB).
+  2) Bấm "📤 Khôi phục dữ liệu từ file JSON".
+  3) Chọn file JSON đã sao lưu trước đó.
+  4) Dữ liệu phục hồi 100% trong 1 giây, không cần tải lại trang.
+
+  ⮞ Hữu ích khi: Đổi máy tính, cài lại Windows, hoặc chia sẻ dữ liệu
+     cho đồng nghiệp cùng khối.
+
+───────────────────────────────────────────────────────────────────────────────
+E3. CÁC LƯU Ý QUAN TRỌNG VỀ AN TOÀN DỮ LIỆU
+───────────────────────────────────────────────────────────────────────────────
+
+  ⚠ KHÔNG dùng chế độ Ẩn danh (Incognito / InPrivate):
+    Dữ liệu sẽ bị xóa sạch khi đóng tab.
+
+  ⚠ CẨN THẬN khi dọn rác trình duyệt:
+    Khi xóa lịch sử duyệt web (Clear browsing data), hãy BỎ TÍCH:
+    - "Cookies and other site data"
+    - "Offline storage"
+    để không xóa bộ nhớ localStorage của phần mềm.
+
+  ⚠ SAO LƯU THƯỜNG XUYÊN:
+    Phần mềm lưu dữ liệu trong trình duyệt (localStorage).
+    Nếu xóa dữ liệu trình duyệt → mất dữ liệu.
+    → Luôn sao lưu file JSON để đảm bảo an toàn.
+
+
+================================================================================
+PHẦN F. CÁC ĐỊNH DẠNG FILE XUẤT
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+F1. TỔNG HỢP CÁC LOẠI FILE CÓ THỂ XUẤT
+───────────────────────────────────────────────────────────────────────────────
+
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │ Loại file                          │ Tab   │ Định dạng                 │
+  ├────────────────────────────────────-┼───────┼───────────────────────────┤
+  │ Lịch Báo Giảng tuần                │ Tab 1 │ Word (.docx), Excel, In  │
+  │ Báo Giảng Tích Hợp CTLOP tuần      │ Tab 2 │ Word (.docx), Excel, In  │
+  │ Báo Giảng Theo Môn tuần            │ Tab 3 │ Word (.docx), Excel, In  │
+  │ Gộp nhiều tuần (LBG/CTLOP/Môn)     │ Modal │ Word (.docx), In gộp     │
+  │ Kế hoạch thời gian 35 tuần         │ Tab 4 │ Word, Excel              │
+  │ Kế Hoạch Dạy Học (KHDH) cả năm     │ Tab 5 │ Word (.docx)             │
+  │ Excel mẫu PPCT                     │ Tab 5 │ Excel (.xlsx)            │
+  │ Excel PPCT thực tế                 │ Tab 5 │ Excel (.xlsx)            │
+  │ Thời Khóa Biểu                     │ Tab 6 │ Word (.docx), Excel, In  │
+  │ Sao lưu toàn bộ dữ liệu           │ Tab 6 │ JSON                     │
+  └──────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+F2. QUY CHUẨN ĐỊNH DẠNG VĂN BẢN (NGHỊ ĐỊNH 30/2020/NĐ-CP)
+───────────────────────────────────────────────────────────────────────────────
+
+  Toàn bộ file Word (.docx) và Excel (.xlsx) được tạo ra đều tuân thủ:
+  • Font chữ: Times New Roman 13pt
+  • Quốc hiệu: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM"
+  • Tiêu ngữ: "Độc lập - Tự do - Hạnh phúc"
+  • Cơ quan ban hành: Tên trường + Cơ quan chủ quản
+  • Chữ ký phê duyệt: BGH, GVCN, Khối trưởng
+  • Tên bài dạy: Lề trái 1pt, thụt đầu dòng 2pt
+  • Cột Môn học: Canh giữa (center)
+
+
+================================================================================
+                        CHÚC THẦY/CÔ SỬ DỤNG HIỆU QUẢ!
+        Mọi thắc mắc xin liên hệ qua GitHub: github.com/Chauphan708
+================================================================================

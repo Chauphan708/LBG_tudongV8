@@ -2873,6 +2873,119 @@
         showToast("Đã tải về file Excel mẫu phân phối chương trình!", "success");
     }
 
+    function exportPpctToExcel() {
+        if (typeof XLSX === "undefined") {
+            alert("Thư viện SheetJS chưa sẵn sàng!");
+            return;
+        }
+
+        const ppctData = state.ppct || [];
+        if (ppctData.length === 0) {
+            alert("Không có dữ liệu Phân phối chương trình để xuất!");
+            return;
+        }
+
+        // Get current filter selections
+        const filterSubject = document.getElementById("ppct-filter-subject");
+        const filterWeek = document.getElementById("ppct-filter-week");
+        const searchInput = document.getElementById("ppct-search");
+
+        const selSubject = filterSubject ? filterSubject.value : "ALL";
+        const selWeek = filterWeek ? filterWeek.value : "ALL";
+        const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : "";
+
+        // Filter data same as table display
+        let filteredData = ppctData;
+        if (selSubject !== "ALL") {
+            filteredData = filteredData.filter(p => normalizeSubjectName(p.subject) === normalizeSubjectName(selSubject));
+        }
+        if (selWeek !== "ALL") {
+            filteredData = filteredData.filter(p => String(p.week) === String(selWeek));
+        }
+        if (searchTerm) {
+            filteredData = filteredData.filter(p => {
+                const combined = [p.subject, p.lessonName, p.integration, String(p.week), String(p.ppct)].join(" ").toLowerCase();
+                return combined.includes(searchTerm);
+            });
+        }
+
+        if (filteredData.length === 0) {
+            alert("Không có tiết học nào phù hợp với bộ lọc hiện tại để xuất!");
+            return;
+        }
+
+        const wb = XLSX.utils.book_new();
+        const gradeName = state.settings.grade || ("Khối " + state.currentGrade);
+        const className = state.settings.className || ("Lớp " + state.currentGrade + "A");
+        const schoolName = state.settings.schoolName || "TRƯỜNG TIỂU HỌC";
+
+        // Header rows
+        const headerRows = [
+            [schoolName, "", "", "", "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", ""],
+            [gradeName.toUpperCase() + " - " + className.toUpperCase(), "", "", "", "Độc lập - Tự do - Hạnh phúc", ""],
+            [""],
+            ["PHÂN PHỐI CHƯƠNG TRÌNH " + gradeName.toUpperCase(), "", "", "", "", ""],
+            ["Năm học: " + (state.settings.academicYear || "2026 - 2027"), "", "", "", "", ""],
+            [""]
+        ];
+
+        // Column headers
+        const colHeaders = ["Tuần", "Môn học", "Tiết/Tuần", "Tiết PPCT", "Tên bài dạy", "Nội dung tích hợp / Điều chỉnh"];
+        headerRows.push(colHeaders);
+
+        // Data rows
+        const dataRows = filteredData.map(p => [
+            p.week || "",
+            p.subject || "",
+            p.periodInWeek || "",
+            p.ppct || "",
+            p.lessonName || "",
+            p.integration || ""
+        ]);
+
+        const allRows = [...headerRows, ...dataRows];
+        const ws = XLSX.utils.aoa_to_sheet(allRows);
+
+        // Column widths
+        ws['!cols'] = [
+            { wch: 8 },   // Tuần
+            { wch: 20 },  // Môn học
+            { wch: 10 },  // Tiết/Tuần
+            { wch: 10 },  // Tiết PPCT
+            { wch: 50 },  // Tên bài dạy
+            { wch: 40 }   // Nội dung tích hợp / Điều chỉnh
+        ];
+
+        // Merge cells for header area
+        ws['!merges'] = [
+            { s: { r: 0, c: 0 }, e: { r: 0, c: 3 } },  // School name
+            { s: { r: 0, c: 4 }, e: { r: 0, c: 5 } },  // Quốc hiệu
+            { s: { r: 1, c: 0 }, e: { r: 1, c: 3 } },  // Grade-Class
+            { s: { r: 1, c: 4 }, e: { r: 1, c: 5 } },  // Tiêu ngữ
+            { s: { r: 3, c: 0 }, e: { r: 3, c: 5 } },  // Title
+            { s: { r: 4, c: 0 }, e: { r: 4, c: 5 } }   // Academic year
+        ];
+
+        const filterNote = [];
+        if (selSubject !== "ALL") filterNote.push("Môn: " + selSubject);
+        if (selWeek !== "ALL") filterNote.push("Tuần: " + selWeek);
+        if (searchTerm) filterNote.push("Tìm kiếm: " + searchTerm);
+        const sheetName = filterNote.length > 0
+            ? "PPCT_Loc"
+            : "PPCT_" + gradeName.replace(/[^a-zA-Z0-9_\u00C0-\u024F\u1EA0-\u1EF9]/g, "_");
+
+        XLSX.utils.book_append_sheet(wb, ws, sheetName.substring(0, 31));
+
+        const safeClassName = className.replace(/[^a-zA-Z0-9_\u00C0-\u024F\u1EA0-\u1EF9]/g, "_");
+        const fileName = `Phan_Phoi_Chuong_Trinh_${safeClassName}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+        XLSX.writeFile(wb, fileName);
+
+        const totalInfo = filteredData.length === ppctData.length
+            ? `toàn bộ ${filteredData.length} tiết`
+            : `${filteredData.length}/${ppctData.length} tiết (đã lọc)`;
+        showToast(`Đã xuất file Excel Phân phối chương trình ${gradeName} (${totalInfo}) thành công!`, "success");
+    }
+
     // Global variable for pending import
     window._pendingPpctImport = null;
 
@@ -5839,8 +5952,9 @@
             });
         }
 
-        // PPCT Excel Upload, Template Download, and Reset
+        // PPCT Excel Upload, Template Download, Export, and Reset
         document.getElementById("btn-download-ppct-template").addEventListener("click", downloadPpctTemplate);
+        document.getElementById("btn-export-ppct-excel").addEventListener("click", exportPpctToExcel);
         
         const fileInput = document.getElementById("ppct-upload-file");
         document.getElementById("btn-upload-ppct").addEventListener("click", () => {

@@ -698,6 +698,9 @@
                         <button class="btn btn-secondary btn-sm" id="btn-download-ppct-template" title="Tải file Excel mẫu với đầy đủ các cột">
                             <span>📥</span> <span>Tải Mẫu Excel</span>
                         </button>
+                        <button class="btn btn-primary btn-sm" id="btn-export-ppct-excel" title="Xuất toàn bộ dữ liệu Phân phối chương trình hiện tại (có cột Nội dung tích hợp / Điều chỉnh) ra file Excel (.xlsx)">
+                            <span>📊</span> <span>Xuất Excel PPCT</span>
+                        </button>
                         <button class="btn btn-accent btn-sm" id="btn-upload-ppct" title="Thêm hoặc cập nhật phân phối chương trình từ file Word (.docx) hoặc Excel (.xlsx)">
                             <span>📤</span> <span>Nạp Word / Excel</span>
                         </button>
@@ -1065,6 +1068,7 @@
                     
                     <!-- Mục Lục Điều Hướng Nhanh -->
                     <div class="guide-toc">
+                        <a href="#guide-sec-quickstart" class="guide-toc-item" style="background:#fef3c7; border:1px solid #f59e0b; color:#92400e; font-weight:800;"><span>⭐ QUY TRÌNH 4 BƯỚC THIẾT THỰC</span></a>
                         <a href="#guide-sec-1" class="guide-toc-item"><span>1. Thiết lập Trường &amp; Lớp</span></a>
                         <a href="#guide-sec-2" class="guide-toc-item"><span>2. Lịch Báo Giảng Tuần</span></a>
                         <a href="#guide-sec-3" class="guide-toc-item"><span>3. Báo Giảng Tích Hợp</span></a>
@@ -1077,6 +1081,47 @@
                         <a href="#guide-sec-9" class="guide-toc-item"><span>9. An toàn dữ liệu</span> <span style="margin-left:auto; font-size:0.88rem;">🛡️</span></a>
                         <a href="#guide-sec-10" class="guide-toc-item"><span>10. Điểm Mới Bản V7</span> <span class="guide-badge-hot" style="background:#d97706; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V7</span></a>
                         <a href="#guide-sec-11" class="guide-toc-item guide-toc-item-v8"><span>✨ 11. Điểm Mới Bản V8</span> <span class="guide-badge-hot" style="background:#dc2626; font-size:0.72rem; padding:2px 6px; margin-left:auto;">V8 Mới</span></a>
+                    </div>
+                </div>
+
+                <!-- ⭐ QUY TRÌNH 4 BƯỚC THIẾT THỰC ĐỂ SỬ DỤNG PHẦN MỀM -->
+                <div class="guide-card" id="guide-sec-quickstart" style="border: 2px solid #f59e0b; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.15);">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1.5rem;">⭐</span>
+                        <h3 class="guide-card-title" style="color: #92400e; margin: 0; font-size: 1.25rem;">QUY TRÌNH 4 BƯỚC THIẾT THỰC ĐỂ BẮT ĐẦU SỬ DỤNG PHẦN MỀM HIỆU QUẢ</h3>
+                    </div>
+                    <p style="font-size: 0.92rem; color: #78350f; margin-bottom: 1rem; line-height: 1.5;">
+                        Để sử dụng phần mềm nhanh nhất và chính xác nhất, quý thầy/cô chỉ cần thực hiện đúng theo <strong>4 bước tuần tự</strong> sau đây:
+                    </p>
+                    <div class="guide-step-grid">
+                        <div class="guide-step-box" style="border-left: 4px solid #3b82f6; background: #ffffff;">
+                            <h4 style="color: #1d4ed8;"><span class="guide-badge primary">BƯỚC 1</span> Cài đặt &amp; Xếp TKB gốc (Làm 1 lần đầu năm)</h4>
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45;">
+                                Vào tab <strong>⚙️ Cài Đặt &amp; TKB</strong>: Điền tên trường, tên lớp, năm học, tên GVCN, chọn người ký duyệt BGH. Kéo xuống bảng TKB: điều chỉnh môn học chuẩn của lớp mình cho từng thứ trong tuần và bấm <strong>💾 Lưu TKB Gốc</strong>.
+                            </p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 4px solid #10b981; background: #ffffff;">
+                            <h4 style="color: #047857;"><span class="guide-badge" style="background:#10b981; color:#fff;">BƯỚC 2</span> Tạo Lịch 35 Tuần (Làm 1 lần đầu năm)</h4>
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45;">
+                                Vào tab <strong>🗓️ Lịch Tuần (35 Tuần)</strong>: Điền ngày Thứ Hai của Tuần 1 và ngày nghỉ Tết Âm lịch, bấm <strong>Tự Động Tạo Lịch 35 Tuần</strong>. Hệ thống sẽ tự động tính chính xác ngày tháng và ngày nghỉ lễ cho cả năm học.
+                            </p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 4px solid #8b5cf6; background: #ffffff;">
+                            <h4 style="color: #6d28d9;"><span class="guide-badge" style="background:#8b5cf6; color:#fff;">BƯỚC 3</span> Kiểm tra PPCT &amp; Xuất KHDH (Đầu năm / Khi cần)</h4>
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45;">
+                                Vào tab <strong>📖 PPCT &amp; KHDH</strong>: Kiểm tra kho bài dạy 35 tuần (đã nạp sẵn). Bấm <strong>📊 Xuất Excel PPCT</strong> để tải file Excel phân phối chương trình đầy đủ (có cột tích hợp) hoặc bấm <strong>📄 Tải File Word KHDH</strong> để nộp BGH.
+                            </p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 4px solid #f59e0b; background: #ffffff;">
+                            <h4 style="color: #b45309;"><span class="guide-badge" style="background:#f59e0b; color:#fff;">BƯỚC 4</span> Sử dụng Lịch Báo Giảng hàng tuần</h4>
+                            <p style="font-size: 0.86rem; color: #334155; line-height: 1.45;">
+                                Đầu mỗi tuần, vào tab <strong>📅 Lịch Báo Giảng</strong> (hoặc <strong>🎯 BG Tích Hợp</strong>): Chọn tuần cần dạy. Hệ thống tự động ghép PPCT vào TKB. Chỉnh sửa nhanh bài dạy nếu có đổi buổi, sau đó bấm <strong>👁️ Xem trước in A4</strong> hoặc <strong>Xuất Word / Excel</strong>.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.75rem; padding: 0.65rem 0.95rem; background: #ffffff; border: 1px dashed #f59e0b; border-radius: 6px; font-size: 0.86rem; color: #92400e; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🛡️</span>
+                        <span><strong>LƯU Ý SỐNG CÒN:</strong> Định kỳ vào tab <em>⚙️ Cài Đặt &amp; TKB</em> bấm <strong>💾 Sao lưu toàn bộ dữ liệu ra file JSON</strong> cất vào Google Drive hoặc USB để lưu giữ an toàn vĩnh viễn!</span>
                     </div>
                 </div>
 
@@ -1197,15 +1242,19 @@
                     <div class="guide-step-grid">
                         <div class="guide-step-box">
                             <h4>Tra cứu &amp; Chỉnh sửa bài dạy</h4>
-                            <p>Lọc theo môn học hoặc số tuần để xem toàn bộ bài dạy. Nhấp trực tiếp vào ô để sửa tên bài hoặc số tiết PPCT.</p>
+                            <p>Lọc theo môn học hoặc số tuần để xem toàn bộ bài dạy. Nhấp trực tiếp vào ô để sửa tên bài hoặc nội dung tích hợp.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #10b981;">
+                            <h4 style="color: #047857;">📊 Xuất Excel PPCT (V8 Mới)</h4>
+                            <p>Bấm <strong>Xuất Excel PPCT</strong> để tải toàn bộ PPCT thực tế ra file Excel 6 cột (kèm cột tích hợp), hỗ trợ lọc theo môn/tuần.</p>
                         </div>
                         <div class="guide-step-box">
                             <h4>Xuất KHDH từng môn / gộp tất cả</h4>
-                            <p>Chọn các môn cần xuất (hoặc bấm <em>Chọn tất cả môn</em>), sau đó bấm <strong>Tải File Word KHDH Gộp (.docx)</strong> có sẵn căn cứ pháp lý.</p>
+                            <p>Chọn các môn cần xuất, sau đó bấm <strong>Tải File Word KHDH Gộp (.docx)</strong> chuẩn thể thức Nghị định 30/2020/NĐ-CP.</p>
                         </div>
                         <div class="guide-step-box">
                             <h4>Đổi tên môn hàng loạt</h4>
-                            <p>Bấm <strong>Đổi tên môn hàng loạt</strong> nếu muốn thay đổi tên môn (ví dụ: đổi <em>LS&amp;ĐL</em> thành <em>Lịch sử và Địa lí</em>) trên toàn bộ 35 tuần.</p>
+                            <p>Bấm <strong>Đổi tên môn hàng loạt</strong> để thay đổi tên môn (ví dụ: đổi <em>LS&amp;ĐL</em> thành <em>Lịch sử và Địa lí</em>) trên toàn bộ 35 tuần.</p>
                         </div>
                     </div>
                 </div>
@@ -1294,6 +1343,8 @@
                             <p>Khi chuyển sang máy tính mới hoặc cài lại Windows, Thầy/Cô chỉ cần mở phần mềm, vào Tab 5 bấm <strong>"Khôi phục dữ liệu từ file JSON"</strong> và chọn file dự phòng. Toàn bộ 35 tuần và KHDH sẽ phục hồi 100% chỉ trong 1 giây.</p>
                         </div>
                     </div>
+                </div>
+
                 <!-- Mục 10: Điểm Mới Bản V7 (Bổ sung ngày ở từng thứ dưới thứ) -->
                 <div class="guide-card" id="guide-sec-10" style="border: 2px solid #f59e0b; background: #fffbeb;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
@@ -1326,7 +1377,7 @@
                 <div class="guide-card" id="guide-sec-11" style="border: 2px solid #2563eb; background: #eff6ff;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                         <span style="font-size: 1.5rem;">🚀</span>
-                        <h3 class="guide-card-title" style="color: #1d4ed8; margin: 0;">11. Điểm Mới Nổi Bật Ở Phiên Bản V8: Thêm Nhiều Cột Tùy Ý Vị Trí, Ẩn Thanh Khi In &amp; Size Chữ 13pt Chuẩn</h3>
+                        <h3 class="guide-card-title" style="color: #1d4ed8; margin: 0;">11. Điểm Mới Nổi Bật Ở Phiên Bản V8: Thêm Nhiều Cột, Ẩn Thanh Khi In, Size 13pt &amp; Xuất Excel PPCT</h3>
                     </div>
                     <p style="font-size: 0.9rem; color: #1e40af; margin-bottom: 1rem; line-height: 1.5;">
                         Phiên bản <strong>V8 (Version 8.0)</strong> hoàn thiện toàn diện trải nghiệm in ấn và hồ sơ lưu trữ theo yêu cầu thực tế của quý thầy cô:
@@ -1343,6 +1394,14 @@
                         <div class="guide-step-box" style="border-left: 3px solid #2563eb; background: #ffffff;">
                             <h4 style="color: #1d4ed8;">📏 Size chữ 13pt chuẩn Nghị định 30</h4>
                             <p>Toàn bộ bảng biểu trong tất cả các file tải về (file Word <code>.docx</code> và file Excel <code>.xlsx</code>) đều được thiết lập cỡ chữ chuẩn <strong>13pt Times New Roman</strong>, đảm bảo chuẩn mực thể thức văn bản hành chính.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #059669; background: #ffffff;">
+                            <h4 style="color: #059669;">📊 Xuất Excel PPCT Toàn Diện</h4>
+                            <p>Bổ sung nút <strong>Xuất Excel PPCT</strong> tại Tab 4: Xuất toàn bộ dữ liệu phân phối chương trình thực tế ra file Excel với đầy đủ 6 cột (kèm cột tích hợp), hỗ trợ lọc theo môn, theo tuần và tìm kiếm nhanh.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #b91c1c; background: #ffffff;">
+                            <h4 style="color: #b91c1c;">🚫 Xóa hàng tiết nghỉ / để trống</h4>
+                            <p>Tùy chọn <strong>Xóa hàng tiết nghỉ khi xuất &amp; in</strong> giúp tự động loại bỏ các dòng để trống, tự động tính toán lại gộp dòng (rowspan/vMerge) cho Buổi và Thứ ngày, văn bản in ra gọn gàng, tiết kiệm giấy.</p>
                         </div>
                         <div class="guide-step-box" style="border-left: 3px solid #8b5cf6; background: #ffffff;">
                             <h4 style="color: #6d28d9;">🏛️ Bật/Tắt chữ ký &amp; Cột bổ sung</h4>

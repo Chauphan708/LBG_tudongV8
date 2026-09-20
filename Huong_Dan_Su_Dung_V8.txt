@@ -96,6 +96,14 @@ PHIÊN BẢN NÂNG CẤP V8 (VERSION 8.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
       - Báo giảng theo môn học và khôi phục cột tích hợp Lớp 5 đầy đủ.
       - Tương thích dữ liệu ngược 100%: Tự động kế thừa toàn bộ dữ liệu từ bản V7, V6, V5, V4.
 
+   🌟 9. XUẤT FILE EXCEL PHÂN PHỐI CHƯƠNG TRÌNH (PPCT) TOÀN DIỆN:
+      - Bổ sung nút "📊 Xuất Excel PPCT" tại Tab 4 (Phân Phối Chương Trình & KHDH), xuất toàn bộ dữ liệu
+        phân phối chương trình thực tế (không phải dữ liệu mẫu) ra file Excel (.xlsx) với đầy đủ 6 cột:
+        Tuần, Môn học, Tiết/Tuần, Tiết PPCT, Tên bài dạy, Nội dung tích hợp / Điều chỉnh.
+      - Hỗ trợ xuất theo bộ lọc hiện tại: Nếu đang lọc theo Môn học, Tuần hoặc tìm kiếm, file Excel
+        chỉ chứa những tiết học phù hợp với bộ lọc.
+      - File Excel có tiêu đề, Quốc hiệu, tiêu ngữ, thông tin trường lớp chuẩn văn bản hành chính.
+
 --------------------------------------------------------------------------------
 3. HƯỚNG DẪN SỬ DỤNG NHANH BẢN V8:
 

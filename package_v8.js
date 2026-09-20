@@ -27,6 +27,7 @@ const itemsToCopy = [
     'index.html',
     'README.md',
     'Huong_Dan_Su_Dung_V8.txt',
+    'Huong_Dan_Chi_Tiet_V8.txt',
     'Mo_Phan_Mem.bat',
     'Chay_May_Chu_Local.bat',
     'local_server.js',
