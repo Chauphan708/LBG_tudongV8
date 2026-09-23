@@ -11,12 +11,15 @@ PHIÊN BẢN NÂNG CẤP V9 (VERSION 9.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP C
 --------------------------------------------------------------------------------
 2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V9:
 
-   🌟 1. BỔ SUNG DÒNG "TỔNG SỐ TIẾT/TUẦN" DƯỚI CÙNG CỦA LỊCH BÁO GIẢNG (CHUẨN FORM BAN GIÁM HIỆU):
+   🌟 1. BỔ SUNG DÒNG "TỔNG SỐ TIẾT/TUẦN" DƯỚI CÙNG CỦA LỊCH BÁO GIẢNG (CÓ TÙY CHỌN BẬT/TẮT):
       - Bổ sung hàng tổng kết ở chân bảng Lịch báo giảng theo đúng chuẩn mẫu văn bản chỉ đạo của Nhà trường:
           + Ô bên trái gộp 3 cột (Thứ, ngày / Buổi / Tiết): "Tổng số tiết/tuần" in đậm (Bold).
           + Ô bên phải gộp toàn bộ các cột còn lại: hiển thị tổng số tiết thực tế trong tuần (VD: "28 tiết/ tuần", "30 tiết/ tuần"...).
+      - TÙY CHỌN BẬT/TẮT LINH HOẠT (Checkbox "📊 Dòng Tổng số tiết"):
+          + Mặc định được BẬT sẵn. Thầy/cô có thể tick chọn để hiển thị hoặc bỏ tick để ẩn hoàn toàn dòng này tùy theo yêu cầu của từng trường/tổ khối.
+          + Tùy chọn có sẵn trên thanh công cụ Tab 1 (LBG), Tab 2 (Tích hợp), Hộp thoại Xem trước in ấn và Hộp thoại Xuất nhiều tuần cùng lúc.
       - Đồng bộ hoàn hảo 100% trên cả 4 phương diện:
-          + Bảng trực quan trên Web (Tab 1 Lịch báo giảng & Tab 2 Chi tiết lớp - cho phép nhấp vào ô để chỉnh sửa số tiết trực tiếp nếu cần).
+          + Bảng trực quan trên Web (Tab 1 Lịch báo giảng & Tab 2 Chi tiết lớp).
           + Bản Xem trước & In ấn trực tiếp A4 (Print Preview).
           + Tệp xuất Microsoft Word (.docx) chuẩn OpenXML: gộp ô (gridSpan) chuẩn xác, phông chữ Times New Roman 13pt in đậm, không bị vỡ khung.
           + Tệp xuất Microsoft Excel (.xlsx): tự động merge ô A:C và D:cuối bảng, kẻ viền ô và định dạng văn bản chuẩn mực.

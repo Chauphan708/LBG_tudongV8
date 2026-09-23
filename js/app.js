@@ -135,6 +135,8 @@
         lbgShowBghSign: true,
         lbgShowGvcnSign: true,
         lbgShowHeadSign: true,
+        lbgHideEmptyRows: false,
+        lbgShowTotalRow: true,
         settings: {
             governingBody: "UBND PHƯỜNG TRUNG NHỨT",
             schoolName: "TRƯỜNG TIỂU HỌC TRUNG NHỨT",
@@ -386,6 +388,7 @@
                 if (parsed.lbgShowGvcnSign !== undefined) state.lbgShowGvcnSign = parsed.lbgShowGvcnSign;
                 if (parsed.lbgShowHeadSign !== undefined) state.lbgShowHeadSign = parsed.lbgShowHeadSign;
                 if (parsed.lbgHideEmptyRows !== undefined) state.lbgHideEmptyRows = parsed.lbgHideEmptyRows;
+                if (parsed.lbgShowTotalRow !== undefined) state.lbgShowTotalRow = parsed.lbgShowTotalRow;
             }
         } catch (e) {
             console.warn("Could not load localStorage for Grade " + grade + ":", e);
@@ -480,6 +483,7 @@
                 lbgShowGvcnSign: state.lbgShowGvcnSign,
                 lbgShowHeadSign: state.lbgShowHeadSign,
                 lbgHideEmptyRows: !!state.lbgHideEmptyRows,
+                lbgShowTotalRow: (state.lbgShowTotalRow !== false),
                 currentGrade: state.currentGrade
             };
             const gradeKey = getStorageKey(state.currentGrade);
@@ -1979,6 +1983,8 @@
         if (optSigHead) optSigHead.checked = (state.lbgShowHeadSign !== false);
         const optHideEmpty = document.getElementById("lbg-opt-hide-empty-rows");
         if (optHideEmpty) optHideEmpty.checked = !!state.lbgHideEmptyRows;
+        const optTotalRow = document.getElementById("lbg-opt-show-total-row");
+        if (optTotalRow) optTotalRow.checked = (state.lbgShowTotalRow !== false);
 
         // Render dynamic custom column chips in Tab 1
         renderCustomColsManager("lbg-custom-cols-list", false);
@@ -2107,7 +2113,9 @@
             <td colspan="${remainingColsCount}" class="lbg-total-periods-cell" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsVal} tiết/ tuần</td>
             <td class="no-print"></td>
         `;
-        tbody.appendChild(trTotal);
+        if (state.lbgShowTotalRow !== false) {
+            tbody.appendChild(trTotal);
+        }
 
         document.getElementById("lbg-stat-gvcn").innerText = `${stats.gvcnCount} tiết`;
         document.getElementById("lbg-stat-specialist").innerText = `${stats.specialistCount} tiết`;
@@ -2483,6 +2491,8 @@
         if (ctlopOptSigHead) ctlopOptSigHead.checked = (state.lbgShowHeadSign !== false);
         const ctlopOptHideEmpty = document.getElementById("ctlop-opt-hide-empty-rows");
         if (ctlopOptHideEmpty) ctlopOptHideEmpty.checked = !!state.lbgHideEmptyRows;
+        const ctlopOptTotalRow = document.getElementById("ctlop-opt-show-total-row");
+        if (ctlopOptTotalRow) ctlopOptTotalRow.checked = (state.lbgShowTotalRow !== false);
 
         // Render dynamic custom column chips in Tab 2
         renderCustomColsManager("ctlop-custom-cols-list", false);
@@ -2615,7 +2625,9 @@
             <td colspan="${remainingColsCtlop}" class="lbg-total-periods-cell" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsCtlop} tiết/ tuần</td>
             <td class="no-print"></td>
         `;
-        tbody.appendChild(trTotalCtlop);
+        if (state.lbgShowTotalRow !== false) {
+            tbody.appendChild(trTotalCtlop);
+        }
 
         // Update signature box in Tab 2
         const bghSigner = getBghSignerInfo();
@@ -4647,6 +4659,8 @@
             if (cbHead) cbHead.checked = (state.lbgShowHeadSign !== false);
             const cbHide = document.getElementById("modal-opt-hide-empty-rows");
             if (cbHide) cbHide.checked = !!state.lbgHideEmptyRows;
+            const cbTotalRow = document.getElementById("modal-opt-show-total-row");
+            if (cbTotalRow) cbTotalRow.checked = (state.lbgShowTotalRow !== false);
             renderCustomColsManager("modal-custom-cols-list", true);
         }
 
@@ -5041,7 +5055,8 @@
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
-                hideEmptyRows: !!state.lbgHideEmptyRows
+                hideEmptyRows: !!state.lbgHideEmptyRows,
+                showTotalRow: (state.lbgShowTotalRow !== false)
             }).then(blob => {
                 saveAs(blob, filename);
                 showToast(`Đã xuất file Excel chuẩn in A4: ${filename}`, "success");
@@ -5070,7 +5085,8 @@
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
-                hideEmptyRows: !!state.lbgHideEmptyRows
+                hideEmptyRows: !!state.lbgHideEmptyRows,
+                showTotalRow: (state.lbgShowTotalRow !== false)
             };
             window.DocxGenerator.generateLbgDocx(isCtlop, state.currentWeek, weekInfo, schedule, state.settings, stats, orient, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
@@ -5231,11 +5247,15 @@
 
         const colCount = orderedCols.length;
         const totalPeriodsPaper = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
-        html += `
+        if (state.lbgShowTotalRow !== false) {
+            html += `
                     <tr style="font-weight: bold; background: #fff;">
                         <td colspan="3" style="text-align: left; font-weight: bold; border: 1px solid #000; padding: 5px 8px; font-family: 'Times New Roman', serif; font-size: 11pt;">Tổng số tiết/tuần</td>
                         <td colspan="${Math.max(1, colCount - 3)}" style="text-align: left; font-weight: bold; border: 1px solid #000; padding: 5px 8px; font-family: 'Times New Roman', serif; font-size: 11pt;">${totalPeriodsPaper} tiết/ tuần</td>
                     </tr>
+            `;
+        }
+        html += `
                 </tbody>
             </table>
 
@@ -5421,6 +5441,8 @@
 
         const batchHideChk = document.getElementById("batch-opt-hide-empty-rows");
         if (batchHideChk) batchHideChk.checked = !!state.lbgHideEmptyRows;
+        const batchTotalChk = document.getElementById("batch-opt-show-total-row");
+        if (batchTotalChk) batchTotalChk.checked = (state.lbgShowTotalRow !== false);
 
         document.getElementById("batch-export-modal").classList.add("show");
     }
@@ -5442,7 +5464,8 @@
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
-                hideEmptyRows: !!state.lbgHideEmptyRows
+                hideEmptyRows: !!state.lbgHideEmptyRows,
+                showTotalRow: (state.lbgShowTotalRow !== false)
             };
             window.DocxGenerator.generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekSchedule, state.settings, orientation, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
@@ -5604,6 +5627,7 @@
         bindLbgOption("lbg-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("lbg-opt-sig-head", "lbgShowHeadSign", true);
         bindLbgOption("lbg-opt-hide-empty-rows", "lbgHideEmptyRows", false);
+        bindLbgOption("lbg-opt-show-total-row", "lbgShowTotalRow", true);
 
         // Bind CTLOP Checkboxes
         bindLbgOption("ctlop-opt-col-sign", "lbgShowColSign", false);
@@ -5612,6 +5636,7 @@
         bindLbgOption("ctlop-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindLbgOption("ctlop-opt-sig-head", "lbgShowHeadSign", true);
         bindLbgOption("ctlop-opt-hide-empty-rows", "lbgHideEmptyRows", false);
+        bindLbgOption("ctlop-opt-show-total-row", "lbgShowTotalRow", true);
 
         // Modal Preview Options Checkboxes
         const bindModalOption = (id, prop, isDefaultTrue = false) => {
@@ -5634,11 +5659,25 @@
         bindModalOption("modal-opt-sig-gvcn", "lbgShowGvcnSign", true);
         bindModalOption("modal-opt-sig-head", "lbgShowHeadSign", true);
         bindModalOption("modal-opt-hide-empty-rows", "lbgHideEmptyRows", false);
+        bindModalOption("modal-opt-show-total-row", "lbgShowTotalRow", true);
 
         const batchHideChkEl = document.getElementById("batch-opt-hide-empty-rows");
         if (batchHideChkEl) {
             batchHideChkEl.addEventListener("change", (e) => {
                 state.lbgHideEmptyRows = !!e.target.checked;
+                saveState();
+                renderTabLbg();
+                renderTabCtlop();
+                if (currentPreviewRefreshFn) {
+                    const body = document.getElementById("modal-preview-body");
+                    if (body) body.innerHTML = currentPreviewRefreshFn();
+                }
+            });
+        }
+        const batchTotalChkEl = document.getElementById("batch-opt-show-total-row");
+        if (batchTotalChkEl) {
+            batchTotalChkEl.addEventListener("change", (e) => {
+                state.lbgShowTotalRow = !!e.target.checked;
                 saveState();
                 renderTabLbg();
                 renderTabCtlop();

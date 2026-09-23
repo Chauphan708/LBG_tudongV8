@@ -429,6 +429,19 @@ D4. XÓA HÀNG TIẾT NGHỈ / ĐỂ TRỐNG KHI XUẤT FILE
      Tab 1, Tab 2, cửa sổ Xem Trước, cửa sổ Xuất Gộp.
 
 ───────────────────────────────────────────────────────────────────────────────
+D10. TÙY CHỌN DÒNG TỔNG SỐ TIẾT/TUẦN (PHIÊN BẢN V9)
+───────────────────────────────────────────────────────────────────────────────
+
+  Tại thanh công cụ (Tab 1, Tab 2, cửa sổ Xem Trước và Hộp thoại Xuất nhiều tuần):
+  • "📊 Dòng Tổng số tiết": Mặc định được BẬT sẵn.
+  • Khi bật: Chân bảng Lịch báo giảng sẽ có thêm hàng:
+      [ Tổng số tiết/tuần | XX tiết/ tuần ]
+    Đồng bộ chuẩn xác trên màn hình Web, Bản in giấy A4, File Word (.docx) và File Excel (.xlsx).
+  • Khi bỏ tích: Dòng này sẽ được ẩn hoàn toàn trên cả Web, bản in và mọi file xuất.
+  • Tùy chọn được lưu tự động theo khối lớp, không bị mất khi tải lại trang!
+
+
+───────────────────────────────────────────────────────────────────────────────
 D5. CHỌN LỌC MÔN ĐƯA VÀO LỊCH BÁO GIẢNG
 ───────────────────────────────────────────────────────────────────────────────
 

@@ -67,24 +67,36 @@ async function getBuffer(blob) {
 }
 
 async function testDocxGeneration() {
-    const blob = await window.DocxGenerator.generateLbgDocx(
-        false, 1, mockWeekInfo, mockSchedule, mockSettings, mockStats, "portrait", {}
+    // Test bật dòng tổng số tiết (mặc định)
+    const blobOn = await window.DocxGenerator.generateLbgDocx(
+        false, 1, mockWeekInfo, mockSchedule, mockSettings, mockStats, "portrait", { showTotalRow: true }
     );
-    assert.ok(blob, "Không sinh được blob Word");
-    const zip = await JSZip.loadAsync(await getBuffer(blob));
-    const docXml = await zip.file("word/document.xml").async("text");
+    assert.ok(blobOn, "Không sinh được blob Word khi bật");
+    const zipOn = await JSZip.loadAsync(await getBuffer(blobOn));
+    const docXmlOn = await zipOn.file("word/document.xml").async("text");
     
-    assert.ok(docXml.includes("Tổng số tiết/tuần"), "File Word document.xml thiếu 'Tổng số tiết/tuần'");
-    assert.ok(docXml.includes("3 tiết/ tuần"), "File Word document.xml thiếu '3 tiết/ tuần'");
-    assert.ok(docXml.includes('w:gridSpan w:val="3"'), "File Word document.xml thiếu w:gridSpan 3");
-    console.log("✔ Kiểm tra 4: Đã sinh file DOCX thực tế và xác nhận XML chứa đầy đủ dòng Tổng số tiết/tuần (3 tiết/ tuần)!");
+    assert.ok(docXmlOn.includes("Tổng số tiết/tuần"), "File Word document.xml thiếu 'Tổng số tiết/tuần'");
+    assert.ok(docXmlOn.includes("3 tiết/ tuần"), "File Word document.xml thiếu '3 tiết/ tuần'");
+    assert.ok(docXmlOn.includes('w:gridSpan w:val="3"'), "File Word document.xml thiếu w:gridSpan 3");
+
+    // Test tắt dòng tổng số tiết (showTotalRow = false)
+    const blobOff = await window.DocxGenerator.generateLbgDocx(
+        false, 1, mockWeekInfo, mockSchedule, mockSettings, mockStats, "portrait", { showTotalRow: false }
+    );
+    assert.ok(blobOff, "Không sinh được blob Word khi tắt");
+    const zipOff = await JSZip.loadAsync(await getBuffer(blobOff));
+    const docXmlOff = await zipOff.file("word/document.xml").async("text");
+    assert.ok(!docXmlOff.includes("Tổng số tiết/tuần"), "File Word document.xml vẫn còn 'Tổng số tiết/tuần' khi showTotalRow = false");
+
+    console.log("✔ Kiểm tra 4: Đã sinh file DOCX thực tế và xác nhận tùy chọn showTotalRow hoạt động chính xác (bật/tắt)!");
 }
 
 // 5. Kiểm tra xuất file Excel thực tế
 eval(xlsxGenContent);
 
 async function testXlsxGeneration() {
-    const blob = await window.XlsxGenerator.generateLbgXlsx({
+    // Test bật dòng tổng số tiết
+    const blobOn = await window.XlsxGenerator.generateLbgXlsx({
         settings: mockSettings,
         weekNum: 1,
         weekInfo: mockWeekInfo,
@@ -93,16 +105,36 @@ async function testXlsxGeneration() {
         isCtlop: false,
         orientation: "portrait",
         showColSign: false,
-        showColNote: true
+        showColNote: true,
+        showTotalRow: true
     });
-    assert.ok(blob, "Không sinh được blob Excel");
-    const zip = await JSZip.loadAsync(await getBuffer(blob));
-    const sheetXml = await zip.file("xl/worksheets/sheet1.xml").async("text");
+    assert.ok(blobOn, "Không sinh được blob Excel khi bật");
+    const zipOn = await JSZip.loadAsync(await getBuffer(blobOn));
+    const sheetXmlOn = await zipOn.file("xl/worksheets/sheet1.xml").async("text");
 
-    assert.ok(sheetXml.includes("Tổng số tiết/tuần"), "File Excel sheet1.xml thiếu 'Tổng số tiết/tuần'");
-    assert.ok(sheetXml.includes("3 tiết/ tuần"), "File Excel sheet1.xml thiếu '3 tiết/ tuần'");
-    assert.ok(sheetXml.includes("A") && sheetXml.includes(":C"), "File Excel sheet1.xml thiếu merge A:C");
-    console.log("✔ Kiểm tra 5: Đã sinh file XLSX thực tế và xác nhận XML chứa đầy đủ dòng Tổng số tiết/tuần và merge cells!");
+    assert.ok(sheetXmlOn.includes("Tổng số tiết/tuần"), "File Excel sheet1.xml thiếu 'Tổng số tiết/tuần'");
+    assert.ok(sheetXmlOn.includes("3 tiết/ tuần"), "File Excel sheet1.xml thiếu '3 tiết/ tuần'");
+    assert.ok(sheetXmlOn.includes("A") && sheetXmlOn.includes(":C"), "File Excel sheet1.xml thiếu merge A:C");
+
+    // Test tắt dòng tổng số tiết
+    const blobOff = await window.XlsxGenerator.generateLbgXlsx({
+        settings: mockSettings,
+        weekNum: 1,
+        weekInfo: mockWeekInfo,
+        schedule: mockSchedule,
+        stats: mockStats,
+        isCtlop: false,
+        orientation: "portrait",
+        showColSign: false,
+        showColNote: true,
+        showTotalRow: false
+    });
+    assert.ok(blobOff, "Không sinh được blob Excel khi tắt");
+    const zipOff = await JSZip.loadAsync(await getBuffer(blobOff));
+    const sheetXmlOff = await zipOff.file("xl/worksheets/sheet1.xml").async("text");
+    assert.ok(!sheetXmlOff.includes("Tổng số tiết/tuần"), "File Excel sheet1.xml vẫn còn 'Tổng số tiết/tuần' khi showTotalRow = false");
+
+    console.log("✔ Kiểm tra 5: Đã sinh file XLSX thực tế và xác nhận tùy chọn showTotalRow hoạt động chính xác (bật/tắt)!");
 }
 
 async function run() {

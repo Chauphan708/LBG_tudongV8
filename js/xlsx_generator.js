@@ -547,22 +547,24 @@ ${colsXml}    </cols>
         });
 
         // Hàng tổng kết cuối bảng: Tổng số tiết/tuần
-        const totalPeriodsXlsx = (options.stats && options.stats.total !== undefined) 
-            ? options.stats.total 
-            : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
-        const totalRowHt = 26;
-        let totalRowXml = "";
-        totalRowXml += `\n            <c r="A${currentRow}" s="19" t="inlineStr"><is><t>Tổng số tiết/tuần</t></is></c>`;
-        totalRowXml += `\n            <c r="B${currentRow}" s="19"/>`;
-        totalRowXml += `\n            <c r="C${currentRow}" s="19"/>`;
-        totalRowXml += `\n            <c r="D${currentRow}" s="19" t="inlineStr"><is><t>${totalPeriodsXlsx} tiết/ tuần</t></is></c>`;
-        for (let c = 5; c <= totalCols; c++) {
-            totalRowXml += `\n            <c r="${getColLetter(c)}${currentRow}" s="19"/>`;
+        if (options.showTotalRow !== false) {
+            const totalPeriodsXlsx = (options.stats && options.stats.total !== undefined) 
+                ? options.stats.total 
+                : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+            const totalRowHt = 26;
+            let totalRowXml = "";
+            totalRowXml += `\n            <c r="A${currentRow}" s="19" t="inlineStr"><is><t>Tổng số tiết/tuần</t></is></c>`;
+            totalRowXml += `\n            <c r="B${currentRow}" s="19"/>`;
+            totalRowXml += `\n            <c r="C${currentRow}" s="19"/>`;
+            totalRowXml += `\n            <c r="D${currentRow}" s="19" t="inlineStr"><is><t>${totalPeriodsXlsx} tiết/ tuần</t></is></c>`;
+            for (let c = 5; c <= totalCols; c++) {
+                totalRowXml += `\n            <c r="${getColLetter(c)}${currentRow}" s="19"/>`;
+            }
+            sheetXml += `\n        <row r="${currentRow}" ht="${totalRowHt}" customHeight="1">${totalRowXml}\n        </row>`;
+            mergeCellsList.push(`A${currentRow}:C${currentRow}`);
+            mergeCellsList.push(`D${currentRow}:${lastColLetter}${currentRow}`);
+            currentRow++;
         }
-        sheetXml += `\n        <row r="${currentRow}" ht="${totalRowHt}" customHeight="1">${totalRowXml}\n        </row>`;
-        mergeCellsList.push(`A${currentRow}:C${currentRow}`);
-        mergeCellsList.push(`D${currentRow}:${lastColLetter}${currentRow}`);
-        currentRow++;
 
         // Space before footer
         sheetXml += `<row r="${currentRow}" ht="14" customHeight="1"/>`;
