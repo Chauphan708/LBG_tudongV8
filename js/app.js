@@ -2104,7 +2104,7 @@
         trTotal.style.background = "#f8fafc";
         trTotal.innerHTML = `
             <td colspan="3" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">Tổng số tiết/tuần</td>
-            <td colspan="${remainingColsCount}" class="editable-cell lbg-total-periods-cell" contenteditable="true" data-week="${state.currentWeek}" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsVal} tiết/ tuần</td>
+            <td colspan="${remainingColsCount}" class="lbg-total-periods-cell" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsVal} tiết/ tuần</td>
             <td class="no-print"></td>
         `;
         tbody.appendChild(trTotal);
@@ -2147,6 +2147,7 @@
             cell.addEventListener("blur", (e) => {
                 const key = e.target.dataset.key;
                 const field = e.target.dataset.field;
+                if (!key || !field) return;
                 let val = e.target.innerText.trim();
                 val = normalizePunctuationSpacing(val);
                 if (!state.weeklyScheduleOverrides[key]) state.weeklyScheduleOverrides[key] = {};
@@ -2611,7 +2612,7 @@
         trTotalCtlop.style.background = "#f8fafc";
         trTotalCtlop.innerHTML = `
             <td colspan="3" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">Tổng số tiết/tuần</td>
-            <td colspan="${remainingColsCtlop}" class="editable-cell lbg-total-periods-cell" contenteditable="true" data-week="${state.currentWeek}" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsCtlop} tiết/ tuần</td>
+            <td colspan="${remainingColsCtlop}" class="lbg-total-periods-cell" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsCtlop} tiết/ tuần</td>
             <td class="no-print"></td>
         `;
         tbody.appendChild(trTotalCtlop);
@@ -2652,6 +2653,7 @@
             cell.addEventListener("blur", (e) => {
                 const key = e.target.dataset.key;
                 const field = e.target.dataset.field;
+                if (!key || !field) return;
                 let val = e.target.innerText.trim();
                 val = normalizePunctuationSpacing(val);
                 if (field === "integration") {
