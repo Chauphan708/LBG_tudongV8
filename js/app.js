@@ -2095,6 +2095,20 @@
             });
         });
 
+        // Hàng tổng kết cuối bảng Lịch báo giảng: Tổng số tiết/tuần
+        const remainingColsCount = Math.max(1, orderedCols.length - 3);
+        const totalPeriodsVal = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+        const trTotal = document.createElement("tr");
+        trTotal.className = "lbg-total-periods-row";
+        trTotal.style.fontWeight = "bold";
+        trTotal.style.background = "#f8fafc";
+        trTotal.innerHTML = `
+            <td colspan="3" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">Tổng số tiết/tuần</td>
+            <td colspan="${remainingColsCount}" class="editable-cell lbg-total-periods-cell" contenteditable="true" data-week="${state.currentWeek}" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsVal} tiết/ tuần</td>
+            <td class="no-print"></td>
+        `;
+        tbody.appendChild(trTotal);
+
         document.getElementById("lbg-stat-gvcn").innerText = `${stats.gvcnCount} tiết`;
         document.getElementById("lbg-stat-specialist").innerText = `${stats.specialistCount} tiết`;
         document.getElementById("lbg-stat-enhanced").innerText = `${stats.enhancedCount} tiết`;
@@ -2587,6 +2601,20 @@
                 tbody.appendChild(tr);
             });
         });
+
+        // Hàng tổng kết cuối bảng Chi tiết lớp: Tổng số tiết/tuần
+        const remainingColsCtlop = Math.max(1, orderedCols.length - 3);
+        const totalPeriodsCtlop = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+        const trTotalCtlop = document.createElement("tr");
+        trTotalCtlop.className = "lbg-total-periods-row";
+        trTotalCtlop.style.fontWeight = "bold";
+        trTotalCtlop.style.background = "#f8fafc";
+        trTotalCtlop.innerHTML = `
+            <td colspan="3" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">Tổng số tiết/tuần</td>
+            <td colspan="${remainingColsCtlop}" class="editable-cell lbg-total-periods-cell" contenteditable="true" data-week="${state.currentWeek}" style="text-align: left; font-weight: bold; padding: 7px 10px; font-family: 'Times New Roman', serif; font-size: 11pt; border-top: 1px solid var(--border-color, #cbd5e1); color: #0f172a;">${totalPeriodsCtlop} tiết/ tuần</td>
+            <td class="no-print"></td>
+        `;
+        tbody.appendChild(trTotalCtlop);
 
         // Update signature box in Tab 2
         const bghSigner = getBghSignerInfo();
@@ -4999,6 +5027,7 @@
                 weekNum: state.currentWeek,
                 weekInfo: weekInfo,
                 schedule: schedule,
+                stats: stats,
                 isCtlop: isCtlop,
                 orientation: currentOrientation,
                 showColSign: state.lbgShowColSign,
@@ -5198,7 +5227,13 @@
             });
         });
 
+        const colCount = orderedCols.length;
+        const totalPeriodsPaper = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
         html += `
+                    <tr style="font-weight: bold; background: #fff;">
+                        <td colspan="3" style="text-align: left; font-weight: bold; border: 1px solid #000; padding: 5px 8px; font-family: 'Times New Roman', serif; font-size: 11pt;">Tổng số tiết/tuần</td>
+                        <td colspan="${Math.max(1, colCount - 3)}" style="text-align: left; font-weight: bold; border: 1px solid #000; padding: 5px 8px; font-family: 'Times New Roman', serif; font-size: 11pt;">${totalPeriodsPaper} tiết/ tuần</td>
+                    </tr>
                 </tbody>
             </table>
 

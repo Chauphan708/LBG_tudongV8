@@ -1182,6 +1182,47 @@ window.DocxGenerator = (function() {
             });
         });
 
+        // Hàng tổng kết cuối bảng: Tổng số tiết/tuần
+        const leftTotalWidth = (orderedCols[0] ? orderedCols[0].width : 1100) + 
+                               (orderedCols[1] ? orderedCols[1].width : 900) + 
+                               (orderedCols[2] ? orderedCols[2].width : 700);
+        let rightTotalWidth = 0;
+        for (let cIdx = 3; cIdx < orderedCols.length; cIdx++) {
+            rightTotalWidth += (orderedCols[cIdx].width || 1000);
+        }
+        const rightGridSpan = Math.max(1, orderedCols.length - 3);
+        const totalPeriodsDocx = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+
+        docBody += `
+        <w:tr>
+            <w:trPr><w:cantSplit/></w:trPr>
+            <w:tc>
+                <w:tcPr>
+                    <w:tcW w:w="${leftTotalWidth}" w:type="dxa"/>
+                    <w:gridSpan w:val="3"/>
+                    <w:vAlign w:val="center"/>
+                    <w:tcMar><w:left w:w="80" w:type="dxa"/><w:top w:w="50" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/></w:tcMar>
+                </w:tcPr>
+                <w:p>
+                    <w:pPr><w:jc w:val="left"/><w:spacing w:line="240" w:after="0"/><w:ind w:left="40"/></w:pPr>
+                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Tổng số tiết/tuần</w:t></w:r>
+                </w:p>
+            </w:tc>
+            <w:tc>
+                <w:tcPr>
+                    <w:tcW w:w="${rightTotalWidth}" w:type="dxa"/>
+                    <w:gridSpan w:val="${rightGridSpan}"/>
+                    <w:vAlign w:val="center"/>
+                    <w:tcMar><w:left w:w="80" w:type="dxa"/><w:top w:w="50" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/></w:tcMar>
+                </w:tcPr>
+                <w:p>
+                    <w:pPr><w:jc w:val="left"/><w:spacing w:line="240" w:after="0"/><w:ind w:left="40"/></w:pPr>
+                    <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${totalPeriodsDocx} tiết/ tuần</w:t></w:r>
+                </w:p>
+            </w:tc>
+        </w:tr>
+        `;
+
         docBody += `</w:tbl>`;
 
         const signers = [];
@@ -1472,6 +1513,47 @@ window.DocxGenerator = (function() {
                     `;
                 });
             });
+
+            // Hàng tổng kết cuối bảng: Tổng số tiết/tuần
+            const leftTotalWidth = (orderedCols[0] ? orderedCols[0].width : 1100) + 
+                                   (orderedCols[1] ? orderedCols[1].width : 900) + 
+                                   (orderedCols[2] ? orderedCols[2].width : 700);
+            let rightTotalWidth = 0;
+            for (let cIdx = 3; cIdx < orderedCols.length; cIdx++) {
+                rightTotalWidth += (orderedCols[cIdx].width || 1000);
+            }
+            const rightGridSpan = Math.max(1, orderedCols.length - 3);
+            const totalPeriodsDocx = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+
+            docBody += `
+            <w:tr>
+                <w:trPr><w:cantSplit/></w:trPr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="${leftTotalWidth}" w:type="dxa"/>
+                        <w:gridSpan w:val="3"/>
+                        <w:vAlign w:val="center"/>
+                        <w:tcMar><w:left w:w="80" w:type="dxa"/><w:top w:w="50" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/></w:tcMar>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr><w:jc w:val="left"/><w:spacing w:line="240" w:after="0"/><w:ind w:left="40"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Tổng số tiết/tuần</w:t></w:r>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="${rightTotalWidth}" w:type="dxa"/>
+                        <w:gridSpan w:val="${rightGridSpan}"/>
+                        <w:vAlign w:val="center"/>
+                        <w:tcMar><w:left w:w="80" w:type="dxa"/><w:top w:w="50" w:type="dxa"/><w:bottom w:w="50" w:type="dxa"/></w:tcMar>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr><w:jc w:val="left"/><w:spacing w:line="240" w:after="0"/><w:ind w:left="40"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${totalPeriodsDocx} tiết/ tuần</w:t></w:r>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+            `;
 
             docBody += `</w:tbl>`;
 

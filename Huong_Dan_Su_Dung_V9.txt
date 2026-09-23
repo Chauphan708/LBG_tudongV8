@@ -1,0 +1,45 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5)
+PHIÊN BẢN NÂNG CẤP V9 (VERSION 9.0) — ĐÓNG GÓI OFFLINE ĐỘC LẬP CHUYÊN NGHIỆP
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V9:
+
+   🌟 1. BỔ SUNG DÒNG "TỔNG SỐ TIẾT/TUẦN" DƯỚI CÙNG CỦA LỊCH BÁO GIẢNG (CHUẨN FORM BAN GIÁM HIỆU):
+      - Bổ sung hàng tổng kết ở chân bảng Lịch báo giảng theo đúng chuẩn mẫu văn bản chỉ đạo của Nhà trường:
+          + Ô bên trái gộp 3 cột (Thứ, ngày / Buổi / Tiết): "Tổng số tiết/tuần" in đậm (Bold).
+          + Ô bên phải gộp toàn bộ các cột còn lại: hiển thị tổng số tiết thực tế trong tuần (VD: "28 tiết/ tuần", "30 tiết/ tuần"...).
+      - Đồng bộ hoàn hảo 100% trên cả 4 phương diện:
+          + Bảng trực quan trên Web (Tab 1 Lịch báo giảng & Tab 2 Chi tiết lớp - cho phép nhấp vào ô để chỉnh sửa số tiết trực tiếp nếu cần).
+          + Bản Xem trước & In ấn trực tiếp A4 (Print Preview).
+          + Tệp xuất Microsoft Word (.docx) chuẩn OpenXML: gộp ô (gridSpan) chuẩn xác, phông chữ Times New Roman 13pt in đậm, không bị vỡ khung.
+          + Tệp xuất Microsoft Excel (.xlsx): tự động merge ô A:C và D:cuối bảng, kẻ viền ô và định dạng văn bản chuẩn mực.
+
+   🌟 2. KẾ THỪA TOÀN BỘ CÁC TÍNH NĂNG MẠNH MẼ TỪ BẢN V8:
+      - Ẩn dòng nghỉ / để trống linh hoạt theo nhu cầu in ấn (tiết kiệm giấy in).
+      - Đồng bộ hóa 2 chiều giữa Tab 1 (Lịch báo giảng) và Tab 2 (Chi tiết lớp có tích hợp QCN, NLS, AI...).
+      - Chức năng Xuất / In nhiều tuần cùng lúc (Batch Export/Print) hoạt động mượt mà, ổn định.
+      - Tùy biến cột mở rộng không giới hạn: thêm/xóa/đổi tên cột linh hoạt (ĐDDH, Thiết bị, Học liệu...).
+      - Chuẩn hóa phông chữ Times New Roman 13pt theo Nghị định 30/2020/NĐ-CP trên mọi định dạng tài liệu xuất.
+      - Chuyển đổi linh hoạt giữa 5 Khối lớp (Khối 1, 2, 3, 4, 5) với đầy đủ bộ sách GDPT 2018 (Kết nối tri thức, Chân trời sáng tạo, Cánh diều).
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN SỬ DỤNG NHANH BẢN V9:
+
+   - BƯỚC 1: Mở tệp "Mo_Phan_Mem.bat" hoặc nhấp đúp trực tiếp vào "index.html" để mở phần mềm trên trình duyệt (Chrome, Cốc Cốc, Edge).
+   - BƯỚC 2: Vào Tab "Cài đặt & Tùy chỉnh" để nhập thông tin: Tên Trường, Tên Giáo viên, Tổ trưởng, Ban Giám hiệu.
+   - BƯỚC 3: Vào Tab "Thời khóa biểu" kiểm tra và xếp lịch dạy theo tuần.
+   - BƯỚC 4: Vào Tab "Lịch báo giảng" (hoặc "Chi tiết lớp"):
+       + Kiểm tra lịch dạy tự động sinh từ PPCT.
+       + Ở hàng cuối cùng của bảng sẽ hiển thị dòng "Tổng số tiết/tuần | XX tiết/ tuần".
+       + Bấm "In ấn A4", "Xuất Word (.docx)" hoặc "Xuất Excel (.xlsx)" để nộp BGH duyệt!
+
+================================================================================
+Chúc Quý Thầy/Cô có những trải nghiệm giảng dạy thảnh thơi, hiệu quả cùng Bản V9!
+================================================================================
