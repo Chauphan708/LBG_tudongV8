@@ -5,7 +5,7 @@
  */
 
 (function() {
-    const STORAGE_KEY = "LBG_APP_DATA_V8";
+    const STORAGE_KEY = "LBG_APP_DATA_V10";
     let currentOrientation = "portrait";
 
     function getBaseLesson(lessonStr) {
@@ -173,7 +173,7 @@
     state.currentGrade = currentGrade;
 
     function getStorageKey(grade) {
-        return "LBG_APP_DATA_V8_G" + grade;
+        return "LBG_APP_DATA_V10_G" + grade;
     }
 
     function getGradeDefaultSubjects(grade) {
@@ -298,12 +298,15 @@
         try {
             const gradeKey = getStorageKey(grade);
             let saved = localStorage.getItem(gradeKey);
+            let isMigrated = false;
             if (!saved) {
-                saved = localStorage.getItem("LBG_APP_DATA_V7_G" + grade) || localStorage.getItem("LBG_APP_DATA_V6_G" + grade) || localStorage.getItem("LBG_APP_DATA_V5_G" + grade) || localStorage.getItem("LBG_APP_DATA_V4_G" + grade);
+                saved = localStorage.getItem("LBG_APP_DATA_V9_G" + grade) || localStorage.getItem("LBG_APP_DATA_V8_G" + grade) || localStorage.getItem("LBG_APP_DATA_V7_G" + grade) || localStorage.getItem("LBG_APP_DATA_V6_G" + grade) || localStorage.getItem("LBG_APP_DATA_V5_G" + grade) || localStorage.getItem("LBG_APP_DATA_V4_G" + grade);
+                if (saved) isMigrated = true;
             }
             if (!saved && grade === 5) {
                 // Seamless migration from earlier keys
-                saved = localStorage.getItem("LBG_APP_DATA_V7") || localStorage.getItem("LBG_APP_DATA_V6") || localStorage.getItem("LBG_APP_DATA_V5") || localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
+                saved = localStorage.getItem("LBG_APP_DATA_V9") || localStorage.getItem("LBG_APP_DATA_V8") || localStorage.getItem("LBG_APP_DATA_V7") || localStorage.getItem("LBG_APP_DATA_V6") || localStorage.getItem("LBG_APP_DATA_V5") || localStorage.getItem("LBG_APP_DATA_V4") || localStorage.getItem("LBG_APP_DATA_V3") || localStorage.getItem("LBG_APP_DATA_V2") || localStorage.getItem("LBG_APP_DATA_V1");
+                if (saved) isMigrated = true;
             }
             if (saved) {
                 const parsed = JSON.parse(saved);
@@ -320,7 +323,18 @@
                 }
                 if (parsed.weeks && parsed.weeks.length) state.weeks = parsed.weeks;
                 if (parsed.ppct && parsed.ppct.length) {
-                    state.ppct = parsed.ppct;
+                    // In V10: If migrating from older version or old saved data has placeholder specialist subjects ("GV bộ môn dạy" or missing),
+                    // replace specialist subjects with the official curriculum while preserving custom teacher homeroom edits!
+                    const specialistNorms = new Set(['âm nhạc', 'mĩ thuật', 'gd thể chất', 'tin học', 'tiếng anh']);
+                    const rawDefault = (grade === 5) ? (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.ppct) : (window.APP_GRADE_DATA && window.APP_GRADE_DATA[grade] && window.APP_GRADE_DATA[grade].ppct);
+                    
+                    if (isMigrated && rawDefault && Array.isArray(rawDefault)) {
+                        const userHomeroom = parsed.ppct.filter(p => !specialistNorms.has(normalizeSubjectName(p.subject).toLowerCase()));
+                        const officialSpecialist = rawDefault.filter(p => specialistNorms.has(normalizeSubjectName(p.subject).toLowerCase()));
+                        state.ppct = [...userHomeroom, ...officialSpecialist];
+                    } else {
+                        state.ppct = parsed.ppct;
+                    }
                     if (grade !== 5) {
                         state.khdh = buildKhdhForGrade(grade, state.ppct);
                     }
@@ -490,6 +504,7 @@
             localStorage.setItem(gradeKey, JSON.stringify(payload));
             if (state.currentGrade === 5) {
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+                localStorage.setItem("LBG_APP_DATA_V9", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V8", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V7", JSON.stringify(payload));
                 localStorage.setItem("LBG_APP_DATA_V6", JSON.stringify(payload));

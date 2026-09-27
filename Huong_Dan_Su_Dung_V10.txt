@@ -1,0 +1,73 @@
+================================================================================
+PHẦN MỀM QUẢN LÝ LỊCH BÁO GIẢNG & KẾ HOẠCH DẠY HỌC TIỂU HỌC (KHỐI 1 - 5)
+PHIÊN BẢN NÂNG CẤP V10 (VERSION 10.0) — ĐỒNG BỘ 100% CÁC MÔN BỘ MÔN NĂM HỌC 2026 - 2027
+================================================================================
+
+1. GIỚI THIỆU CHUNG:
+   Phần mềm chạy hoàn toàn cục bộ (offline 100%) trên máy tính cá nhân của thầy/cô, không cần
+   kết nối internet, không gửi dữ liệu ra máy chủ bên ngoài, đảm bảo tuyệt đối quyền riêng tư,
+   tính bảo mật và tốc độ xử lý tức thì.
+
+--------------------------------------------------------------------------------
+2. CÁC ĐIỂM NÂNG CẤP ĐỘT PHÁ MỚI TRÊN PHIÊN BẢN V10:
+
+   🌟 1. HOÀN THIỆN ĐẦY ĐỦ 100% PHÂN PHỐI CHƯƠNG TRÌNH CÁC MÔN CHUYÊN TRÁCH 2026 - 2027:
+      Được trích xuất trực tiếp từ toàn bộ hồ sơ kế hoạch dạy học chính thức của năm học 2026 - 2027:
+      
+      🎵 ÂM NHẠC (Khối 1, 2, 3, 4, 5):
+         - Đầy đủ 35 tiết/năm cho mỗi khối lớp (tổng cộng 175 tiết trên cả 5 khối).
+         - Chi tiết tên bài học, phân loại Lý thuyết âm nhạc, Đọc nhạc, Học hát, Thường thức âm nhạc.
+         - Giữ trọn vẹn nội dung tích hợp đạo đức, tình yêu quê hương đất nước.
+      
+      🎨 MĨ THUẬT (Khối 1, 2, 3, 4, 5):
+         - Đầy đủ 35 tiết/năm cho mỗi khối lớp (tổng cộng 175 tiết trên cả 5 khối).
+         - Chi tiết từng bài học theo chủ đề sáng tạo, yếu tố tạo hình, điêu khắc, hội họa.
+         - Tích hợp đầy đủ thời lượng từng tiết (Tiết 1, Tiết 2...).
+      
+      🏃 GIÁO DỤC THỂ CHẤT (Khối 1, 2, 3, 4, 5):
+         - Đầy đủ 70 tiết/năm (2 tiết/tuần x 35 tuần) cho mỗi khối lớp (tổng cộng 350 tiết trên cả 5 khối).
+         - Đầy đủ các bài tập đội hình đội ngũ, bài tập thể dục, vận động cơ bản, trò chơi vận động.
+         - Tự động chia đều thành 2 tiết/tuần khớp chính xác với Thời khóa biểu của trường.
+      
+      💻 TIN HỌC (Khối 3, 4, 5):
+         - Đầy đủ 35 tiết/năm cho mỗi khối lớp (35 tiết/năm x 3 khối = 105 tiết).
+         - Khối 3: Sách Tin học 3 chuẩn 35 tiết từ Bài 1 đến Bài 16, ôn tập & kiểm tra.
+         - Khối 4: Sách Tin học 4 chuẩn 35 tiết từ Phần cứng/phần mềm đến Lập trình trực quan.
+         - Khối 5: TÍCH HỢP ĐẶC BIỆT CHUYÊN SÂU:
+             + Năng lực số (CV 3456): Mã chuẩn CB2.1.1, CB2.2.2, CB2.3.1, CB2.5.1...
+             + Trí tuệ nhân tạo AI (Khung 3439): 5.A1.1, 5.A2.1, 5.A3.1, 5.B3.1, 5.C4.1, 5.D2.1...
+      
+      🇬🇧 TIẾNG ANH (Khối 3, 4, 5):
+         - Đầy đủ 140 tiết/năm (4 tiết/tuần x 35 tuần) cho mỗi khối lớp (140 x 3 = 420 tiết).
+         - Giáo trình Global Success chuẩn: Lesson 1, Lesson 2, Lesson 3, Review, Extension, Final Test.
+         - TÍCH HỢP ĐA MÔN TOÀN DIỆN TRONG TỪNG TIẾT HỌC:
+             + Trí tuệ nhân tạo AI (AI 3.A1, AI 4.A1, AI 5.A1, Trợ lý ảo, Nhận diện giọng nói, Robot...).
+             + Năng lực số NLS (NLS 1.3.CB, 2.4.CB, 4.2.CB, tra cứu hoclieu.vn, Canva, Quizizz...).
+             + Giáo dục Đạo đức, Quyền con người, QPAN, Giáo dục địa phương (GDĐP), STEM và ATGT.
+
+   🌟 2. CƠ CHẾ NÂNG CẤP DỮ LIỆU TỰ ĐỘNG THÔNG MINH (V10 MIGRATION):
+      - Khi quý Thầy/Cô mở Bản V10, hệ thống tự động nhận diện và cập nhật đầy đủ các môn bộ môn mới nhất.
+      - TOÀN BỘ DỮ LIỆU RIÊNG DO THẦY/CÔ TỰ NHẬP HOÀN TOÀN KHÔNG BỊ MẤT:
+          + Thời khóa biểu riêng của lớp.
+          + Bài dạy các môn GVCN (Toán, Tiếng Việt, Khoa học, LS&ĐL, Đạo đức, HĐTN...).
+          + Các cột tùy chỉnh bổ sung, cài đặt chữ ký và thông tin trường lớp đều được giữ trọn vẹn 100%!
+
+   🌟 3. KẾ THỪA ĐẦY ĐỦ CÁC TÍNH NĂNG ƯU VIỆT CỦA BẢN V9 & V8:
+      - Tùy chọn Bật/Tắt dòng "Tổng số tiết/tuần" ở chân trang Lịch báo giảng.
+      - Ẩn dòng nghỉ / để trống linh hoạt khi in ấn và xuất file Word/Excel.
+      - Xuất / In nhiều tuần cùng lúc (Batch Export/Print) cả năm hoặc theo từng học kỳ.
+      - Cỡ chữ chuẩn 13pt Times New Roman theo Nghị định 30/2020/NĐ-CP.
+      - Thêm/xóa/đổi tên cột mở rộng tùy ý ở mọi vị trí trên bảng.
+
+--------------------------------------------------------------------------------
+3. HƯỚNG DẪN SỬ DỤNG NHANH BẢN V10:
+
+   - BƯỚC 1: Giải nén thư mục "Phan_Mem_Lich_Bao_Giang_Lop_5_V10.zip".
+   - BƯỚC 2: Nhấp đúp vào tệp "Mo_Phan_Mem.bat" hoặc mở trực tiếp "index.html" bằng trình duyệt.
+   - BƯỚC 3: Chọn Khối lớp (Khối 1, 2, 3, 4, 5) ở góc trên bên phải.
+   - BƯỚC 4: Vào Tab "Cài Đặt & TKB" xếp lịch dạy các môn học và bấm "💾 Lưu TKB Gốc".
+   - BƯỚC 5: Mở Tab "Lịch Báo Giảng" xem lịch dạy đã được điền tự động chính xác 100%, sẵn sàng in hoặc xuất Word, Excel nộp Ban Giám hiệu!
+
+================================================================================
+Kính chúc Quý Thầy/Cô một năm học 2026 - 2027 gặt hái nhiều thành công và niềm vui!
+================================================================================

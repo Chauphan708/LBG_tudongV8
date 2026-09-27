@@ -1,6 +1,6 @@
 /**
  * Data File for Lịch Báo Giảng App
- * Generated automatically with clean official KHDH & PPCT data
+ * Generated automatically with clean official KHDH & PPCT data (Bản V10)
  */
 
 window.APP_INITIAL_DATA = {
@@ -549,1411 +549,219 @@ window.APP_INITIAL_DATA = {
     "ppct": [
         {
             "week": 1,
-            "subject": "Toán",
+            "subject": "Âm nhạc",
             "periodInWeek": 1,
             "ppct": 1,
-            "lessonName": "Bài 1. Ôn tập số tự nhiên (tiết 1): Luyện tập (Trang 6)",
-            "integration": "AI 5.D2.1: Thảo luận: AI xử lý hàng triệu số tự nhiên để nhận diện chữ viết tay. Càng nhiều số liệu (dữ liệu), máy càng nhận diện chính xác."
+            "lessonName": "- Lý thuyết âm nhạc:Trọng âm, phách, vạch nhịp, ô nhịp - Đọc nhạc: Bài số 1",
+            "integration": ""
         },
         {
             "week": 1,
-            "subject": "Toán",
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1. Vai trò của công nghệ (Tiết 1)",
+            "integration": "NLS 1.1.CB2b: HS sử dụng Google hoặc Edge để tìm, xem video ngắn về mặt trái của công nghệ như rác thải điện tử, ô nhiễm môi trường và chọn thông tin phù hợp để trao đổi.\nBVMT: HS nhận biết sử dụng sản phẩm công nghệ không hợp lí có thể gây ô nhiễm; biết dùng công nghệ tiết kiệm, bền vững."
+        },
+        {
+            "week": 1,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 1)",
+            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng Google/YouTube tìm và xem clip về chị Võ Thị Sáu hoặc Đại tướng Võ Nguyên Giáp để cảm nhận công lao của người có công.\nTích hợp ANQP: HS bồi dưỡng lòng biết ơn, ý thức trân trọng truyền thống bảo vệ Tổ quốc."
+        },
+        {
+            "week": 1,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1: Bài tập phối hợp đội hình đội ngũ (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 1,
+            "subject": "GD Thể chất",
             "periodInWeek": 2,
             "ppct": 2,
-            "lessonName": "Bài 1. Ôn tập số tự nhiên (tiết 2): Luyện tập (Trang 7)",
-            "integration": "Năng lực số 1.1.CB2a: Học sinh biết chọn từ khóa đơn giản, tra cứu số liệu phù hợp để đọc, viết và so sánh số tự nhiên."
+            "lessonName": "Bài 1: Bài tập phối hợp đội hình đội ngũ (tiết 2)",
+            "integration": ""
         },
         {
             "week": 1,
-            "subject": "Toán",
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Sinh hoạt dưới cờ: Chào năm học mới",
+            "integration": ""
+        },
+        {
+            "week": 1,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "HĐTCĐ: Chúng mình đã lớn",
+            "integration": "- Tích hợp AI (5.A2.1): Thảo luận: Con người có sự trưởng thành về tâm hồn và kỉ niệm thật, AI chỉ mô phỏng dữ liệu, không có kỉ niệm tuổi thơ độc bản.\n- Tích hợp QCN: HS nhận biết mỗi em có quyền được tôn trọng sự phát triển riêng của bản thân; biết trân trọng sự thay đổi, tiến bộ của mình và không so sánh, chê bai sự khác biệt của bạn."
+        },
+        {
+            "week": 1,
+            "subject": "HĐ Trải nghiệm",
             "periodInWeek": 3,
             "ppct": 3,
-            "lessonName": "Bài 2. Ôn tập các phép tính với số tự nhiên (Tiết 1): Luyện tập (Trang 9)",
-            "integration": "AI 5.A1.1: Xem video ngắn: AI thực hiện hàng tỷ phép tính mỗi giây để dự báo bão, thay con người làm các tính toán khổng lồ."
+            "lessonName": "Sinh hoạt lớp/KNS: - Bậc thang trưởng thành/",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo hoặc chỉnh sửa nội dung số đơn giản. HS sử dụng các công cụ thiết kế đồ họa đơn giản (Canva/PowerPoint) để tạo sơ đồ ghi lại các cột mốc phát triển của bản thân từ lớp 1 đến lớp 5.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn thái độ tự tin, chăm chỉ, có trách nhiệm với bản thân; biết đặt mục tiêu rèn luyện để trưởng thành hơn trong năm học cuối cấp."
         },
         {
             "week": 1,
-            "subject": "Toán",
-            "periodInWeek": 4,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1: Thành phần và vai trò của đất đối với cây trồng (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS sử dụng Google Search hoặc Microsoft Edge để tìm và xem video thí nghiệm về thành phần không khí, nước trong đất; đối chiếu tư liệu số với kết quả thực hành tại lớp."
+        },
+        {
+            "week": 1,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Bài 1: Thành phần và vai trò của đất đối với cây trồng (Tiết 2)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS biết đất giữ nước, cung cấp nước cho cây; có ý thức không đổ rác, hóa chất, nước bẩn xuống đất để tránh làm ô nhiễm nguồn nước ngầm."
+        },
+        {
+            "week": 1,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1: Vị trí địa lí, lãnh thổ, đơn vị hành chính, Quốc kì, Quốc huy, Quốc ca (Tiết 1)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Maps/Google Earth để xác định vị trí Việt Nam, các điểm cực, vùng biển, đảo và ranh giới lãnh thổ.\nTích hợp QCN: HS hiểu quyền và trách nhiệm của công dân trong việc tôn trọng chủ quyền, lãnh thổ, Quốc kì, Quốc huy, Quốc ca."
+        },
+        {
+            "week": 1,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Bài 1: Vị trí địa lí, lãnh thổ, đơn vị hành chính, Quốc kì, Quốc huy, Quốc ca (Tiết 2)",
+            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu cách AI tối ưu hóa định vị toàn cầu, trải nghiệm bản đồ số có tích hợp AI.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng yêu nước, tự hào về vị trí, lãnh thổ và biểu tượng quốc gia Việt Nam."
+        },
+        {
+            "week": 1,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chủ đề (Tiết 1)",
+            "integration": "3. Tích hợp ANQP: (HĐ2.T1,2, 4) 5.1.3: - Những tấm gương dũng cảm của cán bộ, chiến sĩ Quân đội nhân dân và Công an nhân dân. - Sử dụng các yếu tố tạo hình để thể hiện hình ảnh, tác phong nghiêm túc, kỉ luật của người chiến sĩ Quân đội nhân dân Việt Nam. 4.Tích hợ p AI: (HĐ2. T1,3,4,) 5.A2.1 - Nhận biết và nêu được yếu tố tạo hình sáng tạo theo chủ đề thông qua xem video tạo bằng AI…"
+        },
+        {
+            "week": 1,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 1",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 1",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 2",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Ôn tập Toán - Tiết 1",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Ôn tập Toán - Tiết 2",
+            "integration": null
+        },
+        {
+            "week": 1,
+            "subject": "Tiếng Anh",
+            "ppct": 1,
+            "lessonName": "Làm quen với Chương trình và sách giáo khoa Tiếng Anh 5 và các tài liệu bổ trợ liên quan trên mạng - Hướng dẫn sử dụng sách và học liệu mạng",
+            "integration": "NLS 1.3.CB2a: Hướng dẫn HS cách truy cập và tổ chức tệp học liệu âm thanh/video trên trang hoclieu.vn . Đạo đức: Biết giữ gìn sách giáo khoa cẩn thận, không làm rách hay vẽ bậy để sử dụng lâu bền.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 1,
+            "subject": "Tiếng Anh",
+            "ppct": 2,
+            "lessonName": "STARTER - A. Back to school",
+            "integration": "AI 5.A3.1: Nhận biết AI là công cụ hỗ trợ khởi đầu ngày học hiệu quả (ví dụ: dùng trợ lý ảo để tra từ vựng chào hỏi) ATGT: Nhắc nhở quy tắc an toàn khi di chuyển từ nhà đến trường.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 1,
+            "subject": "Tiếng Anh",
+            "ppct": 3,
+            "lessonName": "STARTER - B. Classroom instructions",
+            "integration": "NLS 4.1.CB2a: Lồng ghép quy tắc sử dụng thiết bị thông minh trong lớp: nghe hướng dẫn, không tự ý bấm/chạm vào máy tính của giáo viên. QPAN: Giáo dục tính kỷ luật khi thực hiện các hiệu lệnh tập thể.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 1,
+            "subject": "Tiếng Anh",
             "ppct": 4,
-            "lessonName": "Bài 2. Ôn tập các phép tính với số tự nhiên (Tiết 2): Luyện tập (Trang 10)",
-            "integration": "Năng lực số 5.2.CB1b: Học sinh làm quen với máy tính bỏ túi, nhận biết các phím chức năng và dùng để kiểm tra kết quả phép tính."
-        },
-        {
-            "week": 1,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 5,
-            "lessonName": "Bài 3. Ôn tập phân số (Tiết 1): Luyện tập (Trang 11)",
-            "integration": "AI 5.A2.1: Khẳng định: Máy tính tính toán phân số rất nhanh, nhưng con người mới là người hiểu ý nghĩa thực tế (ví dụ: chia bánh cho bạn)."
-        },
-        {
-            "week": 2,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Bài 3. Ôn tập phân số (Tiết 2): Luyện tập (Trang 12)",
-            "integration": "Năng lực số 5.2.CB2a: Học sinh sử dụng phần mềm hoặc hình ảnh số trực quan để quan sát, so sánh và nhận biết phân số."
-        },
-        {
-            "week": 2,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 7,
-            "lessonName": "Bài 4. Phân số thập phân",
-            "integration": "AI 5.D1.1: Tìm hiểu cách AI chuyển đổi dữ liệu hình ảnh thành các dãy số (phân số thập phân) để máy có thể “hiểu“ được hình ảnh."
-        },
-        {
-            "week": 2,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 8,
-            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 1): Luyện tập (Trang 16)",
-            "integration": "AI 5.A1.1: AI hỗ trợ phần mềm thiết kế cơ khí tính toán tỷ lệ phân số cực chính xác để lắp ráp các bộ phận robot siêu nhỏ."
-        },
-        {
-            "week": 2,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 9,
-            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 2): Luyện tập (Trang 17)",
-            "integration": "Đạo đức, lối sống: Qua bài toán quyên góp sách, thư viện hoặc chia sẻ học liệu, giáo dục học sinh biết quan tâm, chia sẻ và hình thành thói quen đọc sách."
-        },
-        {
-            "week": 2,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 10,
-            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 3): Luyện tập (Trang 18)",
-            "integration": ""
-        },
-        {
-            "week": 3,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 6. Cộng, trừ hai phân số khác mẫu số (Tiết 1)",
-            "integration": "AI 5.C4.1: Sử dụng tư duy thuật toán “Tìm mẫu số chung“ để hiểu cách lập trình AI thực hiện các bước giải quyết vấn đề."
-        },
-        {
-            "week": 3,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Bài 6. Cộng, trừ hai phân số khác mẫu số (Tiết 2): Luyện tập (Trang 21)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Từ tình huống lượng nước trong bình, giáo dục học sinh sử dụng nước vừa đủ, khóa vòi sau khi dùng và không làm bẩn nguồn nước."
-        },
-        {
-            "week": 3,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 13,
-            "lessonName": "Bài 7. Hỗn số (Tiết 1)",
-            "integration": "AI 5.D2.1: Liên hệ: Việc cập nhật thêm hỗn số vào kho kiến thức giúp học sinh (và cả hệ thống AI) xử lý các số liệu đo lường thực tế tốt hơn."
-        },
-        {
-            "week": 3,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 14,
-            "lessonName": "Bài 7. Hỗn số (Tiết 2): Luyện tập (Trang 24)",
-            "integration": "Năng lực số 1.1.CB2b: Học sinh tra cứu một số thông tin thực tế có liên quan đến hỗn số để nhận biết cách dùng hỗn số trong đời sống."
-        },
-        {
-            "week": 3,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 15,
-            "lessonName": "Bài 8. Ôn tập hình học và đo lường (Tiết 1): Luyện tập (Trang 26)",
-            "integration": "AI 5.C4.2: Trải nghiệm ứng dụng nhận diện hình dạng (như Google Lens): AI giúp phân loại đồ vật hình học dựa trên các đặc điểm đã học."
-        },
-        {
-            "week": 4,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Bài 8. Ôn tập hình học và đo lường (Tiết 2): Luyện tập (Trang 27)",
-            "integration": "Năng lực số 5.2.TC3b: Học sinh sử dụng thước đo hoặc công cụ hình học số để kiểm tra độ dài, góc và củng cố kiến thức đo lường."
-        },
-        {
-            "week": 4,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 17,
-            "lessonName": "Bài 9. Luyện tập chung (tiết 1): Luyện tập (Trang 29)",
-            "integration": "AI 5.A3.1: Sử dụng Chatbot AI để tìm kiếm các bài toán đố vui về số tự nhiên và phân số, rèn luyện kỹ năng đặt câu hỏi cho máy."
-        },
-        {
-            "week": 4,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 18,
-            "lessonName": "Bài 9. Luyện tập chung (tiết 2): Luyện tập (Trang 30)",
-            "integration": "Năng lực số 2.1.CB2a: Học sinh trao đổi cách giải bài toán qua nhóm lớp hoặc nền tảng học tập trực tuyến để chia sẻ và hoàn thiện lời giải."
-        },
-        {
-            "week": 4,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 19,
-            "lessonName": "Bài 9. Luyện tập chung (tiết 3): Luyện tập (Trang 31)",
-            "integration": ""
-        },
-        {
-            "week": 4,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 20,
-            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 1)",
-            "integration": "AI 5.A1.1: Nhận biết: Robot phẫu thuật cần độ chính xác đến hàng phần nghìn của số thập phân để đảm bảo an toàn tuyệt đối cho bệnh nhân."
-        },
-        {
-            "week": 5,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 2): Hàng của số thập phân. Đọc, viết số thập phân (Trang 35)",
-            "integration": "Năng lực số 1.1.CB2a: Học sinh tìm kiếm một số thông tin thực tế có dạng số thập phân để đọc, viết và nhận biết số thập phân."
-        },
-        {
-            "week": 5,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 3): Luyện tập (Trang 37)",
-            "integration": ""
-        },
-        {
-            "week": 5,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 23,
-            "lessonName": "Bài 11. So sánh các số thập phân (Tiết 1)",
-            "integration": "AI 5.B1.1: Thảo luận: Nếu AI so sánh dữ liệu thiên lệch (chỉ ưu tiên một nhóm), kết quả sẽ không công bằng. AI cần tiêu chí so sánh minh bạch."
-        },
-        {
-            "week": 5,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 24,
-            "lessonName": "Bài 11. So sánh các số thập phân (Tiết 2): Luyện tập (Trang 40)",
-            "integration": "Năng lực số 3.1.TC3a: Tạo một bảng so sánh số liệu thập phân trên phần mềm soạn thảo văn bản."
-        },
-        {
-            "week": 5,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 25,
-            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 1)",
-            "integration": "AI 5.A2.2: Tìm hiểu cách AI dùng số thập phân để đo nồng độ ô nhiễm không khí (PM2.5) nhằm cảnh báo sức khỏe cho cộng đồng."
-        },
-        {
-            "week": 6,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 2): Viết số đo diện tích dưới dạng số thập phân",
-            "integration": "BVMT: Khai thác số đo nồng độ bụi, chất lượng không khí hoặc lượng rác thải ở dạng số thập phân; giáo dục học sinh có ý thức bảo vệ môi trường sống."
-        },
-        {
-            "week": 6,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 27,
-            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 3): Luyện tập (Trang 45)",
-            "integration": ""
-        },
-        {
-            "week": 6,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 28,
-            "lessonName": "Bài 13. Làm tròn số thập phân (Tiết 1): Làm tròn số thập phân đến số tự nhiên gần nhất",
-            "integration": "AI 5.A1.2: Nhấn mạnh: AI có thể tự động làm tròn số liệu báo cáo, nhưng con người phải kiểm tra xem việc làm tròn đó có gây sai sót lớn không."
-        },
-        {
-            "week": 6,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 29,
-            "lessonName": "Bài 13. Làm tròn số thập phân (Tiết 2): Làm tròn số thập phân đến hàng phần mười, hàng phần trăm.",
-            "integration": "Năng lực số 1.2.CB2a: Đánh giá độ tin cậy của các thông tin giá cả đã được làm tròn trên website bán hàng."
-        },
-        {
-            "week": 6,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 30,
-            "lessonName": "Bài 14. Luyện tập chung (Tiết 1): Luyện tập (Trang 51)",
-            "integration": "AI 5.D2.1: Ví dụ: Hệ thống AI dự báo giá cả thị trường sẽ chính xác hơn khi liên tục được cập nhật các số thập phân về giá trị thực tế hàng giờ.\nSTEM: Bài 2. Dụng cụ học số thập phân"
-        },
-        {
-            "week": 7,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 14. Luyện tập chung (Tiết 2): Luyện tập (Trang 52)",
-            "integration": "Năng lực số 4.2.CB2a: Tìm hiểu chính sách quyền riêng tư khi sử dụng các ứng dụng giải toán online."
-        },
-        {
-            "week": 7,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Bài 15. Ki-lô-mét vuông. Héc - ta (tiết 1): Ki-lô-mét vuông.",
-            "integration": "AI 5.A2.2: Tìm hiểu cách AI phân tích ảnh vệ tinh tính toán diện tích rừng (km²) bị mất để đưa ra cảnh báo cháy rừng kịp thời."
-        },
-        {
-            "week": 7,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 33,
-            "lessonName": "Bài 15. Ki-lô-mét vuông. Héc - ta (tiết 2): Héc - ta",
-            "integration": "BVMT: Dùng số liệu diện tích rừng, vườn quốc gia hoặc đất xanh để giáo dục học sinh ý thức bảo vệ tài nguyên thiên nhiên."
-        },
-        {
-            "week": 7,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 34,
-            "lessonName": "Bài 16. Các đơn vị đo diện tích (Tiết 1)",
-            "integration": "AI 5.A1.1: Robot nông nghiệp tích hợp AI tự động tính diện tích ruộng để phun thuốc trừ sâu chính xác đến từng cm², tránh lãng phí."
-        },
-        {
-            "week": 7,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 35,
-            "lessonName": "Bài 16. Các đơn vị đo diện tích (Tiết 2): Luyện tập (Trang 58)",
-            "integration": "BVMT: Tính diện tích vườn cây, bồn hoa, khuôn viên xanh; giáo dục học sinh trồng, chăm sóc cây và giữ gìn cảnh quan."
-        },
-        {
-            "week": 8,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 36,
-            "lessonName": "Bài 17. Thực hành và trải nghiệm với một số đơn vị đo đại lượng (Tiết 1)",
-            "integration": "AI 5.C4.2: Sử dụng ứng dụng thước đo điện tử có tích hợp AI trên điện thoại để đo kích thước các đồ vật thực tế trong lớp học."
-        },
-        {
-            "week": 8,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 37,
-            "lessonName": "Bài 17. Thực hành và trải nghiệm với một số đơn vị đo đại lượng (Tiết 2)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Khi thực hành đo đạc, vệ sinh lớp học hoặc chăm sóc cây, nhắc học sinh sử dụng nước hợp lí, không xả nước lãng phí."
-        },
-        {
-            "week": 8,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 38,
-            "lessonName": "Bài 18. Luyện tập chung (Tiết 1): Luyện tập (Trang 62)",
-            "integration": "AI 5.D1.1: HS thu thập số liệu diện tích nhà ở của các bạn trong nhóm để “huấn luyện“ một sơ đồ tư duy về không gian sống của lớp."
-        },
-        {
-            "week": 8,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 39,
-            "lessonName": "Bài 18. Luyện tập chung (Tiết 2): Luyện tập (Trang 63)",
-            "integration": "Đạo đức, lối sống: Qua bài toán diện tích nhà ở, khu sinh hoạt, giáo dục học sinh sống gọn gàng, sạch sẽ và biết giữ gìn không gian chung."
-        },
-        {
-            "week": 8,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 40,
-            "lessonName": "Bài 19: Phép cộng số thập phân (Tiết 1)",
-            "integration": "AI 5.A1.1: AI xử lý việc cộng hàng triệu giao dịch ngân hàng mỗi giây để đảm bảo tài khoản của khách hàng luôn chính xác tuyệt đối."
-        },
-        {
-            "week": 9,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Bài 19: Phép cộng số thập phân (Tiết 2): Luyện tập (Trang 67)",
-            "integration": "Năng lực số 1.3.CB2b: Nhận biết nơi lưu trữ tệp tin bảng tính quản lý chi tiêu cá nhân trong máy tính."
-        },
-        {
-            "week": 9,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Bài 20. Phép trừ số thập phân (Tiết 1)",
-            "integration": "AI 5.A1.1: Ứng dụng AI quản lý kho: Tự động trừ số lượng hàng hóa (kg) khi có người mua để nhắc nhở nhân viên nhập hàng kịp thời."
-        },
-        {
-            "week": 9,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 43,
-            "lessonName": "Bài 20. Phép trừ số thập phân (Tiết 2): Luyện tập (Trang 70)",
-            "integration": "Năng lực số 2.1.CB2a: Chọn phương tiện giao tiếp số phù hợp để hỏi bạn cách thực hiện phép tính trừ."
-        },
-        {
-            "week": 9,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 44,
-            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 1): Nhân một số thập phân với một số tự nhiên",
-            "integration": "AI 5.A1.1: AI tính toán quãng đường tàu vũ trụ dựa trên vận tốc và thời gian (số thập phân) để hạ cánh chính xác xuống các hành tinh."
-        },
-        {
-            "week": 9,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 45,
-            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 2): Nhân một số thập phân với một số thập phân",
-            "integration": "Năng lực số 3.4.CB2a: Xây dựng thuật toán từng bước để giải bài toán nhân quãng đường, vận tốc."
-        },
-        {
-            "week": 10,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 46,
-            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 3): Luyện tập (Trang 75)",
-            "integration": ""
-        },
-        {
-            "week": 10,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 47,
-            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 1): Chia một số thập phân cho một số tự nhiên",
-            "integration": "AI 5.A1.1: Thảo luận: Xem video robot lắp ráp linh kiện, thảo luận về việc sai số 0, 001 đơn vị trong phép chia có thể làm hỏng sản phẩm."
-        },
-        {
-            "week": 10,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 48,
-            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 2): Chia một số tự nhiên cho một số tự nhiên mà thương tìm được là một số thập phân",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tạo tình huống chia lượng nước sử dụng trong ngày hoặc trong tuần để giáo dục học sinh giảm lãng phí nước trong sinh hoạt."
-        },
-        {
-            "week": 10,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 49,
-            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 3): Chia một số tự nhiên cho một số thập phân",
-            "integration": ""
-        },
-        {
-            "week": 10,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 50,
-            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 4): Chia một số thập phân cho một số thập phân",
-            "integration": ""
-        },
-        {
-            "week": 11,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Bài 23. Nhân, chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001… (Tiết 1): Nhân số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001…",
-            "integration": "AI 5.C4.1: Nhận biết quy tắc dịch chuyển dấu phẩy tương tự như các “lệnh“ trong lập trình AI để dịch chuyển dữ liệu nhanh chóng."
-        },
-        {
-            "week": 11,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Bài 23. Nhân, chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001… (Tiết 2): Chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001…",
-            "integration": "Năng lực số 3.4.CB1a: Liệt kê các câu lệnh dịch chuyển dấu phẩy tương tự quy trình lập trình đơn giản."
-        },
-        {
-            "week": 11,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 53,
-            "lessonName": "Bài 24. Luyện tập chung (Tiết 1): Luyện tập (Trang 88)",
-            "integration": "AI 5.A3.1: Thực hành kiểm chứng kết quả phép tính số thập phân bằng cách hỏi Chatbot AI và đối chiếu với cách làm của mình."
-        },
-        {
-            "week": 11,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 54,
-            "lessonName": "Bài 24. Luyện tập chung (Tiết 2): Luyện tập (Trang 89)",
-            "integration": "Năng lực số 5.2.CB2a: Lựa chọn các công cụ máy tính số phù hợp để kiểm tra kết quả bài làm."
-        },
-        {
-            "week": 11,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 55,
-            "lessonName": "Bài 24. Luyện tập chung (Tiết 3): Luyện tập (Trang 90)",
-            "integration": ""
-        },
-        {
-            "week": 12,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 56,
-            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 1): Hình tam giác",
-            "integration": "AI 5.C4.2: Sử dụng AutoDraw: HS vẽ phác thảo tam giác, AI sẽ nhận diện và gợi ý hình tam giác chuẩn để HS thực hành tính diện tích."
-        },
-        {
-            "week": 12,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 57,
-            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 2): Vẽ đường cao của hình tam giác",
-            "integration": "BVMT: Tính diện tích bồn hoa, mảnh vườn hình tam giác; giáo dục học sinh yêu cây xanh, không hái hoa, bẻ cành."
-        },
-        {
-            "week": 12,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 58,
-            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 3): Diện tích hình tam giác",
-            "integration": ""
-        },
-        {
-            "week": 12,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 59,
-            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 4): Luyện tập (Trang 96)",
-            "integration": ""
-        },
-        {
-            "week": 12,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 60,
-            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 1): Hình thang",
-            "integration": "AI 5.C4.1: HS lập luận logic: “Nếu tứ giác có 2 cạnh đáy song song Thì là hình thang“, áp dụng tư duy này vào lập trình robot."
-        },
-        {
-            "week": 13,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 2): Vẽ hình thang",
-            "integration": "Năng lực số 3.4.CB2a: Viết chuỗi logic: “Nếu có 2 cạnh đáy song song Thì là hình thang“."
-        },
-        {
-            "week": 13,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 3): Diện tích hình thang",
-            "integration": ""
-        },
-        {
-            "week": 13,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 63,
-            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 4): Luyện tập (Trang 104)",
-            "integration": ""
-        },
-        {
-            "week": 13,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 64,
-            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 1): Đường tròn. Vẽ đường tròn có tâm và bán kính cho trước",
-            "integration": "AI 5.A1.1: AI giúp thiết kế các ổ bi trong máy móc với độ tròn hoàn hảo để máy hoạt động êm ái, giảm thiểu tiếng ồn và hư hỏng."
-        },
-        {
-            "week": 13,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 65,
-            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 2): Chu vi hình tròn",
-            "integration": "BVMT: Tính chu vi, diện tích bồn cây, hồ nước hoặc sân chơi hình tròn; giáo dục học sinh giữ gìn cảnh quan xanh - sạch - đẹp."
-        },
-        {
-            "week": 14,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 66,
-            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 3): Luyện tập (Trang 108)",
-            "integration": ""
-        },
-        {
-            "week": 14,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 67,
-            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 4): Diện tích hình tròn",
-            "integration": ""
-        },
-        {
-            "week": 14,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 68,
-            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 5): Luyện tập (Trang 111)",
-            "integration": ""
-        },
-        {
-            "week": 14,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 69,
-            "lessonName": "Bài 28. Thực hành và trải nghiệm đo, vẽ, lắp ghép, tạo hình (Tiết 1)",
-            "integration": "AI 5.A2.1: Khẳng định: AI có thể gợi ý mẫu lắp ghép, nhưng sự khéo léo và sáng tạo để tạo ra mô hình độc bản là của con người."
-        },
-        {
-            "week": 14,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 70,
-            "lessonName": "Bài 28. Thực hành và trải nghiệm đo, vẽ, lắp ghép, tạo hình (Tiết 2)",
-            "integration": "Năng lực số 3.1.CB2b: Quay video ngắn giới thiệu quy trình lắp ghép mô hình hình học của nhóm.\nSTEM: Bài 6. Thực hành trải nghiệm cùng bộ lắp ghép hình Tangram"
-        },
-        {
-            "week": 15,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 71,
-            "lessonName": "Bài 29. Luyện tập chung (Tiết 1): Luyện tập (Trang 116)",
-            "integration": "AI 5.D2.1: Khi HS học thêm nhiều loại hình mới, kho dữ liệu hình học của HS được cập nhật để giải các bài toán thiết kế phức tạp hơn."
-        },
-        {
-            "week": 15,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 72,
-            "lessonName": "Bài 29. Luyện tập chung (Tiết 2): Luyện tập (Trang 117)",
-            "integration": "Năng lực số 2.2.CB1a: Thực hành chia sẻ ảnh chụp mô hình hình học lên Padlet để cả lớp cùng xem."
-        },
-        {
-            "week": 15,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 73,
-            "lessonName": "Bài 29. Luyện tập chung (Tiết 3): Luyện tập (Trang 118)",
-            "integration": ""
-        },
-        {
-            "week": 15,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 74,
-            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 1): Luyện tập (Trang 120)",
-            "integration": "AI 5.D1.1: HS đóng vai “người dán nhãn dữ liệu“: Phân loại các số thập phân vào các nhóm (nhóm > 1, nhóm < 1) để “dạy“ máy học phân loại."
-        },
-        {
-            "week": 15,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 75,
-            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 2): Luyện tập (Trang 121)",
-            "integration": "Năng lực số 5.2.CB2a: Tham gia trò chơi ôn tập (Quizizz/Kahoot) để tự đánh giá năng lực về số thập phân."
-        },
-        {
-            "week": 16,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 76,
-            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 3): Luyện tập (Trang 122)",
-            "integration": ""
-        },
-        {
-            "week": 16,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 77,
-            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 1): Luyện tập (Trang 123)",
-            "integration": "AI 5.A1.2: Thảo luận: Nếu AI tính sai hóa đơn tiền điện, con người (nhân viên ngân hàng) phải phát hiện lỗi và chịu trách nhiệm xử lý."
-        },
-        {
-            "week": 16,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 78,
-            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 2): Luyện tập (Trang 124)",
-            "integration": "Năng lực số 1.3.CB2a: Thực hành nhập liệu và quản lý kết quả phép tính trong thư mục tệp tin số."
-        },
-        {
-            "week": 16,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 79,
-            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 3): Luyện tập (Trang 125)",
-            "integration": ""
-        },
-        {
-            "week": 16,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 80,
-            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 4): Luyện tập (Trang 126)",
-            "integration": ""
-        },
-        {
-            "week": 17,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 81,
-            "lessonName": "Bài 32. Ôn tập một số hình phẳng (Tiết 1): Luyện tập (Trang 127)",
-            "integration": "AI 5.C4.2: Sử dụng Teachable Machine để dạy máy nhận diện và phân biệt giữa hình tam giác, hình thang và hình chữ nhật."
-        },
-        {
-            "week": 17,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 82,
-            "lessonName": "Bài 32. Ôn tập một số hình phẳng (Tiết 2): Luyện tập (Trang 128)",
-            "integration": "Năng lực số 3.1.TC3a: Thiết kế sơ đồ tư duy (Mindmap) hệ thống hóa kiến thức các loại hình phẳng."
-        },
-        {
-            "week": 17,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 83,
-            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 1): Luyện tập (Trang 130)",
-            "integration": "AI 5.A2.2: Ví dụ: AI giúp kiến trúc sư tính toán diện tích kính cần dùng cho tòa nhà xanh để tối ưu hóa ánh sáng và tiết kiệm năng lượng."
-        },
-        {
-            "week": 17,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 84,
-            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 2): Luyện tập (Trang 131)",
-            "integration": "BVMT: Tính diện tích kính, mái che hoặc khu cây xanh; liên hệ sử dụng vật liệu hợp lí, tiết kiệm năng lượng và bảo vệ môi trường."
-        },
-        {
-            "week": 17,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 85,
-            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 3): Luyện tập (Trang 132)",
-            "integration": ""
-        },
-        {
-            "week": 18,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 86,
-            "lessonName": "Bài 34: Ôn tập đo lường (Tiết 1): Luyện tập (Trang 133)",
-            "integration": "AI 5.A1.1: Nhận biết AI thay con người đo đạc trong các hầm mỏ sâu hoặc nơi có khí độc để đảm bảo an toàn cho các công nhân."
-        },
-        {
-            "week": 18,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 87,
-            "lessonName": "Bài 34: Ôn tập đo lường (Tiết 2): Luyện tập (Trang 134)",
-            "integration": "Năng lực số 1.1.CB2b: Tìm kiếm và truy cập các website chuyển đổi đơn vị đo lường trực tuyến."
-        },
-        {
-            "week": 18,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 88,
-            "lessonName": "Bài 35: Ôn tập chung (Tiết 1): Luyện tập (Trang 135)",
-            "integration": "AI 5.D2.1: Tổng kết: Kiến thức toán học học kì I là “dữ liệu nguồn“ giúp HS thông minh hơn và sẵn sàng cho các bài toán phức tạp hơn ở kì II."
-        },
-        {
-            "week": 18,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 89,
-            "lessonName": "Bài 35: Ôn tập chung (Tiết 2): Luyện tập (Trang 136)",
-            "integration": "Năng lực số 2.5.CB2a: Tuân thủ các quy tắc ứng xử văn minh khi bình luận bài làm của bạn trên mạng."
-        },
-        {
-            "week": 18,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 90,
-            "lessonName": "Bài 35: Ôn tập chung (Tiết 3): Luyện tập (Trang 137)",
-            "integration": ""
-        },
-        {
-            "week": 19,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 91,
-            "lessonName": "Bài 36. Tỉ số. Tỉ số phần trăm (tiết 1)",
-            "integration": "AI 5.B1.1: Thảo luận: Nếu dữ liệu huấn luyện AI chỉ lấy từ một nhóm người, tỉ số phần trăm phản hồi sẽ không công bằng cho các nhóm khác."
-        },
-        {
-            "week": 19,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 92,
-            "lessonName": "Bài 36. Tỉ số. Tỉ số phần trăm (tiết 2): Luyện tập (Trang 6)",
-            "integration": "BVMT: Từ tỉ số, tỉ số phần trăm của xe điện, xe xăng hoặc rác tái chế, giáo dục học sinh lựa chọn hành vi thân thiện với môi trường."
-        },
-        {
-            "week": 19,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 93,
-            "lessonName": "Bài 37. Tỉ lệ bản đồ và ứng dụng (tiết 1)",
-            "integration": "AI 5.A2.2: Tìm hiểu cách AI trên Google Maps tính toán tỉ lệ khoảng cách và dự báo thời gian di chuyển chính xác dựa trên tình trạng giao thông."
-        },
-        {
-            "week": 19,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 94,
-            "lessonName": "Bài 37. Tỉ lệ bản đồ và ứng dụng (tiết 2): Luyện tập (Trang 10)",
-            "integration": "QPAN: Khi đọc bản đồ và tính khoảng cách, giáo dục học sinh hiểu ý nghĩa của bản đồ Việt Nam, yêu quê hương và có ý thức bảo vệ chủ quyền lãnh thổ."
-        },
-        {
-            "week": 19,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 95,
-            "lessonName": "Bài 38. Tìm hai số khi biết tổng và tỉ số của hai số đó (tiết 1)",
-            "integration": "AI 5.C4.1: HS mô phỏng quy trình giải toán theo các bước (thuật toán) mà AI thực hiện để tìm ra đáp án nhanh và chính xác nhất."
-        },
-        {
-            "week": 20,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 96,
-            "lessonName": "Bài 38. Tìm hai số khi biết tổng và tỉ số của hai số đó (tiết 2): Luyện tập (Trang 13)",
-            "integration": "Đạo đức, lối sống: Qua bài toán góp sách, chia phần, giáo dục học sinh tinh thần công bằng, chia sẻ và hợp tác trong tập thể."
-        },
-        {
-            "week": 20,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 97,
-            "lessonName": "Bài 39. Tìm hai số khi biết hiệu và tỉ số của hai số đó (tiết 1)",
-            "integration": "AI 5.D1.1: Liên hệ: Để giải toán, AI cần “dữ liệu đầu vào“ là Hiệu và Tỉ số, tương tự như việc HS tóm tắt đề bài trước khi giải."
-        },
-        {
-            "week": 20,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 98,
-            "lessonName": "Bài 39. Tìm hai số khi biết hiệu và tỉ số của hai số đó (tiết 2) Luyện tập (Trang 16)",
-            "integration": "BVMT: Dùng tình huống phân loại rác, chăm sóc cây trồng hoặc vật nuôi để giáo dục học sinh ý thức bảo vệ môi trường sống."
-        },
-        {
-            "week": 20,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 99,
-            "lessonName": "Bài 40. Tìm tỉ số phần trăm của hai số (tiết 1)",
-            "integration": "AI 5.A3.1: Sử dụng các ứng dụng học tập tích hợp AI (adaptive learning) để tự luyện tập các bài toán về tỉ số phần trăm theo mức độ cá nhân."
-        },
-        {
-            "week": 20,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 100,
-            "lessonName": "Bài 40. Tìm tỉ số phần trăm của hai số (tiết 2): Luyện tập (Trang 19)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Khai thác các bài toán về tỉ lệ nước tiết kiệm được hoặc tỉ lệ tham gia vệ sinh trường lớp để giáo dục học sinh sử dụng nước có trách nhiệm."
-        },
-        {
-            "week": 21,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 101,
-            "lessonName": "Bài 41. Tìm giá trị phần trăm của một số (tiết 1)",
-            "integration": "AI 5.A2.2: Ví dụ: AI tính phần trăm lượng pin còn lại hoặc phần trăm hoàn thành nhiệm vụ của robot thám hiểm để thông báo cho con người."
-        },
-        {
-            "week": 21,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 102,
-            "lessonName": "Bài 41. Tìm giá trị phần trăm của một số (tiết 2): Luyện tập (Trang 22)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính lượng nước tiết kiệm được khi giảm 10%, 15% hoặc 20% lượng nước sử dụng hằng ngày."
-        },
-        {
-            "week": 21,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 103,
-            "lessonName": "Bài 42. Máy tính cầm tay (tiết 1)",
-            "integration": "Đạo đức, lối sống: Giáo dục học sinh sử dụng máy tính cầm tay đúng mục đích, trung thực trong học tập và không phụ thuộc hoàn toàn vào công cụ.\nSTEM: Bài 12. Sử dụng máy tính cầm tay"
-        },
-        {
-            "week": 21,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 104,
-            "lessonName": "Bài 42. Máy tính cầm tay (tiết 2): Luyện tập (Trang 26)",
-            "integration": "Đạo đức, lối sống: Học sinh dùng máy tính để kiểm tra kết quả, biết tự chịu trách nhiệm với bài làm và không sao chép máy móc."
-        },
-        {
-            "week": 21,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 105,
-            "lessonName": "Bài 43. Thực hành và trải nghiệm sử dụng máy tính cầm tay",
-            "integration": "AI 5.B3.1: Khi dùng máy tính/AI để tính tỉ số, HS cần hiểu lý do máy ra kết quả đó (dựa trên thuật toán nào) để đảm bảo tính minh bạch."
-        },
-        {
-            "week": 22,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 106,
-            "lessonName": "Bài 44. Luyện tập chung (tiết 1): Luyện tập (Trang 28)",
-            "integration": "Năng lực số 2.5.CB2b: Chọn chiến lược giao tiếp phù hợp khi thảo luận bài tập trong nhóm học tập số."
-        },
-        {
-            "week": 22,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 107,
-            "lessonName": "Bài 44. Luyện tập chung (tiết 2): Luyện tập (Trang 29)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Liên hệ thể tích nước trong bể, chậu, bình; giáo dục học sinh không xả nước lãng phí và biết bảo quản nước sạch."
-        },
-        {
-            "week": 22,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 108,
-            "lessonName": "Bài 45. Thể tích của một hình",
-            "integration": "AI 5.A1.1: AI tính toán thể tích linh kiện điện tử siêu nhỏ ($cm^3$) để robot có thể lắp ráp điện thoại thông minh một cách chính xác tuyệt đối."
-        },
-        {
-            "week": 22,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 109,
-            "lessonName": "Bài 46. Xăng - ti-mét khối. Đề-xi-mét khối (tiết 1)",
-            "integration": "Năng lực số 1.3.CB2a: Sắp xếp dữ liệu các vật thể theo đơn vị thể tích vào thư mục có cấu trúc."
-        },
-        {
-            "week": 22,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 110,
-            "lessonName": "Bài 46. Xăng - ti-mét khối. Đề-xi-mét khối (tiết 2): Luyện tập (Trang 34)",
-            "integration": "AI 5.A1.1: AI hỗ trợ tính thể tích nước sạch cần cung cấp cho thành phố ($m^3$) mỗi ngày dựa trên dữ liệu tiêu thụ thực tế để điều tiết hợp lý."
-        },
-        {
-            "week": 23,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 111,
-            "lessonName": "Bài 47. Mét khối (tiết 1)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính thể tích bể chứa nước, lượng nước sinh hoạt; nhắc học sinh bảo vệ nguồn nước sạch trong gia đình và nhà trường."
-        },
-        {
-            "week": 23,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 112,
-            "lessonName": "Bài 47. Mét khối (tiết 2): Luyện tập (Trang 37)",
-            "integration": "AI 5.D2.1: Ví dụ: AI ước lượng thể tích thức ăn cho vật nuôi chính xác hơn khi có thêm dữ liệu cập nhật về cân nặng và độ tuổi của con vật."
-        },
-        {
-            "week": 23,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 113,
-            "lessonName": "Bài 48. Luyện tập chung (tiết 1): Luyện tập (Trang 38)",
-            "integration": "Năng lực số 2.1.CB2a: Sử dụng phòng họp trực tuyến (Google Meet) để trao đổi bài giải về thể tích."
-        },
-        {
-            "week": 23,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 114,
-            "lessonName": "Bài 48. Luyện tập chung (tiết 2): Luyện tập (Trang 39)",
-            "integration": "AI 5.C4.2: Sử dụng phần mềm mô phỏng 3D để xem AI tự động tạo ra các hình khai triển từ bản vẽ phẳng của các loại bao bì sản phẩm."
-        },
-        {
-            "week": 23,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 115,
-            "lessonName": "Bài 49. Hình khai triển của hình lập phương, hình hộp chữ nhật và hình trụ (tiết 1)",
-            "integration": "Năng lực số 3.1.CB2a: Sử dụng phần mềm vẽ 3D đơn giản để quan sát hình khai triển của khối hộp."
-        },
-        {
-            "week": 24,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 116,
-            "lessonName": "Bài 49. Hình khai triển của hình lập phương, hình hộp chữ nhật và hình trụ (tiết 2): Luyện tập (Trang 42)",
-            "integration": "AI 5.A2.2: AI giúp tính diện tích bề mặt tấm pin mặt trời cần lắp đặt để tối ưu hóa việc thu nhận năng lượng cho ngôi nhà thông minh."
-        },
-        {
-            "week": 24,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 117,
-            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 1)",
-            "integration": "BVMT: Tính diện tích giấy bọc hộp hoặc vật liệu làm hộp; giáo dục học sinh tiết kiệm giấy, tái sử dụng bao bì và giảm rác thải."
-        },
-        {
-            "week": 24,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 118,
-            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 2): (Trang 45)",
-            "integration": ""
-        },
-        {
-            "week": 24,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 119,
-            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 3): Luyện tập (Trang 46)",
-            "integration": "AI 5.D1.1: HS tạo “bộ dữ liệu“ bằng cách liệt kê diện tích 6 mặt bằng nhau để máy hiểu cấu trúc của hình lập phương."
-        },
-        {
-            "week": 24,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 120,
-            "lessonName": "Bài 51. Diện tích xung quanh và diện tích toàn phần của hình lập phương (tiết 1)",
-            "integration": "Năng lực số 3.1.CB2a: Tạo và chỉnh sửa hình ảnh khai triển 6 mặt của hình lập phương trên máy tính."
-        },
-        {
-            "week": 25,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 121,
-            "lessonName": "Bài 51. Diện tích xung quanh và diện tích toàn phần của hình lập phương (tiết 2): Luyện tập (Trang 50)",
-            "integration": "AI 5.A1.1: AI tính thể tích nhiên liệu cần thiết cho máy bay dựa trên kích thước bồn chứa để đảm bảo an toàn cho các chuyến bay dài."
-        },
-        {
-            "week": 25,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 122,
-            "lessonName": "Bài 52. Thể tích của hình hộp chữ nhật (tiết 1)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính thể tích bể nước, thùng chứa nước; giáo dục học sinh sử dụng nước tiết kiệm và giữ gìn nguồn nước sạch."
-        },
-        {
-            "week": 25,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 123,
-            "lessonName": "Bài 52. Thể tích của hình hộp chữ nhật (tiết 2): Luyện tập (Trang 53)",
-            "integration": "AI 5.A1.1: Tìm hiểu cách AI sắp xếp các kiện hàng hình lập phương vào thùng xe tải để tận dụng tối đa thể tích không gian chứa hàng."
-        },
-        {
-            "week": 25,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 124,
-            "lessonName": "Bài 53. Thể tích của hình lập phương (tiết 1)",
-            "integration": "Năng lực số 1.3.CB2a: Tổ chức bộ dữ liệu thể tích các khối rubik khác nhau vào bảng tính số."
-        },
-        {
-            "week": 25,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 125,
-            "lessonName": "Bài 53. Thể tích của hình lập phương (tiết 2): Luyện tập (Trang 56)",
-            "integration": "AI 5.C4.2: Trải nghiệm ứng dụng đo thể tích thực tế thông qua camera điện thoại có tích hợp công nghệ AI nhận diện không gian.\nSTEM: Bài 14. Ngôi nhà nhỏ, tiện ích"
-        },
-        {
-            "week": 26,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 126,
-            "lessonName": "Bài 54. Thực hành tính toán và ước lượng thể tích một số hình khối",
-            "integration": "AI 5.A1.2: Khẳng định: Nếu AI tính sai diện tích xây dựng, kỹ sư con người phải là người kiểm tra lại bản vẽ và chịu trách nhiệm pháp lý."
-        },
-        {
-            "week": 26,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 127,
-            "lessonName": "Bài 55. Luyện tập chung (Tiết 1): Luyện tập (Trang 60)",
-            "integration": "BVMT: Luyện tập bằng các bài toán về thùng chứa, bể nước, hộp tái chế; củng cố ý thức tiết kiệm vật liệu và bảo vệ môi trường."
-        },
-        {
-            "week": 26,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 128,
-            "lessonName": "Bài 55. Luyện tập chung (Tiết 2): Luyện tập (Trang 61)",
-            "integration": ""
-        },
-        {
-            "week": 26,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 129,
-            "lessonName": "Bài 55. Luyện tập chung (Tiết 3): Luyện tập (Trang 62)",
-            "integration": "AI 5.A1.1: Nhận biết AI giúp điều khiển tín hiệu đèn giao thông theo thời gian thực (từng giây) để giảm ùn tắc tại các ngã tư."
-        },
-        {
-            "week": 26,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 130,
-            "lessonName": "Bài 56. Các đơn vị đo thời gian",
-            "integration": "Năng lực số 1.1.CB2b: Truy cập dữ liệu giờ bay, giờ tàu chạy trên các ứng dụng vận tải trực tuyến."
-        },
-        {
-            "week": 27,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 131,
-            "lessonName": "Bài 57. Cộng, trừ số đo thời gian (tiết 1): Cộng số đo thời gian",
-            "integration": "AI 5.A3.1: Sử dụng trợ lý ảo (Siri, Google) để đặt lịch hẹn và yêu cầu máy tính khoảng thời gian còn lại đến giờ vào lớp."
-        },
-        {
-            "week": 27,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 132,
-            "lessonName": "Bài 57. Cộng, trừ số đo thời gian (tiết 2): Trừ số đo thời gian",
-            "integration": "Năng lực số 5.2.CB2a: Sử dụng ứng dụng đồng hồ bấm giờ và lịch kỹ thuật số để quản lý thời gian."
-        },
-        {
-            "week": 27,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 133,
-            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 1): Nhân số đo thời gian với một số",
-            "integration": "AI 5.A2.2: AI tính toán thời gian quay của các turbine gió để sản xuất điện năng hiệu quả nhất dựa trên vận tốc gió thay đổi liên tục."
-        },
-        {
-            "week": 27,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 134,
-            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 2): Chia số đo thời gian cho một số",
-            "integration": "Năng lực số 3.1.CB2a: Thiết kế thời gian biểu cá nhân chi tiết bằng ứng dụng Google Calendar."
-        },
-        {
-            "week": 27,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 135,
-            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 3): Luyện tập (Trang 74)",
-            "integration": ""
-        },
-        {
-            "week": 28,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 136,
-            "lessonName": "Bài 59. Vận tốc của một chuyển động đều (tiết 1)",
-            "integration": "AI 5.A1.2: Phân tích xe tự lái: AI tính vận tốc để tránh vật cản, nhưng con người phải thiết lập các quy tắc an toàn và đạo đức."
-        },
-        {
-            "week": 28,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 137,
-            "lessonName": "Bài 59. Vận tốc của một chuyển động đều (tiết 2): Luyện tập (Trang 77)",
-            "integration": "Đạo đức, lối sống: Qua bài toán vận tốc, giáo dục học sinh chấp hành luật giao thông, đi đúng tốc độ và bảo đảm an toàn cho bản thân, cộng đồng."
-        },
-        {
-            "week": 28,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 138,
-            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 1): Quãng đường",
-            "integration": "AI 5.A1.1: AI trên các ứng dụng giao hàng tính toán quãng đường ngắn nhất và thời gian dự kiến để shipper giao hàng đến khách nhanh nhất."
-        },
-        {
-            "week": 28,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 139,
-            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 2): Thời gian",
-            "integration": "Lý tưởng cách mạng, đạo đức, lối sống: Tính quãng đường đến di tích lịch sử, cột mốc hoặc địa danh Việt Nam; giáo dục tình yêu quê hương, đất nước."
-        },
-        {
-            "week": 28,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 140,
-            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 3): Luyện tập (Trang 80)",
-            "integration": ""
-        },
-        {
-            "week": 29,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 141,
-            "lessonName": "Bài 61. Thực hành tính toán và ước lượng về vận tốc, quãng đường, thời gian trong chuyển động đều (Tiết 1)",
-            "integration": "AI 5.C4.2: Sử dụng Chatbot AI để tạo ra các kịch bản chuyển động khác nhau và HS thực hành tính toán lại các đại lượng dựa trên dữ liệu đó."
-        },
-        {
-            "week": 29,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 142,
-            "lessonName": "Bài 61. Thực hành tính toán và ước lượng về vận tốc, quãng đường, thời gian trong chuyển động đều (Tiết 2)",
-            "integration": "Năng lực số 3.1.CB2a: Tạo một bảng nhật ký hành trình số ghi lại các thông số s, v, t sau chuyến đi."
-        },
-        {
-            "week": 29,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 143,
-            "lessonName": "Bài 62. Luyện tập chung (Tiết 1): Luyện tập (Trang 84)",
-            "integration": "AI 5.D2.1: Ví dụ: AI dự báo thời gian về đích của vận động viên chính xác hơn nhờ cập nhật dữ liệu vận tốc qua từng chặng đua."
-        },
-        {
-            "week": 29,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 144,
-            "lessonName": "Bài 62. Luyện tập chung (Tiết 2): Luyện tập (Trang 85)",
-            "integration": "Năng lực số 1.2.CB2a: So sánh và đánh giá độ tin cậy của dữ liệu thời gian về đích giữa các trang báo."
-        },
-        {
-            "week": 29,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 145,
-            "lessonName": "Bài 62. Luyện tập chung (Tiết 3): Luyện tập (Trang 85)",
-            "integration": ""
-        },
-        {
-            "week": 30,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 146,
-            "lessonName": "Bài 63. Thu thập, phân loại, sắp xếp các số liệu",
-            "integration": "Đạo đức, lối sống: Khi thu thập số liệu, giáo dục học sinh ghi chép trung thực, tôn trọng dữ liệu thực tế và có trách nhiệm với kết quả trình bày."
-        },
-        {
-            "week": 30,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 147,
-            "lessonName": "Bài 64. Biểu đồ hình quạt tròn (Tiết 1)",
-            "integration": "AI 5.A2.2: Xem biểu đồ AI phân tích tỉ lệ sử dụng năng lượng sạch trên thế giới để hướng tới mục tiêu bảo vệ môi trường toàn cầu."
-        },
-        {
-            "week": 30,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 148,
-            "lessonName": "Bài 64. Biểu đồ hình quạt tròn (Tiết 2): Luyện tập (Trang 92)",
-            "integration": "BVMT: Biểu diễn tỉ lệ rác tái chế, rác hữu cơ hoặc rác khó phân hủy; giáo dục học sinh giảm rác thải nhựa."
-        },
-        {
-            "week": 30,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 149,
-            "lessonName": "Bài 65. Tỉ số của số lần lặp lại một sự kiện so với tổng số lần thực hiện",
-            "integration": "AI 5.B3.1: Thử nghiệm tung đồng xu và so sánh với kết quả dự đoán của AI để hiểu máy dựa trên cơ sở xác suất nào để ra quyết định."
-        },
-        {
-            "week": 30,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 150,
-            "lessonName": "Bài 66. Thực hành và trải nghiệm thu thập, phân tích, biểu diễn các số liệu thống kê (Tiết 1)",
-            "integration": "AI 5.D1.1: HS đóng vai “Kỹ sư dữ liệu“: Thu thập và sắp xếp dữ liệu rác thải trong trường để AI học cách nhận diện loại rác tái chế được."
-        },
-        {
-            "week": 31,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 151,
-            "lessonName": "Bài 66. Thực hành và trải nghiệm thu thập, phân tích, biểu diễn các số liệu thống kê (Tiết 2)",
-            "integration": "BVMT: Khảo sát số cây xanh, số chai nhựa hoặc lượng nước dùng; giáo dục học sinh biết phân tích số liệu để hành động vì môi trường."
-        },
-        {
-            "week": 31,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 152,
-            "lessonName": "Bài 67. Luyện tập chung",
-            "integration": "Năng lực số 3.1.CB2a: Thiết kế poster (Canva) biểu diễn kết quả phân tích số liệu rác thải của lớp."
-        },
-        {
-            "week": 31,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 153,
-            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 1): Ôn tập số tự nhiên",
-            "integration": "AI 5.A2.1: Ôn tập giúp con người củng cố tư duy bền vững, điều mà AI (chỉ làm theo dữ liệu có sẵn) không thể tự thay thế được."
-        },
-        {
-            "week": 31,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 154,
-            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 2): Ôn tập phân số",
-            "integration": "Năng lực số 5.2.CB2a: Thực hiện bài tập ôn tập qua trò chơi Kahoot để rèn luyện phản xạ tính toán."
-        },
-        {
-            "week": 31,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 155,
-            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 3): Ôn tập số thập phân",
-            "integration": ""
-        },
-        {
-            "week": 32,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 156,
-            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 1): Luyện tập (Trang 107)",
-            "integration": "AI 5.A1.1: Khẳng định AI là công cụ hỗ trợ tính toán tuyệt vời, giúp con người giải phóng khỏi những phép tính lặp lại nhàm chán."
-        },
-        {
-            "week": 32,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 157,
-            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 2): Luyện tập (Trang 108)",
-            "integration": "Năng lực số 1.3.CB2a: Tải bài làm lên không gian lưu trữ chung (Google Drive) để giáo viên chấm điểm."
-        },
-        {
-            "week": 32,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 158,
-            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 3): Luyện tập (Trang 109)",
-            "integration": ""
-        },
-        {
-            "week": 32,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 159,
-            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 4): Luyện tập (Trang 110)",
-            "integration": ""
-        },
-        {
-            "week": 32,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 160,
-            "lessonName": "Bài 70. Ôn tập tỉ số, tỉ số phần trăm (Tiết 1): Luyện tập (Trang 111)",
-            "integration": "AI 5.B1.1: Thảo luận về đạo đức AI: Đảm bảo tỉ lệ phần trăm hỗ trợ của AI phải công bằng cho mọi vùng miền, dân tộc khác nhau."
-        },
-        {
-            "week": 33,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 161,
-            "lessonName": "Bài 70. Ôn tập tỉ số, tỉ số phần trăm (Tiết 2): Luyện tập (Trang 112)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Ôn tập bằng các bài toán về tỉ lệ nước tiết kiệm, tỉ lệ rác được phân loại hoặc tỉ lệ học sinh tham gia hoạt động xanh."
-        },
-        {
-            "week": 33,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 162,
-            "lessonName": "Bài 71. Ôn tập hình học (Tiết 1): Luyện tập (Trang 113)",
-            "integration": "AI 5.C4.2: Tìm hiểu cách AI phục dựng lại các hình khối kiến trúc cổ (như tháp Chàm) từ các mảnh vỡ và số liệu hình học còn sót lại."
-        },
-        {
-            "week": 33,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 163,
-            "lessonName": "Bài 71. Ôn tập hình học (Tiết 2): Luyện tập (Trang 114)",
-            "integration": "BVMT: Dùng các bài toán về diện tích vườn trường, bồn hoa hoặc khu vui chơi xanh để giáo dục học sinh giữ gìn cảnh quan."
-        },
-        {
-            "week": 33,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 164,
-            "lessonName": "Bài 71. Ôn tập hình học (Tiết 3): Luyện tập (Trang 116)",
-            "integration": ""
-        },
-        {
-            "week": 33,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 165,
-            "lessonName": "Bài 71. Ôn tập hình học (Tiết 4): Luyện tập (Trang 117)",
-            "integration": ""
-        },
-        {
-            "week": 34,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 166,
-            "lessonName": "Bài 72. Ôn tập đo lường (tiết 1): Luyện tập (Trang 119)",
-            "integration": "AI 5.A2.2: AI hỗ trợ đo lường mực nước biển dâng để cảnh báo sớm về biến đổi khí hậu trên toàn cầu thông qua các trạm quan trắc."
-        },
-        {
-            "week": 34,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 167,
-            "lessonName": "Bài 72. Ôn tập đo lường (tiết 2): Luyện tập (Trang 120)",
-            "integration": "Tiết kiệm và bảo vệ nguồn nước: Ôn đơn vị đo dung tích, thể tích bằng các tình huống về lượng nước sinh hoạt và nước tưới cây; nhắc học sinh dùng nước hợp lí."
-        },
-        {
-            "week": 34,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 168,
-            "lessonName": "Bài 73. Ôn tập toán chuyển động đều (tiết 1): Luyện tập (Trang 121)",
-            "integration": "AI 5.A1.2: Nhấn mạnh: Xe tự lái dùng toán chuyển động, nhưng con người phải chịu trách nhiệm cuối cùng nếu có sự cố xảy ra."
-        },
-        {
-            "week": 34,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 169,
-            "lessonName": "Bài 73. Ôn tập toán chuyển động đều (tiết 2): Luyện tập (Trang 122)",
-            "integration": "Đạo đức, lối sống: Qua bài toán chuyển động đều, giáo dục học sinh tuân thủ luật giao thông, đi học đúng giờ và có trách nhiệm khi tham gia giao thông."
-        },
-        {
-            "week": 34,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 170,
-            "lessonName": "Bài 74. Ôn tập một số yếu tố thống kê và xác suất (Tiết 1): Luyện tập (Trang 123)",
-            "integration": "AI 5.D2.1: Tổng kết: Càng có nhiều dữ liệu thống kê chính xác, các hệ thống AI càng phục vụ con người tốt hơn và thông minh hơn."
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 171,
-            "lessonName": "Bài 74. Ôn tập một số yếu tố thống kê và xác suất (Tiết 2): Luyện tập (Trang 126)",
-            "integration": "Đạo đức, lối sống: Khi đọc bảng số liệu, biểu đồ và xác suất, giáo dục học sinh trung thực khi xử lí dữ liệu, không làm sai lệch kết quả."
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 2,
-            "ppct": 172,
-            "lessonName": "Bài 75. Ôn tập chung (tiết 1): Luyện tập (Trang 128)",
-            "integration": "AI 5.A2.1: Khép lại chương trình: AI dù thông minh đến đâu vẫn chỉ là công cụ, trí tuệ và tấm lòng nhân văn của con người mới là yếu tố quyết định."
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 3,
-            "ppct": 173,
-            "lessonName": "Bài 75. Ôn tập chung (tiết 2): Luyện tập (Trang 130)",
-            "integration": "Lý tưởng cách mạng, đạo đức, lối sống: Chọn bài toán tổng hợp về địa danh Việt Nam, phong trào tiết kiệm hoặc hoạt động cộng đồng; giáo dục học sinh trách nhiệm, chăm học và trung thực."
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 4,
-            "ppct": 174,
-            "lessonName": "Bài 75. Ôn tập chung (tiết 3): Luyện tập (Trang 130)",
-            "integration": ""
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 5,
-            "ppct": 175,
-            "lessonName": "Bài 75. Ôn tập chung (tiết 4): Luyện tập (Trang 132)",
-            "integration": ""
-        },
-        {
-            "week": 35,
-            "subject": "Toán",
-            "periodInWeek": 1,
-            "ppct": 176,
-            "lessonName": "Tên bài",
-            "integration": "Đạo đức, lối sống: Khi đọc bảng số liệu, biểu đồ và xác suất, giáo dục học sinh trung thực khi xử lí dữ liệu, không làm sai lệch kết quả."
+            "lessonName": "STARTER - C. Activities we can do",
+            "integration": "AI 5.A1.1: Nhận biết AI có thể thực hiện một số việc thay con người như Robot hỗ trợ luyện phát âm các từ chỉ hoạt động. Tiết kiệm nước: Vệ sinh cá nhân bằng lượng nước vừa đủ sau khi vận động.",
+            "periodInWeek": 4
         },
         {
             "week": 1,
@@ -2012,6 +820,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 3.1.CB2a - HS dùng AutoDraw/Canva thể hiện hình ảnh cánh đồng hoa theo trí tưởng tượng."
         },
         {
+            "week": 1,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1. Em có thể làm gì với máy tính? (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.1.1: Tìm được thông tin qua tìm kiếm đơn giản trong môi trường số. Năng lực AI (Khung 3439): 5.A1.1: Nhận biết AI có thể thực hiện một số việc thay con người (lặp lại, nguy hiểm...)."
+        },
+        {
+            "week": 1,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 1,
+            "lessonName": "Bài 1. Ôn tập số tự nhiên (tiết 1): Luyện tập (Trang 6)",
+            "integration": "AI 5.D2.1: Thảo luận: AI xử lý hàng triệu số tự nhiên để nhận diện chữ viết tay. Càng nhiều số liệu (dữ liệu), máy càng nhận diện chính xác."
+        },
+        {
+            "week": 1,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 2,
+            "lessonName": "Bài 1. Ôn tập số tự nhiên (tiết 2): Luyện tập (Trang 7)",
+            "integration": "Năng lực số 1.1.CB2a: Học sinh biết chọn từ khóa đơn giản, tra cứu số liệu phù hợp để đọc, viết và so sánh số tự nhiên."
+        },
+        {
+            "week": 1,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 3,
+            "lessonName": "Bài 2. Ôn tập các phép tính với số tự nhiên (Tiết 1): Luyện tập (Trang 9)",
+            "integration": "AI 5.A1.1: Xem video ngắn: AI thực hiện hàng tỷ phép tính mỗi giây để dự báo bão, thay con người làm các tính toán khổng lồ."
+        },
+        {
+            "week": 1,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 4,
+            "lessonName": "Bài 2. Ôn tập các phép tính với số tự nhiên (Tiết 2): Luyện tập (Trang 10)",
+            "integration": "Năng lực số 5.2.CB1b: Học sinh làm quen với máy tính bỏ túi, nhận biết các phím chức năng và dùng để kiểm tra kết quả phép tính."
+        },
+        {
+            "week": 1,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 5,
+            "lessonName": "Bài 3. Ôn tập phân số (Tiết 1): Luyện tập (Trang 11)",
+            "integration": "AI 5.A2.1: Khẳng định: Máy tính tính toán phân số rất nhanh, nhưng con người mới là người hiểu ý nghĩa thực tế (ví dụ: chia bánh cho bạn)."
+        },
+        {
+            "week": 2,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "- Ôn Đọc nhạc: Bài số 1 - Hát: Chim sơn ca",
+            "integration": ""
+        },
+        {
+            "week": 2,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Bài 1. Vai trò của công nghệ (Tiết 2)",
+            "integration": "AI 5.A1.1: HS nhận diện AI là sản phẩm công nghệ hiện đại; xem video robot AI trong dây chuyền đóng gói tự động, thảo luận việc AI thực hiện công việc lặp lại, nguy hiểm và giúp nâng cao năng suất.\nTiết kiệm và bảo vệ nguồn nước: HS biết không xả rác, không làm ô nhiễm nguồn nước khi sử dụng, thải bỏ sản phẩm công nghệ."
+        },
+        {
+            "week": 2,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2 (Công cụ: AI Search, Google Search có gợi ý AI): HS tìm hiểu cách AI phục vụ lợi ích chung như robot y tế hỗ trợ bác sĩ, AI trong nông nghiệp hỗ trợ kĩ sư giúp dân.\nTích hợp ANQP: HS liên hệ việc tri ân anh hùng, liệt sĩ, thương binh, người có công bằng việc làm phù hợp."
+        },
+        {
+            "week": 2,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 1: Bài tập phối hợp đội hình đội ngũ (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 2,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Bài 1: Bài tập phối hợp đội hình đội ngũ (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 2,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Sinh hoạt dưới cờ: Ngày hội câu lạc bộ",
+            "integration": ""
+        },
+        {
+            "week": 2,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 5,
+            "lessonName": "HĐTCĐ: Từng bước trưởng thành",
+            "integration": "- Tích hợp AI (5.A1.1): Nhận biết các ứng dụng AI như robot hút bụi, máy rửa bát giúp thực hiện các việc lặp đi lặp lại để hỗ trợ con người.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết yêu lao động, tự giác làm việc nhà vừa sức, quý trọng công sức của người thân và chủ động góp phần xây dựng gia đình gọn gàng, ấm áp."
+        },
+        {
+            "week": 2,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 6,
+            "lessonName": "Sinh hoạt lớp/KNS: -Tiến bộ trong việc nhà",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số đơn giản phục vụ nhiệm vụ học tập. Quay một đoạn clip ngắn (30-60 giây) giới thiệu về một việc nhà em đã làm thạo và chia sẻ trong nhóm lớp.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được tham gia, bày tỏ mong muốn trong gia đình nhưng không bị giao việc nặng nhọc, độc hại; biết chọn việc nhà phù hợp với lứa tuổi."
+        },
+        {
+            "week": 2,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 1)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Canva hoặc PowerPoint để thiết kế poster số kêu gọi các biện pháp bảo vệ môi trường đất tại địa phương."
+        },
+        {
+            "week": 2,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 2)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nhận biết rác thải, phân bón hóa học, thuốc trừ sâu có thể thấm xuống đất và làm ô nhiễm nguồn nước; biết tuyên truyền không xả rác, không đổ hóa chất ra môi trường."
+        },
+        {
+            "week": 2,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS sử dụng Google tìm kiếm hình ảnh, bản đồ địa hình, khí hậu, khoáng sản Việt Nam.\nTích hợp BVMT: HS nhận biết thiên nhiên là tài sản quý, cần khai thác hợp lí và bảo vệ môi trường sống."
+        },
+        {
+            "week": 2,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu cách AI dự báo thời tiết, cảnh báo bão, lũ lụt.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS biết giữ gìn sông, suối, ao, hồ; sử dụng nước tiết kiệm trong sinh hoạt."
+        },
+        {
+            "week": 2,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chủ đề (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 2,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 2",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 3",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 4",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Ôn tập Toán - Tiết 3",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 4,
+            "lessonName": "Ôn tập Toán - Tiết 4",
+            "integration": null
+        },
+        {
+            "week": 2,
+            "subject": "Tiếng Anh",
+            "ppct": 5,
+            "lessonName": "UNIT 1: All about me! - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu AI cần phục vụ công bằng, không phân biệt giới tính khi giới thiệu nhân dạng bạn bè . Quyền con người: Quyền được có họ tên và niềm tự hào về bản sắc cá nhân.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 2,
+            "subject": "Tiếng Anh",
+            "ppct": 6,
+            "lessonName": "UNIT 1: All about me! - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.2.CB2a: Tập kiểm chứng thông tin về sở thích của nhân vật từ 2 nguồn web khác nhau để đảm bảo tính chính xác Đạo đức: Tôn trọng sự khác biệt về sở thích của bạn bè trong lớp.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 2,
+            "subject": "Tiếng Anh",
+            "ppct": 7,
+            "lessonName": "UNIT 1: All about me! - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Biết mục đích chính của AI là hỗ trợ con người hỏi đáp thông tin nhanh chóng chứ không thay thế cảm xúc thật. STEM: Khám phá cấu tạo loa máy tính phát ra giọng đọc Tiếng Anh.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 2,
+            "subject": "Tiếng Anh",
+            "ppct": 8,
+            "lessonName": "UNIT 1: All about me! - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 1.3.CB2b: Thực hành đặt tên và sắp xếp bài viết giới thiệu bản thân vào đúng thư mục \"My Profile\" trên máy tính. GDĐP: Giới thiệu lồng ghép những đặc điểm tiêu biểu của thiếu nhi địa phương.",
+            "periodInWeek": 4
+        },
+        {
             "week": 2,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2066,6 +1138,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 14,
             "lessonName": "Nói và nghe: Những câu chuyện thú vị",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm bến sông tuổi thơ."
+        },
+        {
+            "week": 2,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 2,
+            "lessonName": "Bài 1. Em có thể làm gì với máy tính? (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.1.1: Tìm được thông tin qua tìm kiếm đơn giản trong môi trường số. Năng lực AI (Khung 3439): 5.A1.1: Nhận biết AI có thể thực hiện một số việc thay con người (lặp lại, nguy hiểm...)."
+        },
+        {
+            "week": 2,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Bài 3. Ôn tập phân số (Tiết 2): Luyện tập (Trang 12)",
+            "integration": "Năng lực số 5.2.CB2a: Học sinh sử dụng phần mềm hoặc hình ảnh số trực quan để quan sát, so sánh và nhận biết phân số."
+        },
+        {
+            "week": 2,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 7,
+            "lessonName": "Bài 4. Phân số thập phân",
+            "integration": "AI 5.D1.1: Tìm hiểu cách AI chuyển đổi dữ liệu hình ảnh thành các dãy số (phân số thập phân) để máy có thể “hiểu“ được hình ảnh."
+        },
+        {
+            "week": 2,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 8,
+            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 1): Luyện tập (Trang 16)",
+            "integration": "AI 5.A1.1: AI hỗ trợ phần mềm thiết kế cơ khí tính toán tỷ lệ phân số cực chính xác để lắp ráp các bộ phận robot siêu nhỏ."
+        },
+        {
+            "week": 2,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 9,
+            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 2): Luyện tập (Trang 17)",
+            "integration": "Đạo đức, lối sống: Qua bài toán quyên góp sách, thư viện hoặc chia sẻ học liệu, giáo dục học sinh biết quan tâm, chia sẻ và hình thành thói quen đọc sách."
+        },
+        {
+            "week": 2,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 10,
+            "lessonName": "Bài 5. Ôn tập các phép tính với phân số (Tiết 3): Luyện tập (Trang 18)",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "- Ôn Hát: Chim sơn ca - Thường thức Âm nhạc: Một số hình thức biểu diễn nhạc cụ",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 2. Nhà sáng chế (Tiết 1)",
+            "integration": "NLS 1.1.CB2b: HS tìm kiếm thông tin về cuộc đời và phát minh tiêu biểu của một nhà sáng chế trên website giáo dục uy tín; ghi thông tin chính để chia sẻ."
+        },
+        {
+            "week": 3,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 3)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS nêu việc làm cụ thể để tri ân người có công như thăm hỏi gia đình chính sách, chăm sóc nghĩa trang, tham gia hoạt động đền ơn đáp nghĩa; biết giữ gìn truyền thống uống nước nhớ nguồn."
+        },
+        {
+            "week": 3,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Sinh hoạt dưới cờ: Niềm vui nhân đôi, nỗi buồn chia nửa",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "HĐTCĐ: Cân bằng cảm xúc",
+            "integration": "- Tích hợp AI (5.A2.1): Phân biệt sự cảm thông thực sự giữa bạn bè với những phản hồi được lập trình sẵn của robot trò chuyện.\n- Tích hợp QCN: HS nhận biết quyền được tôn trọng cảm xúc và được chia sẻ khi gặp chuyện vui, buồn; biết lắng nghe bạn, không trêu chọc hoặc làm tổn thương cảm xúc của bạn."
+        },
+        {
+            "week": 3,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 9,
+            "lessonName": "Sinh hoạt lớp/KNS: - Thực hành cân bằng cảm xúc",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm thông tin qua tìm kiếm đơn giản. HS tìm kiếm những câu chuyện truyền cảm hứng về sự sẻ chia trên các website giáo dục chính thống để giới thiệu với bạn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn lối sống nhân ái, biết cảm thông, chia sẻ với bạn bè; lựa chọn cách cân bằng cảm xúc tích cực để ứng xử bình tĩnh, văn minh."
+        },
+        {
+            "week": 3,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 3)",
+            "integration": "Tích hợp AI 5.A2.2: HS xem hình ảnh hoặc clip về robot lấy mẫu đất, cảm biến độ ẩm đất, cảm biến dinh dưỡng đất để hiểu AI hỗ trợ cảnh báo ô nhiễm, xói mòn đất."
+        },
+        {
+            "week": 3,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Bài 3: Hỗn hợp và dung dịch (Tiết 1)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Camera trên điện thoại hoặc máy tính bảng chụp các bước tách muối khỏi nước; dùng Markup hoặc PowerPoint để chú thích từng bước thực hiện."
+        },
+        {
+            "week": 3,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 3)",
+            "integration": "Tích hợp BVMT: HS liên hệ việc bảo vệ rừng, bảo vệ đất, phòng chống xói mòn, hạn chế rác thải làm suy thoái môi trường tự nhiên."
+        },
+        {
+            "week": 3,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 4)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nêu việc làm phù hợp để bảo vệ nguồn nước ở địa phương như không xả rác xuống kênh rạch, không lãng phí nước sạch."
+        },
+        {
+            "week": 3,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chủ đề (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 3,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 3",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 5",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 6",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Ôn tập Toán - Tiết 5",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 6,
+            "lessonName": "Ôn tập Toán - Tiết 6",
+            "integration": null
+        },
+        {
+            "week": 3,
+            "subject": "Tiếng Anh",
+            "ppct": 9,
+            "lessonName": "UNIT 1: All about me! - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cách microphone nhận diện cao độ giọng nói khi HS luyện ngữ điệu câu hỏi. Đạo đức: Trung thực trong giao tiếp, không sử dụng công nghệ để nói dối thông tin cá nhân.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 3,
+            "subject": "Tiếng Anh",
+            "ppct": 10,
+            "lessonName": "UNIT 1: All about me! - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Thiết kế hồ sơ cá nhân số đơn giản trên Canva hoặc PowerPoint AI 5.A2.1: Hiểu AI hỗ trợ chỉnh sửa ảnh chân dung nhưng HS mới là người chịu trách nhiệm về nội dung hồ sơ",
+            "periodInWeek": 2
+        },
+        {
+            "week": 3,
+            "subject": "Tiếng Anh",
+            "ppct": 11,
+            "lessonName": "UNIT 2: Our homes - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết xe tự lái (AI) hỗ trợ vận chuyển hàng hóa đến đúng địa chỉ nhà nhanh chóng. ATGT: Nhận biết các biển báo an toàn giao thông trên con phố gần nhà em.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 3,
+            "subject": "Tiếng Anh",
+            "ppct": 12,
+            "lessonName": "UNIT 2: Our homes - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.2.CB2b: Cảnh báo bảo mật thông tin địa chỉ nhà, không chia sẻ công khai lên mạng xã hội để tránh kẻ xấu lợi dụng GDĐP: Nhận biết các kiểu nhà đặc trưng (nhà sàn, nhà ống) ở địa phương.",
+            "periodInWeek": 4
         },
         {
             "week": 3,
@@ -2124,6 +1460,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 5.2.CB2a - HS tra cứu thuật ngữ bóng đá qua từ điển số và chọn công cụ số phù hợp."
         },
         {
+            "week": 3,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 3,
+            "lessonName": "Bài 2. Tìm kiếm thông tin trên website (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.2.2: Nhận biết các công nghệ số đơn giản để chia sẻ thông tin. Năng lực AI (Khung 3439): 5.A3.1: Nhận biết AI ngày càng phổ biến, mọi người cần hiểu và biết cách sử dụng an toàn."
+        },
+        {
+            "week": 3,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 6. Cộng, trừ hai phân số khác mẫu số (Tiết 1)",
+            "integration": "AI 5.C4.1: Sử dụng tư duy thuật toán “Tìm mẫu số chung“ để hiểu cách lập trình AI thực hiện các bước giải quyết vấn đề."
+        },
+        {
+            "week": 3,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Bài 6. Cộng, trừ hai phân số khác mẫu số (Tiết 2): Luyện tập (Trang 21)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Từ tình huống lượng nước trong bình, giáo dục học sinh sử dụng nước vừa đủ, khóa vòi sau khi dùng và không làm bẩn nguồn nước."
+        },
+        {
+            "week": 3,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 13,
+            "lessonName": "Bài 7. Hỗn số (Tiết 1)",
+            "integration": "AI 5.D2.1: Liên hệ: Việc cập nhật thêm hỗn số vào kho kiến thức giúp học sinh (và cả hệ thống AI) xử lý các số liệu đo lường thực tế tốt hơn."
+        },
+        {
+            "week": 3,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 14,
+            "lessonName": "Bài 7. Hỗn số (Tiết 2): Luyện tập (Trang 24)",
+            "integration": "Năng lực số 1.1.CB2b: Học sinh tra cứu một số thông tin thực tế có liên quan đến hỗn số để nhận biết cách dùng hỗn số trong đời sống."
+        },
+        {
+            "week": 3,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 15,
+            "lessonName": "Bài 8. Ôn tập hình học và đo lường (Tiết 1): Luyện tập (Trang 26)",
+            "integration": "AI 5.C4.2: Trải nghiệm ứng dụng nhận diện hình dạng (như Google Lens): AI giúp phân loại đồ vật hình học dựa trên các đặc điểm đã học."
+        },
+        {
+            "week": 4,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Bài 2. Nhà sáng chế (Tiết 2)",
+            "integration": "KNS: HS rèn kĩ năng tìm hiểu, đặt câu hỏi, lắng nghe và trình bày ý kiến khi trao đổi về vai trò của sáng chế trong đời sống."
+        },
+        {
+            "week": 4,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 4)",
+            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS thực hành trên Canva hoặc PowerPoint để thiết kế poster số thể hiện lòng biết ơn những người có công với quê hương; biết chọn lọc tư liệu, trình bày thông điệp tri ân ngắn gọn, phù hợp."
+        },
+        {
+            "week": 4,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Sinh hoạt dưới cờ: Sự trưởng thành của học sinh lớp 5",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 11,
+            "lessonName": "HĐTCĐ: Thể hiện cảm xúc phù hợp",
+            "integration": "- Tích hợp AI (5.A1.2): Khẳng định: Con người là chủ thể điều khiển và chịu trách nhiệm về cảm xúc, AI chỉ hỗ trợ mô phỏng qua hình ảnh/giọng nói.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết làm chủ cảm xúc, nói lời phù hợp, tránh nóng giận, trách móc; hình thành thói quen ứng xử lịch sự, tôn trọng người xung quanh."
+        },
+        {
+            "week": 4,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 12,
+            "lessonName": "Sinh hoạt lớp/KNS: -Khả năng kiểm soát cảm xúc",
+            "integration": "- Tích hợp NLS 4.2.CB2a: Lựa chọn cách thức đơn giản bảo vệ quyền riêng tư. HS thực hành viết \"Nhật ký cảm xúc\" trên các ứng dụng ghi chú số, biết cách cài đặt mật khẩu để bảo vệ thông tin cá nhân.\n- Tích hợp QCN: HS hiểu mọi người có quyền được tôn trọng danh dự, cảm xúc; khi nhận xét bạn cần dùng lời nói phù hợp, không chế giễu, không lan truyền chuyện riêng của bạn."
+        },
+        {
+            "week": 4,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 3: Hỗn hợp và dung dịch (Tiết 2)",
+            "integration": "Bài học STEM: Tách muối ra khỏi dung dịch"
+        },
+        {
+            "week": 4,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Bài 4: Đặc điểm của chất ở trạng thái rắn, lỏng, khí. Sự biến đổi trạng thái của chất (Tiết 1)",
+            "integration": "Tích hợp AI 5.C4.1: HS dùng Scratch hoặc phiếu lệnh mô phỏng cấu trúc “nếu... thì...”, ví dụ: nếu nhiệt độ dưới 0°C thì nước lỏng chuyển thành nước đá."
+        },
+        {
+            "week": 4,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 3: Biển, đảo Việt Nam (Tiết 1)",
+            "integration": "Tích hợp NLS 2.2.CB2a: HS chia sẻ cảm nghĩ, hình ảnh hoặc thông điệp về biển đảo Việt Nam trên Padlet theo hướng dẫn của GV.\nTích hợp QPAN: HS hiểu vị trí, vai trò của biển đảo trong bảo vệ chủ quyền quốc gia."
+        },
+        {
+            "week": 4,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Bài 3: Biển, đảo Việt Nam (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.2: HS dùng AI Search sưu tầm tư liệu, bằng chứng lịch sử khẳng định chủ quyền biển đảo Việt Nam.\nTích hợp BVMT: HS có ý thức giữ gìn môi trường biển, không xả rác nhựa ra biển."
+        },
+        {
+            "week": 4,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chủ đề (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 4",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 7",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 8",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Ôn tập Toán - Tiết 7",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 8,
+            "lessonName": "Ôn tập Toán - Tiết 8",
+            "integration": null
+        },
+        {
+            "week": 4,
+            "subject": "Tiếng Anh",
+            "ppct": 13,
+            "lessonName": "UNIT 2: Our homes - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết các thiết bị thông minh (AI) giúp tăng tiện nghi cho ngôi nhà như điều hòa tự điều chỉnh nhiệt độ. Tiết kiệm nước: Nhắc nhở khóa vòi nước khi dọn dẹp nhà cửa.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 4,
+            "subject": "Tiếng Anh",
+            "ppct": 14,
+            "lessonName": "UNIT 2: Our homes - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.2.CB2b: Biết lựa chọn giữa sử dụng đồng hồ số hay ứng dụng nhắc việc để quản lý thời gian làm việc nhà. Đạo đức: Có ý thức tự giác chia sẻ việc nhà cùng cha mẹ.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 4,
+            "subject": "Tiếng Anh",
+            "ppct": 15,
+            "lessonName": "UNIT 2: Our homes - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cách âm thanh bài chant truyền qua wifi từ máy chủ đến loa lớp học. Bảo vệ môi trường: Tắt đèn và các thiết bị điện khi ra khỏi nhà/phòng học để tiết kiệm điện.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 4,
+            "subject": "Tiếng Anh",
+            "ppct": 16,
+            "lessonName": "UNIT 2: Our homes - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.4.CB2a: Hợp tác nhóm trên Google Docs để cùng thiết kế mô hình 'Ngôi nhà thông minh'. AI 5.D2.1: Đề xuất ý tưởng Robot thu gom rác tự động cho khu phố nơi em ở.",
+            "periodInWeek": 4
+        },
+        {
             "week": 4,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2178,6 +1778,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 28,
             "lessonName": "Nói và nghe: Những điểm vui chơi lí thú",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm hành tinh kì lạ."
+        },
+        {
+            "week": 4,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 4,
+            "lessonName": "Bài 2. Tìm kiếm thông tin trên website (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.2.2: Nhận biết các công nghệ số đơn giản để chia sẻ thông tin. Năng lực AI (Khung 3439): 5.A3.1: Nhận biết AI ngày càng phổ biến, mọi người cần hiểu và biết cách sử dụng an toàn."
+        },
+        {
+            "week": 4,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Bài 8. Ôn tập hình học và đo lường (Tiết 2): Luyện tập (Trang 27)",
+            "integration": "Năng lực số 5.2.TC3b: Học sinh sử dụng thước đo hoặc công cụ hình học số để kiểm tra độ dài, góc và củng cố kiến thức đo lường."
+        },
+        {
+            "week": 4,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 17,
+            "lessonName": "Bài 9. Luyện tập chung (tiết 1): Luyện tập (Trang 29)",
+            "integration": "AI 5.A3.1: Sử dụng Chatbot AI để tìm kiếm các bài toán đố vui về số tự nhiên và phân số, rèn luyện kỹ năng đặt câu hỏi cho máy."
+        },
+        {
+            "week": 4,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 18,
+            "lessonName": "Bài 9. Luyện tập chung (tiết 2): Luyện tập (Trang 30)",
+            "integration": "Năng lực số 2.1.CB2a: Học sinh trao đổi cách giải bài toán qua nhóm lớp hoặc nền tảng học tập trực tuyến để chia sẻ và hoàn thiện lời giải."
+        },
+        {
+            "week": 4,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 19,
+            "lessonName": "Bài 9. Luyện tập chung (tiết 3): Luyện tập (Trang 31)",
+            "integration": ""
+        },
+        {
+            "week": 4,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 20,
+            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 1)",
+            "integration": "AI 5.A1.1: Nhận biết: Robot phẫu thuật cần độ chính xác đến hàng phần nghìn của số thập phân để đảm bảo an toàn tuyệt đối cho bệnh nhân."
+        },
+        {
+            "week": 5,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Hát: Lí đất giồng",
+            "integration": ""
+        },
+        {
+            "week": 5,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 2. Nhà sáng chế (Tiết 3)",
+            "integration": "AI 5.A2.1: HS thảo luận “AI có thể trở thành nhà sáng chế độc lập không?”; hiểu AI hỗ trợ tìm ý tưởng, còn tư duy sáng tạo và trách nhiệm đạo đức thuộc về con người.\nLý tưởng cách mạng, đạo đức, lối sống: HS noi gương các nhà sáng chế kiên trì, sáng tạo, biết dùng hiểu biết công nghệ để phục vụ cộng đồng, đất nước."
+        },
+        {
+            "week": 5,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 2.1.CB2a: HS lựa chọn phương tiện giao tiếp số như Email hoặc Zalo nhóm để mời các bạn có hoàn cảnh khác nhau tham gia nhóm học tập bằng lời lẽ lịch sự.\nTích hợp QCN: HS hiểu mỗi người có quyền được tôn trọng và đối xử công bằng."
+        },
+        {
+            "week": 5,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 5,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 5,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Sinh hoạt dưới cờ: Vui trung thu cùng bạn",
+            "integration": ""
+        },
+        {
+            "week": 5,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "HĐTCĐ: Các vấn đề nảy sinh trong mối quan hệ bạn bè và cách giải quyết",
+            "integration": "- Tích hợp AI (5.B1.1): Áp dụng tư duy \"công bằng\" của AI: Giải quyết mâu thuẫn khách quan, không định kiến hay thiên vị bất kì ai.\n- Tích hợp QCN: HS biết trong quan hệ bạn bè, mỗi bạn đều có quyền được an toàn, được tôn trọng, không bị bắt nạt, cô lập; khi có mâu thuẫn cần trao đổi công bằng và nhờ người lớn hỗ trợ khi cần."
+        },
+        {
+            "week": 5,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 15,
+            "lessonName": "Sinh hoạt lớp/KNS: -Thực hành giải quyết vấn đềnảy sinh trong tình bạn",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số ở các định dạng đơn giản. Sử dụng công cụ sơ đồ tư duy trực tuyến để liệt kê các bước giải quyết một tình huống mâu thuẫn giả định.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tinh thần đoàn kết, trung thực, biết xin lỗi, biết tha thứ và cùng tìm cách giải quyết mâu thuẫn để giữ gìn tập thể lớp thân thiện."
+        },
+        {
+            "week": 5,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Bài 4: Đặc điểm của chất ở trạng thái rắn, lỏng, khí. Sự biến đổi trạng thái của chất (Tiết 2)",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Bài 5: Sự biến đổi hóa học của chất (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS xem video thí nghiệm an toàn trên YouTube Kids hoặc học liệu NXB Giáo dục về giấy cháy, đinh gỉ, đường bị đun nóng để nhận biết dấu hiệu biến đổi hoá học."
+        },
+        {
+            "week": 5,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 1)",
+            "integration": "Tích hợp NLS 1.3.CB2a: HS sử dụng Excel/Google Sheets để nhập, sắp xếp, so sánh số liệu dân số, phân bố dân cư và một số dân tộc Việt Nam.\nTích hợp QCN: HS hiểu các dân tộc Việt Nam đều bình đẳng, có quyền được tôn trọng bản sắc văn hóa."
+        },
+        {
+            "week": 5,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 2)",
+            "integration": "Tích hợp AI 5.D2.1: HS liên hệ dữ liệu tổng điều tra dân số giúp AI dự báo xu hướng dân số chính xác hơn.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tôn trọng sự khác biệt, đoàn kết với bạn bè thuộc các dân tộc khác nhau."
+        },
+        {
+            "week": 5,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam. (Tiết 1)",
+            "integration": "3.Tích hợp ANQP: (HĐ2.T1, 4) 5.1.3: - Sử dụng các yếu tố tạo hình để thể hiện ca ngợi hình ảnh, tác phong nghiêm túc, kỉ luật của người chiến sĩ Quân đội nhân dân Việt Nam. 4.Tích hợp AI (HĐ 2.Tiết 1,2,3,4) 5.A2.1 Nhận biết AI hỗ trợ lao động (robot lắp ráp, xe tự lái) nhưng con người luôn là chủ thể chịu trách nhiệm cuối cùng về mọi quyết định của AI,. 4 . Tích hợp năng lực số: HĐ4 .T4 ) 1 .1.CB2c : - Tìm được cách truy cập những dữ liệu, thông tin và nội dung bài học cũng như điều hướng giữa chúng."
+        },
+        {
+            "week": 5,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 5",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 9",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 10",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Ôn tập Toán - Tiết 9",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 10,
+            "lessonName": "Ôn tập Toán - Tiết 10",
+            "integration": null
+        },
+        {
+            "week": 5,
+            "subject": "Tiếng Anh",
+            "ppct": 17,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu AI cần phục vụ con người công bằng, không phân biệt quốc tịch khi tìm kiếm thông tin về các quốc gia. Quyền con người: Trẻ em thế giới đều có quyền được học tập.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 5,
+            "subject": "Tiếng Anh",
+            "ppct": 18,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2b: Thực hành tìm kiếm hình ảnh danh lam thắng cảnh thế giới một cách an toàn dưới sự hướng dẫn GDĐP: Kể tên một địa danh địa phương thu hút nhiều khách quốc tế.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 5,
+            "subject": "Tiếng Anh",
+            "ppct": 19,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Nhận biết AI không có tính cách thật như con người, nó chỉ mô phỏng các đức tính tốt qua lập trình. . Đạo đức: Trân trọng và học tập những tính cách tốt của bạn bè.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 5,
+            "subject": "Tiếng Anh",
+            "ppct": 20,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.2.CB2b: Thực hành ghi nguồn \"Image by Google\" khi mượn ảnh bạn bè quốc tế làm bài tập QPAN: Ý thức bảo vệ bản sắc văn hóa dân tộc khi giao lưu với người nước ngoài.",
+            "periodInWeek": 4
         },
         {
             "week": 5,
@@ -2236,6 +2100,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 2.5.CB2a - HS tra cứu động thực vật rừng và thực hiện nghi thức số khi trao đổi trong nhóm trực tuyến."
         },
         {
+            "week": 5,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 5,
+            "lessonName": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.1.2: Phát hiện được độ tin cậy và chính xác của nguồn thông tin. Năng lực AI (Khung 3439): 5.B3.1: Giải thích vì sao cần hiểu lý do AI đưa ra quyết định để đảm bảo minh bạch và tin cậy."
+        },
+        {
+            "week": 5,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 2): Hàng của số thập phân. Đọc, viết số thập phân (Trang 35)",
+            "integration": "Năng lực số 1.1.CB2a: Học sinh tìm kiếm một số thông tin thực tế có dạng số thập phân để đọc, viết và nhận biết số thập phân."
+        },
+        {
+            "week": 5,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Bài 10. Khái niệm số thập phân (Tiết 3): Luyện tập (Trang 37)",
+            "integration": ""
+        },
+        {
+            "week": 5,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 23,
+            "lessonName": "Bài 11. So sánh các số thập phân (Tiết 1)",
+            "integration": "AI 5.B1.1: Thảo luận: Nếu AI so sánh dữ liệu thiên lệch (chỉ ưu tiên một nhóm), kết quả sẽ không công bằng. AI cần tiêu chí so sánh minh bạch."
+        },
+        {
+            "week": 5,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 24,
+            "lessonName": "Bài 11. So sánh các số thập phân (Tiết 2): Luyện tập (Trang 40)",
+            "integration": "Năng lực số 3.1.TC3a: Tạo một bảng so sánh số liệu thập phân trên phần mềm soạn thảo văn bản."
+        },
+        {
+            "week": 5,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 25,
+            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 1)",
+            "integration": "AI 5.A2.2: Tìm hiểu cách AI dùng số thập phân để đo nồng độ ô nhiễm không khí (PM2.5) nhằm cảnh báo sức khỏe cho cộng đồng."
+        },
+        {
+            "week": 6,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "- Ôn Hát: Lí đất giồng - Nhạc cụ: Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Bài 2. Nhà sáng chế (Tiết 4)",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 2)",
+            "integration": "Tích hợp AI 5.B1.1 (Công cụ: Teachable Machine): HS quan sát mô phỏng dạy máy nhận diện đa dạng đặc điểm con người; thảo luận nếu AI chỉ nhận diện được một màu da, một giọng nói hoặc một vùng miền thì đó là thiếu công bằng.\nTích hợp QCN: HS tôn trọng quyền được đối xử bình đẳng của mọi người."
+        },
+        {
+            "week": 6,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Sinh hoạt dưới cờ: Sách bút đồng hành cùng em",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 17,
+            "lessonName": "HĐTCĐ: Những vấn đề nảy sinh giữa tình bạn trong học tập và rèn luyện",
+            "integration": "- Tích hợp AI (5.D2.1): Liên hệ làm việc nhóm giống như \"cập nhật dữ liệu\": Càng nhiều ý kiến tốt, hệ thống (nhóm) càng hoạt động hiệu quả.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết hợp tác trong học tập, rèn luyện; không đổ lỗi, không né tránh trách nhiệm, biết hỗ trợ bạn để cùng hoàn thành nhiệm vụ chung."
+        },
+        {
+            "week": 6,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 18,
+            "lessonName": "Sinh hoạt lớp/KNS: -Hợp tác để thực hiện sản phẩm chung",
+            "integration": "- Tích hợp NLS 2.4.CB2a: Chọn công nghệ số đơn giản cho quá trình hợp tác. Các nhóm sử dụng công cụ thảo luận trực tuyến (Zalo/Teams) để phân công nhiệm vụ và trao đổi thông tin khi làm sản phẩm học tập.\n- Tích hợp QCN: HS biết mỗi bạn đều có quyền tham gia hoạt động nhóm, được nêu ý kiến và được phân công nhiệm vụ phù hợp; không phân biệt đối xử khi làm sản phẩm chung."
+        },
+        {
+            "week": 6,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 5: Sự biến đổi hóa học của chất (Tiết 2)",
+            "integration": "Bài học STEM: Biến đổi chất"
+        },
+        {
+            "week": 6,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Bài 6: Ôn tập chủ đề chất",
+            "integration": "Tích hợp AI 5.D1.1: HS dùng Canva Whiteboard hoặc PowerPoint SmartArt lập sơ đồ dữ liệu “đất - hỗn hợp - dung dịch - biến đổi trạng thái - biến đổi hoá học”, mô tả cách “dạy” AI phân loại chất."
+        },
+        {
+            "week": 6,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 3)",
+            "integration": "Tích hợp QCN: HS nhận biết quyền được học tập, quyền được giữ gìn tiếng nói, trang phục, phong tục tốt đẹp của các dân tộc Việt Nam."
+        },
+        {
+            "week": 6,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 4)",
+            "integration": "Tích hợp NLS 1.2.CB2a: HS tìm kiếm và xem video/ảnh 3D phục dựng trống đồng Đông Sơn, thành Cổ Loa; bước đầu nhận biết nguồn tư liệu đáng tin cậy từ website bảo tàng, thư viện số.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng tự hào về cội nguồn dân tộc."
+        },
+        {
+            "week": 6,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam. (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 6",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 11",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 12",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Ôn tập Toán - Tiết 11",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 12,
+            "lessonName": "Ôn tập Toán - Tiết 12",
+            "integration": null
+        },
+        {
+            "week": 6,
+            "subject": "Tiếng Anh",
+            "ppct": 21,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý ứng dụng dịch thuật AI chuyển đổi ngôn ngữ dựa trên dữ liệu văn bản. Đạo đức: Thể hiện lòng hiếu khách, lịch sự khi gặp gỡ bạn bè đến từ các nước khác.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 6,
+            "subject": "Tiếng Anh",
+            "ppct": 22,
+            "lessonName": "UNIT 3: My foreign friends - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.2.CB2a: Tạo một video ngắn chào mừng bạn nước ngoài bằng Tiếng Anh kết hợp ảnh chụp địa phương AI 5.A3.1: Quyết định chọn lọc các thông tin văn hóa tích cực khi chia sẻ lên môi trường mạng.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 6,
+            "subject": "Tiếng Anh",
+            "ppct": 23,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.C5.1: Biết AI (Youtube Kids) gợi ý video giải trí dựa trên sở thích cá nhân của học sinh. NLS 4.3.CB2a: Khuyến khích HS vận động cơ thể thay vì ngồi máy tính quá 20 phút.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 6,
+            "subject": "Tiếng Anh",
+            "ppct": 24,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.2.CB2a: Tập nhận biết các quảng cáo 'game' miễn phí có chứa mã độc khi tìm kiếm hoạt động giải trí . Đạo đức: Biết lựa chọn các trò chơi lành mạnh, không gây nghiện.",
+            "periodInWeek": 4
+        },
+        {
             "week": 6,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2290,6 +2418,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 42,
             "lessonName": "Nói và nghe: Bảo tồn động vật hoang dã",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm những hòn đảo trên vịnh hạ long."
+        },
+        {
+            "week": 6,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 6,
+            "lessonName": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.1.2: Phát hiện được độ tin cậy và chính xác của nguồn thông tin. Năng lực AI (Khung 3439): 5.B3.1: Giải thích vì sao cần hiểu lý do AI đưa ra quyết định để đảm bảo minh bạch và tin cậy."
+        },
+        {
+            "week": 6,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 2): Viết số đo diện tích dưới dạng số thập phân",
+            "integration": "BVMT: Khai thác số đo nồng độ bụi, chất lượng không khí hoặc lượng rác thải ở dạng số thập phân; giáo dục học sinh có ý thức bảo vệ môi trường sống."
+        },
+        {
+            "week": 6,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 27,
+            "lessonName": "Bài 12. Viết số đo đại lượng dưới dạng số thập phân (Tiết 3): Luyện tập (Trang 45)",
+            "integration": ""
+        },
+        {
+            "week": 6,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 28,
+            "lessonName": "Bài 13. Làm tròn số thập phân (Tiết 1): Làm tròn số thập phân đến số tự nhiên gần nhất",
+            "integration": "AI 5.A1.2: Nhấn mạnh: AI có thể tự động làm tròn số liệu báo cáo, nhưng con người phải kiểm tra xem việc làm tròn đó có gây sai sót lớn không."
+        },
+        {
+            "week": 6,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 29,
+            "lessonName": "Bài 13. Làm tròn số thập phân (Tiết 2): Làm tròn số thập phân đến hàng phần mười, hàng phần trăm.",
+            "integration": "Năng lực số 1.2.CB2a: Đánh giá độ tin cậy của các thông tin giá cả đã được làm tròn trên website bán hàng."
+        },
+        {
+            "week": 6,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 30,
+            "lessonName": "Bài 14. Luyện tập chung (Tiết 1): Luyện tập (Trang 51)",
+            "integration": "AI 5.D2.1: Ví dụ: Hệ thống AI dự báo giá cả thị trường sẽ chính xác hơn khi liên tục được cập nhật các số thập phân về giá trị thực tế hàng giờ.\nSTEM: Bài 2. Dụng cụ học số thập phân"
+        },
+        {
+            "week": 7,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "- Ôn nhạc cụ:Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu - Thường thức âm nhạc: Đàn nhị",
+            "integration": ""
+        },
+        {
+            "week": 7,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 3. Tìm hiểu thiết kế (Tiết 1)",
+            "integration": "NLS 3.1.CB2a: HS sử dụng Canva, PowerPoint hoặc ứng dụng vẽ, sơ đồ tư duy số đơn giản để phác thảo ý tưởng thiết kế một sản phẩm công nghệ đơn giản."
+        },
+        {
+            "week": 7,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 3)",
+            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS tạo video ngắn hoặc bài trình chiếu “Tôi khác biệt” để giới thiệu điểm độc đáo của bản thân và chia sẻ lên Padlet lớp học; khi nhận xét sản phẩm của bạn, HS dùng lời lẽ tích cực, tôn trọng sự đa dạng."
+        },
+        {
+            "week": 7,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 7,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 7,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Sinh hoạt dưới cờ: Ngày hội trao đổi sách",
+            "integration": ""
+        },
+        {
+            "week": 7,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "HĐTCĐ: Giữ gìn tình bạn",
+            "integration": "- Tích hợp AI (5.B2.1): Đề xuất cách dùng AI có trách nhiệm để kết nối cộng đồng, hỗ trợ bạn bè là người khuyết tật giao tiếp dễ dàng hơn.\n- Tích hợp QCN: HS nhận biết quyền được kết bạn, được tôn trọng trong quan hệ bạn bè; biết quan tâm, giúp đỡ bạn đúng cách, không ép buộc, không cô lập hoặc nói xấu bạn."
+        },
+        {
+            "week": 7,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 21,
+            "lessonName": "Sinh hoạt lớp/KNS: - Nuôi dưỡng tình bạn",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Khai thác dữ liệu qua tìm kiếm đơn giản. HS sưu tầm hình ảnh/video về các hoạt động thiện nguyện, kết nối cộng đồng để làm tư liệu cho bài thuyết trình về tình bạn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn phẩm chất nhân ái, thủy chung, biết giữ lời hứa, chia sẻ niềm vui, nỗi buồn và góp phần nuôi dưỡng tình bạn trong sáng."
+        },
+        {
+            "week": 7,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 7: Vai trò của năng lượng (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS sử dụng Google Search hoặc Microsoft Edge tìm hình ảnh, video về các nguồn năng lượng trong đời sống, sản xuất và học tập."
+        },
+        {
+            "week": 7,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Bài 7: Vai trò của năng lượng (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2: HS xem clip hoặc hình ảnh về nhà thông minh Google Home/Amazon Alexa hoặc lưới điện thông minh để biết AI giúp điều tiết, tiết kiệm năng lượng."
+        },
+        {
+            "week": 7,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 1)",
+            "integration": "Tích hợp AI 5.A2.1: HS xem video AI phục dựng 3D trống đồng Đông Sơn hoặc thành Cổ Loa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng di sản, giữ gìn hiện vật, không làm hư hại di tích."
+        },
+        {
+            "week": 7,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 2)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết ơn tổ tiên, có ý thức giữ gìn truyền thống dựng nước và bảo vệ đất nước từ buổi đầu lịch sử."
+        },
+        {
+            "week": 7,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam. (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 7,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 7",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 13",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 14",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Ôn tập Toán - Tiết 13",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 14,
+            "lessonName": "Ôn tập Toán - Tiết 14",
+            "integration": null
+        },
+        {
+            "week": 7,
+            "subject": "Tiếng Anh",
+            "ppct": 25,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Hiểu AI hỗ trợ dự báo thời tiết giúp gia đình lên lịch trình dã ngoại cuối tuần an toàn. Bảo vệ môi trường: Ý thức giữ gìn vệ sinh, không vứt rác tại các khu dã ngoại.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 7,
+            "subject": "Tiếng Anh",
+            "ppct": 26,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.3.CB2b: Tuân theo quy trình tự kiểm tra lỗi chính tả trên máy trước khi nộp bài viết về hoạt động cuối tuần GDĐP: Giới thiệu các khu vui chơi an toàn tại địa phương em.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 7,
+            "subject": "Tiếng Anh",
+            "ppct": 27,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cách cảm biến chuyển động trong kính VR tạo ra trải nghiệm trò chơi ảo sinh động. ATGT: Nhắc nhở an toàn khi đi xe đạp hoặc trượt patin trong giờ rảnh rỗi.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 7,
+            "subject": "Tiếng Anh",
+            "ppct": 28,
+            "lessonName": "UNIT 4: Our free-time activities - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2b: Thiết kế tờ rơi số (Digital Flyer) giới thiệu câu lạc bộ Tiếng Anh trên Canva AI 5.D2.1: Đề xuất ý tưởng Robot hỗ trợ hướng dẫn các bạn cùng chơi thể thao",
+            "periodInWeek": 4
         },
         {
             "week": 7,
@@ -2348,6 +2740,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 4.1.CB2a - HS tìm hình ảnh núi lửa và thảo luận rủi ro khi xem nội dung giật gân trên mạng."
         },
         {
+            "week": 7,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 7,
+            "lessonName": "Bài 4. Cây thư mục (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.1.3: Nhận biết được nơi để sắp xếp dữ liệu, thông tin một cách đơn giản trong môi trường có cấu trúc. Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... trong lập trình AI đơn giản."
+        },
+        {
+            "week": 7,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 14. Luyện tập chung (Tiết 2): Luyện tập (Trang 52)",
+            "integration": "Năng lực số 4.2.CB2a: Tìm hiểu chính sách quyền riêng tư khi sử dụng các ứng dụng giải toán online."
+        },
+        {
+            "week": 7,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Bài 15. Ki-lô-mét vuông. Héc - ta (tiết 1): Ki-lô-mét vuông.",
+            "integration": "AI 5.A2.2: Tìm hiểu cách AI phân tích ảnh vệ tinh tính toán diện tích rừng (km²) bị mất để đưa ra cảnh báo cháy rừng kịp thời."
+        },
+        {
+            "week": 7,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 33,
+            "lessonName": "Bài 15. Ki-lô-mét vuông. Héc - ta (tiết 2): Héc - ta",
+            "integration": "BVMT: Dùng số liệu diện tích rừng, vườn quốc gia hoặc đất xanh để giáo dục học sinh ý thức bảo vệ tài nguyên thiên nhiên."
+        },
+        {
+            "week": 7,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 34,
+            "lessonName": "Bài 16. Các đơn vị đo diện tích (Tiết 1)",
+            "integration": "AI 5.A1.1: Robot nông nghiệp tích hợp AI tự động tính diện tích ruộng để phun thuốc trừ sâu chính xác đến từng cm², tránh lãng phí."
+        },
+        {
+            "week": 7,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 35,
+            "lessonName": "Bài 16. Các đơn vị đo diện tích (Tiết 2): Luyện tập (Trang 58)",
+            "integration": "BVMT: Tính diện tích vườn cây, bồn hoa, khuôn viên xanh; giáo dục học sinh trồng, chăm sóc cây và giữ gìn cảnh quan."
+        },
+        {
+            "week": 8,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 8,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Bài 3. Tìm hiểu thiết kế (Tiết 2)",
+            "integration": "AI 5.D1.1: HS so sánh quy trình thiết kế sản phẩm với quy trình huấn luyện AI; trải nghiệm mô phỏng “dạy máy học” phân loại rác thải.\nBVMT: HS lựa chọn ý tưởng thiết kế sản phẩm thân thiện môi trường, ưu tiên vật liệu tái sử dụng, an toàn."
+        },
+        {
+            "week": 8,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng công cụ tìm kiếm sưu tầm ca dao, tục ngữ về siêng năng, kiên trì và lưu vào tệp văn bản số.\nTích hợp Kĩ năng sống: HS rèn kĩ năng nhận diện khó khăn, tìm cách giải quyết và không bỏ cuộc."
+        },
+        {
+            "week": 8,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài: Ôn tập, đánh giá giữa học kì 1.",
+            "integration": ""
+        },
+        {
+            "week": 8,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 8,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Sinh hoạt dưới cờ: Trò chuyện về chủ đề \"Khoa học sáng tạo\"",
+            "integration": ""
+        },
+        {
+            "week": 8,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 23,
+            "lessonName": "HĐTCĐ: Kế hoạch hoạt động \"Cùng làm nên kỉ niệm\"",
+            "integration": "- Tích hợp AI (5.A3.1): Sử dụng trợ lý ảo AI để tìm kiếm và gợi ý các ý tưởng tổ chức hoạt động sáng tạo cho buổi lễ kỉ niệm của lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết hợp tác, chia sẻ trách nhiệm khi lập kế hoạch hoạt động kỉ niệm; trân trọng kỉ niệm tập thể, làm việc có tổ chức và vì lợi ích chung của lớp."
+        },
+        {
+            "week": 8,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 24,
+            "lessonName": "Sinh hoạt lớp/KNS: -Cùng làm nên kỉ niệm",
+            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức, lưu trữ dữ liệu đơn giản. Nhóm trưởng lập bảng kế hoạch số (Excel/Sheets) để quản lý công việc, thời gian thực hiện hoạt động kỷ niệm của lớp.\n- Tích hợp QCN: HS biết quyền được tham gia hoạt động tập thể, được bày tỏ ý tưởng; khi thống nhất kế hoạch cần lắng nghe ý kiến của các bạn và tôn trọng quyết định chung."
+        },
+        {
+            "week": 8,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài 8: Sử dụng năng lượng điện (Tiết 1)",
+            "integration": "Tích hợp NLS 1.2.CB2a: HS tra cứu quy tắc an toàn điện trên website EVN hoặc website giáo dục. edu. vn; biết nhận diện thông tin tin cậy và tóm tắt lưu ý quan trọng."
+        },
+        {
+            "week": 8,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Bài 8: Sử dụng năng lượng điện (Tiết 2)",
+            "integration": "Tích hợp AI 5.A1.1: HS xem clip về drone hoặc robot kiểm tra đường dây điện cao thế để hiểu AI, robot có thể thay con người làm việc nguy hiểm."
+        },
+        {
+            "week": 8,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 3)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo thẻ thông tin số giới thiệu một hiện vật hoặc nét tiêu biểu của Vương quốc Phù Nam.\nTích hợp AI 5.D1.1: HS mô phỏng quy trình “dạy” máy nhận diện hiện vật cổ Phù Nam dựa trên hình ảnh thu thập được."
+        },
+        {
+            "week": 8,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Bài 6: Vương quốc Phù Nam",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng PowerPoint hoặc Canva tạo thẻ ghi nhớ điện tử giới thiệu một đền tháp Chăm - pa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng văn hóa Chăm - pa, không kì thị, biết trân trọng sự đa dạng văn hóa."
+        },
+        {
+            "week": 8,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam. (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 8,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 8",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 15",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 16",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Ôn tập Toán - Tiết 15",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 16,
+            "lessonName": "Ôn tập Toán - Tiết 16",
+            "integration": null
+        },
+        {
+            "week": 8,
+            "subject": "Tiếng Anh",
+            "ppct": 29,
+            "lessonName": "UNIT 5: My future job - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết AI làm các việc nguy hiểm thay con người như Robot cứu hỏa hoặc Robot thám hiểm đại dương. Đạo đức: Trân trọng và biết ơn mọi ngành nghề trong xã hội.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 8,
+            "subject": "Tiếng Anh",
+            "ppct": 30,
+            "lessonName": "UNIT 5: My future job - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2a: Thực hành xác định từ khóa phù hợp để tìm hình ảnh minh họa cho nghề nghiệp mơ ước . Quyền con người: Trẻ em có quyền được ước mơ về tương lai.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 8,
+            "subject": "Tiếng Anh",
+            "ppct": 31,
+            "lessonName": "UNIT 5: My future job - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI hỗ trợ nâng cao năng suất công việc chứ không thay thế hoàn toàn tình cảm của bác sĩ hay giáo viên GDĐP: Nhận biết các nghề truyền thống tiêu biểu tại quê hương.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 8,
+            "subject": "Tiếng Anh",
+            "ppct": 32,
+            "lessonName": "UNIT 5: My future job - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.6.CB2b: Biết bảo vệ danh tiếng số bằng cách chỉ chia sẻ những dự định và ước mơ tích cực trên mạng QPAN: Trân trọng vai trò bảo vệ an ninh tổ quốc của các chú bộ đội.",
+            "periodInWeek": 4
+        },
+        {
             "week": 8,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2402,6 +3058,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 56,
             "lessonName": "Nói và nghe: Cảnh đẹp thiên nhiên",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm xin chào, xa-ha-ra."
+        },
+        {
+            "week": 8,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 8,
+            "lessonName": "Bài 4. Cây thư mục (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.1.3: Nhận biết được nơi để sắp xếp dữ liệu, thông tin một cách đơn giản trong môi trường có cấu trúc. Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... trong lập trình AI đơn giản."
+        },
+        {
+            "week": 8,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 36,
+            "lessonName": "Bài 17. Thực hành và trải nghiệm với một số đơn vị đo đại lượng (Tiết 1)",
+            "integration": "AI 5.C4.2: Sử dụng ứng dụng thước đo điện tử có tích hợp AI trên điện thoại để đo kích thước các đồ vật thực tế trong lớp học."
+        },
+        {
+            "week": 8,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 37,
+            "lessonName": "Bài 17. Thực hành và trải nghiệm với một số đơn vị đo đại lượng (Tiết 2)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Khi thực hành đo đạc, vệ sinh lớp học hoặc chăm sóc cây, nhắc học sinh sử dụng nước hợp lí, không xả nước lãng phí."
+        },
+        {
+            "week": 8,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 38,
+            "lessonName": "Bài 18. Luyện tập chung (Tiết 1): Luyện tập (Trang 62)",
+            "integration": "AI 5.D1.1: HS thu thập số liệu diện tích nhà ở của các bạn trong nhóm để “huấn luyện“ một sơ đồ tư duy về không gian sống của lớp."
+        },
+        {
+            "week": 8,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 39,
+            "lessonName": "Bài 18. Luyện tập chung (Tiết 2): Luyện tập (Trang 63)",
+            "integration": "Đạo đức, lối sống: Qua bài toán diện tích nhà ở, khu sinh hoạt, giáo dục học sinh sống gọn gàng, sạch sẽ và biết giữ gìn không gian chung."
+        },
+        {
+            "week": 8,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 40,
+            "lessonName": "Bài 19: Phép cộng số thập phân (Tiết 1)",
+            "integration": "AI 5.A1.1: AI xử lý việc cộng hàng triệu giao dịch ngân hàng mỗi giây để đảm bảo tài khoản của khách hàng luôn chính xác tuyệt đối."
+        },
+        {
+            "week": 9,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "- Lý thuyết âm nhạc: Nhịp 2/4 - Đọc nhạc: Bài số 2",
+            "integration": ""
+        },
+        {
+            "week": 9,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 1)",
+            "integration": "NLS 3.1.CB2a: HS dùng điện thoại hoặc máy tính bảng để chụp ảnh, quay video quá trình thực hiện các bước làm sản phẩm mẫu, chuẩn bị tư liệu cho báo cáo thực hành điện tử."
+        },
+        {
+            "week": 9,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Ôn tập tổng hợp giữa học kì I",
+            "integration": ""
+        },
+        {
+            "week": 9,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 9,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 9,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Sinh hoạt dưới cờ: Phát động tổ chức sự kiện về truyền thống tôn sư trọng đạo",
+            "integration": ""
+        },
+        {
+            "week": 9,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "HĐTCĐ: Sự kiện về truyền thống tôn sư trọng đạo",
+            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI hỗ trợ lưu trữ dữ liệu và phục dựng hình ảnh truyền thống nhà trường sinh động hơn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS tìm hiểu truyền thống tôn sư trọng đạo của nhà trường; biết kính trọng thầy cô, tự hào về mái trường và có ý thức giữ gìn truyền thống tốt đẹp."
+        },
+        {
+            "week": 9,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 27,
+            "lessonName": "Sinh hoạt lớp/KNS: -Giới thiệu về truyền thống nhà trường",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin trong môi trường số. HS truy cập trang web chính thức của nhà trường để tìm hiểu thông tin, hình ảnh về lịch sử và các thành tích truyền thống.\n- Tích hợp QCN: HS được chia sẻ kỉ niệm, suy nghĩ về thầy cô và nhà trường; biết bày tỏ lòng biết ơn bằng lời nói, việc làm phù hợp, tôn trọng cảm xúc của bạn khi chia sẻ."
+        },
+        {
+            "week": 9,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Bài 9: Mạch điện đơn giản. Vật dẫn điện và vật cách điện (Tiết 1)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS sử dụng mô phỏng PhET Circuit Construction Kit để quan sát mạch điện đơn giản, vật dẫn điện và vật cách điện trong môi trường số an toàn."
+        },
+        {
+            "week": 9,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Ôn tập giữa HK1",
+            "integration": "Bài học STEM: Mạch điện đơn giản"
+        },
+        {
+            "week": 9,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Bài 7: Vương quốc Chăm - pa (Tiết 1)",
+            "integration": "Tích hợp AI 5.C4.2: HS trải nghiệm tham quan ảo tích hợp AI để khám phá đền tháp Chăm - pa.\nTích hợp BVMT: HS liên hệ việc giữ gìn cảnh quan sạch đẹp quanh di tích, không xả rác khi tham quan."
+        },
+        {
+            "week": 9,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Bài 7: Vương quốc Chăm - pa (Tiết 2)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS tạo sơ đồ thời gian số về các cuộc khởi nghĩa tiêu biểu thời Bắc thuộc bằng PowerPoint, Canva hoặc công cụ vẽ sơ đồ đơn giản.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng yêu nước, ý chí độc lập, tự chủ của dân tộc."
+        },
+        {
+            "week": 9,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Gia đình (Tiết 1)",
+            "integration": "3 . Tích hợp AI: (HĐ 2.Tiết 1,2,3,4) 5.A2.1 - Nhận biết và hiểu rõ hơn về chủ đề gia đình, tình yêu và sự gắn kết thông qua xem video tạo bằng AI… - Lồng ghép STEAM"
+        },
+        {
+            "week": 9,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 9",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 17",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 18",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập Toán - Tiết 17",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 18,
+            "lessonName": "Ôn tập Toán - Tiết 18",
+            "integration": null
+        },
+        {
+            "week": 9,
+            "subject": "Tiếng Anh",
+            "ppct": 33,
+            "lessonName": "UNIT 5: My future job - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cấu tạo cơ học của các dòng Robot phẫu thuật hiện đại dùng trong y tế. Đạo đức: Chăm chỉ học tập và rèn luyện để thực hiện ước mơ nghề nghiệp trong kỉ nguyên số.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 9,
+            "subject": "Tiếng Anh",
+            "ppct": 34,
+            "lessonName": "UNIT 5: My future job - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Tạo một 'Bảng tầm nhìn nghề nghiệp' số bằng PowerPoint hoặc Google Slides AI 5.D2.1: Cải tiến ý tưởng Robot giúp việc gia đình trở nên thông minh hơn",
+            "periodInWeek": 2
+        },
+        {
+            "week": 9,
+            "subject": "Tiếng Anh",
+            "ppct": 35,
+            "lessonName": "REVIEW 1 - Activity 1 - 2",
+            "integration": "AI 5.B3.1: Thảo luận việc con người cần hiểu lý do AI đưa ra đáp án trắc nghiệm để tin tưởng đúng mức Đạo đức: Trung thực trong quá trình tự ôn tập và đối chiếu đáp án.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 9,
+            "subject": "Tiếng Anh",
+            "ppct": 36,
+            "lessonName": "REVIEW 1 - Activity 3 - 5",
+            "integration": "NLS 3.2.CB2a: Tương tác với phần mềm học tập để tự làm bài ôn tập và nhận kết quả phản hồi tức thì Quyền con người: Quyền được đánh giá công bằng và khuyến khích nỗ lực.",
+            "periodInWeek": 4
         },
         {
             "week": 9,
@@ -2460,6 +3380,270 @@ window.APP_INITIAL_DATA = {
             "integration": ""
         },
         {
+            "week": 9,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 9,
+            "lessonName": "Bài 5. Bản quyền nội dung thông tin (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.3: Xác định các quy tắc đơn giản về bản quyền áp dụng cho nội dung số. Năng lực AI (Khung 3439): 5.A1.2: Biết AI làm việc nhanh nhưng không hiểu hậu quả đạo đức; con người là người chịu trách nhiệm cuối cùng."
+        },
+        {
+            "week": 9,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Bài 19: Phép cộng số thập phân (Tiết 2): Luyện tập (Trang 67)",
+            "integration": "Năng lực số 1.3.CB2b: Nhận biết nơi lưu trữ tệp tin bảng tính quản lý chi tiêu cá nhân trong máy tính."
+        },
+        {
+            "week": 9,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Bài 20. Phép trừ số thập phân (Tiết 1)",
+            "integration": "AI 5.A1.1: Ứng dụng AI quản lý kho: Tự động trừ số lượng hàng hóa (kg) khi có người mua để nhắc nhở nhân viên nhập hàng kịp thời."
+        },
+        {
+            "week": 9,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 43,
+            "lessonName": "Bài 20. Phép trừ số thập phân (Tiết 2): Luyện tập (Trang 70)",
+            "integration": "Năng lực số 2.1.CB2a: Chọn phương tiện giao tiếp số phù hợp để hỏi bạn cách thực hiện phép tính trừ."
+        },
+        {
+            "week": 9,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 44,
+            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 1): Nhân một số thập phân với một số tự nhiên",
+            "integration": "AI 5.A1.1: AI tính toán quãng đường tàu vũ trụ dựa trên vận tốc và thời gian (số thập phân) để hạ cánh chính xác xuống các hành tinh."
+        },
+        {
+            "week": 9,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 45,
+            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 2): Nhân một số thập phân với một số thập phân",
+            "integration": "Năng lực số 3.4.CB2a: Xây dựng thuật toán từng bước để giải bài toán nhân quãng đường, vận tốc."
+        },
+        {
+            "week": 10,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "- Ôn Đọc nhạc: Bài số 2 - Hát: Bay vào tương lai",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 2)",
+            "integration": "KNS: HS rèn kĩ năng lập kế hoạch, lựa chọn vật liệu, phân công nhiệm vụ và hợp tác khi vẽ phác thảo sản phẩm."
+        },
+        {
+            "week": 10,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 2)",
+            "integration": "Tích hợp AI 5.A1.1 (Công cụ: YouTube, video robot cứu hộ AI): HS xem video về robot cứu hộ AI vào vùng thiên tai, vùng nguy hiểm để nhận biết AI có thể làm việc nguy hiểm thay con người.\nTích hợp Kĩ năng sống: HS đề xuất cách ứng phó khi gặp khó khăn."
+        },
+        {
+            "week": 10,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Sinh hoạt dưới cờ: Các truyền thống của nhà trường",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 29,
+            "lessonName": "HĐTCĐ: Tâm sự thầy - trò",
+            "integration": "- Tích hợp AI (5.A2.1): Khẳng định giá trị đạo đức: Thầy cô có tình yêu thương và sự thấu cảm mà máy móc AI không bao giờ thay thế được.\n- Tích hợp QCN: HS hiểu mình có quyền được lắng nghe, được chia sẻ băn khoăn với thầy cô trong môi trường an toàn; biết trình bày mong muốn bằng thái độ lễ phép, chân thành."
+        },
+        {
+            "week": 10,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 30,
+            "lessonName": "Sinh hoạt lớp/KNS: -Giải quyết một số vấn đề nảy sinh trong mối quan hệ thầy trò",
+            "integration": "- Tích hợp NLS 2.1.CB2a: Chọn công nghệ số phù hợp cho một bối cảnh cụ thể. HS lựa chọn phương tiện giao tiếp số phù hợp (email/nhắn tin) để gửi lời tri ân hoặc chia sẻ những băn khoăn với thầy cô.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS bồi dưỡng lòng kính trọng, biết ơn thầy cô; biết tiếp nhận góp ý, sửa lỗi và cố gắng học tập, rèn luyện để đáp lại sự dạy dỗ của thầy cô."
+        },
+        {
+            "week": 10,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 9: Mạch điện đơn giản. Vật dẫn điện và vật cách điện (Tiết 2)",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Bài 10: Năng lượng chất đốt (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Search hoặc Microsoft Edge tìm hình ảnh bếp gas, bếp than, xăng dầu và cách sử dụng an toàn, tiết kiệm."
+        },
+        {
+            "week": 10,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 1)",
+            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu cách AI hỗ trợ số hóa, dịch văn bản Hán Nôm cổ.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết noi gương tinh thần bất khuất của cha ông."
+        },
+        {
+            "week": 10,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 2)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS tra cứu hình ảnh 360 độ hoặc hình ảnh số về chùa Một Cột, Hoàng thành Thăng Long; chọn thông tin ngắn gọn để giới thiệu di tích.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết giữ gìn di tích lịch sử, ứng xử văn minh khi tham quan."
+        },
+        {
+            "week": 10,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Gia đình (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 10",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 19",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 20",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Ôn tập Toán - Tiết 19",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 20,
+            "lessonName": "Ôn tập Toán - Tiết 20",
+            "integration": null
+        },
+        {
+            "week": 10,
+            "subject": "Tiếng Anh",
+            "ppct": 37,
+            "lessonName": "EXTENSION - Activity 1 - 3",
+            "integration": "STEM: Tham gia hoạt động giải đố số học và từ vựng giúp phát triển tư duy logic. NLS 2.6.CB2a: Xác định danh tính số: Biết cách đặt biệt danh Tiếng Anh lịch sự khi tham gia trò chơi lớp.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 10,
+            "subject": "Tiếng Anh",
+            "ppct": 38,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Nhận biết bảng tương tác và Robot hỗ trợ giảng dạy dùng AI đang được ứng dụng trong trường học. Đạo đức: Có ý thức giữ gìn vệ sinh và tài sản chung của nhà trường.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 10,
+            "subject": "Tiếng Anh",
+            "ppct": 39,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.1.CB2a: Thực hành thao tác an toàn bật/tắt thiết bị tại phòng máy tính của trường GDĐP: Giới thiệu lồng ghép về phòng truyền thống hoặc các công trình tiêu biểu của trường em.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 10,
+            "subject": "Tiếng Anh",
+            "ppct": 40,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận diện hệ thống AI trong thư viện trường giúp phân loại và tìm kiếm sách nhanh chóng Tiết kiệm nước: Nhắc nhở tắt bớt các vòi nước không dùng tại khu vực vườn trường.",
+            "periodInWeek": 4
+        },
+        {
             "week": 10,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2514,6 +3698,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 70,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 1.2.CB2a - HS tra cứu tư liệu về tấm gương tự học, chọn thông tin phù hợp và đáng tin cậy."
+        },
+        {
+            "week": 10,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 10,
+            "lessonName": "Bài 5. Bản quyền nội dung thông tin (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.3: Xác định các quy tắc đơn giản về bản quyền áp dụng cho nội dung số. Năng lực AI (Khung 3439): 5.A1.2: Biết AI làm việc nhanh nhưng không hiểu hậu quả đạo đức; con người là người chịu trách nhiệm cuối cùng."
+        },
+        {
+            "week": 10,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 46,
+            "lessonName": "Bài 21: Phép nhân số thập phân (Tiết 3): Luyện tập (Trang 75)",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 47,
+            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 1): Chia một số thập phân cho một số tự nhiên",
+            "integration": "AI 5.A1.1: Thảo luận: Xem video robot lắp ráp linh kiện, thảo luận về việc sai số 0, 001 đơn vị trong phép chia có thể làm hỏng sản phẩm."
+        },
+        {
+            "week": 10,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 48,
+            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 2): Chia một số tự nhiên cho một số tự nhiên mà thương tìm được là một số thập phân",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tạo tình huống chia lượng nước sử dụng trong ngày hoặc trong tuần để giáo dục học sinh giảm lãng phí nước trong sinh hoạt."
+        },
+        {
+            "week": 10,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 49,
+            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 3): Chia một số tự nhiên cho một số thập phân",
+            "integration": ""
+        },
+        {
+            "week": 10,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 50,
+            "lessonName": "Bài 22: Phép chia số thập phân (Tiết 4): Chia một số thập phân cho một số thập phân",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "- Ôn Hát: Bay vào tương lai - Nghe nhạc: Đường đến trường vui lắm",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 3)",
+            "integration": "AI 5.D2.1: Thông qua phiếu đánh giá lỗi sản phẩm, HS hiểu hệ thống AI có thể cải tiến tốt hơn khi được cập nhật dữ liệu mới; liên hệ việc con người điều chỉnh sản phẩm sau khi nhận góp ý."
+        },
+        {
+            "week": 11,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 3)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS rèn ý chí, tinh thần tự học, biết đặt mục tiêu nhỏ, kiên trì thực hiện nhiệm vụ học tập và biết điều chỉnh cách làm khi gặp trở ngại."
+        },
+        {
+            "week": 11,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 3: Động tác nhảy, động tác điều hoà với gậy (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Bài 3: Động tác nhảy, động tác điều hoà với gậy (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Sinh hoạt dưới cờ: Văn nghệ về chủ đề \"Tình thầy trò\"",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "HĐTCĐ: Vun đắp tình thầy trò",
+            "integration": "- Tích hợp AI (5.A1.2): Nhấn mạnh trách nhiệm: Con người là bên quyết định nội dung tri ân; AI chỉ hỗ trợ trình bày nội dung đó.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết thực hiện việc làm cụ thể để vun đắp tình thầy trò; hình thành lối sống lễ phép, chăm học, biết nói lời cảm ơn và giúp đỡ thầy cô trong việc phù hợp."
+        },
+        {
+            "week": 11,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 33,
+            "lessonName": "Sinh hoạt lớp/KNS: -Sản phẩm tri ân thầy cô",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Chỉnh sửa nội dung số đơn giản để thể hiện bản thân. Tự thiết kế một tấm thiệp điện tử hoặc một poster số gửi tặng thầy cô nhân dịp đặc biệt.\n- Tích hợp QCN: HS biết lựa chọn cách tri ân phù hợp, không gây áp lực cho bản thân hoặc bạn bè; tôn trọng ý kiến của từng bạn khi cùng thực hiện sản phẩm tri ân."
+        },
+        {
+            "week": 11,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 10: Năng lượng chất đốt (Tiết 2)",
+            "integration": "Tích hợp AI 5.A1.1: HS quan sát cảm biến khói, cảm biến gas thông minh qua ứng dụng Smart Life hoặc Tuya Smart để hiểu thiết bị có thể cảnh báo rò rỉ gas, khói, cháy."
+        },
+        {
+            "week": 11,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS dùng Google Earth tìm vị trí cánh đồng điện gió hoặc khu điện mặt trời ở Việt Nam."
+        },
+        {
+            "week": 11,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 3)",
+            "integration": "Tích hợp AI 5.B3.1: HS dùng chatbot AI liệt kê đóng góp của vua Lý Thái Tổ, sau đó đối chiếu SGK để kiểm chứng thông tin.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng ý thức tự hào về Thăng Long - Hà Nội nghìn năm văn hiến."
+        },
+        {
+            "week": 11,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 1)",
+            "integration": "Tích hợp QCN: HS hiểu mỗi người có quyền được tìm hiểu, gìn giữ di sản văn hóa dân tộc và có trách nhiệm bảo vệ di sản chung."
+        },
+        {
+            "week": 11,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Gia đình (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 11,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 11",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 21",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 22",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Ôn tập Toán - Tiết 21",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 22,
+            "lessonName": "Ôn tập Toán - Tiết 22",
+            "integration": null
+        },
+        {
+            "week": 11,
+            "subject": "Tiếng Anh",
+            "ppct": 41,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.3.CB2b: Thảo luận về các công cụ số giúp HS tìm kiếm thông tin về các sự kiện văn hóa, thể thao của trường QPAN: Ý thức bảo vệ trật tự an ninh trong khuôn viên trường học.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 11,
+            "subject": "Tiếng Anh",
+            "ppct": 42,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu vì sao âm thanh lại vang hơn ở các phòng có diện tích lớn như nhà tập đa năng (Gym). Đạo đức: Xếp hàng ngay ngắn, không làm ồn khi di chuyển giữa các phòng chức năng.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 11,
+            "subject": "Tiếng Anh",
+            "ppct": 43,
+            "lessonName": "UNIT 6: Our school rooms - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Thiết kế Poster số giới thiệu ngôi trường mến yêu bằng ứng dụng Canva AI 5.D2.1: Đề xuất ý tưởng Robot vệ sinh tự động để giữ sân trường luôn sạch đẹp",
+            "periodInWeek": 3
+        },
+        {
+            "week": 11,
+            "subject": "Tiếng Anh",
+            "ppct": 44,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.C5.1: Biết AI được ứng dụng rộng rãi trong môn Tin học và Tiếng Anh để hỗ trợ học sinh học tập Đạo đức: Chăm chỉ và yêu thích tất cả các môn học được dạy ở trường.",
+            "periodInWeek": 4
         },
         {
             "week": 11,
@@ -2572,6 +4020,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm khổ luyện thành tài."
         },
         {
+            "week": 11,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 11,
+            "lessonName": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.1: Xác định các cách tạo và chỉnh sửa nội dung số đơn giản ở các định dạng khác nhau. Năng lực AI (Khung 3439): 5.A2.2: Biết AI làm được nhiều việc nhưng chỉ con người mới có khả năng suy nghĩ sáng tạo, hiểu cảm xúc."
+        },
+        {
+            "week": 11,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Bài 23. Nhân, chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001… (Tiết 1): Nhân số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001…",
+            "integration": "AI 5.C4.1: Nhận biết quy tắc dịch chuyển dấu phẩy tương tự như các “lệnh“ trong lập trình AI để dịch chuyển dữ liệu nhanh chóng."
+        },
+        {
+            "week": 11,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Bài 23. Nhân, chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001… (Tiết 2): Chia số thập phân với 10; 100; 1000;... hoặc với 0, 1; 0, 01; 0, 001…",
+            "integration": "Năng lực số 3.4.CB1a: Liệt kê các câu lệnh dịch chuyển dấu phẩy tương tự quy trình lập trình đơn giản."
+        },
+        {
+            "week": 11,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 53,
+            "lessonName": "Bài 24. Luyện tập chung (Tiết 1): Luyện tập (Trang 88)",
+            "integration": "AI 5.A3.1: Thực hành kiểm chứng kết quả phép tính số thập phân bằng cách hỏi Chatbot AI và đối chiếu với cách làm của mình."
+        },
+        {
+            "week": 11,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 54,
+            "lessonName": "Bài 24. Luyện tập chung (Tiết 2): Luyện tập (Trang 89)",
+            "integration": "Năng lực số 5.2.CB2a: Lựa chọn các công cụ máy tính số phù hợp để kiểm tra kết quả bài làm."
+        },
+        {
+            "week": 11,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 55,
+            "lessonName": "Bài 24. Luyện tập chung (Tiết 3): Luyện tập (Trang 90)",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 4)",
+            "integration": "KNS: HS rèn kĩ năng hợp tác, lắng nghe góp ý, tự đánh giá, điều chỉnh và hoàn thiện sản phẩm khi làm việc nhóm."
+        },
+        {
+            "week": 12,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 4)",
+            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS chia sẻ tấm gương vượt khó sưu tầm được lên Google Classroom hoặc không gian lớp học số và nêu bài học rút ra; biết tương tác văn minh, tích cực với bài chia sẻ của bạn."
+        },
+        {
+            "week": 12,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Sinh hoạt dưới cờ: Lễ kỉ niệm ngày nhà giáo Việt Nam 20-11",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 35,
+            "lessonName": "HĐTCĐ: Chuẩn bị chào mừng ngày nhà giáo Việt Nam 20-11",
+            "integration": "- Tích hợp AI (5.A3.1): Vận dụng công cụ tìm kiếm thông minh để lựa chọn các bài hát, hình ảnh trang trí báo tường an toàn và hiệu quả.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS chủ động chuẩn bị hoạt động chào mừng 20-11 bằng thái độ trang trọng, tiết kiệm, chân thành; biết giữ gìn truyền thống tôn sư trọng đạo."
+        },
+        {
+            "week": 12,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 36,
+            "lessonName": "Sinh hoạt lớp/KNS: -Chào mừng ngày nhà giáo Việt Nam 20-11",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. Biên tập một đoạn video ngắn từ ảnh chụp các hoạt động của lớp để trình chiếu trong buổi lễ kỷ niệm.\n- Tích hợp QCN: HS biết tham gia hoạt động chào mừng theo khả năng, được phân công nhiệm vụ phù hợp; biết động viên bạn, không chê bai sản phẩm hoặc phần thể hiện của bạn."
+        },
+        {
+            "week": 12,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2: HS xem minh họa Windy hoặc Google Weather để hiểu AI dự báo nắng, gió, lượng mưa, dòng chảy hỗ trợ sản xuất năng lượng tái tạo."
+        },
+        {
+            "week": 12,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 3)",
+            "integration": "Bài học STEM: Mô hình thuyền buồm"
+        },
+        {
+            "week": 12,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 2)",
+            "integration": "Tích hợp AI 5.A1.2: HS xem video mô phỏng trận Bạch Đằng do AI hỗ trợ dựng lại, hiểu con người chịu trách nhiệm cuối cùng về nhận định lịch sử.\nTích hợp QPAN: HS hiểu bài học đoàn kết toàn dân, chuẩn bị lực lượng và quyết tâm bảo vệ Tổ quốc."
+        },
+        {
+            "week": 12,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 3)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo lược đồ hoặc sơ đồ số đơn giản thể hiện diễn biến chính của kháng chiến chống quân Mông - Nguyên.\nTích hợp QPAN: HS nhận thức ý nghĩa của tinh thần cảnh giác, mưu trí, dũng cảm trong bảo vệ đất nước."
+        },
+        {
+            "week": 12,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Gia đình (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 12",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 23",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 24",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Ôn tập Toán - Tiết 23",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 24,
+            "lessonName": "Ôn tập Toán - Tiết 24",
+            "integration": null
+        },
+        {
+            "week": 12,
+            "subject": "Tiếng Anh",
+            "ppct": 45,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2a: Biết cách xác định từ khóa phù hợp để tìm hình ảnh minh họa cho thời khóa biểu trên Internet . GDĐP: Nhận biết các môn học ngoại khóa đặc thù của địa phương.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 12,
+            "subject": "Tiếng Anh",
+            "ppct": 46,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A3.1: Hiểu rằng mỗi người cần biết cách sử dụng AI để phục vụ việc học môn Toán và Khoa học hiệu quả hơn Quyền con người: Quyền được tiếp cận thông tin đa dạng.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 12,
+            "subject": "Tiếng Anh",
+            "ppct": 47,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.2.CB2c: Tự chọn cách trang trí thời khóa biểu số trên máy tính theo phong cách riêng của mình Bảo vệ môi trường: Hạn chế in ấn tài liệu giấy không cần thiết.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 12,
+            "subject": "Tiếng Anh",
+            "ppct": 48,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cách các thiết bị hỗ trợ (như tai nghe) giúp HS tập trung hơn trong giờ học Âm nhạc. ATGT: Nhắc nhở an toàn khi tham gia các chuyến tham quan thực tế môn Địa lý.",
+            "periodInWeek": 4
+        },
+        {
             "week": 12,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2626,6 +4338,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 84,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 3.1.CB2a - HS tạo poster số giới thiệu tủ sách lớp và chia sẻ trong nhóm học tập."
+        },
+        {
+            "week": 12,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 12,
+            "lessonName": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.1: Xác định các cách tạo và chỉnh sửa nội dung số đơn giản ở các định dạng khác nhau. Năng lực AI (Khung 3439): 5.A2.2: Biết AI làm được nhiều việc nhưng chỉ con người mới có khả năng suy nghĩ sáng tạo, hiểu cảm xúc."
+        },
+        {
+            "week": 12,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 56,
+            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 1): Hình tam giác",
+            "integration": "AI 5.C4.2: Sử dụng AutoDraw: HS vẽ phác thảo tam giác, AI sẽ nhận diện và gợi ý hình tam giác chuẩn để HS thực hành tính diện tích."
+        },
+        {
+            "week": 12,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 57,
+            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 2): Vẽ đường cao của hình tam giác",
+            "integration": "BVMT: Tính diện tích bồn hoa, mảnh vườn hình tam giác; giáo dục học sinh yêu cây xanh, không hái hoa, bẻ cành."
+        },
+        {
+            "week": 12,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 58,
+            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 3): Diện tích hình tam giác",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 59,
+            "lessonName": "Bài 25. Hình tam giác. Diện tích hình tam giác (Tiết 4): Luyện tập (Trang 96)",
+            "integration": ""
+        },
+        {
+            "week": 12,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 60,
+            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 1): Hình thang",
+            "integration": "AI 5.C4.1: HS lập luận logic: “Nếu tứ giác có 2 cạnh đáy song song Thì là hình thang“, áp dụng tư duy này vào lập trình robot."
+        },
+        {
+            "week": 13,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Hát :Duyên dáng mùa xuân",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 1)",
+            "integration": "NLS 4.2.CB2a: HS nhận diện tình huống mất an toàn thông tin khi dùng điện thoại; thực hành xử lí tình huống bảo vệ dữ liệu cá nhân.\nQCN: HS hiểu quyền được bảo vệ thông tin cá nhân, quyền riêng tư; biết không tự ý xem, chia sẻ hình ảnh, số điện thoại, mật khẩu của người khác."
+        },
+        {
+            "week": 13,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS sử dụng trình duyệt web tìm kiếm thông tin về gương “Người tốt việc tốt” tại địa phương phục vụ chia sẻ đầu giờ.\nTích hợp QCN: HS hiểu quyền được sống trong môi trường an toàn, lành mạnh và được bảo vệ trước hành vi sai trái."
+        },
+        {
+            "week": 13,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Sinh hoạt dưới cờ: Chủ động tham gia chi tiêu tiết kiệm",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "HĐTCĐ: Sổ tay ghi chép chi tiêu trong gia đình",
+            "integration": "- Tích hợp AI (5.D1.1): Sử dụng mô hình logic của AI để lập quy tắc chi tiêu: \"Dữ liệu đầu vào (tiền túi) -> Quy tắc (tiết kiệm) -> Kết quả\".\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS hình thành thói quen ghi chép chi tiêu, biết tiết kiệm, không tiêu xài lãng phí; trân trọng công sức lao động của cha mẹ và người thân."
+        },
+        {
+            "week": 13,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 39,
+            "lessonName": "Sinh hoạt lớp/KNS: -Ghi chép chi tiêu",
+            "integration": "- Tích hợp NLS 1.3.CB2a: Tổ chức và sắp xếp dữ liệu trong môi trường có cấu trúc. HS nhập số liệu thu chi của cá nhân hoặc gia đình vào Phần mềm bảng tính, sử dụng hàm tính tổng để quản lý tài chính.\n- Tích hợp QCN: HS hiểu trẻ em có thể tham gia trao đổi về chi tiêu phù hợp trong gia đình; biết bày tỏ nhu cầu chính đáng, không đòi hỏi vượt quá điều kiện của gia đình."
+        },
+        {
+            "week": 13,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 12: Ôn tập chủ đề năng lượng",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng PowerPoint SmartArt hoặc Canva Mind Map lập sơ đồ ôn tập chủ đề Năng lượng."
+        },
+        {
+            "week": 13,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Bài 13: Sinh sản của thực vật có hoa (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Images tìm hình ảnh hoa, quả, hạt phục vụ bài Sinh sản của thực vật có hoa."
+        },
+        {
+            "week": 13,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 1)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết noi gương Trần Quốc Tuấn, Trần Quốc Toản; rèn ý chí, trách nhiệm với tập thể."
+        },
+        {
+            "week": 13,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 2)",
+            "integration": "Tích hợp QPAN: HS rút ra bài học giữ nước từ chiến thắng Bạch Đằng, biết trân trọng hòa bình hôm nay."
+        },
+        {
+            "week": 13,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Những hoạt động yêu thích ở trường em (Tiết 1)",
+            "integration": "3 . Tích hợp ATGT : HĐ2.T1 5.A2.2 - Thông qua những hoạt động yêu thích ở trường, ở nhà, giới thiệu và hướng dẫn HS khi tham gia giao thông như đi học có người trở phải đội mũ bảo hiểm, đi xe đạp phải tuân thủ đúng luật. Chấp hành nghiêm các quy định an toàn giao thông. 4 . Tích hợp AI: (HĐ 2.Tiết 1,2,3,4) 5.A2.2 - Nhận biết và hiểu rõ hơn về hoạt động em yêu thích thông qua xem video, trò chơi có sử dụng AI… 4. Tích hợp năng lực số: (HĐ4 .T4 2 . 3CB2a : - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số."
+        },
+        {
+            "week": 13,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 13",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 25",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 26",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Ôn tập Toán - Tiết 25",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 26,
+            "lessonName": "Ôn tập Toán - Tiết 26",
+            "integration": null
+        },
+        {
+            "week": 13,
+            "subject": "Tiếng Anh",
+            "ppct": 49,
+            "lessonName": "UNIT 7: Our favourite school activities - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.4.CB2a: Hợp tác nhóm trên Canva để cùng làm một Poster thời khóa biểu chung của cả lớp AI 5.D1.1: Tìm hiểu quy trình 'huấn luyện' AI đơn giản để máy giúp em giải bài tập cơ bản.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 13,
+            "subject": "Tiếng Anh",
+            "ppct": 50,
+            "lessonName": "UNIT 8: In our classroom - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu AI hỗ trợ HS công bằng trong việc tìm kiếm tài liệu học môn học yêu thích . Đạo đức: Tôn trọng sở thích và năng khiếu môn học khác nhau của các bạn.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 13,
+            "subject": "Tiếng Anh",
+            "ppct": 51,
+            "lessonName": "UNIT 8: In our classroom - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.2.CB2a: Tập kiểm chứng thông tin về lợi ích của môn Tiếng Anh từ các trang web giáo dục uy tín. GDĐP: Giới thiệu các câu lạc bộ môn học nổi tiếng tại địa phương.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 13,
+            "subject": "Tiếng Anh",
+            "ppct": 52,
+            "lessonName": "UNIT 8: In our classroom - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Nhận biết các ứng dụng trợ lý học tập (AI) giúp cá nhân hóa việc học theo năng lực của từng em . Đạo đức: Luôn sẵn lòng giúp đỡ bạn cùng tiến trong học tập.",
+            "periodInWeek": 4
         },
         {
             "week": 13,
@@ -2684,6 +4660,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm tình thân yêu của nhà Phi - lít."
         },
         {
+            "week": 13,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 13,
+            "lessonName": "Bài 7. Thực hành soạn thảo văn bản (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.2: Chọn cách sửa đổi, tinh chỉnh và tích hợp các mục để tạo nội dung mới độc đáo. Năng lực AI (Khung 3439): 5.A2.1: Hiểu mục đích chính của AI là hỗ trợ con người, chứ không thay thế tư duy và trách nhiệm con người."
+        },
+        {
+            "week": 13,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 2): Vẽ hình thang",
+            "integration": "Năng lực số 3.4.CB2a: Viết chuỗi logic: “Nếu có 2 cạnh đáy song song Thì là hình thang“."
+        },
+        {
+            "week": 13,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 3): Diện tích hình thang",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 63,
+            "lessonName": "Bài 26. Hình thang. Diện tích hình thang (Tiết 4): Luyện tập (Trang 104)",
+            "integration": ""
+        },
+        {
+            "week": 13,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 64,
+            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 1): Đường tròn. Vẽ đường tròn có tâm và bán kính cho trước",
+            "integration": "AI 5.A1.1: AI giúp thiết kế các ổ bi trong máy móc với độ tròn hoàn hảo để máy hoạt động êm ái, giảm thiểu tiếng ồn và hư hỏng."
+        },
+        {
+            "week": 13,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 65,
+            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 2): Chu vi hình tròn",
+            "integration": "BVMT: Tính chu vi, diện tích bồn cây, hồ nước hoặc sân chơi hình tròn; giáo dục học sinh giữ gìn cảnh quan xanh - sạch - đẹp."
+        },
+        {
+            "week": 14,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "- Ôn Hát :Duyên dáng mùa xuân - Nhạc cụ : Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 2)",
+            "integration": "KNS: HS rèn kĩ năng tự quản lí thời gian sử dụng điện thoại, lựa chọn nội dung phù hợp, biết dừng lại và nhờ người lớn hỗ trợ khi gặp thông tin lạ."
+        },
+        {
+            "week": 14,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 2)",
+            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS bình chọn hoặc bình luận ủng hộ các hành vi đúng trên mạng xã hội học tập nội bộ để lan tỏa điều tốt đẹp.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết dùng lời lẽ văn minh, không cổ vũ hành vi sai trái."
+        },
+        {
+            "week": 14,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 40,
+            "lessonName": "Sinh hoạt dưới cờ: Phát triển thư viện",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 41,
+            "lessonName": "HĐTCĐ: Ý tưởng kinh doanh",
+            "integration": "- Tích hợp AI (5.D1.1): Hiểu rằng bước thu thập dữ liệu (khảo sát) là khâu quan trọng nhất để huấn luyện AI đưa ra phản hồi chính xác.\n- Tích hợp QCN: HS biết khi khảo sát nhu cầu khách hàng cần tôn trọng người được hỏi, không ép buộc trả lời, không hỏi thông tin riêng tư không cần thiết và ghi nhận ý kiến trung thực."
+        },
+        {
+            "week": 14,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 42,
+            "lessonName": "Sinh hoạt lớp/KNS: -Thực hiện khảo sát nhu cầu khách hàng",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm kiếm thông tin đơn giản trong môi trường số. HS thiết kế biểu mẫu khảo sát trực tuyến (Google Forms) để thu thập ý kiến về sản phẩm kinh doanh dự kiến của nhóm.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tính trung thực, trách nhiệm khi xây dựng ý tưởng kinh doanh; biết lựa chọn sản phẩm có ích, an toàn, không chạy theo lợi ích cá nhân."
+        },
+        {
+            "week": 14,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 13: Sinh sản của thực vật có hoa (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.2: HS dùng Google Teachable Machine hoặc Google Lens nhận diện hình ảnh hoa, quả, hạt; sau đó kiểm tra lại bằng kiến thức SGK."
+        },
+        {
+            "week": 14,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 1)",
+            "integration": "Tích hợp NLS 1.3.CB2a: HS dùng Microsoft Excel hoặc Google Sheets lập bảng theo dõi chiều cao, số lá của cây."
+        },
+        {
+            "week": 14,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 3)",
+            "integration": "Tích hợp AI 5.A3.1: HS dùng Quizizz hoặc Kahoot có hỗ trợ AI để củng cố kiến thức.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS trung thực khi làm bài ôn tập, không sao chép đáp án của bạn."
+        },
+        {
+            "week": 14,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 4)",
+            "integration": "Tích hợp NLS 2.3.CB2a: HS tham gia trò chơi ôn tập trên Wordwall/Quizizz để củng cố kiến thức về các quốc gia đầu tiên và các triều đại phong kiến đã học.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS hệ thống lại truyền thống dựng nước, giữ nước; bồi dưỡng lòng biết ơn cha ông."
+        },
+        {
+            "week": 14,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Những hoạt động yêu thích ở trường em (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 14",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 27",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 28",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Ôn tập Toán - Tiết 27",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 28,
+            "lessonName": "Ôn tập Toán - Tiết 28",
+            "integration": null
+        },
+        {
+            "week": 14,
+            "subject": "Tiếng Anh",
+            "ppct": 53,
+            "lessonName": "UNIT 8: In our classroom - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.5.CB2c: Phân biệt cách trao đổi với thầy cô và với bạn bè về môn học trên môi trường mạng STEM: Khám phá cấu tạo của các dụng cụ thí nghiệm trong môn Khoa học.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 14,
+            "subject": "Tiếng Anh",
+            "ppct": 54,
+            "lessonName": "UNIT 8: In our classroom - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý ánh sáng khúc xạ qua lăng kính được ứng dụng trong môn Mỹ thuật. Bảo vệ môi trường: Thu gom và tái chế các dụng cụ học tập cũ để bảo vệ môi trường trường học.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 14,
+            "subject": "Tiếng Anh",
+            "ppct": 55,
+            "lessonName": "UNIT 8: In our classroom - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Tạo một 'Tạp chí số' về các môn học yêu thích của lớp em bằng PowerPoint AI 5.D2.1: Cải tiến hệ thống gợi ý bài hát học Tiếng Anh của Robot lớp học",
+            "periodInWeek": 3
+        },
+        {
+            "week": 14,
+            "subject": "Tiếng Anh",
+            "ppct": 56,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.C5.1: Nhận biết camera AI có thể nhận diện và đếm số lượng HS tham gia múa hát tập thể QPAN: Giáo dục tinh thần đoàn kết và ý thức kỷ luật khi hoạt động nhóm.",
+            "periodInWeek": 4
+        },
+        {
             "week": 14,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2738,6 +4978,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 98,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 2.2.CB2a - HS tìm hình ảnh minh họa thơ và ghi nguồn khi chia sẻ trong bài trình bày."
+        },
+        {
+            "week": 14,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 14,
+            "lessonName": "Bài 7. Thực hành soạn thảo văn bản (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.2: Chọn cách sửa đổi, tinh chỉnh và tích hợp các mục để tạo nội dung mới độc đáo. Năng lực AI (Khung 3439): 5.A2.1: Hiểu mục đích chính của AI là hỗ trợ con người, chứ không thay thế tư duy và trách nhiệm con người."
+        },
+        {
+            "week": 14,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 66,
+            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 3): Luyện tập (Trang 108)",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 67,
+            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 4): Diện tích hình tròn",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 68,
+            "lessonName": "Bài 27. Đường tròn. Chu vi và diện tích hình tròn (Tiết 5): Luyện tập (Trang 111)",
+            "integration": ""
+        },
+        {
+            "week": 14,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 69,
+            "lessonName": "Bài 28. Thực hành và trải nghiệm đo, vẽ, lắp ghép, tạo hình (Tiết 1)",
+            "integration": "AI 5.A2.1: Khẳng định: AI có thể gợi ý mẫu lắp ghép, nhưng sự khéo léo và sáng tạo để tạo ra mô hình độc bản là của con người."
+        },
+        {
+            "week": 14,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 70,
+            "lessonName": "Bài 28. Thực hành và trải nghiệm đo, vẽ, lắp ghép, tạo hình (Tiết 2)",
+            "integration": "Năng lực số 3.1.CB2b: Quay video ngắn giới thiệu quy trình lắp ghép mô hình hình học của nhóm.\nSTEM: Bài 6. Thực hành trải nghiệm cùng bộ lắp ghép hình Tangram"
+        },
+        {
+            "week": 15,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "- Ôn nhạc cụ: Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu - Thường thức Âm nhạc: Câu chuyện về bản xô-nát Ánh trăng",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 3)",
+            "integration": "AI 5.A3.1: HS nhận diện trợ lí ảo, nhận diện khuôn mặt trên điện thoại; đóng vai xử lí tình huống khi trợ lí ảo AI yêu cầu mật khẩu cá nhân.\nĐạo đức, lối sống: HS biết sử dụng điện thoại văn minh, không lạm dụng, không chia sẻ thông tin sai lệch."
+        },
+        {
+            "week": 15,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 3)",
+            "integration": "Tích hợp AI 5.A1.2 (Công cụ: ChatGPT hoặc Gemini do GV kiểm soát): HS thực hiện hoạt động kiểm chứng thông tin, thử hỏi chatbot AI về một tấm gương đạo đức và nhận xét thông tin có thể đúng hoặc sai.\nTích hợp QCN: HS biết bảo vệ sự thật, không lan truyền thông tin sai."
+        },
+        {
+            "week": 15,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Sinh hoạt dưới cờ: Chào mừng ngày thành lập Quân đội nhân dân Việt Nam 22-12",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "HĐTCĐ: Việc cần làm để thực hiện kế hoạch kinh doanh",
+            "integration": "- Tích hợp AI (5.D2.1): Hiểu hệ thống kinh doanh cần liên tục cập nhật phản hồi (dữ liệu mới) từ khách hàng để cải tiến, giống như hệ thống AI.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết lập kế hoạch kinh doanh rõ việc, rõ trách nhiệm; rèn sự chăm chỉ, hợp tác, trung thực trong chuẩn bị sản phẩm và phục vụ người mua."
+        },
+        {
+            "week": 15,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 45,
+            "lessonName": "Sinh hoạt lớp/KNS: -Kinh doanh hiệu quả",
+            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS sử dụng công cụ tìm kiếm để tra cứu thông tin về giá nguyên liệu và các bước làm sản phẩm từ những nguồn tin cậy.\n- Tích hợp QCN: HS biết phân công nhiệm vụ công bằng, phù hợp sức khỏe, năng lực của từng bạn; mọi thành viên đều được tham gia, được lắng nghe và được bảo vệ khi hoạt động."
+        },
+        {
+            "week": 15,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 2)",
+            "integration": "Tích hợp AI 5.D2.1: HS chụp ảnh cây bằng Camera điện thoại hoặc máy tính bảng, lưu vào Google Drive, sắp xếp ảnh theo thời gian để hiểu AI cần dữ liệu cập nhật."
+        },
+        {
+            "week": 15,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 3)",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 11: Ôn tập (Tiết 1)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng sơ đồ tư duy số để hệ thống hóa diễn biến chính của khởi nghĩa Lam Sơn và đóng góp của Lê Lợi, Nguyễn Trãi.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tự hào về tinh thần yêu nước, ý chí đánh giặc cứu nước."
+        },
+        {
+            "week": 15,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Bài 11: Ôn tập (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.1: HS dùng cấu trúc “Nếu… thì…” để tái hiện chiến thuật của nghĩa quân Lam Sơn.\nTích hợp QPAN: HS hiểu vai trò của mưu trí, đoàn kết, lòng dân trong bảo vệ đất nước."
+        },
+        {
+            "week": 15,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Những hoạt động yêu thích ở trường em (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 15",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 29",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 30",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Ôn tập Toán - Tiết 29",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 30,
+            "lessonName": "Ôn tập Toán - Tiết 30",
+            "integration": null
+        },
+        {
+            "week": 15,
+            "subject": "Tiếng Anh",
+            "ppct": 57,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.3.CB2a: Khuyến khích HS ra sân chơi vận động thay vì sử dụng điện thoại/máy tính quá 20 phút. Quyền con người: Trẻ em có quyền được vui chơi văn nghệ.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 15,
+            "subject": "Tiếng Anh",
+            "ppct": 58,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI (chatbot) có thể hỗ trợ HS đăng ký tham gia các hoạt động ngoại khóa của trường nhanh chóng . Đạo đức: Không làm phiền các bạn đang tập trung đọc sách.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 15,
+            "subject": "Tiếng Anh",
+            "ppct": 59,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.1.CB2b: Biết chọn phương tiện (gọi video hay gửi ảnh) để khoe các hoạt động trường với cha mẹ an toàn. Tiết kiệm nước: Khóa vòi nước sau khi dọn vệ sinh lớp.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 15,
+            "subject": "Tiếng Anh",
+            "ppct": 60,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cách các khớp của Robot thực hiện hành động nhảy dây nhịp nhàng. GDĐP: Giới thiệu lồng ghép về các lễ hội thể thao học đường thường niên tại quê hương em.",
+            "periodInWeek": 4
         },
         {
             "week": 15,
@@ -2796,6 +5300,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm tập hát quan họ."
         },
         {
+            "week": 15,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 15,
+            "lessonName": "Bài 8B. Làm sản phẩm thủ công theo video hướng dẫn (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.5.2: Nhận ra các giải pháp công nghệ đơn giản để giải quyết nhu cầu cá nhân. Năng lực AI (Khung 3439): 5.A2.3: Nhận biết AI được tạo ra nhằm phục vụ lợi ích chung, giúp cải thiện chất lượng cuộc sống."
+        },
+        {
+            "week": 15,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 71,
+            "lessonName": "Bài 29. Luyện tập chung (Tiết 1): Luyện tập (Trang 116)",
+            "integration": "AI 5.D2.1: Khi HS học thêm nhiều loại hình mới, kho dữ liệu hình học của HS được cập nhật để giải các bài toán thiết kế phức tạp hơn."
+        },
+        {
+            "week": 15,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 72,
+            "lessonName": "Bài 29. Luyện tập chung (Tiết 2): Luyện tập (Trang 117)",
+            "integration": "Năng lực số 2.2.CB1a: Thực hành chia sẻ ảnh chụp mô hình hình học lên Padlet để cả lớp cùng xem."
+        },
+        {
+            "week": 15,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 73,
+            "lessonName": "Bài 29. Luyện tập chung (Tiết 3): Luyện tập (Trang 118)",
+            "integration": ""
+        },
+        {
+            "week": 15,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 74,
+            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 1): Luyện tập (Trang 120)",
+            "integration": "AI 5.D1.1: HS đóng vai “người dán nhãn dữ liệu“: Phân loại các số thập phân vào các nhóm (nhóm > 1, nhóm < 1) để “dạy“ máy học phân loại."
+        },
+        {
+            "week": 15,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 75,
+            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 2): Luyện tập (Trang 121)",
+            "integration": "Năng lực số 5.2.CB2a: Tham gia trò chơi ôn tập (Quizizz/Kahoot) để tự đánh giá năng lực về số thập phân."
+        },
+        {
+            "week": 16,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 4)",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 1)",
+            "integration": "Tích hợp AI 5.D1.1 (Công cụ: Scratch AI hoặc Teachable Machine): HS tìm hiểu dự án nhỏ “Dạy máy bảo vệ môi trường”, xác định vấn đề rác thải, chuẩn bị dữ liệu, dạy máy nhận biết và kiểm tra kết quả.\nTích hợp BVMT: HS nhận biết trách nhiệm bảo vệ môi trường sống."
+        },
+        {
+            "week": 16,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 46,
+            "lessonName": "Sinh hoạt dưới cờ: Xây dựng quỹ nhân ái",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 47,
+            "lessonName": "HĐTCĐ: Xây dựng kế hoạch kinh doanh",
+            "integration": "- Tích hợp AI (5.B3.1): Đảm bảo tính minh bạch: Giải thích rõ lý do vì sao nhóm đưa ra các quyết định lựa chọn sản phẩm kinh doanh.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết xây dựng kế hoạch kinh doanh minh bạch, không gian dối về chất lượng hoặc giá bán; nếu gây quỹ nhân ái cần công khai mục đích sử dụng tiền."
+        },
+        {
+            "week": 16,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 48,
+            "lessonName": "Sinh hoạt lớp/KNS: -Kế hoạch kinh doanh của lớp",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. Các nhóm tạo bài trình bày (Slide) giới thiệu về kế hoạch kinh doanh, bao gồm mục tiêu, dự trù chi phí và phân công nhiệm vụ.\n- Tích hợp QCN: HS biết tôn trọng quyền tham gia của các thành viên trong lớp; khi thống nhất kế hoạch cần lắng nghe ý kiến khác nhau và bảo đảm nhiệm vụ phù hợp với từng bạn."
+        },
+        {
+            "week": 16,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 15: Sinh sản của động vật (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Images hoặc YouTube Kids tìm hình ảnh, video động vật đẻ trứng, đẻ con."
+        },
+        {
+            "week": 16,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Bài 15: Sinh sản của động vật (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.2: HS dùng Google Lens nhận diện hình ảnh động vật và phân nhóm đẻ trứng, đẻ con dưới sự hướng dẫn của GV."
+        },
+        {
+            "week": 16,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 1)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS học tập tinh thần nhân nghĩa, khoan dung, trọng hiền tài thời Hậu Lê."
+        },
+        {
+            "week": 16,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu AI trong bảo tồn Nhã nhạc cung đình Huế hoặc phục dựng ảnh xưa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS có ý thức giữ gìn di sản văn hóa Huế."
+        },
+        {
+            "week": 16,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Những hoạt động yêu thích ở trường em (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 16",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 31",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 32",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Ôn tập Toán - Tiết 31",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 32,
+            "lessonName": "Ôn tập Toán - Tiết 32",
+            "integration": null
+        },
+        {
+            "week": 16,
+            "subject": "Tiếng Anh",
+            "ppct": 61,
+            "lessonName": "UNIT 9: Our outdoor activities - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.2.CB2a: Tạo một Album ảnh số tổng kết các hoạt động học tập sôi nổi của lớp trong học kỳ 1. AI 5.A3.1: Quyết định chọn lọc những hình ảnh đẹp, văn minh để đăng tải.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 16,
+            "subject": "Tiếng Anh",
+            "ppct": 62,
+            "lessonName": "UNIT 10: Our school trip - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI (Google Maps) hỗ trợ gia đình tìm đường đến các địa điểm du lịch nhanh chóng và an toàn. ATGT: Nhắc nhở thắt dây an toàn khi đi xe van hoặc máy bay.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 16,
+            "subject": "Tiếng Anh",
+            "ppct": 63,
+            "lessonName": "UNIT 10: Our school trip - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.2.CB2b: Tuyệt đối không công khai lộ trình du lịch chi tiết khi đang vắng nhà để bảo vệ an toàn cho ngôi nhà. GDĐP: Giới thiệu các địa danh nghỉ mát nổi tiếng quê em.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 16,
+            "subject": "Tiếng Anh",
+            "ppct": 64,
+            "lessonName": "UNIT 10: Our school trip - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI giúp chỉnh sửa và cải thiện chất lượng ảnh chụp kỳ nghỉ hè thêm sinh động. Bảo vệ môi trường: Ý thức giữ sạch bãi biển, không vứt rác xuống biển.",
+            "periodInWeek": 4
+        },
+        {
             "week": 16,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2850,6 +5618,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 112,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 5.2.CB2a - HS xem video tư liệu về múa ba lê, lựa chọn nguồn học liệu phù hợp."
+        },
+        {
+            "week": 16,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 16,
+            "lessonName": "Bài 8B. Làm sản phẩm thủ công theo video hướng dẫn (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.5.2: Nhận ra các giải pháp công nghệ đơn giản để giải quyết nhu cầu cá nhân. Năng lực AI (Khung 3439): 5.A2.3: Nhận biết AI được tạo ra nhằm phục vụ lợi ích chung, giúp cải thiện chất lượng cuộc sống."
+        },
+        {
+            "week": 16,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 76,
+            "lessonName": "Bài 30. Ôn tập số thập phân (Tiết 3): Luyện tập (Trang 122)",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 77,
+            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 1): Luyện tập (Trang 123)",
+            "integration": "AI 5.A1.2: Thảo luận: Nếu AI tính sai hóa đơn tiền điện, con người (nhân viên ngân hàng) phải phát hiện lỗi và chịu trách nhiệm xử lý."
+        },
+        {
+            "week": 16,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 78,
+            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 2): Luyện tập (Trang 124)",
+            "integration": "Năng lực số 1.3.CB2a: Thực hành nhập liệu và quản lý kết quả phép tính trong thư mục tệp tin số."
+        },
+        {
+            "week": 16,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 79,
+            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 3): Luyện tập (Trang 125)",
+            "integration": ""
+        },
+        {
+            "week": 16,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 80,
+            "lessonName": "Bài 31. Ôn tập các phép tính với số thập phân (Tiết 4): Luyện tập (Trang 126)",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập cuối học kì I",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập cuối học kì I",
+            "integration": "AI 5.A3.1: HS sử dụng sơ đồ tư duy AI hoặc chatbot AI dưới sự hướng dẫn của GV để hệ thống hóa kiến thức về vai trò công nghệ, nhà sáng chế, thiết kế sản phẩm và sử dụng điện thoại an toàn."
+        },
+        {
+            "week": 17,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập tổng hợp cuối học kì I",
+            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS xem video trên YouTube về ô nhiễm không khí, rác thải nhựa để nhận thức tác hại đối với sức khỏe.\nTích hợp BVMT: HS nêu việc làm giảm rác thải nhựa, tiết kiệm tài nguyên và giữ môi trường sống xanh, sạch."
+        },
+        {
+            "week": 17,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Bài 2: Bài tập rên luyện kĩ năng lộn xuôi (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Sinh hoạt dưới cờ: Gia đình yêu thương",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "HĐTCĐ: Trách nhiệm của em trong gia đình",
+            "integration": "- Tích hợp AI (5.A1.1): Tìm hiểu các thiết bị nhà thông minh (Smart Home) giúp giám sát an toàn và thông báo sự cố cho các thành viên.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS nhận biết trách nhiệm của mình trong gia đình; biết quan tâm, chia sẻ việc vừa sức, ứng xử lễ phép và góp phần xây dựng nếp sống gia đình ấm áp."
+        },
+        {
+            "week": 17,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 51,
+            "lessonName": "Sinh hoạt lớp/KNS: Những việc làm gây lãng phí trong cuộc sống hằng ngày",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin qua tìm kiếm đơn giản. HS tìm kiếm và xem các video hướng dẫn kỹ năng làm việc nhà an toàn (như sử dụng thiết bị điện, bếp gas) trên YouTube Kids.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được yêu thương, chăm sóc và được bảo vệ trong gia đình; đồng thời biết thực hiện bổn phận phù hợp để giúp đỡ người thân."
+        },
+        {
+            "week": 17,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 16: Vòng đời và sự phát triển của động vật (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS xem video vòng đời bướm, ếch, gà trên YouTube Kids hoặc học liệu NXB Giáo dục."
+        },
+        {
+            "week": 17,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Bài 16: Vòng đời và sự phát triển của động vật (Tiết 2)",
+            "integration": "Tích hợp AI 5.B3.1: HS dùng ảnh mẫu trong Google Lens để nhận diện giai đoạn vòng đời, thảo luận vì sao AI có thể nhầm nòng nọc với cá."
+        },
+        {
+            "week": 17,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 2)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS tra cứu hình ảnh số về Kinh thành Huế, Nhã nhạc cung đình Huế, lăng tẩm triều Nguyễn; lựa chọn thông tin phù hợp để giới thiệu di sản.\nTích hợp QCN: HS hiểu quyền được tiếp cận, học tập di sản văn hóa và trách nhiệm bảo vệ di tích, hiện vật lịch sử."
+        },
+        {
+            "week": 17,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Bài 13: Triều Nguyễn (Tiết 1)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết nhìn nhận lịch sử khách quan, trân trọng những giá trị văn hóa, giáo dục còn lưu lại."
+        },
+        {
+            "week": 17,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "1 tiết",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 17",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 33",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 34",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Ôn tập Toán - Tiết 33",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 34,
+            "lessonName": "Ôn tập Toán - Tiết 34",
+            "integration": null
+        },
+        {
+            "week": 17,
+            "subject": "Tiếng Anh",
+            "ppct": 65,
+            "lessonName": "UNIT 10: Our school trip - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 1.3.CB2b: Thực hành cách sắp xếp các tệp ảnh kỳ nghỉ vào đúng thư mục \"My Summer\" trên máy tính. Đạo đức: Biết quan tâm và chia sẻ những món quà nhỏ sau chuyến đi.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 17,
+            "subject": "Tiếng Anh",
+            "ppct": 66,
+            "lessonName": "UNIT 10: Our school trip - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý ánh sáng mặt trời tạo ra màu xanh của biển và hiện tượng cầu vồng. QPAN: Nhận biết các ký hiệu an toàn và ý thức bảo vệ chủ quyền biển đảo.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 17,
+            "subject": "Tiếng Anh",
+            "ppct": 67,
+            "lessonName": "UNIT 10: Our school trip - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Thiết kế một cuốn 'Cẩm nang du lịch xanh' số đơn giản trên Canva. AI 5.D2.1: Đề xuất tính năng AI giúp cảnh báo các vùng nước sâu nguy hiểm cho du khách.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 17,
+            "subject": "Tiếng Anh",
+            "ppct": 68,
+            "lessonName": "REVIEW 2 - Activity 1 - 2",
+            "integration": "AI 5.B3.1: Giải thích vì sao cần hiểu lý do Robot chấm bài trắc nghiệm sai để HS tự tin hơn khi tự học NLS 4.2.CB1a: Thực hành che tay khi nhập mật khẩu máy tính.",
+            "periodInWeek": 4
         },
         {
             "week": 17,
@@ -2908,6 +5940,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm sự tích chú tễu."
         },
         {
+            "week": 17,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 17,
+            "lessonName": "Ôn tập cuối học kỳ I",
+            "integration": ""
+        },
+        {
+            "week": 17,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 81,
+            "lessonName": "Bài 32. Ôn tập một số hình phẳng (Tiết 1): Luyện tập (Trang 127)",
+            "integration": "AI 5.C4.2: Sử dụng Teachable Machine để dạy máy nhận diện và phân biệt giữa hình tam giác, hình thang và hình chữ nhật."
+        },
+        {
+            "week": 17,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 82,
+            "lessonName": "Bài 32. Ôn tập một số hình phẳng (Tiết 2): Luyện tập (Trang 128)",
+            "integration": "Năng lực số 3.1.TC3a: Thiết kế sơ đồ tư duy (Mindmap) hệ thống hóa kiến thức các loại hình phẳng."
+        },
+        {
+            "week": 17,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 83,
+            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 1): Luyện tập (Trang 130)",
+            "integration": "AI 5.A2.2: Ví dụ: AI giúp kiến trúc sư tính toán diện tích kính cần dùng cho tòa nhà xanh để tối ưu hóa ánh sáng và tiết kiệm năng lượng."
+        },
+        {
+            "week": 17,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 84,
+            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 2): Luyện tập (Trang 131)",
+            "integration": "BVMT: Tính diện tích kính, mái che hoặc khu cây xanh; liên hệ sử dụng vật liệu hợp lí, tiết kiệm năng lượng và bảo vệ môi trường."
+        },
+        {
+            "week": 17,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 85,
+            "lessonName": "Bài 33. Ôn tập diện tích, chu vi một số hình phẳng (Tiết 3): Luyện tập (Trang 132)",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Kiểm tra đánh giá cuối học kì I",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Kiểm tra định kỳ cuối kì I",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Bài: Ôn tập, đánh giá học kì 1 (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 36,
+            "lessonName": "Bài: Ôn tập, đánh giá học kì 1 (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 52,
+            "lessonName": "Sinh hoạt dưới cờ: Lòng biết ơn",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 53,
+            "lessonName": "HĐTCĐ: Biết ơn người thân trong gia đình",
+            "integration": "- Tích hợp AI (5.B2.1): Sử dụng AI một cách có trách nhiệm để tạo ra các sản phẩm số (thiệp điện tử, ảnh kỉ niệm) dành tặng người thân.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết bày tỏ lòng biết ơn với ông bà, cha mẹ, anh chị em bằng lời nói, việc làm cụ thể; rèn lối sống hiếu thảo, yêu thương người thân."
+        },
+        {
+            "week": 18,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 54,
+            "lessonName": "Sinh hoạt lớp/KNS: -Thể hiện lòng biết ơn với người thân",
+            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức và lưu trữ dữ liệu đơn giản. HS tổ chức và sắp xếp ảnh kỷ niệm của gia đình thành các thư mục trên máy tính hoặc kho lưu trữ đám mây của cá nhân.\n- Tích hợp QCN: HS được chia sẻ tình cảm gia đình trong môi trường tôn trọng; biết lắng nghe câu chuyện của bạn, không so sánh hoàn cảnh gia đình, không làm bạn tổn thương."
+        },
+        {
+            "week": 18,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập cuối HK1",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 36,
+            "lessonName": "Kiểm tra cuối HK1",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 600,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập cuối kì I",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 36,
+            "lessonName": "Kiểm tra và đánh giá cuối học kì I",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống (Tiết 1)",
+            "integration": "3. Tích hợp ANQP: HĐ2.TIÊT2,4 5.1.3: Trân trọng và biết ơn những anh hùng trong thời bình, yêu quý những công việc, con người bình dị xung quanh. 4. Tích hợp AI: HĐ 2.Tiết 1,2,3,4) 5.B2.1 - Nhận biết và hiểu rõ hơn về những việc làm bình dị trong cuộc sống thông qua xem video… - Lồng ghép GD STEAM"
+        },
+        {
+            "week": 18,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 18",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 35",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 36,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 36",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập Toán - Tiết 35",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 36,
+            "lessonName": "Ôn tập Toán - Tiết 36",
+            "integration": null
+        },
+        {
+            "week": 18,
+            "subject": "Tiếng Anh",
+            "ppct": 69,
+            "lessonName": "REVIEW 2 - Activity 3 - 5",
+            "integration": "NLS 5.4.CB2a: Tự nhận ra kỹ năng gõ Tiếng Anh và tìm kiếm thông tin của bản thân đã tiến bộ sau HK1. Đạo đức: Thể hiện tính liêm chính và tự trọng trong học tập.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 18,
+            "subject": "Tiếng Anh",
+            "ppct": 70,
+            "lessonName": "EXTENSION - Activity 1 - 3",
+            "integration": "STEM: Tham gia thiết kế mô hình \"Trường học 4.0\" bằng bìa cứng có tích hợp các yếu tố AI đơn giản. NLS 2.6.CB2b: Bảo vệ danh tiếng số của lớp bằng cách chỉ chia sẻ ảnh tích cực.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 18,
+            "subject": "Tiếng Anh",
+            "ppct": 71,
+            "lessonName": "Kiểm tra Học kì 1",
+            "integration": "Đạo đức: Tuyệt đối trung thực, không gian lận trong thi cử.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 18,
+            "subject": "Tiếng Anh",
+            "ppct": 72,
+            "lessonName": "Chữa bài",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ giáo viên phân tích kết quả học tập để đưa ra những lời khuyên phù hợp nhất cho HS GDĐP: Chúc mừng năm mới theo phong tục địa phương.",
+            "periodInWeek": 4
+        },
+        {
             "week": 18,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -2962,6 +6258,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 126,
             "lessonName": "Ôn tập: Kiểm tra Đọc hiểu - viết (tiết 7)",
             "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 18,
+            "lessonName": "Kiểm tra cuối học kỳ I",
+            "integration": ""
+        },
+        {
+            "week": 18,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 86,
+            "lessonName": "Bài 34: Ôn tập đo lường (Tiết 1): Luyện tập (Trang 133)",
+            "integration": "AI 5.A1.1: Nhận biết AI thay con người đo đạc trong các hầm mỏ sâu hoặc nơi có khí độc để đảm bảo an toàn cho các công nhân."
+        },
+        {
+            "week": 18,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 87,
+            "lessonName": "Bài 34: Ôn tập đo lường (Tiết 2): Luyện tập (Trang 134)",
+            "integration": "Năng lực số 1.1.CB2b: Tìm kiếm và truy cập các website chuyển đổi đơn vị đo lường trực tuyến."
+        },
+        {
+            "week": 18,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 88,
+            "lessonName": "Bài 35: Ôn tập chung (Tiết 1): Luyện tập (Trang 135)",
+            "integration": "AI 5.D2.1: Tổng kết: Kiến thức toán học học kì I là “dữ liệu nguồn“ giúp HS thông minh hơn và sẵn sàng cho các bài toán phức tạp hơn ở kì II."
+        },
+        {
+            "week": 18,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 89,
+            "lessonName": "Bài 35: Ôn tập chung (Tiết 2): Luyện tập (Trang 136)",
+            "integration": "Năng lực số 2.5.CB2a: Tuân thủ các quy tắc ứng xử văn minh khi bình luận bài làm của bạn trên mạng."
+        },
+        {
+            "week": 18,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 90,
+            "lessonName": "Bài 35: Ôn tập chung (Tiết 3): Luyện tập (Trang 137)",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "- Lý thuyết âm nhạc: Nhịp 3/4 - Đọc nhạc:Bài số 3",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 1)",
+            "integration": "NLS 1.2.CB2a: HS tra cứu kí hiệu tiết kiệm năng lượng hoặc hướng dẫn sử dụng tủ lạnh an toàn từ nguồn tin cậy.\nBVMT: HS biết sử dụng tủ lạnh đúng cách, tiết kiệm điện, hạn chế lãng phí năng lượng và thực phẩm."
+        },
+        {
+            "week": 19,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 3)",
+            "integration": "Tích hợp BVMT: HS trao đổi nhóm, đề xuất thông điệp xanh cho lớp học và cam kết thực hiện hành động nhỏ hằng ngày như tắt điện, tiết kiệm nước, dùng bình nước cá nhân, phân loại rác đúng nơi quy định."
+        },
+        {
+            "week": 19,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Sinh hoạt dưới cờ: Tết đoàn viên",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "HĐTCĐ: Gia đình là tổ ốm",
+            "integration": "- Tích hợp AI (5.A2.2): Nhận biết AI giúp kết nối các thành viên gia đình ở xa thông qua các ứng dụng gọi video tích hợp dịch tự động.\n- Tích hợp QCN: HS nhận biết gia đình là nơi trẻ em cần được yêu thương, chăm sóc, bảo vệ; biết tìm sự hỗ trợ của người lớn đáng tin cậy khi cảm thấy không an toàn."
+        },
+        {
+            "week": 19,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 57,
+            "lessonName": "Sinh hoạt lớp/KNS: -Vun đắp tình cảm gia đình",
+            "integration": "- Tích hợp NLS 2.1.CB2a: Lựa chọn công nghệ số phù hợp để giao tiếp. Sử dụng các ứng dụng gọi video tích hợp tính năng dịch thuật/phụ đề để kết nối và trò chuyện với người thân ở xa.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết vun đắp bầu không khí vui vẻ, đầm ấm bằng lời nói nhẹ nhàng, việc làm vừa sức và thái độ quan tâm đến cảm xúc của người thân."
+        },
+        {
+            "week": 19,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Bài 17: Ôn tập chủ đề thực vật và động vật",
+            "integration": "Tích hợp AI 5.D1.1: HS dùng Google Drive và Canva Whiteboard sắp xếp ảnh cây con, động vật đẻ trứng, động vật đẻ con, vòng đời động vật thành nhóm dữ liệu để “dạy” AI giả định."
+        },
+        {
+            "week": 19,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "Bài 18: Vi khuẩn xung quanh chúng ta (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS dùng Google Images tìm hình ảnh vi khuẩn dưới kính hiển vi."
+        },
+        {
+            "week": 19,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 601,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 602,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Bài 13: Triều Nguyễn (Tiết 2)",
+            "integration": "Tích hợp AI 5.B1.2: HS tìm hiểu AI phục dựng âm thanh, hình ảnh Bác Hồ đọc Tuyên ngôn Độc lập; cảnh báo deepfake làm sai lệch lịch sử.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS trân trọng giá trị độc lập, tự do."
+        },
+        {
+            "week": 19,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "Bài 13: Triều Nguyễn (Tiết 3)",
+            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu robot AI hỗ trợ rà phá bom mìn sau chiến tranh.\nTích hợp QPAN: HS hiểu ý nghĩa của chiến thắng Điện Biên Phủ và trách nhiệm bảo vệ Tổ quốc."
+        },
+        {
+            "week": 19,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 19,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 19",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 37",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 38",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 37,
+            "lessonName": "Ôn tập Toán - Tiết 37",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 38,
+            "lessonName": "Ôn tập Toán - Tiết 38",
+            "integration": null
+        },
+        {
+            "week": 19,
+            "subject": "Tiếng Anh",
+            "ppct": 73,
+            "lessonName": "UNIT 11: Family time - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết AI (facial recognition) hỗ trợ phân loại ảnh gia đình theo từng thành viên tự động. Đạo đức: Dành thời gian quan tâm và giúp đỡ ông bà, cha mẹ.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 19,
+            "subject": "Tiếng Anh",
+            "ppct": 74,
+            "lessonName": "UNIT 11: Family time - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.2.CB2b: Cảnh báo: Tuyệt đối không đăng ảnh người thân đang làm việc riêng tư lên mạng xã hội khi chưa được phép Quyền con người: Trẻ em có quyền được sống hạnh phúc.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 19,
+            "subject": "Tiếng Anh",
+            "ppct": 75,
+            "lessonName": "UNIT 11: Family time - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI (Google Maps) hỗ trợ gia đình tìm đường đến các điểm vui chơi nhanh chóng và an toàn. GDĐP: Giới thiệu các địa điểm dã ngoại nổi tiếng tại địa phương.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 19,
+            "subject": "Tiếng Anh",
+            "ppct": 76,
+            "lessonName": "UNIT 11: Family time - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 1.3.CB2b: Thực hành sắp xếp các tệp ảnh kỷ niệm gia đình vào thư mục \"Family Time\" khoa học Tiết kiệm nước: Khóa vòi nước khi rửa bát đĩa giúp mẹ.",
+            "periodInWeek": 4
         },
         {
             "week": 19,
@@ -3020,6 +6580,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 3.1.CB2a - HS tạo poster số giới thiệu vẻ đẹp lao động và tình mẫu tử, chia sẻ trên nhóm học tập."
         },
         {
+            "week": 19,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 19,
+            "lessonName": "Bài 9B. Thực hành tạo đồ dùng gia đình theo video hướng dẫn",
+            "integration": "Năng lực số (CV3456): CB2.4.4: Nhận biết tác động của công nghệ số và việc sử dụng nó đối với môi trường. Năng lực AI (Khung 3439): 5.A2.4: Nêu ví dụ AI mang lại lợi ích cho cộng đồng như môi trường, y tế..."
+        },
+        {
+            "week": 19,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 91,
+            "lessonName": "Bài 36. Tỉ số. Tỉ số phần trăm (tiết 1)",
+            "integration": "AI 5.B1.1: Thảo luận: Nếu dữ liệu huấn luyện AI chỉ lấy từ một nhóm người, tỉ số phần trăm phản hồi sẽ không công bằng cho các nhóm khác."
+        },
+        {
+            "week": 19,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 92,
+            "lessonName": "Bài 36. Tỉ số. Tỉ số phần trăm (tiết 2): Luyện tập (Trang 6)",
+            "integration": "BVMT: Từ tỉ số, tỉ số phần trăm của xe điện, xe xăng hoặc rác tái chế, giáo dục học sinh lựa chọn hành vi thân thiện với môi trường."
+        },
+        {
+            "week": 19,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 93,
+            "lessonName": "Bài 37. Tỉ lệ bản đồ và ứng dụng (tiết 1)",
+            "integration": "AI 5.A2.2: Tìm hiểu cách AI trên Google Maps tính toán tỉ lệ khoảng cách và dự báo thời gian di chuyển chính xác dựa trên tình trạng giao thông."
+        },
+        {
+            "week": 19,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 94,
+            "lessonName": "Bài 37. Tỉ lệ bản đồ và ứng dụng (tiết 2): Luyện tập (Trang 10)",
+            "integration": "QPAN: Khi đọc bản đồ và tính khoảng cách, giáo dục học sinh hiểu ý nghĩa của bản đồ Việt Nam, yêu quê hương và có ý thức bảo vệ chủ quyền lãnh thổ."
+        },
+        {
+            "week": 19,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 95,
+            "lessonName": "Bài 38. Tìm hai số khi biết tổng và tỉ số của hai số đó (tiết 1)",
+            "integration": "AI 5.C4.1: HS mô phỏng quy trình giải toán theo các bước (thuật toán) mà AI thực hiện để tìm ra đáp án nhanh và chính xác nhất."
+        },
+        {
+            "week": 20,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "- Ôn Đọc nhạc: Bài số 3 - Hát: Em đi giữa biển vàng",
+            "integration": ""
+        },
+        {
+            "week": 20,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 2)",
+            "integration": "AI 5.A2.2: HS tìm hiểu tủ lạnh thông minh tích hợp AI có thể tự động điều chỉnh nhiệt độ tiết kiệm điện hoặc cảnh báo thực phẩm sắp hết hạn.\nĐạo đức, lối sống: HS có ý thức sử dụng thiết bị gia đình an toàn, tiết kiệm, không lãng phí thực phẩm."
+        },
+        {
+            "week": 20,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 4)",
+            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS thực hiện bảng tự đánh giá số trên Google Forms về việc tham gia bảo vệ môi trường.\nTích hợp BVMT: HS biết nhìn lại việc làm của bản thân và đề xuất biện pháp khắc phục sai sót."
+        },
+        {
+            "week": 20,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 39,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 20,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 40,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 20,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 58,
+            "lessonName": "Sinh hoạt dưới cờ: Hội chợ xuân gây quỹ nhân ái",
+            "integration": ""
+        },
+        {
+            "week": 20,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 59,
+            "lessonName": "HĐTCĐ: Ngày cuối tuần vui vẻ, đầm ấm",
+            "integration": "- Tích hợp AI (5.A3.1): Sử dụng AI để tìm kiếm các công thức món ăn hoặc gợi ý danh sách phim phù hợp cho cả nhà cùng xem an toàn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết cùng gia đình thiết kế buổi tối hoặc ngày cuối tuần lành mạnh, tiết kiệm; ưu tiên hoạt động gắn kết, chia sẻ và chăm sóc nhau."
+        },
+        {
+            "week": 20,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 60,
+            "lessonName": "Sinh hoạt lớp/KNS: -Buổi tối nhà em",
+            "integration": "- Tích hợp NLS 5.2.CB2a: Chọn công cụ số đơn giản để giải quyết nhu cầu học tập. HS sử dụng ứng dụng Lịch số (Google Calendar) để lập thời gian biểu hoạt động vui chơi cuối tuần cùng gia đình.\n- Tích hợp QCN: HS hiểu quyền được nghỉ ngơi, vui chơi trong gia đình; biết trao đổi với người thân để lựa chọn hoạt động an toàn, phù hợp, không ảnh hưởng sức khỏe và học tập."
+        },
+        {
+            "week": 20,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 39,
+            "lessonName": "Bài 18: Vi khuẩn xung quanh chúng ta (Tiết 2)",
+            "integration": "Tích hợp KNS: HS biết rửa tay đúng lúc, đúng cách để phòng tránh vi khuẩn có hại."
+        },
+        {
+            "week": 20,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 40,
+            "lessonName": "Bài 19: Vi khuẩn có ích trong chế biến thực phẩm (Tiết 1)",
+            "integration": "Tích hợp AI 5.A2.2: HS quan sát minh họa AI hỗ trợ bác sĩ hoặc nhà khoa học phân tích ảnh kính hiển vi để nhận biết vi khuẩn."
+        },
+        {
+            "week": 20,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 603,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 604,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 39,
+            "lessonName": "Bài 14: Cách mạng tháng Tám năm 1945 (Tiết 1)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng lược đồ số/học liệu số để xác định vị trí Điện Biên Phủ, quan sát một số địa danh lịch sử trong chiến dịch.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết ơn các anh hùng liệt sĩ, sống trách nhiệm, chăm học để góp phần xây dựng đất nước."
+        },
+        {
+            "week": 20,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 40,
+            "lessonName": "Bài 14: Cách mạng tháng Tám năm 1945 (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.2: HS dùng AI Search sưu tầm hình ảnh, video tư liệu về sự kiện 30-4-1975.\nTích hợp QPAN: HS hiểu ý nghĩa của đại thắng mùa Xuân 1975 đối với độc lập, thống nhất đất nước."
+        },
+        {
+            "week": 20,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 20,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 20",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 39,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 39",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 40,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 40",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 39,
+            "lessonName": "Ôn tập Toán - Tiết 39",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 40,
+            "lessonName": "Ôn tập Toán - Tiết 40",
+            "integration": null
+        },
+        {
+            "week": 20,
+            "subject": "Tiếng Anh",
+            "ppct": 77,
+            "lessonName": "UNIT 11: Family time - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cách loa thông minh trong gia đình nhận diện cao độ giọng nói để thực hiện lệnh. Đạo đức: Phép lịch sự khi giao tiếp với các thành viên khác lứa tuổi trong nhà.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 20,
+            "subject": "Tiếng Anh",
+            "ppct": 78,
+            "lessonName": "UNIT 11: Family time - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Thiết kế Album ảnh gia đình số bằng PowerPoint hoặc Canva AI 5.D2.1: Đề xuất ý tưởng Robot nhắc nhở lịch sinh hoạt chung cho cả gia đình",
+            "periodInWeek": 2
+        },
+        {
+            "week": 20,
+            "subject": "Tiếng Anh",
+            "ppct": 79,
+            "lessonName": "UNIT 12: Our Tet oliday - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu AI cần cung cấp thông tin công bằng về các văn hóa lễ hội đa dạng trên thế giới GDĐP: Giới thiệu các phong tục đón Tết đặc trưng của quê hương em.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 20,
+            "subject": "Tiếng Anh",
+            "ppct": 80,
+            "lessonName": "UNIT 12: Our Tet holiday - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2b: Thực hành tìm kiếm hình ảnh lễ hội truyền thống Việt Nam trên Internet an toàn. Đạo đức: Có ý thức giữ gìn và phát huy bản sắc văn hóa dân tộc.",
+            "periodInWeek": 4
+        },
+        {
             "week": 20,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3074,6 +6898,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 140,
             "lessonName": "Nói và nghe: Nét đẹp học đường",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm hộp quà màu thiên thanh."
+        },
+        {
+            "week": 20,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 20,
+            "lessonName": "Bài 10. Cấu trúc tuần tự (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn đơn giản để hệ thống máy tính thực hiện nhiệm vụ. Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... (đây là bước nâng cao sau khi hiểu tuần tự)."
+        },
+        {
+            "week": 20,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 96,
+            "lessonName": "Bài 38. Tìm hai số khi biết tổng và tỉ số của hai số đó (tiết 2): Luyện tập (Trang 13)",
+            "integration": "Đạo đức, lối sống: Qua bài toán góp sách, chia phần, giáo dục học sinh tinh thần công bằng, chia sẻ và hợp tác trong tập thể."
+        },
+        {
+            "week": 20,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 97,
+            "lessonName": "Bài 39. Tìm hai số khi biết hiệu và tỉ số của hai số đó (tiết 1)",
+            "integration": "AI 5.D1.1: Liên hệ: Để giải toán, AI cần “dữ liệu đầu vào“ là Hiệu và Tỉ số, tương tự như việc HS tóm tắt đề bài trước khi giải."
+        },
+        {
+            "week": 20,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 98,
+            "lessonName": "Bài 39. Tìm hai số khi biết hiệu và tỉ số của hai số đó (tiết 2) Luyện tập (Trang 16)",
+            "integration": "BVMT: Dùng tình huống phân loại rác, chăm sóc cây trồng hoặc vật nuôi để giáo dục học sinh ý thức bảo vệ môi trường sống."
+        },
+        {
+            "week": 20,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 99,
+            "lessonName": "Bài 40. Tìm tỉ số phần trăm của hai số (tiết 1)",
+            "integration": "AI 5.A3.1: Sử dụng các ứng dụng học tập tích hợp AI (adaptive learning) để tự luyện tập các bài toán về tỉ số phần trăm theo mức độ cá nhân."
+        },
+        {
+            "week": 20,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 100,
+            "lessonName": "Bài 40. Tìm tỉ số phần trăm của hai số (tiết 2): Luyện tập (Trang 19)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Khai thác các bài toán về tỉ lệ nước tiết kiệm được hoặc tỉ lệ tham gia vệ sinh trường lớp để giáo dục học sinh sử dụng nước có trách nhiệm."
+        },
+        {
+            "week": 21,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "- Ôn Hát: Em đi giữa biển vàng - Thường thức âm nhạc: Nhạc sĩ Bùi Đình Thảo và bài hát Sách bút thân yêu ơi!",
+            "integration": ""
+        },
+        {
+            "week": 21,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 3)",
+            "integration": "KNS: HS rèn kĩ năng sử dụng thiết bị gia đình an toàn, biết sắp xếp thực phẩm hợp lí, vệ sinh tủ lạnh, xử lí tình huống khi thiết bị hoạt động không bình thường."
+        },
+        {
+            "week": 21,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 1.3.CB2a: HS sử dụng Excel hoặc Google Sheets để nhập liệu, sắp xếp kế hoạch học tập, rèn luyện sức khỏe theo thời gian.\nTích hợp Kĩ năng sống: HS biết xác định việc cần làm và ưu tiên công việc."
+        },
+        {
+            "week": 21,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 21,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 21,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Sinh hoạt dưới cờ: Rèn luyện sức khoẻ",
+            "integration": ""
+        },
+        {
+            "week": 21,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "HĐTCĐ: Nhận diện các môi trường học tập mới",
+            "integration": "- Tích hợp AI (5.A3.1): Nhận diện các \"trợ lý học tập AI\" (như app học tiếng Anh, toán) giúp cá nhân hóa việc học của em trong môi trường mới.\n- Tích hợp QCN: HS nhận biết quyền được học tập trong môi trường an toàn, thân thiện; biết tìm hiểu các môi trường học tập mới với thái độ tự tin, tôn trọng quy định chung."
+        },
+        {
+            "week": 21,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 63,
+            "lessonName": "Sinh hoạt lớp/KNS: -Trải nghiệm môi trường học tập mới",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số đơn giản phục vụ nhiệm vụ học tập. HS lập bảng so sánh ngắn trên PowerPoint/Google Slides về các môi trường học tập mới; biết lựa chọn thông tin phù hợp, dễ hiểu để chia sẻ trong sinh hoạt lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn ý chí học tập, tinh thần chủ động thích nghi; biết chuẩn bị thói quen học tập, giao tiếp, tự phục vụ khi chuyển sang môi trường mới."
+        },
+        {
+            "week": 21,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Bài 19: Vi khuẩn có ích trong chế biến thực phẩm (Tiết 2)",
+            "integration": "Bài học STEM: Vi khuẩn có ích trong chế biến thực phẩm"
+        },
+        {
+            "week": 21,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Bài 20: Vi khuẩn gây bệnh ở người và cách phòng tránh (Tiết 1)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS xem video phòng bệnh trên website Bộ Y tế, kênh YouTube Sức khỏe Việt Nam hoặc học liệu GV cung cấp; không tự ý tìm nguồn chưa kiểm chứng."
+        },
+        {
+            "week": 21,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 605,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 606,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Bài 15: Chiến dịch Điện Biên Phủ năm 1954 (Tiết 1)",
+            "integration": "Tích hợp NLS 1.3.CB2a: HS sưu tầm hình ảnh, video tư liệu về sự kiện 30-4-1975; lưu trữ vào thư mục học tập và sắp xếp theo tên tư liệu, thời gian, nội dung.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS bồi dưỡng lòng yêu nước, ý thức giữ gìn hòa bình, thống nhất dân tộc."
+        },
+        {
+            "week": 21,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Bài 15: Chiến dịch Điện Biên Phủ năm 1954 (Tiết 2)",
+            "integration": "Tích hợp NLS 6.1.CB2a: HS tra cứu một số thành tựu công nghệ ở Việt Nam thời kì Đổi mới; nhận biết ứng dụng số, máy tính, Internet, AI trong đời sống hiện nay.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS có ý thức học tập, đổi mới, sáng tạo để thích ứng với thời đại số."
+        },
+        {
+            "week": 21,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 21,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 21",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 41",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 42",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 41,
+            "lessonName": "Ôn tập Toán - Tiết 41",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 42,
+            "lessonName": "Ôn tập Toán - Tiết 42",
+            "integration": null
+        },
+        {
+            "week": 21,
+            "subject": "Tiếng Anh",
+            "ppct": 81,
+            "lessonName": "UNIT 12: Our Tet holiday - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ dự báo thời tiết Tết chính xác để gia đình chuẩn bị trang phục du xuân phù hợp. ATGT: Quy tắc an toàn khi tham gia giao thông ngày lễ.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 21,
+            "subject": "Tiếng Anh",
+            "ppct": 82,
+            "lessonName": "UNIT 12: Our Tet holiday - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.5.CB2a: Quy tắc Netiquette: Gửi lời chúc Tết lịch sự, văn minh đến bạn bè và thầy cô trên mạng. Tiết kiệm nước: Tiết kiệm nước khi dọn dẹp nhà cửa đón Tết.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 21,
+            "subject": "Tiếng Anh",
+            "ppct": 83,
+            "lessonName": "UNIT 12: Our Tet holiday - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cách các hiệu ứng âm thanh (pháo hoa) được tạo ra và tích hợp vào video bài hát. Đạo đức: Bé biết chúc Tết và nhận lì xì bằng hai tay lễ phép.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 21,
+            "subject": "Tiếng Anh",
+            "ppct": 84,
+            "lessonName": "UNIT 12: Our Tet holiday - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.4.CB2a: Làm việc nhóm trên Google Docs để cùng lên danh sách các việc cần làm ngày Tết. AI 5.D1.1: Ý tưởng Robot hỗ trợ gói bánh chưng tự động.",
+            "periodInWeek": 4
         },
         {
             "week": 21,
@@ -3132,6 +7220,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 4.3.CB2a - HS thảo luận quy tắc an sinh số, cân bằng thời gian dùng thiết bị khi học ở nhà."
         },
         {
+            "week": 21,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 21,
+            "lessonName": "Bài 10. Cấu trúc tuần tự (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn đơn giản để hệ thống máy tính thực hiện nhiệm vụ. Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... (đây là bước nâng cao sau khi hiểu tuần tự)."
+        },
+        {
+            "week": 21,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 101,
+            "lessonName": "Bài 41. Tìm giá trị phần trăm của một số (tiết 1)",
+            "integration": "AI 5.A2.2: Ví dụ: AI tính phần trăm lượng pin còn lại hoặc phần trăm hoàn thành nhiệm vụ của robot thám hiểm để thông báo cho con người."
+        },
+        {
+            "week": 21,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 102,
+            "lessonName": "Bài 41. Tìm giá trị phần trăm của một số (tiết 2): Luyện tập (Trang 22)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính lượng nước tiết kiệm được khi giảm 10%, 15% hoặc 20% lượng nước sử dụng hằng ngày."
+        },
+        {
+            "week": 21,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 103,
+            "lessonName": "Bài 42. Máy tính cầm tay (tiết 1)",
+            "integration": "Đạo đức, lối sống: Giáo dục học sinh sử dụng máy tính cầm tay đúng mục đích, trung thực trong học tập và không phụ thuộc hoàn toàn vào công cụ.\nSTEM: Bài 12. Sử dụng máy tính cầm tay"
+        },
+        {
+            "week": 21,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 104,
+            "lessonName": "Bài 42. Máy tính cầm tay (tiết 2): Luyện tập (Trang 26)",
+            "integration": "Đạo đức, lối sống: Học sinh dùng máy tính để kiểm tra kết quả, biết tự chịu trách nhiệm với bài làm và không sao chép máy móc."
+        },
+        {
+            "week": 21,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 105,
+            "lessonName": "Bài 43. Thực hành và trải nghiệm sử dụng máy tính cầm tay",
+            "integration": "AI 5.B3.1: Khi dùng máy tính/AI để tính tỉ số, HS cần hiểu lý do máy ra kết quả đó (dựa trên thuật toán nào) để đảm bảo tính minh bạch."
+        },
+        {
+            "week": 22,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "- Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 22,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 1)",
+            "integration": "NLS 3.1.CB2a: HS dùng PowerPoint hoặc Google Slides để ghi lại và giới thiệu kết quả kiểm tra hoạt động của mô hình xe; có thể chèn clip ngắn minh chứng xe chạy được khi đóng công tắc."
+        },
+        {
+            "week": 22,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 2)",
+            "integration": "Tích hợp AI 5.C4.1 (Công cụ: Google Assistant, Microsoft To Do hoặc app nhắc việc có gợi ý thông minh): HS thực hành tư duy “Nếu... thì...” trong lập kế hoạch cá nhân, ví dụ nếu đến 19 giờ thì ngồi vào bàn học, nếu hoàn thành bài tập thì đánh dấu hoàn thành.\nTích hợp Kĩ năng sống: HS hình thành thói quen quản lí thời gian."
+        },
+        {
+            "week": 22,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 22,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 22,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 64,
+            "lessonName": "Sinh hoạt dưới cờ: Rèn luyện thể chất và tinh thần để thích ứng với cuộc sống",
+            "integration": ""
+        },
+        {
+            "week": 22,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 65,
+            "lessonName": "HĐTCĐ: Các đức tính cần thiết trong môi trường học tập mới",
+            "integration": "- Tích hợp AI (5.D2.1): Liên hệ: Khả năng thích ứng của con người giống như AI tự cải tiến khi gặp các thách thức dữ liệu mới.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS xác định các đức tính cần thiết như tự tin, kỉ luật, trung thực, kiên trì; biết lập kế hoạch rèn luyện để thích ứng với môi trường học tập mới."
+        },
+        {
+            "week": 22,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 66,
+            "lessonName": "Sinh hoạt lớp/KNS: -Rèn đức tính cần thiết để thích ứng với môi trường học tập mới",
+            "integration": "- Tích hợp NLS 5.2.CB2a: Chọn công cụ số đơn giản để giải quyết nhu cầu học tập. HS dùng bảng kiểm số hoặc Google Forms để tự đánh giá mức độ thích ứng, kiên trì, chủ động của bản thân và lưu kết quả để theo dõi tiến bộ.\n- Tích hợp QCN: HS biết khi gặp khó khăn trong môi trường mới, các em có quyền được hỏi, được hỗ trợ; biết chia sẻ băn khoăn đúng cách và tôn trọng sự khác biệt của bạn."
+        },
+        {
+            "week": 22,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Bài 20: Vi khuẩn gây bệnh ở người và cách phòng tránh (Tiết 2)",
+            "integration": "Tích hợp quyền con người: HS hiểu quyền được chăm sóc, bảo vệ sức khỏe; biết thực hiện vệ sinh cá nhân và phòng bệnh cho bản thân, cộng đồng."
+        },
+        {
+            "week": 22,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "Bài 21: Ôn tập chủ đề vi khuẩn",
+            "integration": "Tích hợp AI 5.A2.2: HS dùng hình ảnh mẫu trong Google Images hoặc PowerPoint để thảo luận AI có thể hỗ trợ phân tích hình ảnh vi khuẩn nhưng cần kiểm chứng."
+        },
+        {
+            "week": 22,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 607,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 608,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Bài 16: Chiến dịch Hồ Chí Minh năm 1975 (Tiết 1)",
+            "integration": "Tích hợp AI 5.D2.1: HS liên hệ sự phát triển của máy tính và AI ở Việt Nam qua thời kì Đổi mới.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tự hào về thành tựu đất nước, có trách nhiệm góp phần xây dựng quê hương."
+        },
+        {
+            "week": 22,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "Bài 16: Chiến dịch Hồ Chí Minh năm 1975 (Tiết 2)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Earth/Google Maps để xác định vị trí Trung Quốc, thủ đô Bắc Kinh, Vạn Lý Trường Thành, Cố cung Bắc Kinh và trình bày ngắn gọn trên bản đồ.\nTích hợp QCN: HS tôn trọng sự khác biệt văn hóa và quyền được tìm hiểu văn hóa của các dân tộc."
+        },
+        {
+            "week": 22,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Cảnh sắc quê hương (Tiết 1)",
+            "integration": "Tích hợp bảo vệ môi trường: HĐ3.T1 5.B1.2 Giáo dục học ý thức giữ gìn vệ sinh môi trường, không xả rác bừa bãi nhất là các điểm tham quan, danh lam thắng cảnh. . 4. Tích hợp AI: (HĐ 2.Tiết 1,2,3) 5.B3.1 - Trình bày được các ứng dụng của AI trong học tập và đời sống. - Biết được ứng dụng AI có thể nhận diện và phân tích màu sắc trong các bức ảnh phong cảnh quê hương. 4. Tích hợp GDĐP: HĐ4.T4 5.G2.2 GT về cảnh sắc quê hương ở địa phương."
+        },
+        {
+            "week": 22,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 22",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 43",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 44",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 43,
+            "lessonName": "Ôn tập Toán - Tiết 43",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 44,
+            "lessonName": "Ôn tập Toán - Tiết 44",
+            "integration": null
+        },
+        {
+            "week": 22,
+            "subject": "Tiếng Anh",
+            "ppct": 85,
+            "lessonName": "UNIT 13: Our special days - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A3.1: Nhận biết AI (như ứng dụng Lịch) giúp tự động nhắc nhở các ngày lễ quan trọng trong năm. Quyền con người: Trẻ em có quyền tham gia lễ hội.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 22,
+            "subject": "Tiếng Anh",
+            "ppct": 86,
+            "lessonName": "UNIT 13: Our special days - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.2.CB2a: Tập kiểm chứng thông tin về nguồn gốc các ngày lễ từ các trang web giáo dục uy tín. GDĐP: Tìm hiểu về các lễ hội truyền thống tại địa phương em.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 22,
+            "subject": "Tiếng Anh",
+            "ppct": 87,
+            "lessonName": "UNIT 13: Our special days - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.C5.1: Biết AI (như máy thanh toán tự động) giúp nhận diện và tính tiền thực phẩm party nhanh chóng. Đạo đức: Xây dựng thói quen ăn uống lành mạnh.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 22,
+            "subject": "Tiếng Anh",
+            "ppct": 88,
+            "lessonName": "UNIT 13: Our special days - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 3.3.CB2a: Tôn trọng bản quyền: Khi lấy ảnh món ăn từ Google để làm thực đơn party, bé biết ghi nguồn. Bảo vệ môi trường: Hạn chế đồ nhựa một lần.",
+            "periodInWeek": 4
+        },
+        {
             "week": 22,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3186,6 +7538,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 154,
             "lessonName": "Nói và nghe: Những ý kiến khác biệt",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm khu rừng của mát."
+        },
+        {
+            "week": 22,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 22,
+            "lessonName": "Bài 11. Cấu trúc lặp (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn để máy tính giải quyết vấn đề (bao gồm các bước lặp lại). Năng lực AI (Khung 3439): 5.A1.1: Nhận biết AI có thể thay con người làm những việc lặp đi lặp lại một cách chính xác."
+        },
+        {
+            "week": 22,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 106,
+            "lessonName": "Bài 44. Luyện tập chung (tiết 1): Luyện tập (Trang 28)",
+            "integration": "Năng lực số 2.5.CB2b: Chọn chiến lược giao tiếp phù hợp khi thảo luận bài tập trong nhóm học tập số."
+        },
+        {
+            "week": 22,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 107,
+            "lessonName": "Bài 44. Luyện tập chung (tiết 2): Luyện tập (Trang 29)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Liên hệ thể tích nước trong bể, chậu, bình; giáo dục học sinh không xả nước lãng phí và biết bảo quản nước sạch."
+        },
+        {
+            "week": 22,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 108,
+            "lessonName": "Bài 45. Thể tích của một hình",
+            "integration": "AI 5.A1.1: AI tính toán thể tích linh kiện điện tử siêu nhỏ ($cm^3$) để robot có thể lắp ráp điện thoại thông minh một cách chính xác tuyệt đối."
+        },
+        {
+            "week": 22,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 109,
+            "lessonName": "Bài 46. Xăng - ti-mét khối. Đề-xi-mét khối (tiết 1)",
+            "integration": "Năng lực số 1.3.CB2a: Sắp xếp dữ liệu các vật thể theo đơn vị thể tích vào thư mục có cấu trúc."
+        },
+        {
+            "week": 22,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 110,
+            "lessonName": "Bài 46. Xăng - ti-mét khối. Đề-xi-mét khối (tiết 2): Luyện tập (Trang 34)",
+            "integration": "AI 5.A1.1: AI hỗ trợ tính thể tích nước sạch cần cung cấp cho thành phố ($m^3$) mỗi ngày dựa trên dữ liệu tiêu thụ thực tế để điều tiết hợp lý."
+        },
+        {
+            "week": 23,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Hát: Tuổi hồng ơi",
+            "integration": ""
+        },
+        {
+            "week": 23,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 2)",
+            "integration": "KNS: HS rèn kĩ năng thực hành an toàn, phối hợp nhóm, lắp ráp đúng quy trình, biết kiểm tra dây nối, công tắc, pin và các chi tiết của mô hình."
+        },
+        {
+            "week": 23,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 3)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS rèn tính tự giác, kỉ luật và trách nhiệm khi thực hiện kế hoạch cá nhân; biết chủ động thực hiện nhiệm vụ, không trì hoãn, không phụ thuộc hoàn toàn vào người khác hoặc công cụ hỗ trợ."
+        },
+        {
+            "week": 23,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 45,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 23,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 46,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 23,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Sinh hoạt dưới cờ: Kỉ niệm ngày Quốc tế phụ nữ 8-3",
+            "integration": ""
+        },
+        {
+            "week": 23,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "HĐTCĐ: Tự chủ và đảm bảo an toàn khi giao tiếp trên mạng",
+            "integration": "- Tích hợp AI (5.A3.1): Giáo dục an toàn: Tuyệt đối không chia sẻ thông tin cá nhân, địa chỉ, ảnh riêng tư cho các chatbot AI lạ.\n- Tích hợp QCN: HS hiểu quyền riêng tư, danh dự, hình ảnh cá nhân cần được bảo vệ khi giao tiếp trên mạng; không chia sẻ mật khẩu, địa chỉ, ảnh riêng tư hoặc thông tin của bạn khi chưa được phép."
+        },
+        {
+            "week": 23,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 69,
+            "lessonName": "Sinh hoạt lớp/KNS: -Ứng xử theo quy tắc tự chủ và đảm bảo an toàn khi giao tiếp trên mạng",
+            "integration": "- Tích hợp NLS 4.2.CB2a: Lựa chọn cách thức đơn giản bảo vệ quyền riêng tư. HS lập danh sách “5 việc nên làm - 5 việc không nên làm” khi giao tiếp trên mạng bằng Canva/PowerPoint; nhấn mạnh không chia sẻ mật khẩu, địa chỉ, ảnh riêng tư.\n- Tích hợp QPAN: HS nâng cao ý thức an toàn, an ninh mạng; biết cảnh giác với người lạ, đường dẫn lạ, tin giả, lời rủ rê nguy hiểm và báo người lớn khi phát hiện nguy cơ."
+        },
+        {
+            "week": 23,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 45,
+            "lessonName": "Bài 22: Sự hình thành cơ thể người (Tiết 1)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS tìm hiểu sự hình thành cơ thể người từ video hoặc học liệu GV gửi trên Google Drive/PowerPoint; không chia sẻ thông tin riêng tư."
+        },
+        {
+            "week": 23,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 46,
+            "lessonName": "Bài 22: Sự hình thành cơ thể người (Tiết 2)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS dùng Google Drive hoặc Google Classroom nhận học liệu do GV cung cấp; không tự tìm kiếm hình ảnh nhạy cảm, không gửi thông tin cá nhân trên mạng."
+        },
+        {
+            "week": 23,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 609,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 610,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 45,
+            "lessonName": "Bài 17: Đất nước đổi mới (tiết 1)",
+            "integration": "Tích hợp AI 5.C4.2: HS dùng ứng dụng dịch thuật AI để tìm hiểu nghĩa gốc, cách phát âm địa danh Trung Hoa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS giao tiếp văn minh, tôn trọng văn hóa nước bạn."
+        },
+        {
+            "week": 23,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 46,
+            "lessonName": "Bài 17: Đất nước đổi mới (tiết 2)",
+            "integration": "Tích hợp AI 5.D1.1: HS giả lập quy trình dạy robot AI giám sát, bảo vệ Cánh đồng Chum.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng tình hữu nghị Việt Nam - Lào."
+        },
+        {
+            "week": 23,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Cảnh sắc quê hương (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 23,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 23",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 45,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 45",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 46,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 46",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 45,
+            "lessonName": "Ôn tập Toán - Tiết 45",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 46,
+            "lessonName": "Ôn tập Toán - Tiết 46",
+            "integration": null
+        },
+        {
+            "week": 23,
+            "subject": "Tiếng Anh",
+            "ppct": 89,
+            "lessonName": "UNIT 13: Our special days - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý truyền âm qua micro không dây tại các sân khấu lễ hội lớn. QPAN: Nhận biết các quy tắc an toàn nơi đông người khi tham gia các sự kiện văn hóa.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 23,
+            "subject": "Tiếng Anh",
+            "ppct": 90,
+            "lessonName": "UNIT 13: Our special days - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.2.CB2a: Tạo một video ngắn (clip) mời bạn đến dự ngày lễ đặc biệt của mình. AI 5.D2.1: Cải tiến Robot phục vụ bữa tiệc để nó biết chúc mừng khách bằng nhiều ngôn ngữ",
+            "periodInWeek": 2
+        },
+        {
+            "week": 23,
+            "subject": "Tiếng Anh",
+            "ppct": 91,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết các ứng dụng AI (fitness tracker) hỗ trợ theo dõi thói quen vận động hằng ngày. Đạo đức: Có ý thức tự giác rèn luyện thân thể.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 23,
+            "subject": "Tiếng Anh",
+            "ppct": 92,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.3.CB2a: Thực hành quy tắc 20-20-20 để bảo vệ đôi mắt khi sử dụng máy tính quá lâu Tiết kiệm nước: Hướng dẫn rửa hoa quả sạch bằng lượng nước vừa đủ.",
+            "periodInWeek": 4
         },
         {
             "week": 23,
@@ -3244,6 +7860,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 6.1.CB2a - HS dùng ứng dụng số nhận diện giống chè và thảo luận về đạo đức, tính công bằng của dữ liệu."
         },
         {
+            "week": 23,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 23,
+            "lessonName": "Bài 11. Cấu trúc lặp (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn để máy tính giải quyết vấn đề (bao gồm các bước lặp lại). Năng lực AI (Khung 3439): 5.A1.1: Nhận biết AI có thể thay con người làm những việc lặp đi lặp lại một cách chính xác."
+        },
+        {
+            "week": 23,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 111,
+            "lessonName": "Bài 47. Mét khối (tiết 1)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính thể tích bể chứa nước, lượng nước sinh hoạt; nhắc học sinh bảo vệ nguồn nước sạch trong gia đình và nhà trường."
+        },
+        {
+            "week": 23,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 112,
+            "lessonName": "Bài 47. Mét khối (tiết 2): Luyện tập (Trang 37)",
+            "integration": "AI 5.D2.1: Ví dụ: AI ước lượng thể tích thức ăn cho vật nuôi chính xác hơn khi có thêm dữ liệu cập nhật về cân nặng và độ tuổi của con vật."
+        },
+        {
+            "week": 23,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 113,
+            "lessonName": "Bài 48. Luyện tập chung (tiết 1): Luyện tập (Trang 38)",
+            "integration": "Năng lực số 2.1.CB2a: Sử dụng phòng họp trực tuyến (Google Meet) để trao đổi bài giải về thể tích."
+        },
+        {
+            "week": 23,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 114,
+            "lessonName": "Bài 48. Luyện tập chung (tiết 2): Luyện tập (Trang 39)",
+            "integration": "AI 5.C4.2: Sử dụng phần mềm mô phỏng 3D để xem AI tự động tạo ra các hình khai triển từ bản vẽ phẳng của các loại bao bì sản phẩm."
+        },
+        {
+            "week": 23,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 115,
+            "lessonName": "Bài 49. Hình khai triển của hình lập phương, hình hộp chữ nhật và hình trụ (tiết 1)",
+            "integration": "Năng lực số 3.1.CB2a: Sử dụng phần mềm vẽ 3D đơn giản để quan sát hình khai triển của khối hộp."
+        },
+        {
+            "week": 24,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "- Ôn Hát: Tuổi hồng ơi - Nhạc cụ: Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 3)",
+            "integration": "AI 5.A1.1: HS kết nối từ mô hình xe chạy bằng pin đến xe tự lái tích hợp AI; xem video cách AI giúp xe nhận diện và tránh chướng ngại vật trên đường."
+        },
+        {
+            "week": 24,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 4",
+            "integration": "Tích hợp Kĩ năng sống: HS tự đánh giá việc thực hiện kế hoạch, điều chỉnh mục tiêu cho phù hợp và rút kinh nghiệm cho tuần tiếp theo; rèn thói quen quản lí thời gian và tự chịu trách nhiệm."
+        },
+        {
+            "week": 24,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 47,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 48,
+            "lessonName": "Bài 4: Bài tập rèn luyện kĩ năng trèo (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 70,
+            "lessonName": "Sinh hoạt dưới cờ: Tự bảo vệ bản thân",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 71,
+            "lessonName": "HĐTCĐ: Nguyên nhân và cách phòng chống hoả hoạn",
+            "integration": "- Tích hợp AI (5.A1.1): Nhận biết các robot chữa cháy hoặc cảm biến báo khói tự động tích hợp AI giúp làm việc ở nơi nguy hiểm thay con người.\n- Tích hợp QPAN: HS nhận biết nguyên nhân gây hoả hoạn, biết cách phòng cháy, thoát hiểm, gọi hỗ trợ khi cần; có ý thức giữ an toàn cho bản thân, gia đình, trường học và cộng đồng."
+        },
+        {
+            "week": 24,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 72,
+            "lessonName": "Sinh hoạt lớp/KNS: -Thực hành thoát hiểm",
+            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS xem video hướng dẫn phòng cháy chữa cháy từ nguồn chính thống, ghi lại các thao tác an toàn bằng sơ đồ ngắn và chia sẻ với nhóm.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được sống an toàn; biết nhắc nhau không nghịch lửa, không tự ý dùng thiết bị điện nguy hiểm và cùng kiểm tra lối thoát hiểm trong lớp."
+        },
+        {
+            "week": 24,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 47,
+            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 1)",
+            "integration": "Tích hợp quyền con người: HS hiểu mỗi người có quyền được tôn trọng trong từng giai đoạn phát triển; không trêu chọc sự khác biệt về ngoại hình, giới tính, tốc độ lớn lên."
+        },
+        {
+            "week": 24,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 48,
+            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 2)",
+            "integration": "Tích hợp KNS: HS biết chăm sóc bản thân phù hợp với lứa tuổi, biết chia sẻ với người lớn đáng tin cậy khi có thay đổi về cơ thể, tâm lí."
+        },
+        {
+            "week": 24,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 611,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 612,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 47,
+            "lessonName": "Bài 18: Nước Cộng hoà Nhân dân Trung Hoa (Tiết 1)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Maps/Google Earth để xác định vị trí Lào, thủ đô Viêng Chăn, sông Mê Công, Cánh đồng Chum và nêu nhận xét về đặc điểm lãnh thổ của Lào.\nTích hợp QCN: HS tôn trọng chủ quyền, văn hóa, phong tục của nước bạn."
+        },
+        {
+            "week": 24,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 48,
+            "lessonName": "Bài 18: Nước Cộng hoà Nhân dân Trung Hoa (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu AI hỗ trợ khách du lịch tại Ăng - co Vát qua hướng dẫn viên ảo và dịch thuật tiếng Khmer.\nTích hợp BVMT: HS liên hệ bảo vệ cảnh quan, môi trường tại di sản văn hóa."
+        },
+        {
+            "week": 24,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Cảnh sắc quê hương (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 24",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 47,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 47",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 48,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 48",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 47,
+            "lessonName": "Ôn tập Toán - Tiết 47",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 48,
+            "lessonName": "Ôn tập Toán - Tiết 48",
+            "integration": null
+        },
+        {
+            "week": 24,
+            "subject": "Tiếng Anh",
+            "ppct": 93,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI hỗ trợ gợi ý thực đơn dinh dưỡng dựa trên dữ liệu sức khỏe cá nhân GDĐP: Nhận biết các loại rau quả sạch đặc sản của địa phương.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 24,
+            "subject": "Tiếng Anh",
+            "ppct": 94,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.2.CB2b: Biết lựa chọn giữa việc dùng đồng hồ bấm giờ hay app để quản lý thời gian tập thể dục. Quyền con người: Quyền được chăm sóc sức khỏe.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 24,
+            "subject": "Tiếng Anh",
+            "ppct": 95,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cách các khớp Robot mô phỏng chuyển động của con người khi tập Aerobics. Bảo vệ môi trường: Tích cực tham gia các hoạt động làm sạch môi trường.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 24,
+            "subject": "Tiếng Anh",
+            "ppct": 96,
+            "lessonName": "UNIT 14: Staying healthy - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.6.CB2b: Biết cách bảo vệ danh tiếng trực tuyến bằng việc chia sẻ những thói quen sống lành mạnh. AI 5.D2.1: Ý tưởng 'Robot bác sĩ dinh dưỡng' trong trường học.",
+            "periodInWeek": 4
+        },
+        {
             "week": 24,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3298,6 +8178,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 168,
             "lessonName": "Nói và nghe: Địa diểm tham quan, du lịch",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm vũ điệu trên nền thổ cẩm."
+        },
+        {
+            "week": 24,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 24,
+            "lessonName": "Bài 12. Thực hành sử dụng lệnh lặp (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.5.1: Xác định các vấn đề kỹ thuật đơn giản khi vận hành thiết bị và môi trường số. Năng lực AI (Khung 3439): 5.D2.1: Giải thích được hệ thống AI có thể cải tiến và tốt hơn khi dữ liệu được bổ sung và cập nhật thường xuyên."
+        },
+        {
+            "week": 24,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 116,
+            "lessonName": "Bài 49. Hình khai triển của hình lập phương, hình hộp chữ nhật và hình trụ (tiết 2): Luyện tập (Trang 42)",
+            "integration": "AI 5.A2.2: AI giúp tính diện tích bề mặt tấm pin mặt trời cần lắp đặt để tối ưu hóa việc thu nhận năng lượng cho ngôi nhà thông minh."
+        },
+        {
+            "week": 24,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 117,
+            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 1)",
+            "integration": "BVMT: Tính diện tích giấy bọc hộp hoặc vật liệu làm hộp; giáo dục học sinh tiết kiệm giấy, tái sử dụng bao bì và giảm rác thải."
+        },
+        {
+            "week": 24,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 118,
+            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 2): (Trang 45)",
+            "integration": ""
+        },
+        {
+            "week": 24,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 119,
+            "lessonName": "Bài 50. Diện tích xung quanh và diện tích toàn phần của hình hộp chữ nhật (tiết 3): Luyện tập (Trang 46)",
+            "integration": "AI 5.D1.1: HS tạo “bộ dữ liệu“ bằng cách liệt kê diện tích 6 mặt bằng nhau để máy hiểu cấu trúc của hình lập phương."
+        },
+        {
+            "week": 24,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 120,
+            "lessonName": "Bài 51. Diện tích xung quanh và diện tích toàn phần của hình lập phương (tiết 1)",
+            "integration": "Năng lực số 3.1.CB2a: Tạo và chỉnh sửa hình ảnh khai triển 6 mặt của hình lập phương trên máy tính."
+        },
+        {
+            "week": 25,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "- Ôn Nhạc cụ: Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu - Nghe nhạc: Ngôi sao sáng",
+            "integration": ""
+        },
+        {
+            "week": 25,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 4)",
+            "integration": "KNS: HS rèn kĩ năng kiểm tra sản phẩm, điều chỉnh lỗi, chia sẻ kinh nghiệm và đánh giá kết quả lắp ráp mô hình kĩ thuật.\nSTEM: Bài 11. Xe ô tô cánh quạt chạy bằng pin."
+        },
+        {
+            "week": 25,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 4.2.CB2a: HS thảo luận rủi ro khi chia sẻ địa chỉ, hình ảnh nhạy cảm, mật khẩu lên môi trường số.\nTích hợp QCN: HS hiểu trẻ em có quyền được bảo vệ an toàn thân thể, danh dự và thông tin cá nhân."
+        },
+        {
+            "week": 25,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Bài: Ôn tập, đánh giá giữa học kì 2.",
+            "integration": ""
+        },
+        {
+            "week": 25,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 25,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 73,
+            "lessonName": "Sinh hoạt dưới cờ: Lễ hội truyền thống địa phương",
+            "integration": ""
+        },
+        {
+            "week": 25,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 74,
+            "lessonName": "HĐTCĐ: Tham gia lễ hội truyền thống địa phương",
+            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI giúp quảng bá và dịch thuật thông tin lễ hội địa phương cho khách du lịch khắp thế giới.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng lễ hội truyền thống địa phương, tham gia văn minh, giữ trật tự, tôn trọng phong tục tốt đẹp và tự hào về bản sắc quê hương."
+        },
+        {
+            "week": 25,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 75,
+            "lessonName": "Sinh hoạt lớp/KNS: -Tái hiện lễ hội truyền thống",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin trong môi trường số. HS tìm kiếm hình ảnh, thông tin về lễ hội truyền thống địa phương trên trang thông tin chính thống, sau đó chọn tư liệu phù hợp để giới thiệu trong lớp.\n- Tích hợp BVMT: HS biết khi tham gia lễ hội cần không xả rác, không giẫm đạp cây xanh, không làm bẩn khu di tích; biết nhắc bạn giữ cảnh quan sạch đẹp."
+        },
+        {
+            "week": 25,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 3)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS quan sát tranh, video học liệu GV chọn trên PowerPoint hoặc Google Drive về các giai đoạn phát triển của con người."
+        },
+        {
+            "week": 25,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "Bài 24: Nam và nữ (Tiết 1)",
+            "integration": "Tích hợp NLS 2.1.CB2a: HS thực hành lựa chọn Zalo nhóm lớp hoặc Email để trao đổi bài tập nhóm lịch sự giữa bạn nam và bạn nữ."
+        },
+        {
+            "week": 25,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 613,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 614,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Bài 19: Cộng hoà Dân chủ Nhân dân Lào (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS khai thác hình ảnh, video số về Ăng - co Vát, Biển Hồ, thủ đô Phnôm Pênh; chọn thông tin phù hợp để giới thiệu nét tiêu biểu của Cam - pu-chia.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng văn hóa, lịch sử Cam - pu-chia; có thái độ hữu nghị, hợp tác với các nước láng giềng."
+        },
+        {
+            "week": 25,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "Bài 19: Cộng hoà Dân chủ Nhân dân Lào (Tiết 2)",
+            "integration": "Tích hợp NLS 2.5.CB2a: HS trao đổi ý nghĩa cờ ASEAN, mục tiêu hợp tác ASEAN qua phần mềm nhắn tin nhóm hoặc Padlet; thực hiện quy tắc ứng xử lịch sự, tích cực trên môi trường số.\nTích hợp QCN: HS hiểu tinh thần bình đẳng, hợp tác, tôn trọng lẫn nhau giữa các quốc gia ASEAN."
+        },
+        {
+            "week": 25,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Cảnh sắc quê hương (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 25,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 25",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 49",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 50",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 49,
+            "lessonName": "Ôn tập Toán - Tiết 49",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 50,
+            "lessonName": "Ôn tập Toán - Tiết 50",
+            "integration": null
+        },
+        {
+            "week": 25,
+            "subject": "Tiếng Anh",
+            "ppct": 97,
+            "lessonName": "UNIT 15: Our health - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu Robot y tế dùng AI hỗ trợ bác sĩ chẩn đoán bệnh chính xác nhưng cần sự kiểm soát của người. Đạo đức: Biết quan tâm thăm hỏi khi bạn bị ốm.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 25,
+            "subject": "Tiếng Anh",
+            "ppct": 98,
+            "lessonName": "UNIT 15: Our health - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2a: Biết cách xác định từ khóa phù hợp (tên các triệu chứng) để tra cứu cách sơ cứu cơ bản trên mạng. QPAN: Nhận biết kỹ năng bảo vệ mình khi gặp sự cố.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 25,
+            "subject": "Tiếng Anh",
+            "ppct": 99,
+            "lessonName": "UNIT 15: Our health - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ nhắc nhở thời gian uống thuốc một cách khoa học cho người bệnh. Đạo đức: Tuyệt đối không tự ý dùng thuốc khi chưa có người lớn.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 25,
+            "subject": "Tiếng Anh",
+            "ppct": 100,
+            "lessonName": "UNIT 15: Our health - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.3.CB2b: Tuân theo quy trình tự kiểm tra lỗi chính tả trên máy trước khi nộp bài viết về sức khỏe. Tiết kiệm nước: Nhắc nhở uống nước sạch để bảo vệ sức khỏe.",
+            "periodInWeek": 4
         },
         {
             "week": 25,
@@ -3356,6 +8500,270 @@ window.APP_INITIAL_DATA = {
             "integration": "NLS: 1.2.CB2a - HS tìm hình ảnh, thông tin từ website chính thống của địa phương để bảo đảm độ chính xác."
         },
         {
+            "week": 25,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 25,
+            "lessonName": "Bài 12. Thực hành sử dụng lệnh lặp (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.5.1: Xác định các vấn đề kỹ thuật đơn giản khi vận hành thiết bị và môi trường số. Năng lực AI (Khung 3439): 5.D2.1: Giải thích được hệ thống AI có thể cải tiến và tốt hơn khi dữ liệu được bổ sung và cập nhật thường xuyên."
+        },
+        {
+            "week": 25,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 121,
+            "lessonName": "Bài 51. Diện tích xung quanh và diện tích toàn phần của hình lập phương (tiết 2): Luyện tập (Trang 50)",
+            "integration": "AI 5.A1.1: AI tính thể tích nhiên liệu cần thiết cho máy bay dựa trên kích thước bồn chứa để đảm bảo an toàn cho các chuyến bay dài."
+        },
+        {
+            "week": 25,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 122,
+            "lessonName": "Bài 52. Thể tích của hình hộp chữ nhật (tiết 1)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Tính thể tích bể nước, thùng chứa nước; giáo dục học sinh sử dụng nước tiết kiệm và giữ gìn nguồn nước sạch."
+        },
+        {
+            "week": 25,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 123,
+            "lessonName": "Bài 52. Thể tích của hình hộp chữ nhật (tiết 2): Luyện tập (Trang 53)",
+            "integration": "AI 5.A1.1: Tìm hiểu cách AI sắp xếp các kiện hàng hình lập phương vào thùng xe tải để tận dụng tối đa thể tích không gian chứa hàng."
+        },
+        {
+            "week": 25,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 124,
+            "lessonName": "Bài 53. Thể tích của hình lập phương (tiết 1)",
+            "integration": "Năng lực số 1.3.CB2a: Tổ chức bộ dữ liệu thể tích các khối rubik khác nhau vào bảng tính số."
+        },
+        {
+            "week": 25,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 125,
+            "lessonName": "Bài 53. Thể tích của hình lập phương (tiết 2): Luyện tập (Trang 56)",
+            "integration": "AI 5.C4.2: Trải nghiệm ứng dụng đo thể tích thực tế thông qua camera điện thoại có tích hợp công nghệ AI nhận diện không gian.\nSTEM: Bài 14. Ngôi nhà nhỏ, tiện ích"
+        },
+        {
+            "week": 26,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 26,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 1)",
+            "integration": "NLS 1.1.CB2b: HS sử dụng Google Earth hoặc bản đồ số để tìm vị trí các trang trại điện gió lớn tại Việt Nam.\nBVMT: HS nhận biết lợi ích của năng lượng gió, có ý thức ủng hộ sử dụng năng lượng sạch, giảm ô nhiễm môi trường."
+        },
+        {
+            "week": 26,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Ôn tập tổng hợp giữa học kì II",
+            "integration": "Tích hợp AI 5.A3.1 (Công cụ: ChatGPT, Gemini hoặc chatbot do GV kiểm soát; minh họa Deepfake): HS biết dùng AI phù hợp nhu cầu, tránh lạm dụng, không chia sẻ ảnh cá nhân, địa chỉ, mật khẩu cho chatbot lạ.\nTích hợp QCN: HS biết bảo vệ quyền riêng tư và an toàn cá nhân."
+        },
+        {
+            "week": 26,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 26,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 26,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 76,
+            "lessonName": "Sinh hoạt dưới cờ: Tham gia hoạt động xã hội ở địa phương",
+            "integration": ""
+        },
+        {
+            "week": 26,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 77,
+            "lessonName": "HĐTCĐ: Tham gia hoạt động xã hội",
+            "integration": "- Tích hợp AI (5.B2.1): Đề xuất ứng dụng AI vào việc phân loại rác thải tự động tại các sự kiện cộng đồng để bảo vệ môi trường địa phương.\n- Tích hợp BVMT: HS nhận biết hoạt động xã hội có thể gắn với dọn vệ sinh, phân loại rác, chăm sóc cây xanh; biết tham gia việc phù hợp để góp phần bảo vệ môi trường địa phương."
+        },
+        {
+            "week": 26,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 78,
+            "lessonName": "Sinh hoạt lớp/KNS: -Chung tay vì cộng đồng",
+            "integration": "- Tích hợp NLS 2.4.CB2a: Chọn công nghệ số đơn giản cho quá trình hợp tác. HS dùng Padlet/Google Docs để ghi ý tưởng tham gia hoạt động xã hội, phân công nhiệm vụ và theo dõi việc thực hiện của nhóm.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tinh thần vì cộng đồng, biết quan tâm người xung quanh, tham gia hoạt động xã hội bằng thái độ tự nguyện, trách nhiệm và an toàn."
+        },
+        {
+            "week": 26,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Bài 24: Nam và nữ (Tiết 2)",
+            "integration": "Tích hợp AI 5.B1.1: HS thảo luận tình huống với chatbot mô phỏng trên PowerPoint: nếu robot chỉ chào bạn nam mà bỏ qua bạn nữ thì AI đó chưa công bằng."
+        },
+        {
+            "week": 26,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng website Bộ Y tế, website trường học hoặc học liệu Google Drive của GV để tìm thông tin chăm sóc sức khỏe tuổi dậy thì."
+        },
+        {
+            "week": 26,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 615,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 616,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Bài 20: Vương quốc Cam - pu-chia (Tiết 1)",
+            "integration": "Tích hợp AI 5.B1.1: HS thảo luận chatbot AI cần dữ liệu đa dạng để phục vụ công bằng người dân các nước ASEAN.\nTích hợp QPAN: HS hiểu hợp tác khu vực góp phần giữ gìn hòa bình, ổn định và an ninh chung."
+        },
+        {
+            "week": 26,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Bài 20: Vương quốc Cam - pu-chia (Tiết 2)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Wordwall để thực hiện bài tập tương tác kéo thả tên các châu lục và đại dương vào đúng vị trí trên lược đồ.\nTích hợp BVMT: HS nhận biết Trái Đất là ngôi nhà chung cần được bảo vệ."
+        },
+        {
+            "week": 26,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Việt Nam đất nước, con người (Tiết 1)",
+            "integration": "3. Tích hợp bảo vệ môi trường: HĐ2.T1 5.B1.2 - Giới thiệu vẻ đẹp của các di sản thiên nhiên và giáo dục HS trách nhiệm bảo vệ hệ sinh thái rừng, biển của Việt Nam. 4. Tích hợp AI: (HĐ 2.Tiết 1,3) 5.C4.2 - Nhận biết và hiểu rõ hơn về đất nước, con người Việt Nam thông qua xem video có sử dụng AI…"
+        },
+        {
+            "week": 26,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 26",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 51",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 52",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 51,
+            "lessonName": "Ôn tập Toán - Tiết 51",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 52,
+            "lessonName": "Ôn tập Toán - Tiết 52",
+            "integration": null
+        },
+        {
+            "week": 26,
+            "subject": "Tiếng Anh",
+            "ppct": 101,
+            "lessonName": "UNIT 15: Our health - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cấu tạo ống nghe bác sĩ và cách nó khuếch đại âm thanh nhịp tim. GDĐP: Tìm hiểu về các trạm y tế hoặc bệnh viện lớn gần khu vực trường em.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 26,
+            "subject": "Tiếng Anh",
+            "ppct": 102,
+            "lessonName": "UNIT 15: Our health - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2b: Tự thiết kế một 'Cẩm nang sơ cứu số' (Digital First Aid Guide) đơn giản trên Canva. AI 5.D2.1: Ý tưởng AI giúp quản lý hồ sơ sức khỏe điện tử học sinh.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 26,
+            "subject": "Tiếng Anh",
+            "ppct": 103,
+            "lessonName": "REVIEW 3 - Activity 1 - 2",
+            "integration": "AI 5.B3.1: Thảo luận việc con người cần chịu trách nhiệm cuối cùng về các kết quả tự học do AI đưa ra. Đạo đức: Trung thực trong học tập, không gian lận.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 26,
+            "subject": "Tiếng Anh",
+            "ppct": 104,
+            "lessonName": "REVIEW 3 - Activity 3 - 5",
+            "integration": "NLS 3.2.CB2a: Tương tác với phần mềm trắc nghiệm trực tuyến để tự đo lường tiến độ học tập HK2 . Quyền con người: Quyền được đánh giá công bằng.",
+            "periodInWeek": 4
+        },
+        {
             "week": 26,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3410,6 +8818,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 182,
             "lessonName": "Nói và nghe: Sản vật địa phương",
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm về thăm đất mũi."
+        },
+        {
+            "week": 26,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 26,
+            "lessonName": "Bài 13. Cấu trúc rẽ nhánh (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê hướng dẫn để máy tính thực hiện nhiệm vụ (bao gồm các điều kiện rẽ nhánh). Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... trong lập trình AI đơn giản."
+        },
+        {
+            "week": 26,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 126,
+            "lessonName": "Bài 54. Thực hành tính toán và ước lượng thể tích một số hình khối",
+            "integration": "AI 5.A1.2: Khẳng định: Nếu AI tính sai diện tích xây dựng, kỹ sư con người phải là người kiểm tra lại bản vẽ và chịu trách nhiệm pháp lý."
+        },
+        {
+            "week": 26,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 127,
+            "lessonName": "Bài 55. Luyện tập chung (Tiết 1): Luyện tập (Trang 60)",
+            "integration": "BVMT: Luyện tập bằng các bài toán về thùng chứa, bể nước, hộp tái chế; củng cố ý thức tiết kiệm vật liệu và bảo vệ môi trường."
+        },
+        {
+            "week": 26,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 128,
+            "lessonName": "Bài 55. Luyện tập chung (Tiết 2): Luyện tập (Trang 61)",
+            "integration": ""
+        },
+        {
+            "week": 26,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 129,
+            "lessonName": "Bài 55. Luyện tập chung (Tiết 3): Luyện tập (Trang 62)",
+            "integration": "AI 5.A1.1: Nhận biết AI giúp điều khiển tín hiệu đèn giao thông theo thời gian thực (từng giây) để giảm ùn tắc tại các ngã tư."
+        },
+        {
+            "week": 26,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 130,
+            "lessonName": "Bài 56. Các đơn vị đo thời gian",
+            "integration": "Năng lực số 1.1.CB2b: Truy cập dữ liệu giờ bay, giờ tàu chạy trên các ứng dụng vận tải trực tuyến."
+        },
+        {
+            "week": 27,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "- Lý thuyết âm nhạc: Ôn tập - Đọc nhạc: Bài số 4",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 2)",
+            "integration": "KNS: HS rèn kĩ năng quan sát, phân tích cấu tạo mô hình, lắp ghép cẩn thận, phối hợp với bạn để bảo đảm an toàn khi thực hành."
+        },
+        {
+            "week": 27,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 53,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 54,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 79,
+            "lessonName": "Sinh hoạt dưới cờ: Gương người tốt, việc tốt",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 80,
+            "lessonName": "HĐTCĐ: Thân thiện với người xung quanh",
+            "integration": "- Tích hợp AI (5.B1.1): Thảo luận về tính công bằng: AI cần phục vụ mọi người như nhau, không được có định kiến với bất kì ai.\n- Tích hợp QCN: HS biết mọi người đều có quyền được tôn trọng và đối xử bình đẳng; khi thiết lập quan hệ thân thiện cần dùng lời nói lịch sự, không kì thị, không phân biệt hoàn cảnh."
+        },
+        {
+            "week": 27,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 81,
+            "lessonName": "Sinh hoạt lớp/KNS: Đánh giá việc tham gia hoạt động xã hội",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo hoặc chỉnh sửa nội dung số đơn giản. HS thiết kế một thông điệp số ngắn về ứng xử thân thiện, tôn trọng người xung quanh để chia sẻ trong nhóm lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn lối sống thân thiện, biết chào hỏi, giúp đỡ, hợp tác với người xung quanh; lan tỏa những hành vi đẹp trong trường và cộng đồng."
+        },
+        {
+            "week": 27,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 53,
+            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 2)",
+            "integration": "Tích hợp AI 5.A3.1: HS đặt câu hỏi mẫu cho ChatGPT, Gemini hoặc Copilot dưới sự hướng dẫn của GV; không nhập tên thật, địa chỉ, ảnh cá nhân."
+        },
+        {
+            "week": 27,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 54,
+            "lessonName": "Ôn tập giữa HK2",
+            "integration": "Tích hợp quyền con người: HS hiểu quyền được chăm sóc sức khỏe, được cung cấp kiến thức phù hợp và được tôn trọng sự riêng tư ở tuổi dậy thì."
+        },
+        {
+            "week": 27,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 617,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 618,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 53,
+            "lessonName": "Bài 21: Hiệp hội các quốc gia Đông Nam Á (Tiết 1)",
+            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu hệ thống AI theo dõi biến đổi khí hậu toàn cầu và đo độ sâu đại dương bằng dữ liệu vệ tinh.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS có ý thức bảo vệ đại dương, sông ngòi, nguồn nước ngọt."
+        },
+        {
+            "week": 27,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 54,
+            "lessonName": "Bài 21: Hiệp hội các quốc gia Đông Nam Á (Tiết 2)",
+            "integration": "Tích hợp BVMT: HS liên hệ hậu quả của ô nhiễm môi trường, biến đổi khí hậu đối với các châu lục và đại dương."
+        },
+        {
+            "week": 27,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Việt Nam đất nước, con người (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 27,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 27",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 53,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 53",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 54,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 54",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 53,
+            "lessonName": "Ôn tập Toán - Tiết 53",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 54,
+            "lessonName": "Ôn tập Toán - Tiết 54",
+            "integration": null
+        },
+        {
+            "week": 27,
+            "subject": "Tiếng Anh",
+            "ppct": 105,
+            "lessonName": "EXTENSION - Activity 1 - 3",
+            "integration": "STEM: Hoạt động giải đố số học và từ vựng về chủ đề sức khỏe phát triển tư duy. NLS 2.6.CB2a: Xác định danh tính số: Đặt biệt danh Tiếng Anh lịch sự trên nhóm lớp.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 27,
+            "subject": "Tiếng Anh",
+            "ppct": 106,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ các nhà khí tượng thủy văn dự báo bão, lũ để giảm thiểu thiệt hại. GDĐP: Nhận biết các mùa đặc trưng tại vùng miền em sinh sống.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 27,
+            "subject": "Tiếng Anh",
+            "ppct": 107,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.1.CB2b: Biết cách nhận biết và tránh các thông báo giả mạo về thời tiết có chứa mã độc. Bảo vệ môi trường: Biến đổi khí hậu làm thay đổi quy luật các mùa.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 27,
+            "subject": "Tiếng Anh",
+            "ppct": 108,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.C5.1: Trải nghiệm AI gợi ý trang phục phù hợp với từng mùa dựa trên dữ liệu hình ảnh. Đạo đức: Biết quan tâm, nhắc nhở em nhỏ mặc đủ ấm/mát.",
+            "periodInWeek": 4
         },
         {
             "week": 27,
@@ -3468,6 +9140,270 @@ window.APP_INITIAL_DATA = {
             "integration": ""
         },
         {
+            "week": 27,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 27,
+            "lessonName": "Bài 13. Cấu trúc rẽ nhánh (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê hướng dẫn để máy tính thực hiện nhiệm vụ (bao gồm các điều kiện rẽ nhánh). Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... trong lập trình AI đơn giản."
+        },
+        {
+            "week": 27,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 131,
+            "lessonName": "Bài 57. Cộng, trừ số đo thời gian (tiết 1): Cộng số đo thời gian",
+            "integration": "AI 5.A3.1: Sử dụng trợ lý ảo (Siri, Google) để đặt lịch hẹn và yêu cầu máy tính khoảng thời gian còn lại đến giờ vào lớp."
+        },
+        {
+            "week": 27,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 132,
+            "lessonName": "Bài 57. Cộng, trừ số đo thời gian (tiết 2): Trừ số đo thời gian",
+            "integration": "Năng lực số 5.2.CB2a: Sử dụng ứng dụng đồng hồ bấm giờ và lịch kỹ thuật số để quản lý thời gian."
+        },
+        {
+            "week": 27,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 133,
+            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 1): Nhân số đo thời gian với một số",
+            "integration": "AI 5.A2.2: AI tính toán thời gian quay của các turbine gió để sản xuất điện năng hiệu quả nhất dựa trên vận tốc gió thay đổi liên tục."
+        },
+        {
+            "week": 27,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 134,
+            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 2): Chia số đo thời gian cho một số",
+            "integration": "Năng lực số 3.1.CB2a: Thiết kế thời gian biểu cá nhân chi tiết bằng ứng dụng Google Calendar."
+        },
+        {
+            "week": 27,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 135,
+            "lessonName": "Bài 58. Nhân, chia số đo thời gian với một số (tiết 3): Luyện tập (Trang 74)",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "- Ôn Đọc nhạc: Bài số 4 - Hát: Đất nước tươi đẹp sao",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 3)",
+            "integration": "AI 5.A2.2: HS tìm hiểu cách AI tối ưu hóa việc đón gió và quản lí năng lượng sạch; thảo luận cách AI dự báo hướng gió để tua - bin hoạt động hiệu quả.\nBVMT: HS hiểu năng lượng gió là nguồn năng lượng sạch, góp phần giảm phát thải."
+        },
+        {
+            "week": 28,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 3)",
+            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng công cụ tìm kiếm tra cứu số điện thoại khẩn cấp 111 và quy tắc an toàn khi tương tác trực tuyến."
+        },
+        {
+            "week": 28,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "Bài 2: Động tác chuyển, bắt bóng bằng hai tay trên cao (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 82,
+            "lessonName": "Sinh hoạt dưới cờ: Hình ảnh quê hương",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 83,
+            "lessonName": "HĐTCĐ: Tự hào về cảnh quan thiên nhiên của quê hương, đất nước",
+            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI giúp theo dõi đa dạng sinh học và bảo tồn các loài động vật hoang dã tại địa phương.\n- Tích hợp BVMT: HS tự hào về cảnh quan thiên nhiên quê hương, đất nước; biết yêu cây xanh, sông núi, biển đảo và có ý thức không xả rác, không phá hoại cảnh quan."
+        },
+        {
+            "week": 28,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 84,
+            "lessonName": "Sinh hoạt lớp/KNS: -Việt Nam trong mắt em",
+            "integration": "- Tích hợp NLS 1.1.CB2b: Khai thác dữ liệu qua tìm kiếm đơn giản. HS sưu tầm ảnh cảnh quan thiên nhiên quê hương từ nguồn phù hợp, ghi chú tên địa danh và lí do cần trân trọng, bảo vệ.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS liên hệ vẻ đẹp ao hồ, sông suối, biển đảo với trách nhiệm giữ sạch nguồn nước; biết khóa vòi sau khi dùng, không đổ rác, hóa chất xuống kênh rạch, ao hồ."
+        },
+        {
+            "week": 28,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 3)",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 1)",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 619,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 620,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 1)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, cộng đồng."
+        },
+        {
+            "week": 28,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 2)",
+            "integration": "Tích hợp BVMT: HS vận dụng kiến thức để đề xuất thông điệp bảo vệ Trái Đất, giảm rác thải nhựa, tiết kiệm tài nguyên."
+        },
+        {
+            "week": 28,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Việt Nam đất nước, con người (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 28,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 28",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 55",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 56",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 55,
+            "lessonName": "Ôn tập Toán - Tiết 55",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 56,
+            "lessonName": "Ôn tập Toán - Tiết 56",
+            "integration": null
+        },
+        {
+            "week": 28,
+            "subject": "Tiếng Anh",
+            "ppct": 109,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 5.2.CB2c: Tự chọn cách trình bày bài hát về bốn mùa (hát đơn hay video minh họa). ATGT: Nhắc nhở an toàn giao thông khi đi lại trong mùa mưa lũ.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 28,
+            "subject": "Tiếng Anh",
+            "ppct": 110,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý ánh sáng mặt trời tạo ra cầu vồng sau cơn mưa. Tiết kiệm nước: Lồng ghép giáo dục ý thức bảo vệ nguồn nước sạch trước hạn hán.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 28,
+            "subject": "Tiếng Anh",
+            "ppct": 111,
+            "lessonName": "UNIT 16: Seasons and the weather - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.4.CB2a: Cùng bạn thực hiện bảng theo dõi thời tiết địa phương trên Google Sheets. AI 5.D2.1: Đề xuất tính năng AI giúp tự động đóng cửa sổ khi trời sắp mưa.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 28,
+            "subject": "Tiếng Anh",
+            "ppct": 112,
+            "lessonName": "UNIT 17: Travel - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết các ứng dụng đặt vé tàu xe (AI) giúp con người lên kế hoạch đi lại dễ dàng. GDĐP: Giới thiệu địa danh du lịch nổi tiếng địa phương em.",
+            "periodInWeek": 4
+        },
+        {
             "week": 28,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3522,6 +9458,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 196,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 6.2.CB2a - HS dùng trợ lý ảo tìm nghĩa từ Hán Việt cổ và rèn luyện kĩ năng đặt câu hỏi."
+        },
+        {
+            "week": 28,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 28,
+            "lessonName": "Bài 14. Sử dụng biến trong chương trình (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.1.3: Nhận biết nơi sắp xếp dữ liệu (biến là một vùng lưu trữ dữ liệu có tên). Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... (thường dùng để kiểm tra giá trị của biến)."
+        },
+        {
+            "week": 28,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 136,
+            "lessonName": "Bài 59. Vận tốc của một chuyển động đều (tiết 1)",
+            "integration": "AI 5.A1.2: Phân tích xe tự lái: AI tính vận tốc để tránh vật cản, nhưng con người phải thiết lập các quy tắc an toàn và đạo đức."
+        },
+        {
+            "week": 28,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 137,
+            "lessonName": "Bài 59. Vận tốc của một chuyển động đều (tiết 2): Luyện tập (Trang 77)",
+            "integration": "Đạo đức, lối sống: Qua bài toán vận tốc, giáo dục học sinh chấp hành luật giao thông, đi đúng tốc độ và bảo đảm an toàn cho bản thân, cộng đồng."
+        },
+        {
+            "week": 28,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 138,
+            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 1): Quãng đường",
+            "integration": "AI 5.A1.1: AI trên các ứng dụng giao hàng tính toán quãng đường ngắn nhất và thời gian dự kiến để shipper giao hàng đến khách nhanh nhất."
+        },
+        {
+            "week": 28,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 139,
+            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 2): Thời gian",
+            "integration": "Lý tưởng cách mạng, đạo đức, lối sống: Tính quãng đường đến di tích lịch sử, cột mốc hoặc địa danh Việt Nam; giáo dục tình yêu quê hương, đất nước."
+        },
+        {
+            "week": 28,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 140,
+            "lessonName": "Bài 60. Quãng đường, thời gian của một chuyển động đều (tiết 3): Luyện tập (Trang 80)",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "- Ôn Hát: Đất nước tươi đẹp sao - Thường thức âm nhạc: Giới thiệu một số nhạc cụ gõ nước ngoài - Nghe nhạc: Vũ điệu Tây Ban Nha (E-xơ-pa-nha Ca-ni)",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 4)",
+            "integration": "KNS: HS rèn kĩ năng hợp tác khi thực hành mô hình máy phát điện gió; biết kiểm tra sản phẩm, quan sát lỗi, điều chỉnh cánh quạt, trục quay, dây nối và chia sẻ kinh nghiệm làm việc nhóm an toàn.\nSTEM: Bài 13. Máy phát điện gió."
+        },
+        {
+            "week": 29,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 4)",
+            "integration": "Tích hợp QCN: HS biết bảo vệ quyền riêng tư, danh dự và an toàn thân thể của bản thân, không tự ý chia sẻ thông tin cá nhân của bạn.\nTích hợp Kĩ năng sống: HS thực hành xử lí tình huống khi bị người lạ nhắn tin, dụ dỗ, yêu cầu gửi ảnh riêng tư."
+        },
+        {
+            "week": 29,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 57,
+            "lessonName": "Bài 2: Động tác chuyển, bắt bóng bằng hai tay trên cao (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 58,
+            "lessonName": "Bài 2: Động tác chuyển, bắt bóng bằng hai tay trên cao (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 85,
+            "lessonName": "Sinh hoạt dưới cờ: Bảo tồn cảnh quan thiên nhiên",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 86,
+            "lessonName": "HĐTCĐ: Biện pháp bảo tồn cảnh quan thiên nhiên",
+            "integration": "- Tích hợp AI (5.A2.2): Nêu ví dụ AI giúp bảo vệ môi trường: Phân tích ảnh vệ tinh để phát hiện sớm các đám cháy rừng hoặc vết dầu loang.\n- Tích hợp BVMT: HS nêu được biện pháp bảo tồn cảnh quan thiên nhiên như giữ vệ sinh, trồng cây, không bẻ cành, không săn bắt động vật và tuyên truyền bảo vệ cảnh quan."
+        },
+        {
+            "week": 29,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 87,
+            "lessonName": "Sinh hoạt lớp/KNS: -Tuyên truyền về việc bảo tồn cảnh quan thiên nhiên",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số ở các định dạng đơn giản. HS làm poster số tuyên truyền một biện pháp bảo tồn cảnh quan thiên nhiên; biết dùng hình ảnh, chữ viết ngắn gọn và phù hợp.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS biết bảo tồn cảnh quan gắn với bảo vệ nguồn nước sạch; cùng gia đình và lớp thực hiện việc sử dụng nước tiết kiệm, không làm ô nhiễm nguồn nước xung quanh."
+        },
+        {
+            "week": 29,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 57,
+            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 2)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS xem video an toàn số trên YouTube Kids, website Tổng đài 111 hoặc học liệu GV cung cấp để nhận diện rủi ro từ người lạ trên mạng."
+        },
+        {
+            "week": 29,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 58,
+            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 3)",
+            "integration": "Tích hợp AI 5.A3.1: HS xử lí tình huống chatbot lạ trên ChatGPT hoặc Gemini mô phỏng yêu cầu gửi ảnh cá nhân."
+        },
+        {
+            "week": 29,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 621,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 622,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 57,
+            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 3)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Canva để tạo biểu đồ/infographic đơn giản từ số liệu dân số thế giới do GV cung cấp; biết thêm tiêu đề, chú thích và nêu nhận xét.\nTích hợp QCN: HS hiểu mọi người đều có quyền bình đẳng, không bị phân biệt chủng tộc, màu da, nơi sinh sống."
+        },
+        {
+            "week": 29,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 58,
+            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 4)",
+            "integration": "Tích hợp AI 5.B1.2: HS thảo luận AI cần phục vụ công bằng, không phân biệt chủng tộc.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tôn trọng con người, sống nhân ái, không kì thị."
+        },
+        {
+            "week": 29,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Việt Nam đất nước, con người (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 29,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 29",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 57,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 57",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 58,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 58",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 57,
+            "lessonName": "Ôn tập Toán - Tiết 57",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 58,
+            "lessonName": "Ôn tập Toán - Tiết 58",
+            "integration": null
+        },
+        {
+            "week": 29,
+            "subject": "Tiếng Anh",
+            "ppct": 113,
+            "lessonName": "UNIT 17: Travel - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2b: Tìm kiếm thông tin về giờ tàu/máy bay xuất phát trên Internet dưới sự hướng dẫn. Quyền con người: Quyền được tự do đi lại và khám phá.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 29,
+            "subject": "Tiếng Anh",
+            "ppct": 114,
+            "lessonName": "UNIT 17: Travel - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI hỗ trợ chỉnh sửa video du lịch thêm chuyên nghiệp và hấp dẫn. Đạo đức: Văn hóa ứng xử lịch sự tại các khu di tích tôn nghiêm.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 29,
+            "subject": "Tiếng Anh",
+            "ppct": 115,
+            "lessonName": "UNIT 17: Travel - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 4.2.CB2b: Tuyệt đối không chia sẻ vị trí trực tiếp (Live Location) khi đi du lịch một mình . Bảo vệ môi trường: Du lịch xanh, không vứt rác thải nhựa.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 29,
+            "subject": "Tiếng Anh",
+            "ppct": 116,
+            "lessonName": "UNIT 17: Travel - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá cách sóng vệ tinh (GPS) truyền dữ liệu định vị phương tiện đang di chuyển. QPAN: Nhận biết các ký hiệu và biển báo an toàn tại nhà ga, bến xe.",
+            "periodInWeek": 4
         },
         {
             "week": 29,
@@ -3580,6 +9780,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm cụ đồ chiểu."
         },
         {
+            "week": 29,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 29,
+            "lessonName": "Bài 14. Sử dụng biến trong chương trình (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.1.3: Nhận biết nơi sắp xếp dữ liệu (biến là một vùng lưu trữ dữ liệu có tên). Năng lực AI (Khung 3439): 5.C4.1: Sử dụng được cấu trúc Nếu... thì... (thường dùng để kiểm tra giá trị của biến)."
+        },
+        {
+            "week": 29,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 141,
+            "lessonName": "Bài 61. Thực hành tính toán và ước lượng về vận tốc, quãng đường, thời gian trong chuyển động đều (Tiết 1)",
+            "integration": "AI 5.C4.2: Sử dụng Chatbot AI để tạo ra các kịch bản chuyển động khác nhau và HS thực hành tính toán lại các đại lượng dựa trên dữ liệu đó."
+        },
+        {
+            "week": 29,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 142,
+            "lessonName": "Bài 61. Thực hành tính toán và ước lượng về vận tốc, quãng đường, thời gian trong chuyển động đều (Tiết 2)",
+            "integration": "Năng lực số 3.1.CB2a: Tạo một bảng nhật ký hành trình số ghi lại các thông số s, v, t sau chuyến đi."
+        },
+        {
+            "week": 29,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 143,
+            "lessonName": "Bài 62. Luyện tập chung (Tiết 1): Luyện tập (Trang 84)",
+            "integration": "AI 5.D2.1: Ví dụ: AI dự báo thời gian về đích của vận động viên chính xác hơn nhờ cập nhật dữ liệu vận tốc qua từng chặng đua."
+        },
+        {
+            "week": 29,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 144,
+            "lessonName": "Bài 62. Luyện tập chung (Tiết 2): Luyện tập (Trang 85)",
+            "integration": "Năng lực số 1.2.CB2a: So sánh và đánh giá độ tin cậy của dữ liệu thời gian về đích giữa các trang báo."
+        },
+        {
+            "week": 29,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 145,
+            "lessonName": "Bài 62. Luyện tập chung (Tiết 3): Luyện tập (Trang 85)",
+            "integration": ""
+        },
+        {
+            "week": 30,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Tổ chức hoạt động Vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 30,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 1)",
+            "integration": "NLS 1.3.CB2a: HS sử dụng Excel hoặc Google Sheets để nhập số liệu và so sánh độ sáng của đèn LED tương ứng với các điều kiện ánh sáng khác nhau chiếu vào tấm pin.\nBVMT: HS hiểu lợi ích của năng lượng mặt trời, yêu thích giải pháp công nghệ thân thiện với môi trường, biết tiết kiệm điện."
+        },
+        {
+            "week": 30,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 5)",
+            "integration": "Tích hợp Năng lực số 4.3.CB2a: HS biết nhận diện nguy cơ mất an toàn trên không gian mạng; thực hành lưu bằng chứng số, chụp màn hình/tin nhắn, chặn hoặc báo cáo tài khoản lạ theo hướng dẫn và báo người lớn khi cần.\nTích hợp Kĩ năng sống: HS thực hành nói “không” và tìm kiếm sự giúp đỡ khi gặp nguy cơ xâm hại."
+        },
+        {
+            "week": 30,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 59,
+            "lessonName": "Bài 2: Động tác chuyển, bắt bóng bằng hai tay trên cao (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 30,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 60,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 30,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 88,
+            "lessonName": "Sinh hoạt dưới cờ: Sản phẩm tuyên truyền bảo tồn cảnh quan thiên nhiên",
+            "integration": ""
+        },
+        {
+            "week": 30,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 89,
+            "lessonName": "HĐTCĐ: Lập kế hoạch khảo sát thực trạng môi trường quanh em",
+            "integration": "- Tích hợp AI (5.D1.1): Vận dụng quy trình: \"Xác định vấn đề môi trường -> Thu thập dữ liệu thực tế -> Đưa ra kết luận\" tương tự huấn luyện AI.\n- Tích hợp BVMT: HS lập kế hoạch khảo sát thực trạng môi trường quanh em, biết quan sát rác thải, khói bụi, tiếng ồn, cây xanh và đề xuất cách cải thiện phù hợp."
+        },
+        {
+            "week": 30,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 90,
+            "lessonName": "Sinh hoạt lớp/KNS: -Chúng tôi lên tiếng vì môi trường",
+            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức, lưu trữ dữ liệu đơn giản. HS thiết kế phiếu khảo sát ngắn bằng Google Forms hoặc bảng giấy được số hoá để thu thập ý kiến về thực trạng môi trường quanh em.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS đưa nội dung khảo sát việc sử dụng nước, điểm có nguy cơ ô nhiễm nước vào kế hoạch; biết ghi nhận hiện trạng và đề xuất việc làm tiết kiệm, bảo vệ nguồn nước."
+        },
+        {
+            "week": 30,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 59,
+            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 4)",
+            "integration": "Tích hợp NLS 4.3.CB2a: HS thực hành trên PowerPoint hoặc Google Forms chọn cách phản hồi khi người lạ nhắn tin xin ảnh, địa chỉ, số điện thoại."
+        },
+        {
+            "week": 30,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 60,
+            "lessonName": "Bài 27: Ôn tập chủ đề: con người và sức khỏe",
+            "integration": "Tích hợp quyền con người: HS biết quyền được bảo vệ thân thể, danh dự, nhân phẩm và sự riêng tư; biết tìm người tin cậy để được giúp đỡ."
+        },
+        {
+            "week": 30,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 623,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 624,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 59,
+            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 5)",
+            "integration": "Tích hợp AI 5.C4.1: HS thiết kế quy trình “Nếu phát hiện nhiệt độ trong kim tự tháp quá cao thì robot AI tự động điều chỉnh thông gió”.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS liên hệ vai trò sông Nin và ý thức bảo vệ nguồn nước đối với đời sống con người."
+        },
+        {
+            "week": 30,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 60,
+            "lessonName": "Bài 23: Dân số và các chủng tộc trên thế giới (Tiết 1)",
+            "integration": "Tích hợp NLS 1.1.CB2b: HS khai thác hình ảnh, video số về sông Nin, kim tự tháp, chữ tượng hình; chọn thông tin tiêu biểu để giới thiệu thành tựu văn minh Ai Cập.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng di sản văn minh nhân loại, có ý thức bảo vệ di sản khi tham quan, học tập."
+        },
+        {
+            "week": 30,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Vì một thế giới hoà bình (Tiết 1)",
+            "integration": "3. Tích hợp ANQP: (HĐ2.TIÊT1,4 ) 5.1.2: Biết ơn những anh hùng dân tộc, trân trọng nền hoà bình của dân tộc và trên thế giới. 4. Tích hợp AI: (HĐ 2.Tiết 1,2,3,4) 5.A3.1 - Biết được rằng khi sử dụng AI, học sinh hiểu rõ và hứng thú hơn để tìm hiểu một thế giới hòa bình. Biết so sánh cảnh vật thực tế với cảnh vật do AI tạo ra phù hợp với bài học ."
+        },
+        {
+            "week": 30,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 30",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 59,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 59",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 60,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 60",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 59,
+            "lessonName": "Ôn tập Toán - Tiết 59",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 60,
+            "lessonName": "Ôn tập Toán - Tiết 60",
+            "integration": null
+        },
+        {
+            "week": 30,
+            "subject": "Tiếng Anh",
+            "ppct": 117,
+            "lessonName": "UNIT 17: Travel - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.1.CB2a: Thiết kế Poster quảng bá du lịch địa phương bằng Canva. AI 5.D1.1: Ý tưởng 'Robot hướng dẫn viên' biết kể chuyện lịch sử vùng miền",
+            "periodInWeek": 1
+        },
+        {
+            "week": 30,
+            "subject": "Tiếng Anh",
+            "ppct": 118,
+            "lessonName": "UNIT 18: Means of transport - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Nhận biết các phương tiện tự lái (AI) đang dần phổ biến để hỗ trợ con người di chuyển. ATGT: Giáo dục ý thức tuân thủ luật giao thông đường bộ.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 30,
+            "subject": "Tiếng Anh",
+            "ppct": 119,
+            "lessonName": "UNIT 18: Means of transport - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.2.CB2a: Tập so sánh giá vé và thời gian của 2 loại phương tiện từ nguồn tin cậy. Bảo vệ môi trường: Khuyến khích sử dụng xe bus điện và xe đạp.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 30,
+            "subject": "Tiếng Anh",
+            "ppct": 120,
+            "lessonName": "UNIT 18: Means of transport - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Hiểu AI (trợ lý giọng nói) giúp bác tài tìm đường ngắn nhất để tránh tắc đường. Đạo đức: Sẵn lòng giúp đỡ, chỉ đường cho người khác tận tình.",
+            "periodInWeek": 4
+        },
+        {
             "week": 30,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3634,6 +10098,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 210,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 2.2.CB2a - HS chia sẻ bài thơ/đoạn văn ý nghĩa lên Padlet, kết nối thông tin tích cực."
+        },
+        {
+            "week": 30,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 30,
+            "lessonName": "Bài 15. Sử dụng biểu thức trong chương trình (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn để máy tính giải quyết vấn đề thông qua tính toán biểu thức. Năng lực AI (Khung 3439): 5.B1.1: Biết ví dụ về sự công bằng/không công bằng của AI (biểu thức so sánh giúp AI đánh giá sự công bằng)."
+        },
+        {
+            "week": 30,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 146,
+            "lessonName": "Bài 63. Thu thập, phân loại, sắp xếp các số liệu",
+            "integration": "Đạo đức, lối sống: Khi thu thập số liệu, giáo dục học sinh ghi chép trung thực, tôn trọng dữ liệu thực tế và có trách nhiệm với kết quả trình bày."
+        },
+        {
+            "week": 30,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 147,
+            "lessonName": "Bài 64. Biểu đồ hình quạt tròn (Tiết 1)",
+            "integration": "AI 5.A2.2: Xem biểu đồ AI phân tích tỉ lệ sử dụng năng lượng sạch trên thế giới để hướng tới mục tiêu bảo vệ môi trường toàn cầu."
+        },
+        {
+            "week": 30,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 148,
+            "lessonName": "Bài 64. Biểu đồ hình quạt tròn (Tiết 2): Luyện tập (Trang 92)",
+            "integration": "BVMT: Biểu diễn tỉ lệ rác tái chế, rác hữu cơ hoặc rác khó phân hủy; giáo dục học sinh giảm rác thải nhựa."
+        },
+        {
+            "week": 30,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 149,
+            "lessonName": "Bài 65. Tỉ số của số lần lặp lại một sự kiện so với tổng số lần thực hiện",
+            "integration": "AI 5.B3.1: Thử nghiệm tung đồng xu và so sánh với kết quả dự đoán của AI để hiểu máy dựa trên cơ sở xác suất nào để ra quyết định."
+        },
+        {
+            "week": 30,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 150,
+            "lessonName": "Bài 66. Thực hành và trải nghiệm thu thập, phân tích, biểu diễn các số liệu thống kê (Tiết 1)",
+            "integration": "AI 5.D1.1: HS đóng vai “Kỹ sư dữ liệu“: Thu thập và sắp xếp dữ liệu rác thải trong trường để AI học cách nhận diện loại rác tái chế được."
+        },
+        {
+            "week": 31,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Hát: Khúc ca hè về",
+            "integration": ""
+        },
+        {
+            "week": 31,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 2)",
+            "integration": "AI 5.C4.1: HS sử dụng tư duy thuật toán để vận hành hệ thống năng lượng thông minh; chơi trò chơi viết lệnh “Nếu có nắng, thì sạc pin” cho ngôi nhà thông minh.\nĐạo đức, lối sống: HS có ý thức sử dụng năng lượng tiết kiệm, không lãng phí điện trong sinh hoạt."
+        },
+        {
+            "week": 31,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 1)",
+            "integration": "Tích hợp Năng lực số 5.2.CB2a: HS xác định nhu cầu và chọn website mua sắm hoặc tra giá để so sánh giá cả hàng hóa, giúp đưa ra quyết định mua sắm thông minh và tiết kiệm.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết cân nhắc nhu cầu, không chạy theo quảng cáo, không lãng phí tiền bạc."
+        },
+        {
+            "week": 31,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 31,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 31,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 91,
+            "lessonName": "Sinh hoạt dưới cờ: Ngày hội \"Chữa lành vết thương Trái Đất\"",
+            "integration": ""
+        },
+        {
+            "week": 31,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 92,
+            "lessonName": "HĐTCĐ: Chung tay bảo vệ môi trường quanh ta",
+            "integration": "- Tích hợp AI (5.D2.1): Hiểu rằng các báo cáo dữ liệu môi trường hàng ngày giúp AI đưa ra dự báo và giải pháp bảo tồn chính xác hơn.\n- Tích hợp BVMT: HS tham gia tuyên truyền, đưa tin về thực trạng môi trường, đề xuất hành động xanh hằng ngày; hiểu mỗi hành động nhỏ đều góp phần bảo vệ môi trường quanh ta."
+        },
+        {
+            "week": 31,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 93,
+            "lessonName": "Sinh hoạt lớp/KNS: -Mỗi hành động - Một chiếc lá",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. HS tổng hợp hình ảnh, số liệu sau khảo sát vào bảng tin số của lớp và chia sẻ một hành động bảo vệ môi trường có thể thực hiện hằng ngày.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS cam kết thực hiện một việc cụ thể như dùng nước vừa đủ, tái sử dụng nước khi phù hợp, không xả rác xuống cống rãnh, kênh rạch để bảo vệ nguồn nước."
+        },
+        {
+            "week": 31,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 1)",
+            "integration": "Tích hợp AI 5.A3.1: HS đọc một lời khuyên sức khỏe do ChatGPT, Gemini hoặc Copilot gợi ý, rồi đối chiếu SGK và học liệu của Bộ Y tế."
+        },
+        {
+            "week": 31,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 2)",
+            "integration": "Tích hợp NLS 4.4.CB2a: HS dùng Google Earth hoặc Google Maps quan sát rừng, sông, hồ, khu dân cư để nhận biết môi trường sống của sinh vật."
+        },
+        {
+            "week": 31,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 625,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 626,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Bài 23: Dân số và các chủng tộc trên thế giới (Tiết 2)",
+            "integration": "Tích hợp AI 5.A2.1: HS thảo luận AI có thể tạo tác phẩm giống Hy Lạp cổ đại nhưng ý tưởng sáng tạo và linh hồn tác phẩm thuộc về con người.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng sự sáng tạo, không sao chép sản phẩm của người khác."
+        },
+        {
+            "week": 31,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Bài 24: Văn minh Ai Cập",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo thẻ thông tin số giới thiệu một thành tựu của văn minh Hy Lạp như Thế vận hội, đền Pác - tê-nông, chữ viết, khoa học hoặc nghệ thuật.\nTích hợp QCN: HS hiểu quyền được học tập, tiếp cận văn hóa, khoa học, nghệ thuật của nhân loại; biết tôn trọng giá trị chung của thế giới."
+        },
+        {
+            "week": 31,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Vì một thế giới hoà bình (Tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 31,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 31",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 61",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 62",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 61,
+            "lessonName": "Ôn tập Toán - Tiết 61",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 62,
+            "lessonName": "Ôn tập Toán - Tiết 62",
+            "integration": null
+        },
+        {
+            "week": 31,
+            "subject": "Tiếng Anh",
+            "ppct": 121,
+            "lessonName": "UNIT 18: Means of transport - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.1.CB2b: Biết cách chọn phương tiện (nhắn tin/gọi video) để thông báo lộ trình cho bố mẹ. QPAN: Bảo vệ trật tự an toàn giao thông đô thị.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 31,
+            "subject": "Tiếng Anh",
+            "ppct": 122,
+            "lessonName": "UNIT 18: Means of transport - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu cấu tạo động cơ điện đơn giản của các dòng xe xanh hiện nay. GDĐP: Nhận biết các phương tiện vận tải đặc thù ở địa phương (đò, phà).",
+            "periodInWeek": 2
+        },
+        {
+            "week": 31,
+            "subject": "Tiếng Anh",
+            "ppct": 123,
+            "lessonName": "UNIT 18: Means of transport - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 3.2.CB2a: Tạo một đoạn phim ngắn (animation) về các phương tiện di chuyển trong tương lai. AI 5.D2.1: Ý tưởng 'Robot điều phối giao thông' tại cổng trường.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 31,
+            "subject": "Tiếng Anh",
+            "ppct": 124,
+            "lessonName": "UNIT 19: Places of interest - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.B1.2: Hiểu AI hỗ trợ bảo tồn di sản văn hóa qua việc tái hiện không gian di tích 3D . GDĐP: Giới thiệu các di tích lịch sử hoặc công viên văn hóa nổi tiếng.",
+            "periodInWeek": 4
         },
         {
             "week": 31,
@@ -3692,6 +10420,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm việt nam quê hương ta."
         },
         {
+            "week": 31,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 31,
+            "lessonName": "Bài 15. Sử dụng biểu thức trong chương trình (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.3.4: Liệt kê các hướng dẫn để máy tính giải quyết vấn đề thông qua tính toán biểu thức. Năng lực AI (Khung 3439): 5.B1.1: Biết ví dụ về sự công bằng/không công bằng của AI (biểu thức so sánh giúp AI đánh giá sự công bằng)."
+        },
+        {
+            "week": 31,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 151,
+            "lessonName": "Bài 66. Thực hành và trải nghiệm thu thập, phân tích, biểu diễn các số liệu thống kê (Tiết 2)",
+            "integration": "BVMT: Khảo sát số cây xanh, số chai nhựa hoặc lượng nước dùng; giáo dục học sinh biết phân tích số liệu để hành động vì môi trường."
+        },
+        {
+            "week": 31,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 152,
+            "lessonName": "Bài 67. Luyện tập chung",
+            "integration": "Năng lực số 3.1.CB2a: Thiết kế poster (Canva) biểu diễn kết quả phân tích số liệu rác thải của lớp."
+        },
+        {
+            "week": 31,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 153,
+            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 1): Ôn tập số tự nhiên",
+            "integration": "AI 5.A2.1: Ôn tập giúp con người củng cố tư duy bền vững, điều mà AI (chỉ làm theo dữ liệu có sẵn) không thể tự thay thế được."
+        },
+        {
+            "week": 31,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 154,
+            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 2): Ôn tập phân số",
+            "integration": "Năng lực số 5.2.CB2a: Thực hiện bài tập ôn tập qua trò chơi Kahoot để rèn luyện phản xạ tính toán."
+        },
+        {
+            "week": 31,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 155,
+            "lessonName": "Bài 68. Ôn tập số tự nhiên, phân số, số thập phân (tiết 3): Ôn tập số thập phân",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "- Ôn Hát: Khúc ca hè về - Nhạc cụ: Nhạc cụ thể hiện tiết tấu và nhạc cụ thể hiện giai điệu",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 3)",
+            "integration": "KNS: HS rèn kĩ năng lắp ráp, thử nghiệm, ghi nhận kết quả, điều chỉnh mô hình điện mặt trời và hợp tác an toàn khi thực hành."
+        },
+        {
+            "week": 32,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 2)",
+            "integration": "Tích hợp AI 5.D2.1 (Công cụ: app mua sắm/website tra giá có gợi ý sản phẩm, ví dụ Shopee, Lazada hoặc Google Shopping do GV trình chiếu): HS tìm hiểu cách ứng dụng mua sắm dùng dữ liệu thói quen để liên tục gợi ý quảng cáo.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tiêu dùng tiết kiệm, không lãng phí."
+        },
+        {
+            "week": 32,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 63,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 64,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 5)",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 94,
+            "lessonName": "Sinh hoạt dưới cờ: -Diễn đàn \"Nghề nghiệp tương lai\"",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 95,
+            "lessonName": "HĐTCĐ: Nghề em mơ ước",
+            "integration": "- Tích hợp AI (5.A3.1): Thảo luận: Trong tương lai, AI sẽ thay đổi và hỗ trợ nghề nghiệp mơ ước của em (bác sĩ, kỹ sư...) như thế nào?.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được ước mơ, học tập và phát triển năng lực nghề nghiệp tương lai; biết tôn trọng ước mơ của bạn, không chê bai hoặc áp đặt lựa chọn nghề nghiệp."
+        },
+        {
+            "week": 32,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 96,
+            "lessonName": "Sinh hoạt lớp/KNS: -Câu chuyện của người làm nghề",
+            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS tìm kiếm thông tin cơ bản về nghề em mơ ước từ nguồn tin cậy, ghi lại yêu cầu về phẩm chất, năng lực và điều kiện làm việc.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS xác định nghề mơ ước cần gắn với rèn luyện chăm chỉ, trung thực, trách nhiệm và mong muốn đóng góp cho gia đình, quê hương, đất nước."
+        },
+        {
+            "week": 32,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 63,
+            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 3)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS hiểu nước là điều kiện sống quan trọng của sinh vật; biết sử dụng nước tiết kiệm, không xả rác, dầu mỡ, hóa chất xuống ao, hồ, sông, suối."
+        },
+        {
+            "week": 32,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 64,
+            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 4)",
+            "integration": "Tích hợp bảo vệ môi trường: HS biết giữ gìn môi trường sống cho sinh vật bằng việc trồng cây, phân loại rác, không phá nơi ở của động vật. Tích hợp AI 5.A2.2: HS xem clip hoặc hình ảnh về thiết bị AI nghe âm thanh rừng, camera bẫy ảnh AI, cảm biến quan trắc nước để nhận biết AI hỗ trợ theo dõi môi trường."
+        },
+        {
+            "week": 32,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 627,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 628,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 63,
+            "lessonName": "Bài 25: Văn minh Hy Lạp",
+            "integration": "Tích hợp NLS 4.4.CB2a: HS tìm hiểu vai trò của công nghệ số trong bảo vệ môi trường như cảnh báo cháy rừng, theo dõi ô nhiễm, thu gom rác.\nTích hợp BVMT: HS biết tham gia việc làm phù hợp để giữ trường lớp, gia đình, cộng đồng xanh - sạch - đẹp."
+        },
+        {
+            "week": 32,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 64,
+            "lessonName": "Bài 26: Xây dựng thế giới xanh - sạch - đẹp (Tiết 1)",
+            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu robot AI thu gom rác đại dương hoặc AI nghe âm thanh rừng để phát hiện phá rừng.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS thực hành tiết kiệm nước, bảo vệ nguồn nước sạch, không xả rác xuống kênh rạch."
+        },
+        {
+            "week": 32,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Vì một thế giới hoà bình (Tiết 3)",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 32",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 63,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 63",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 64,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 64",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 63,
+            "lessonName": "Ôn tập Toán - Tiết 63",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 64,
+            "lessonName": "Ôn tập Toán - Tiết 64",
+            "integration": null
+        },
+        {
+            "week": 32,
+            "subject": "Tiếng Anh",
+            "ppct": 125,
+            "lessonName": "UNIT 19: Places of interest - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 1.1.CB2a: Xác định từ khóa để tìm video giới thiệu các kỳ quan thế giới trên Youtube Kids. Đạo đức: Trân trọng và giữ gìn các di sản văn hóa của nhân loại.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 32,
+            "subject": "Tiếng Anh",
+            "ppct": 126,
+            "lessonName": "UNIT 19: Places of interest - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A3.1: Hiểu con người cần kiểm tra lại các đánh giá về địa danh vì có thể do AI tạo giả. Quyền con người: Quyền tiếp cận giá trị văn hóa.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 32,
+            "subject": "Tiếng Anh",
+            "ppct": 127,
+            "lessonName": "UNIT 19: Places of interest - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 3.3.CB2a: Tôn trọng bản quyền: Khi viết bài giới thiệu địa danh, HS ghi rõ nguồn ảnh đã dùng. Bảo vệ môi trường: Không viết vẽ bậy lên di tích.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 32,
+            "subject": "Tiếng Anh",
+            "ppct": 128,
+            "lessonName": "UNIT 19: Places of interest - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Khám phá kỹ thuật Flycam (có tích hợp AI) dùng để chụp ảnh danh thắng từ trên cao. QPAN: Nhận biết quy định vùng cấm tại các địa điểm quan trọng.",
+            "periodInWeek": 4
+        },
+        {
             "week": 32,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3746,6 +10738,270 @@ window.APP_INITIAL_DATA = {
             "ppct": 224,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 2.5.CB2a - HS chia sẻ thông điệp hòa bình qua email/diễn đàn số, giao tiếp văn minh."
+        },
+        {
+            "week": 32,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 32,
+            "lessonName": "Bài 16. Từ kịch bản đến chương trình (Tiết 1)",
+            "integration": "Năng lực số (CV3456): CB2.2.4: Chọn được những công cụ và công nghệ số đơn giản cho các quá trình cộng tác. Năng lực AI (Khung 3439): 5.D2.1: Giải thích được hệ thống AI có thể cải tiến và tốt hơn khi dữ liệu được bổ sung thường xuyên."
+        },
+        {
+            "week": 32,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 156,
+            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 1): Luyện tập (Trang 107)",
+            "integration": "AI 5.A1.1: Khẳng định AI là công cụ hỗ trợ tính toán tuyệt vời, giúp con người giải phóng khỏi những phép tính lặp lại nhàm chán."
+        },
+        {
+            "week": 32,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 157,
+            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 2): Luyện tập (Trang 108)",
+            "integration": "Năng lực số 1.3.CB2a: Tải bài làm lên không gian lưu trữ chung (Google Drive) để giáo viên chấm điểm."
+        },
+        {
+            "week": 32,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 158,
+            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 3): Luyện tập (Trang 109)",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 159,
+            "lessonName": "Bài 69. Ôn tập các phép tính với số tự nhiên, phân số, số thập phân (Tiết 4): Luyện tập (Trang 110)",
+            "integration": ""
+        },
+        {
+            "week": 32,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 160,
+            "lessonName": "Bài 70. Ôn tập tỉ số, tỉ số phần trăm (Tiết 1): Luyện tập (Trang 111)",
+            "integration": "AI 5.B1.1: Thảo luận về đạo đức AI: Đảm bảo tỉ lệ phần trăm hỗ trợ của AI phải công bằng cho mọi vùng miền, dân tộc khác nhau."
+        },
+        {
+            "week": 33,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "- Nghe nhạc: Khúc ca bốn mùa - Tổ chức các hoạt động vận dụng sáng tạo",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 4)",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 3)",
+            "integration": "Tích hợp Kĩ năng sống: HS thực hành lập logic ra quyết định tiết kiệm: nếu món đồ chưa thật cần thiết thì chưa mua, nếu giá vượt số tiền cho phép thì tìm lựa chọn khác hoặc hỏi ý kiến người lớn."
+        },
+        {
+            "week": 33,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 65,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 6)",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 66,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 7)",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 97,
+            "lessonName": "Sinh hoạt dưới cờ: Toạ đàm \"Chọn nghề - Đường đến thành công\"",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 98,
+            "lessonName": "HĐTCĐ: An toàn nghề nghiệp",
+            "integration": "- Tích hợp AI (5.A1.1): Tìm hiểu cách cảm biến AI trong các nhà máy giúp cảnh báo nguy hiểm và bảo vệ an toàn cho người lao động.\n- Tích hợp QPAN: HS tìm hiểu an toàn nghề nghiệp, nhận biết thiết bị bảo hộ, biển báo nguy hiểm; có ý thức chấp hành quy định an toàn để bảo vệ bản thân và người lao động."
+        },
+        {
+            "week": 33,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 99,
+            "lessonName": "Sinh hoạt lớp/KNS: Thiết bị bảo hộ lao động",
+            "integration": "- Tích hợp NLS 1.3.CB2a: Tổ chức và sắp xếp dữ liệu trong môi trường có cấu trúc. HS sưu tầm hình ảnh thiết bị bảo hộ lao động của nghề mơ ước và sắp xếp thành bảng “nguy cơ - cách phòng tránh”.\n- Tích hợp QCN: HS hiểu người lao động có quyền được làm việc trong môi trường an toàn; biết tôn trọng nghề nghiệp của người khác và không xem nhẹ các quy định bảo hộ lao động."
+        },
+        {
+            "week": 33,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 65,
+            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 1)",
+            "integration": "Tích hợp NLS 5.2.CB2a: HS dùng Google Search hoặc Microsoft Edge tìm giải pháp công nghệ như robot dọn rác, cảm biến quan trắc nước, drone giám sát rừng."
+        },
+        {
+            "week": 33,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 66,
+            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 2)",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nhận biết hoạt động của con người có thể làm ô nhiễm nước; đề xuất việc không xả rác xuống kênh rạch, tiết kiệm nước, thu gom rác đúng nơi quy định."
+        },
+        {
+            "week": 33,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 629,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 630,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 65,
+            "lessonName": "Bài 26: Xây dựng thế giới xanh - sạch - đẹp (Tiết 2)",
+            "integration": "Tích hợp NLS 4.2.CB2a: HS soạn email/tin nhắn lan tỏa thông điệp yêu hòa bình; biết không chia sẻ thông tin cá nhân, hình ảnh bạn bè khi chưa được đồng ý.\nTích hợp QCN: HS hiểu quyền được sống trong hòa bình, an toàn, được tôn trọng và bảo vệ."
+        },
+        {
+            "week": 33,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 66,
+            "lessonName": "Bài 27: Xây dựng thế giới hoà bình (Tiết 1)",
+            "integration": "Tích hợp AI 5.A2.1: HS hiểu AI hỗ trợ thông tin nhưng hòa bình cần lòng nhân ái, thấu cảm và quyết định đạo đức của con người.\nTích hợp QPAN: HS hiểu giữ gìn hòa bình gắn với trách nhiệm bảo vệ Tổ quốc, bảo vệ cuộc sống bình yên."
+        },
+        {
+            "week": 33,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Vì một thế giới hoà bình (Tiết 4)",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 33",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 65,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 65",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 66,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 66",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 65,
+            "lessonName": "Ôn tập Toán - Tiết 65",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 66,
+            "lessonName": "Ôn tập Toán - Tiết 66",
+            "integration": null
+        },
+        {
+            "week": 33,
+            "subject": "Tiếng Anh",
+            "ppct": 129,
+            "lessonName": "UNIT 19: Places of interest - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 2.2.CB2b: Biết cách trích dẫn lời nhận xét hay của bạn về địa danh trong dự án nhóm. AI 5.D2.1: Cải tiến hệ thống thuyết minh tự động tại các bảo tàng.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 33,
+            "subject": "Tiếng Anh",
+            "ppct": 130,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 1 – Activity 1 - 3",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ cha mẹ đặt vé du lịch hè giá rẻ và an toàn dựa trên nhu cầu gia đình. Đạo đức: Giúp đỡ cha mẹ chuẩn bị hành trang cho kỳ nghỉ.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 33,
+            "subject": "Tiếng Anh",
+            "ppct": 131,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 1 – Activity 4 - 6",
+            "integration": "NLS 4.2.CB2b: Cảnh báo: Tuyệt đối không công khai thông tin chi tiết vé/phòng khách sạn lên mạng xã hội. Bảo vệ môi trường: Giữ sạch bãi biển quê hương.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 33,
+            "subject": "Tiếng Anh",
+            "ppct": 132,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 2 – Activity 1 - 3",
+            "integration": "AI 5.A2.1: Nhận biết AI trong máy ảnh giúp em lưu giữ khoảnh khắc hè rực rỡ và sắc nét nhất. GDĐP: Kể tên các hoạt động vui chơi hè thú vị tại địa phương.",
+            "periodInWeek": 4
         },
         {
             "week": 33,
@@ -3804,6 +11060,270 @@ window.APP_INITIAL_DATA = {
             "integration": "Quyền con người: Rèn quyền được bày tỏ ý kiến, biết lắng nghe và tôn trọng ý kiến khác biệt khi trao đổi về chủ điểm giờ trái đất."
         },
         {
+            "week": 33,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 33,
+            "lessonName": "Bài 16. Từ kịch bản đến chương trình (Tiết 2)",
+            "integration": "Năng lực số (CV3456): CB2.2.4: Chọn được những công cụ và công nghệ số đơn giản cho các quá trình cộng tác. Năng lực AI (Khung 3439): 5.D2.1: Giải thích được hệ thống AI có thể cải tiến và tốt hơn khi dữ liệu được bổ sung thường xuyên."
+        },
+        {
+            "week": 33,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 161,
+            "lessonName": "Bài 70. Ôn tập tỉ số, tỉ số phần trăm (Tiết 2): Luyện tập (Trang 112)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Ôn tập bằng các bài toán về tỉ lệ nước tiết kiệm, tỉ lệ rác được phân loại hoặc tỉ lệ học sinh tham gia hoạt động xanh."
+        },
+        {
+            "week": 33,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 162,
+            "lessonName": "Bài 71. Ôn tập hình học (Tiết 1): Luyện tập (Trang 113)",
+            "integration": "AI 5.C4.2: Tìm hiểu cách AI phục dựng lại các hình khối kiến trúc cổ (như tháp Chàm) từ các mảnh vỡ và số liệu hình học còn sót lại."
+        },
+        {
+            "week": 33,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 163,
+            "lessonName": "Bài 71. Ôn tập hình học (Tiết 2): Luyện tập (Trang 114)",
+            "integration": "BVMT: Dùng các bài toán về diện tích vườn trường, bồn hoa hoặc khu vui chơi xanh để giáo dục học sinh giữ gìn cảnh quan."
+        },
+        {
+            "week": 33,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 164,
+            "lessonName": "Bài 71. Ôn tập hình học (Tiết 3): Luyện tập (Trang 116)",
+            "integration": ""
+        },
+        {
+            "week": 33,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 165,
+            "lessonName": "Bài 71. Ôn tập hình học (Tiết 4): Luyện tập (Trang 117)",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Ôn tập cuối năm",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Ôn tập cuối học kì II",
+            "integration": "NLS 5.2.CB2a: HS thực hiện bài tập ôn tập, củng cố kiến thức về công nghệ và đời sống thông qua Quizizz hoặc Google Forms để tự đánh giá mức độ đạt được năng lực.\nKNS: HS rèn kĩ năng tự đánh giá, hệ thống hóa kiến thức và chia sẻ nội dung cần ôn tập với bạn."
+        },
+        {
+            "week": 34,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 4)",
+            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS dùng phần mềm bảng tính lập bảng theo dõi chi tiêu cá nhân hằng tuần; biết theo dõi khoản thu, khoản chi để điều chỉnh thói quen mua sắm và quản lí tài chính hiệu quả hơn."
+        },
+        {
+            "week": 34,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Bài 3: Động tác hai bước ném rỗ bằng một tay trên vai (tiết 8)",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "Bài: Ôn tập, đánh giá học kì 2 (tiết 1)",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 100,
+            "lessonName": "Sinh hoạt dưới cờ: Kỉ niệm ngày sinh Bác Hồ kính yêi",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 101,
+            "lessonName": "HĐTCĐ: Mơ ước nghề nghiệp của em",
+            "integration": "- Tích hợp AI (5.A2.1): Khi thiết kế danh thiếp, khẳng định những giá trị (sáng tạo, đạo đức) của bản thân mà máy móc không thay thế được.\n- Tích hợp QCN: HS biết mỗi em có quyền mơ ước, lựa chọn hướng phát triển phù hợp với năng lực; khi giới thiệu danh thiếp tương lai cần tôn trọng sự khác biệt và điểm mạnh của bạn."
+        },
+        {
+            "week": 34,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 102,
+            "lessonName": "Sinh hoạt lớp/KNS: Tấm danh thiếp tương lai",
+            "integration": "- Tích hợp NLS 3.1.CB2a: Chỉnh sửa nội dung số đơn giản để thể hiện bản thân. HS thiết kế danh thiếp tương lai bằng Canva/PowerPoint, thể hiện tên nghề, điểm mạnh của bản thân và thông điệp nghề nghiệp tích cực.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn thái độ sống có mục tiêu, có trách nhiệm; biết xây dựng hình ảnh bản thân tương lai gắn với phẩm chất tốt, năng lực thật và việc làm có ích."
+        },
+        {
+            "week": 34,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 3)",
+            "integration": "Tích hợp AI 5.A1.1: HS dùng Canva hoặc PowerPoint phác thảo ý tưởng robot AI thu gom rác trên mặt biển, cống rãnh; nêu cảm biến cần có như camera, cảm biến vật cản, cảm biến mực nước."
+        },
+        {
+            "week": 34,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "Bài 30: Ôn tập chủ đề sinh vật và môi trường",
+            "integration": "Tích hợp NLS 4.4.CB2a: HS dùng Canva Mind Map hoặc PowerPoint SmartArt hệ thống hóa kiến thức chủ đề Sinh vật và môi trường."
+        },
+        {
+            "week": 34,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 631,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 632,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Bài 27: Xây dựng thế giới hoà bình (Tiết 2)",
+            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng sơ đồ tư duy số Coggle/MindMeister/Canva để hệ thống hóa kiến thức Lịch sử và Địa lí 5 theo chủ đề."
+        },
+        {
+            "week": 34,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "Bài 28: Ôn tập (tiết 1)",
+            "integration": "Tích hợp AI 5.D2.1: HS hệ thống hóa kiến thức bằng sơ đồ tư duy AI; hiểu kiến thức cần được cập nhật thường xuyên như dữ liệu AI."
+        },
+        {
+            "week": 34,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "1 tiêt",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 34",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 67",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 68",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 67,
+            "lessonName": "Ôn tập Toán - Tiết 67",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 68,
+            "lessonName": "Ôn tập Toán - Tiết 68",
+            "integration": null
+        },
+        {
+            "week": 34,
+            "subject": "Tiếng Anh",
+            "ppct": 133,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 2 – Activity 4 - 6",
+            "integration": "NLS 2.6.CB2b: Biết xây dựng 'Dấu vết số' tích cực bằng những bài đăng ý nghĩa về mùa hè. QPAN: An toàn phòng chống đuối nước khi đi nghỉ mát vùng sông nước.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 34,
+            "subject": "Tiếng Anh",
+            "ppct": 134,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 3 – Activity 1 - 3",
+            "integration": "STEM: Tìm hiểu nguyên lý hoạt động của kính bơi và thiết bị lặn biển hiện đại. Tiết kiệm nước: Nhắc nhở tắm tráng nhanh bằng lượng nước vừa đủ sau khi bơi.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 34,
+            "subject": "Tiếng Anh",
+            "ppct": 135,
+            "lessonName": "UNIT 20: Our summer holidays - Lesson 3 – Activity 4 - 6",
+            "integration": "NLS 5.4.CB2a: Tự nhận ra kỹ năng thiết kế số của mình đã tiến bộ thế nào sau một năm học. AI 5.D2.1: Bình chọn tính năng AI hữu ích nhất năm qua.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 34,
+            "subject": "Tiếng Anh",
+            "ppct": 136,
+            "lessonName": "REVIEW 4 - Activity 1 - 2",
+            "integration": "AI 5.B3.1: Giải thích vì sao cần hiểu lý do Robot chấm bài sai để HS tự tin hơn khi tự ôn tập. Đạo đức: Thể hiện tính liêm chính trong tự đánh giá.",
+            "periodInWeek": 4
+        },
+        {
             "week": 34,
             "subject": "Tiếng Việt",
             "periodInWeek": 1,
@@ -3858,6 +11378,342 @@ window.APP_INITIAL_DATA = {
             "ppct": 238,
             "lessonName": "Đọc mở rộng: Đọc mở rộng",
             "integration": "NLS: 6.2.CB2a - HS thực hiện dự án Thành phố ước mơ bằng phần mềm số, mô phỏng hoạt động tự động."
+        },
+        {
+            "week": 34,
+            "subject": "Tin học",
+            "periodInWeek": 1,
+            "ppct": 34,
+            "lessonName": "Ôn tập cuối học kì II",
+            "integration": ""
+        },
+        {
+            "week": 34,
+            "subject": "Toán",
+            "periodInWeek": 1,
+            "ppct": 166,
+            "lessonName": "Bài 72. Ôn tập đo lường (tiết 1): Luyện tập (Trang 119)",
+            "integration": "AI 5.A2.2: AI hỗ trợ đo lường mực nước biển dâng để cảnh báo sớm về biến đổi khí hậu trên toàn cầu thông qua các trạm quan trắc."
+        },
+        {
+            "week": 34,
+            "subject": "Toán",
+            "periodInWeek": 2,
+            "ppct": 167,
+            "lessonName": "Bài 72. Ôn tập đo lường (tiết 2): Luyện tập (Trang 120)",
+            "integration": "Tiết kiệm và bảo vệ nguồn nước: Ôn đơn vị đo dung tích, thể tích bằng các tình huống về lượng nước sinh hoạt và nước tưới cây; nhắc học sinh dùng nước hợp lí."
+        },
+        {
+            "week": 34,
+            "subject": "Toán",
+            "periodInWeek": 3,
+            "ppct": 168,
+            "lessonName": "Bài 73. Ôn tập toán chuyển động đều (tiết 1): Luyện tập (Trang 121)",
+            "integration": "AI 5.A1.2: Nhấn mạnh: Xe tự lái dùng toán chuyển động, nhưng con người phải chịu trách nhiệm cuối cùng nếu có sự cố xảy ra."
+        },
+        {
+            "week": 34,
+            "subject": "Toán",
+            "periodInWeek": 4,
+            "ppct": 169,
+            "lessonName": "Bài 73. Ôn tập toán chuyển động đều (tiết 2): Luyện tập (Trang 122)",
+            "integration": "Đạo đức, lối sống: Qua bài toán chuyển động đều, giáo dục học sinh tuân thủ luật giao thông, đi học đúng giờ và có trách nhiệm khi tham gia giao thông."
+        },
+        {
+            "week": 34,
+            "subject": "Toán",
+            "periodInWeek": 5,
+            "ppct": 170,
+            "lessonName": "Bài 74. Ôn tập một số yếu tố thống kê và xác suất (Tiết 1): Luyện tập (Trang 123)",
+            "integration": "AI 5.D2.1: Tổng kết: Càng có nhiều dữ liệu thống kê chính xác, các hệ thống AI càng phục vụ con người tốt hơn và thông minh hơn."
+        },
+        {
+            "week": 35,
+            "subject": "Âm nhạc",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Kiểm tra và đánh gia cuối năm",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "CD SỐ",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "Công nghệ",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Kiểm tra định kỳ cuối năm học",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập tổng hợp cuối năm",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "Đạo đức",
+            "periodInWeek": 1,
+            "ppct": 458,
+            "lessonName": "Tên bài",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Đọc sách trong Thư viện",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "ĐỌC THƯ VIỆN",
+            "periodInWeek": 1,
+            "ppct": 1204,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "GD Thể chất",
+            "periodInWeek": 1,
+            "ppct": 69,
+            "lessonName": "Bài: Ôn tập, đánh giá học kì 2 (tiết 2)",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "GD Thể chất",
+            "periodInWeek": 2,
+            "ppct": 70,
+            "lessonName": "Bài: Tổng kết môn học.",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 103,
+            "lessonName": "Sinh hoạt dưới cờ: Lễ tổng kết năm học",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 2,
+            "ppct": 104,
+            "lessonName": "HĐTCĐ: Hồ sơ trải nghiệm",
+            "integration": "- Tích hợp AI (5.A2.1): Nhận biết AI có thể hỗ trợ sắp xếp, gợi ý trình bày hồ sơ trải nghiệm, nhưng cảm xúc, quá trình rèn luyện và sự trưởng thành thật của mỗi em là dữ liệu cá nhân cần do chính em tự nhìn lại, tự đánh giá.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS tự đánh giá quá trình trải nghiệm lớp 5 trung thực, biết ghi nhận cố gắng của bản thân, biết cảm ơn thầy cô, gia đình, bạn bè đã đồng hành."
+        },
+        {
+            "week": 35,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 3,
+            "ppct": 105,
+            "lessonName": "Sinh hoạt lớp/KNS: Chia tay trường tiểu học",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "HĐ Trải nghiệm",
+            "periodInWeek": 1,
+            "ppct": 564,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 69,
+            "lessonName": "Ôn tập cuối năm",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS vận dụng kiến thức đã học để nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, địa phương."
+        },
+        {
+            "week": 35,
+            "subject": "Khoa học",
+            "periodInWeek": 2,
+            "ppct": 70,
+            "lessonName": "Kiểm tra cuối năm",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "Khoa học",
+            "periodInWeek": 1,
+            "ppct": 776,
+            "lessonName": "Tên bài",
+            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS vận dụng kiến thức đã học để nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, địa phương."
+        },
+        {
+            "week": 35,
+            "subject": "KNS",
+            "periodInWeek": 1,
+            "ppct": 633,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "KNS",
+            "periodInWeek": 2,
+            "ppct": 634,
+            "lessonName": "Rèn luyện Kỹ năng sống",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 69,
+            "lessonName": "Bài 28: Ôn tập (tiết 2)",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tổng kết bài học về yêu nước, trách nhiệm công dân, tôn trọng di sản, bảo vệ môi trường và sống nhân ái."
+        },
+        {
+            "week": 35,
+            "subject": "LS&ĐL",
+            "periodInWeek": 2,
+            "ppct": 70,
+            "lessonName": "Kiểm tra và đánh giá cuối học kì II",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "LS&ĐL",
+            "periodInWeek": 1,
+            "ppct": 847,
+            "lessonName": "Tên bài",
+            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tổng kết bài học về yêu nước, trách nhiệm công dân, tôn trọng di sản, bảo vệ môi trường và sống nhân ái."
+        },
+        {
+            "week": 35,
+            "subject": "Mĩ thuật",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "1 tiết",
+            "integration": ""
+        },
+        {
+            "week": 35,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "GV bộ môn dạy",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "STEM",
+            "periodInWeek": 1,
+            "ppct": 705,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 35,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 35",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 69,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 69",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 2,
+            "ppct": 70,
+            "lessonName": "Ôn tập Tiếng Việt - Tiết 70",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 1097,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TIẾNG VIỆT",
+            "periodInWeek": 1,
+            "ppct": 1168,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 69,
+            "lessonName": "Ôn tập Toán - Tiết 69",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TOÁN",
+            "periodInWeek": 2,
+            "ppct": 70,
+            "lessonName": "Ôn tập Toán - Tiết 70",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "TC TOÁN",
+            "periodInWeek": 1,
+            "ppct": 1275,
+            "lessonName": "Tên bài",
+            "integration": null
+        },
+        {
+            "week": 35,
+            "subject": "Tiếng Anh",
+            "ppct": 137,
+            "lessonName": "REVIEW 4 - Activity 3 - 5",
+            "integration": "NLS 3.1.CB2a: Tạo một 'Tạp chí ảnh số' tổng kết các hoạt động vui nhất của lớp trong năm qua. Quyền con người: Quyền được ghi nhận và khen thưởng.",
+            "periodInWeek": 1
+        },
+        {
+            "week": 35,
+            "subject": "Tiếng Anh",
+            "ppct": 138,
+            "lessonName": "EXTENSION - Activity 1 - 3",
+            "integration": "STEM: Hoạt động thiết kế \"Ngôi trường xanh\" tích hợp công nghệ từ vật liệu tái chế. NLS 2.6.CB2b: Bảo vệ danh tiếng trực tuyến của lớp bằng việc chia sẻ ảnh tích cực.",
+            "periodInWeek": 2
+        },
+        {
+            "week": 35,
+            "subject": "Tiếng Anh",
+            "ppct": 139,
+            "lessonName": "Kiểm tra Học kì 2",
+            "integration": "Đạo đức: Tuyệt đối trung thực, không gian lận trong thi cử cuối năm.",
+            "periodInWeek": 3
+        },
+        {
+            "week": 35,
+            "subject": "Tiếng Anh",
+            "ppct": 140,
+            "lessonName": "Chữa bài",
+            "integration": "AI 5.A1.1: Biết AI hỗ trợ thầy cô phân tích kết quả học tập để có những lời khuyên phù hợp cho em. GDĐP: Lời chúc nghỉ hè theo phong cách địa phương.",
+            "periodInWeek": 4
         },
         {
             "week": 35,
@@ -3924,9108 +11780,60 @@ window.APP_INITIAL_DATA = {
             "integration": ""
         },
         {
-            "week": 1,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 1)",
-            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng Google/YouTube tìm và xem clip về chị Võ Thị Sáu hoặc Đại tướng Võ Nguyên Giáp để cảm nhận công lao của người có công.\nTích hợp ANQP: HS bồi dưỡng lòng biết ơn, ý thức trân trọng truyền thống bảo vệ Tổ quốc."
-        },
-        {
-            "week": 2,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2 (Công cụ: AI Search, Google Search có gợi ý AI): HS tìm hiểu cách AI phục vụ lợi ích chung như robot y tế hỗ trợ bác sĩ, AI trong nông nghiệp hỗ trợ kĩ sư giúp dân.\nTích hợp ANQP: HS liên hệ việc tri ân anh hùng, liệt sĩ, thương binh, người có công bằng việc làm phù hợp."
-        },
-        {
-            "week": 3,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 3)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS nêu việc làm cụ thể để tri ân người có công như thăm hỏi gia đình chính sách, chăm sóc nghĩa trang, tham gia hoạt động đền ơn đáp nghĩa; biết giữ gìn truyền thống uống nước nhớ nguồn."
-        },
-        {
-            "week": 4,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Bài 1. Biết ơn những người có công với quê hương, đất nước (tiết 4)",
-            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS thực hành trên Canva hoặc PowerPoint để thiết kế poster số thể hiện lòng biết ơn những người có công với quê hương; biết chọn lọc tư liệu, trình bày thông điệp tri ân ngắn gọn, phù hợp."
-        },
-        {
-            "week": 5,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 2.1.CB2a: HS lựa chọn phương tiện giao tiếp số như Email hoặc Zalo nhóm để mời các bạn có hoàn cảnh khác nhau tham gia nhóm học tập bằng lời lẽ lịch sự.\nTích hợp QCN: HS hiểu mỗi người có quyền được tôn trọng và đối xử công bằng."
-        },
-        {
-            "week": 6,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 2)",
-            "integration": "Tích hợp AI 5.B1.1 (Công cụ: Teachable Machine): HS quan sát mô phỏng dạy máy nhận diện đa dạng đặc điểm con người; thảo luận nếu AI chỉ nhận diện được một màu da, một giọng nói hoặc một vùng miền thì đó là thiếu công bằng.\nTích hợp QCN: HS tôn trọng quyền được đối xử bình đẳng của mọi người."
-        },
-        {
-            "week": 7,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 2. Tôn trọng sự khác biệt của người khác. (Tiết 3)",
-            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS tạo video ngắn hoặc bài trình chiếu “Tôi khác biệt” để giới thiệu điểm độc đáo của bản thân và chia sẻ lên Padlet lớp học; khi nhận xét sản phẩm của bạn, HS dùng lời lẽ tích cực, tôn trọng sự đa dạng."
-        },
-        {
-            "week": 8,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng công cụ tìm kiếm sưu tầm ca dao, tục ngữ về siêng năng, kiên trì và lưu vào tệp văn bản số.\nTích hợp Kĩ năng sống: HS rèn kĩ năng nhận diện khó khăn, tìm cách giải quyết và không bỏ cuộc."
-        },
-        {
-            "week": 9,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Ôn tập tổng hợp giữa học kì I",
-            "integration": ""
-        },
-        {
-            "week": 10,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 2)",
-            "integration": "Tích hợp AI 5.A1.1 (Công cụ: YouTube, video robot cứu hộ AI): HS xem video về robot cứu hộ AI vào vùng thiên tai, vùng nguy hiểm để nhận biết AI có thể làm việc nguy hiểm thay con người.\nTích hợp Kĩ năng sống: HS đề xuất cách ứng phó khi gặp khó khăn."
-        },
-        {
-            "week": 11,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 3)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS rèn ý chí, tinh thần tự học, biết đặt mục tiêu nhỏ, kiên trì thực hiện nhiệm vụ học tập và biết điều chỉnh cách làm khi gặp trở ngại."
-        },
-        {
-            "week": 12,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Bài 3. Vượt qua khó khăn (Tiết 4)",
-            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS chia sẻ tấm gương vượt khó sưu tầm được lên Google Classroom hoặc không gian lớp học số và nêu bài học rút ra; biết tương tác văn minh, tích cực với bài chia sẻ của bạn."
-        },
-        {
-            "week": 13,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS sử dụng trình duyệt web tìm kiếm thông tin về gương “Người tốt việc tốt” tại địa phương phục vụ chia sẻ đầu giờ.\nTích hợp QCN: HS hiểu quyền được sống trong môi trường an toàn, lành mạnh và được bảo vệ trước hành vi sai trái."
-        },
-        {
-            "week": 14,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 2)",
-            "integration": "Tích hợp Năng lực số 2.2.CB2a: HS bình chọn hoặc bình luận ủng hộ các hành vi đúng trên mạng xã hội học tập nội bộ để lan tỏa điều tốt đẹp.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết dùng lời lẽ văn minh, không cổ vũ hành vi sai trái."
-        },
-        {
-            "week": 15,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 4. Bảo vệ cái đúng cái tốt (Tiết 3)",
-            "integration": "Tích hợp AI 5.A1.2 (Công cụ: ChatGPT hoặc Gemini do GV kiểm soát): HS thực hiện hoạt động kiểm chứng thông tin, thử hỏi chatbot AI về một tấm gương đạo đức và nhận xét thông tin có thể đúng hoặc sai.\nTích hợp QCN: HS biết bảo vệ sự thật, không lan truyền thông tin sai."
-        },
-        {
-            "week": 16,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 1)",
-            "integration": "Tích hợp AI 5.D1.1 (Công cụ: Scratch AI hoặc Teachable Machine): HS tìm hiểu dự án nhỏ “Dạy máy bảo vệ môi trường”, xác định vấn đề rác thải, chuẩn bị dữ liệu, dạy máy nhận biết và kiểm tra kết quả.\nTích hợp BVMT: HS nhận biết trách nhiệm bảo vệ môi trường sống."
-        },
-        {
-            "week": 17,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập tổng hợp cuối học kì I",
-            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS xem video trên YouTube về ô nhiễm không khí, rác thải nhựa để nhận thức tác hại đối với sức khỏe.\nTích hợp BVMT: HS nêu việc làm giảm rác thải nhựa, tiết kiệm tài nguyên và giữ môi trường sống xanh, sạch."
-        },
-        {
-            "week": 18,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 2)",
-            "integration": ""
-        },
-        {
-            "week": 19,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 3)",
-            "integration": "Tích hợp BVMT: HS trao đổi nhóm, đề xuất thông điệp xanh cho lớp học và cam kết thực hiện hành động nhỏ hằng ngày như tắt điện, tiết kiệm nước, dùng bình nước cá nhân, phân loại rác đúng nơi quy định."
-        },
-        {
-            "week": 20,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Bài 5. Bảo vệ môi trường sống (Tiết 4)",
-            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS thực hiện bảng tự đánh giá số trên Google Forms về việc tham gia bảo vệ môi trường.\nTích hợp BVMT: HS biết nhìn lại việc làm của bản thân và đề xuất biện pháp khắc phục sai sót."
-        },
-        {
-            "week": 21,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 1.3.CB2a: HS sử dụng Excel hoặc Google Sheets để nhập liệu, sắp xếp kế hoạch học tập, rèn luyện sức khỏe theo thời gian.\nTích hợp Kĩ năng sống: HS biết xác định việc cần làm và ưu tiên công việc."
-        },
-        {
-            "week": 22,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.1 (Công cụ: Google Assistant, Microsoft To Do hoặc app nhắc việc có gợi ý thông minh): HS thực hành tư duy “Nếu... thì...” trong lập kế hoạch cá nhân, ví dụ nếu đến 19 giờ thì ngồi vào bàn học, nếu hoàn thành bài tập thì đánh dấu hoàn thành.\nTích hợp Kĩ năng sống: HS hình thành thói quen quản lí thời gian."
-        },
-        {
-            "week": 23,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 3)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS rèn tính tự giác, kỉ luật và trách nhiệm khi thực hiện kế hoạch cá nhân; biết chủ động thực hiện nhiệm vụ, không trì hoãn, không phụ thuộc hoàn toàn vào người khác hoặc công cụ hỗ trợ."
-        },
-        {
-            "week": 24,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Bài 6. Lập kế hoạch cá nhân (Tiết 4",
-            "integration": "Tích hợp Kĩ năng sống: HS tự đánh giá việc thực hiện kế hoạch, điều chỉnh mục tiêu cho phù hợp và rút kinh nghiệm cho tuần tiếp theo; rèn thói quen quản lí thời gian và tự chịu trách nhiệm."
-        },
-        {
-            "week": 25,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 4.2.CB2a: HS thảo luận rủi ro khi chia sẻ địa chỉ, hình ảnh nhạy cảm, mật khẩu lên môi trường số.\nTích hợp QCN: HS hiểu trẻ em có quyền được bảo vệ an toàn thân thể, danh dự và thông tin cá nhân."
-        },
-        {
-            "week": 26,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Ôn tập tổng hợp giữa học kì II",
-            "integration": "Tích hợp AI 5.A3.1 (Công cụ: ChatGPT, Gemini hoặc chatbot do GV kiểm soát; minh họa Deepfake): HS biết dùng AI phù hợp nhu cầu, tránh lạm dụng, không chia sẻ ảnh cá nhân, địa chỉ, mật khẩu cho chatbot lạ.\nTích hợp QCN: HS biết bảo vệ quyền riêng tư và an toàn cá nhân."
-        },
-        {
-            "week": 27,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 2)",
-            "integration": ""
-        },
-        {
-            "week": 28,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 3)",
-            "integration": "Tích hợp Năng lực số 1.1.CB2b: HS dùng công cụ tìm kiếm tra cứu số điện thoại khẩn cấp 111 và quy tắc an toàn khi tương tác trực tuyến."
-        },
-        {
-            "week": 29,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 4)",
-            "integration": "Tích hợp QCN: HS biết bảo vệ quyền riêng tư, danh dự và an toàn thân thể của bản thân, không tự ý chia sẻ thông tin cá nhân của bạn.\nTích hợp Kĩ năng sống: HS thực hành xử lí tình huống khi bị người lạ nhắn tin, dụ dỗ, yêu cầu gửi ảnh riêng tư."
-        },
-        {
-            "week": 30,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Bài 7. Phòng tránh xâm hại. (Tiết 5)",
-            "integration": "Tích hợp Năng lực số 4.3.CB2a: HS biết nhận diện nguy cơ mất an toàn trên không gian mạng; thực hành lưu bằng chứng số, chụp màn hình/tin nhắn, chặn hoặc báo cáo tài khoản lạ theo hướng dẫn và báo người lớn khi cần.\nTích hợp Kĩ năng sống: HS thực hành nói “không” và tìm kiếm sự giúp đỡ khi gặp nguy cơ xâm hại."
-        },
-        {
-            "week": 31,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 1)",
-            "integration": "Tích hợp Năng lực số 5.2.CB2a: HS xác định nhu cầu và chọn website mua sắm hoặc tra giá để so sánh giá cả hàng hóa, giúp đưa ra quyết định mua sắm thông minh và tiết kiệm.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết cân nhắc nhu cầu, không chạy theo quảng cáo, không lãng phí tiền bạc."
-        },
-        {
-            "week": 32,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 2)",
-            "integration": "Tích hợp AI 5.D2.1 (Công cụ: app mua sắm/website tra giá có gợi ý sản phẩm, ví dụ Shopee, Lazada hoặc Google Shopping do GV trình chiếu): HS tìm hiểu cách ứng dụng mua sắm dùng dữ liệu thói quen để liên tục gợi ý quảng cáo.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tiêu dùng tiết kiệm, không lãng phí."
-        },
-        {
-            "week": 33,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 3)",
-            "integration": "Tích hợp Kĩ năng sống: HS thực hành lập logic ra quyết định tiết kiệm: nếu món đồ chưa thật cần thiết thì chưa mua, nếu giá vượt số tiền cho phép thì tìm lựa chọn khác hoặc hỏi ý kiến người lớn."
-        },
-        {
-            "week": 34,
-            "subject": "Đạo đức",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Bài 8. Sử dụng tiền hợp lí (Tiết 4)",
-            "integration": "Tích hợp Năng lực số 3.1.CB2a: HS dùng phần mềm bảng tính lập bảng theo dõi chi tiêu cá nhân hằng tuần; biết theo dõi khoản thu, khoản chi để điều chỉnh thói quen mua sắm và quản lí tài chính hiệu quả hơn."
-        },
-        {
             "week": 35,
-            "subject": "Đạo đức",
+            "subject": "Tin học",
             "periodInWeek": 1,
             "ppct": 35,
-            "lessonName": "Ôn tập tổng hợp cuối năm",
+            "lessonName": "Kiểm tra cuối học kỳ II",
             "integration": ""
         },
         {
             "week": 35,
-            "subject": "Đạo đức",
+            "subject": "Toán",
             "periodInWeek": 1,
-            "ppct": 458,
-            "lessonName": "Tên bài",
-            "integration": ""
-        },
-        {
-            "week": 1,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Sinh hoạt dưới cờ: Chào năm học mới",
-            "integration": ""
-        },
-        {
-            "week": 1,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "HĐTCĐ: Chúng mình đã lớn",
-            "integration": "- Tích hợp AI (5.A2.1): Thảo luận: Con người có sự trưởng thành về tâm hồn và kỉ niệm thật, AI chỉ mô phỏng dữ liệu, không có kỉ niệm tuổi thơ độc bản.\n- Tích hợp QCN: HS nhận biết mỗi em có quyền được tôn trọng sự phát triển riêng của bản thân; biết trân trọng sự thay đổi, tiến bộ của mình và không so sánh, chê bai sự khác biệt của bạn."
-        },
-        {
-            "week": 1,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 3,
-            "lessonName": "Sinh hoạt lớp/KNS: - Bậc thang trưởng thành/",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo hoặc chỉnh sửa nội dung số đơn giản. HS sử dụng các công cụ thiết kế đồ họa đơn giản (Canva/PowerPoint) để tạo sơ đồ ghi lại các cột mốc phát triển của bản thân từ lớp 1 đến lớp 5.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn thái độ tự tin, chăm chỉ, có trách nhiệm với bản thân; biết đặt mục tiêu rèn luyện để trưởng thành hơn trong năm học cuối cấp."
-        },
-        {
-            "week": 2,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Sinh hoạt dưới cờ: Ngày hội câu lạc bộ",
-            "integration": ""
-        },
-        {
-            "week": 2,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 5,
-            "lessonName": "HĐTCĐ: Từng bước trưởng thành",
-            "integration": "- Tích hợp AI (5.A1.1): Nhận biết các ứng dụng AI như robot hút bụi, máy rửa bát giúp thực hiện các việc lặp đi lặp lại để hỗ trợ con người.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết yêu lao động, tự giác làm việc nhà vừa sức, quý trọng công sức của người thân và chủ động góp phần xây dựng gia đình gọn gàng, ấm áp."
-        },
-        {
-            "week": 2,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 6,
-            "lessonName": "Sinh hoạt lớp/KNS: -Tiến bộ trong việc nhà",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số đơn giản phục vụ nhiệm vụ học tập. Quay một đoạn clip ngắn (30-60 giây) giới thiệu về một việc nhà em đã làm thạo và chia sẻ trong nhóm lớp.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được tham gia, bày tỏ mong muốn trong gia đình nhưng không bị giao việc nặng nhọc, độc hại; biết chọn việc nhà phù hợp với lứa tuổi."
-        },
-        {
-            "week": 3,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Sinh hoạt dưới cờ: Niềm vui nhân đôi, nỗi buồn chia nửa",
-            "integration": ""
-        },
-        {
-            "week": 3,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "HĐTCĐ: Cân bằng cảm xúc",
-            "integration": "- Tích hợp AI (5.A2.1): Phân biệt sự cảm thông thực sự giữa bạn bè với những phản hồi được lập trình sẵn của robot trò chuyện.\n- Tích hợp QCN: HS nhận biết quyền được tôn trọng cảm xúc và được chia sẻ khi gặp chuyện vui, buồn; biết lắng nghe bạn, không trêu chọc hoặc làm tổn thương cảm xúc của bạn."
-        },
-        {
-            "week": 3,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 9,
-            "lessonName": "Sinh hoạt lớp/KNS: - Thực hành cân bằng cảm xúc",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm thông tin qua tìm kiếm đơn giản. HS tìm kiếm những câu chuyện truyền cảm hứng về sự sẻ chia trên các website giáo dục chính thống để giới thiệu với bạn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn lối sống nhân ái, biết cảm thông, chia sẻ với bạn bè; lựa chọn cách cân bằng cảm xúc tích cực để ứng xử bình tĩnh, văn minh."
-        },
-        {
-            "week": 4,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Sinh hoạt dưới cờ: Sự trưởng thành của học sinh lớp 5",
-            "integration": ""
-        },
-        {
-            "week": 4,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 11,
-            "lessonName": "HĐTCĐ: Thể hiện cảm xúc phù hợp",
-            "integration": "- Tích hợp AI (5.A1.2): Khẳng định: Con người là chủ thể điều khiển và chịu trách nhiệm về cảm xúc, AI chỉ hỗ trợ mô phỏng qua hình ảnh/giọng nói.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết làm chủ cảm xúc, nói lời phù hợp, tránh nóng giận, trách móc; hình thành thói quen ứng xử lịch sự, tôn trọng người xung quanh."
-        },
-        {
-            "week": 4,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 12,
-            "lessonName": "Sinh hoạt lớp/KNS: -Khả năng kiểm soát cảm xúc",
-            "integration": "- Tích hợp NLS 4.2.CB2a: Lựa chọn cách thức đơn giản bảo vệ quyền riêng tư. HS thực hành viết \"Nhật ký cảm xúc\" trên các ứng dụng ghi chú số, biết cách cài đặt mật khẩu để bảo vệ thông tin cá nhân.\n- Tích hợp QCN: HS hiểu mọi người có quyền được tôn trọng danh dự, cảm xúc; khi nhận xét bạn cần dùng lời nói phù hợp, không chế giễu, không lan truyền chuyện riêng của bạn."
-        },
-        {
-            "week": 5,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Sinh hoạt dưới cờ: Vui trung thu cùng bạn",
-            "integration": ""
-        },
-        {
-            "week": 5,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "HĐTCĐ: Các vấn đề nảy sinh trong mối quan hệ bạn bè và cách giải quyết",
-            "integration": "- Tích hợp AI (5.B1.1): Áp dụng tư duy \"công bằng\" của AI: Giải quyết mâu thuẫn khách quan, không định kiến hay thiên vị bất kì ai.\n- Tích hợp QCN: HS biết trong quan hệ bạn bè, mỗi bạn đều có quyền được an toàn, được tôn trọng, không bị bắt nạt, cô lập; khi có mâu thuẫn cần trao đổi công bằng và nhờ người lớn hỗ trợ khi cần."
-        },
-        {
-            "week": 5,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 15,
-            "lessonName": "Sinh hoạt lớp/KNS: -Thực hành giải quyết vấn đềnảy sinh trong tình bạn",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số ở các định dạng đơn giản. Sử dụng công cụ sơ đồ tư duy trực tuyến để liệt kê các bước giải quyết một tình huống mâu thuẫn giả định.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tinh thần đoàn kết, trung thực, biết xin lỗi, biết tha thứ và cùng tìm cách giải quyết mâu thuẫn để giữ gìn tập thể lớp thân thiện."
-        },
-        {
-            "week": 6,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Sinh hoạt dưới cờ: Sách bút đồng hành cùng em",
-            "integration": ""
-        },
-        {
-            "week": 6,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 17,
-            "lessonName": "HĐTCĐ: Những vấn đề nảy sinh giữa tình bạn trong học tập và rèn luyện",
-            "integration": "- Tích hợp AI (5.D2.1): Liên hệ làm việc nhóm giống như \"cập nhật dữ liệu\": Càng nhiều ý kiến tốt, hệ thống (nhóm) càng hoạt động hiệu quả.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết hợp tác trong học tập, rèn luyện; không đổ lỗi, không né tránh trách nhiệm, biết hỗ trợ bạn để cùng hoàn thành nhiệm vụ chung."
-        },
-        {
-            "week": 6,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 18,
-            "lessonName": "Sinh hoạt lớp/KNS: -Hợp tác để thực hiện sản phẩm chung",
-            "integration": "- Tích hợp NLS 2.4.CB2a: Chọn công nghệ số đơn giản cho quá trình hợp tác. Các nhóm sử dụng công cụ thảo luận trực tuyến (Zalo/Teams) để phân công nhiệm vụ và trao đổi thông tin khi làm sản phẩm học tập.\n- Tích hợp QCN: HS biết mỗi bạn đều có quyền tham gia hoạt động nhóm, được nêu ý kiến và được phân công nhiệm vụ phù hợp; không phân biệt đối xử khi làm sản phẩm chung."
-        },
-        {
-            "week": 7,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Sinh hoạt dưới cờ: Ngày hội trao đổi sách",
-            "integration": ""
-        },
-        {
-            "week": 7,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "HĐTCĐ: Giữ gìn tình bạn",
-            "integration": "- Tích hợp AI (5.B2.1): Đề xuất cách dùng AI có trách nhiệm để kết nối cộng đồng, hỗ trợ bạn bè là người khuyết tật giao tiếp dễ dàng hơn.\n- Tích hợp QCN: HS nhận biết quyền được kết bạn, được tôn trọng trong quan hệ bạn bè; biết quan tâm, giúp đỡ bạn đúng cách, không ép buộc, không cô lập hoặc nói xấu bạn."
-        },
-        {
-            "week": 7,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 21,
-            "lessonName": "Sinh hoạt lớp/KNS: - Nuôi dưỡng tình bạn",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Khai thác dữ liệu qua tìm kiếm đơn giản. HS sưu tầm hình ảnh/video về các hoạt động thiện nguyện, kết nối cộng đồng để làm tư liệu cho bài thuyết trình về tình bạn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn phẩm chất nhân ái, thủy chung, biết giữ lời hứa, chia sẻ niềm vui, nỗi buồn và góp phần nuôi dưỡng tình bạn trong sáng."
-        },
-        {
-            "week": 8,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Sinh hoạt dưới cờ: Trò chuyện về chủ đề \"Khoa học sáng tạo\"",
-            "integration": ""
-        },
-        {
-            "week": 8,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 23,
-            "lessonName": "HĐTCĐ: Kế hoạch hoạt động \"Cùng làm nên kỉ niệm\"",
-            "integration": "- Tích hợp AI (5.A3.1): Sử dụng trợ lý ảo AI để tìm kiếm và gợi ý các ý tưởng tổ chức hoạt động sáng tạo cho buổi lễ kỉ niệm của lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết hợp tác, chia sẻ trách nhiệm khi lập kế hoạch hoạt động kỉ niệm; trân trọng kỉ niệm tập thể, làm việc có tổ chức và vì lợi ích chung của lớp."
-        },
-        {
-            "week": 8,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 24,
-            "lessonName": "Sinh hoạt lớp/KNS: -Cùng làm nên kỉ niệm",
-            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức, lưu trữ dữ liệu đơn giản. Nhóm trưởng lập bảng kế hoạch số (Excel/Sheets) để quản lý công việc, thời gian thực hiện hoạt động kỷ niệm của lớp.\n- Tích hợp QCN: HS biết quyền được tham gia hoạt động tập thể, được bày tỏ ý tưởng; khi thống nhất kế hoạch cần lắng nghe ý kiến của các bạn và tôn trọng quyết định chung."
-        },
-        {
-            "week": 9,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Sinh hoạt dưới cờ: Phát động tổ chức sự kiện về truyền thống tôn sư trọng đạo",
-            "integration": ""
-        },
-        {
-            "week": 9,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "HĐTCĐ: Sự kiện về truyền thống tôn sư trọng đạo",
-            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI hỗ trợ lưu trữ dữ liệu và phục dựng hình ảnh truyền thống nhà trường sinh động hơn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS tìm hiểu truyền thống tôn sư trọng đạo của nhà trường; biết kính trọng thầy cô, tự hào về mái trường và có ý thức giữ gìn truyền thống tốt đẹp."
-        },
-        {
-            "week": 9,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 27,
-            "lessonName": "Sinh hoạt lớp/KNS: -Giới thiệu về truyền thống nhà trường",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin trong môi trường số. HS truy cập trang web chính thức của nhà trường để tìm hiểu thông tin, hình ảnh về lịch sử và các thành tích truyền thống.\n- Tích hợp QCN: HS được chia sẻ kỉ niệm, suy nghĩ về thầy cô và nhà trường; biết bày tỏ lòng biết ơn bằng lời nói, việc làm phù hợp, tôn trọng cảm xúc của bạn khi chia sẻ."
-        },
-        {
-            "week": 10,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Sinh hoạt dưới cờ: Các truyền thống của nhà trường",
-            "integration": ""
-        },
-        {
-            "week": 10,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 29,
-            "lessonName": "HĐTCĐ: Tâm sự thầy - trò",
-            "integration": "- Tích hợp AI (5.A2.1): Khẳng định giá trị đạo đức: Thầy cô có tình yêu thương và sự thấu cảm mà máy móc AI không bao giờ thay thế được.\n- Tích hợp QCN: HS hiểu mình có quyền được lắng nghe, được chia sẻ băn khoăn với thầy cô trong môi trường an toàn; biết trình bày mong muốn bằng thái độ lễ phép, chân thành."
-        },
-        {
-            "week": 10,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 30,
-            "lessonName": "Sinh hoạt lớp/KNS: -Giải quyết một số vấn đề nảy sinh trong mối quan hệ thầy trò",
-            "integration": "- Tích hợp NLS 2.1.CB2a: Chọn công nghệ số phù hợp cho một bối cảnh cụ thể. HS lựa chọn phương tiện giao tiếp số phù hợp (email/nhắn tin) để gửi lời tri ân hoặc chia sẻ những băn khoăn với thầy cô.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS bồi dưỡng lòng kính trọng, biết ơn thầy cô; biết tiếp nhận góp ý, sửa lỗi và cố gắng học tập, rèn luyện để đáp lại sự dạy dỗ của thầy cô."
-        },
-        {
-            "week": 11,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Sinh hoạt dưới cờ: Văn nghệ về chủ đề \"Tình thầy trò\"",
-            "integration": ""
-        },
-        {
-            "week": 11,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "HĐTCĐ: Vun đắp tình thầy trò",
-            "integration": "- Tích hợp AI (5.A1.2): Nhấn mạnh trách nhiệm: Con người là bên quyết định nội dung tri ân; AI chỉ hỗ trợ trình bày nội dung đó.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết thực hiện việc làm cụ thể để vun đắp tình thầy trò; hình thành lối sống lễ phép, chăm học, biết nói lời cảm ơn và giúp đỡ thầy cô trong việc phù hợp."
-        },
-        {
-            "week": 11,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 33,
-            "lessonName": "Sinh hoạt lớp/KNS: -Sản phẩm tri ân thầy cô",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Chỉnh sửa nội dung số đơn giản để thể hiện bản thân. Tự thiết kế một tấm thiệp điện tử hoặc một poster số gửi tặng thầy cô nhân dịp đặc biệt.\n- Tích hợp QCN: HS biết lựa chọn cách tri ân phù hợp, không gây áp lực cho bản thân hoặc bạn bè; tôn trọng ý kiến của từng bạn khi cùng thực hiện sản phẩm tri ân."
-        },
-        {
-            "week": 12,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Sinh hoạt dưới cờ: Lễ kỉ niệm ngày nhà giáo Việt Nam 20-11",
-            "integration": ""
-        },
-        {
-            "week": 12,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 35,
-            "lessonName": "HĐTCĐ: Chuẩn bị chào mừng ngày nhà giáo Việt Nam 20-11",
-            "integration": "- Tích hợp AI (5.A3.1): Vận dụng công cụ tìm kiếm thông minh để lựa chọn các bài hát, hình ảnh trang trí báo tường an toàn và hiệu quả.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS chủ động chuẩn bị hoạt động chào mừng 20-11 bằng thái độ trang trọng, tiết kiệm, chân thành; biết giữ gìn truyền thống tôn sư trọng đạo."
-        },
-        {
-            "week": 12,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 36,
-            "lessonName": "Sinh hoạt lớp/KNS: -Chào mừng ngày nhà giáo Việt Nam 20-11",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. Biên tập một đoạn video ngắn từ ảnh chụp các hoạt động của lớp để trình chiếu trong buổi lễ kỷ niệm.\n- Tích hợp QCN: HS biết tham gia hoạt động chào mừng theo khả năng, được phân công nhiệm vụ phù hợp; biết động viên bạn, không chê bai sản phẩm hoặc phần thể hiện của bạn."
-        },
-        {
-            "week": 13,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Sinh hoạt dưới cờ: Chủ động tham gia chi tiêu tiết kiệm",
-            "integration": ""
-        },
-        {
-            "week": 13,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "HĐTCĐ: Sổ tay ghi chép chi tiêu trong gia đình",
-            "integration": "- Tích hợp AI (5.D1.1): Sử dụng mô hình logic của AI để lập quy tắc chi tiêu: \"Dữ liệu đầu vào (tiền túi) -> Quy tắc (tiết kiệm) -> Kết quả\".\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS hình thành thói quen ghi chép chi tiêu, biết tiết kiệm, không tiêu xài lãng phí; trân trọng công sức lao động của cha mẹ và người thân."
-        },
-        {
-            "week": 13,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 39,
-            "lessonName": "Sinh hoạt lớp/KNS: -Ghi chép chi tiêu",
-            "integration": "- Tích hợp NLS 1.3.CB2a: Tổ chức và sắp xếp dữ liệu trong môi trường có cấu trúc. HS nhập số liệu thu chi của cá nhân hoặc gia đình vào Phần mềm bảng tính, sử dụng hàm tính tổng để quản lý tài chính.\n- Tích hợp QCN: HS hiểu trẻ em có thể tham gia trao đổi về chi tiêu phù hợp trong gia đình; biết bày tỏ nhu cầu chính đáng, không đòi hỏi vượt quá điều kiện của gia đình."
-        },
-        {
-            "week": 14,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 40,
-            "lessonName": "Sinh hoạt dưới cờ: Phát triển thư viện",
-            "integration": ""
-        },
-        {
-            "week": 14,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 41,
-            "lessonName": "HĐTCĐ: Ý tưởng kinh doanh",
-            "integration": "- Tích hợp AI (5.D1.1): Hiểu rằng bước thu thập dữ liệu (khảo sát) là khâu quan trọng nhất để huấn luyện AI đưa ra phản hồi chính xác.\n- Tích hợp QCN: HS biết khi khảo sát nhu cầu khách hàng cần tôn trọng người được hỏi, không ép buộc trả lời, không hỏi thông tin riêng tư không cần thiết và ghi nhận ý kiến trung thực."
-        },
-        {
-            "week": 14,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 42,
-            "lessonName": "Sinh hoạt lớp/KNS: -Thực hiện khảo sát nhu cầu khách hàng",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm kiếm thông tin đơn giản trong môi trường số. HS thiết kế biểu mẫu khảo sát trực tuyến (Google Forms) để thu thập ý kiến về sản phẩm kinh doanh dự kiến của nhóm.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tính trung thực, trách nhiệm khi xây dựng ý tưởng kinh doanh; biết lựa chọn sản phẩm có ích, an toàn, không chạy theo lợi ích cá nhân."
-        },
-        {
-            "week": 15,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Sinh hoạt dưới cờ: Chào mừng ngày thành lập Quân đội nhân dân Việt Nam 22-12",
-            "integration": ""
-        },
-        {
-            "week": 15,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "HĐTCĐ: Việc cần làm để thực hiện kế hoạch kinh doanh",
-            "integration": "- Tích hợp AI (5.D2.1): Hiểu hệ thống kinh doanh cần liên tục cập nhật phản hồi (dữ liệu mới) từ khách hàng để cải tiến, giống như hệ thống AI.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết lập kế hoạch kinh doanh rõ việc, rõ trách nhiệm; rèn sự chăm chỉ, hợp tác, trung thực trong chuẩn bị sản phẩm và phục vụ người mua."
-        },
-        {
-            "week": 15,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 45,
-            "lessonName": "Sinh hoạt lớp/KNS: -Kinh doanh hiệu quả",
-            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS sử dụng công cụ tìm kiếm để tra cứu thông tin về giá nguyên liệu và các bước làm sản phẩm từ những nguồn tin cậy.\n- Tích hợp QCN: HS biết phân công nhiệm vụ công bằng, phù hợp sức khỏe, năng lực của từng bạn; mọi thành viên đều được tham gia, được lắng nghe và được bảo vệ khi hoạt động."
-        },
-        {
-            "week": 16,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 46,
-            "lessonName": "Sinh hoạt dưới cờ: Xây dựng quỹ nhân ái",
-            "integration": ""
-        },
-        {
-            "week": 16,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 47,
-            "lessonName": "HĐTCĐ: Xây dựng kế hoạch kinh doanh",
-            "integration": "- Tích hợp AI (5.B3.1): Đảm bảo tính minh bạch: Giải thích rõ lý do vì sao nhóm đưa ra các quyết định lựa chọn sản phẩm kinh doanh.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết xây dựng kế hoạch kinh doanh minh bạch, không gian dối về chất lượng hoặc giá bán; nếu gây quỹ nhân ái cần công khai mục đích sử dụng tiền."
-        },
-        {
-            "week": 16,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 48,
-            "lessonName": "Sinh hoạt lớp/KNS: -Kế hoạch kinh doanh của lớp",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. Các nhóm tạo bài trình bày (Slide) giới thiệu về kế hoạch kinh doanh, bao gồm mục tiêu, dự trù chi phí và phân công nhiệm vụ.\n- Tích hợp QCN: HS biết tôn trọng quyền tham gia của các thành viên trong lớp; khi thống nhất kế hoạch cần lắng nghe ý kiến khác nhau và bảo đảm nhiệm vụ phù hợp với từng bạn."
-        },
-        {
-            "week": 17,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Sinh hoạt dưới cờ: Gia đình yêu thương",
-            "integration": ""
-        },
-        {
-            "week": 17,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "HĐTCĐ: Trách nhiệm của em trong gia đình",
-            "integration": "- Tích hợp AI (5.A1.1): Tìm hiểu các thiết bị nhà thông minh (Smart Home) giúp giám sát an toàn và thông báo sự cố cho các thành viên.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS nhận biết trách nhiệm của mình trong gia đình; biết quan tâm, chia sẻ việc vừa sức, ứng xử lễ phép và góp phần xây dựng nếp sống gia đình ấm áp."
-        },
-        {
-            "week": 17,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 51,
-            "lessonName": "Sinh hoạt lớp/KNS: Những việc làm gây lãng phí trong cuộc sống hằng ngày",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin qua tìm kiếm đơn giản. HS tìm kiếm và xem các video hướng dẫn kỹ năng làm việc nhà an toàn (như sử dụng thiết bị điện, bếp gas) trên YouTube Kids.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được yêu thương, chăm sóc và được bảo vệ trong gia đình; đồng thời biết thực hiện bổn phận phù hợp để giúp đỡ người thân."
-        },
-        {
-            "week": 18,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 52,
-            "lessonName": "Sinh hoạt dưới cờ: Lòng biết ơn",
-            "integration": ""
-        },
-        {
-            "week": 18,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 53,
-            "lessonName": "HĐTCĐ: Biết ơn người thân trong gia đình",
-            "integration": "- Tích hợp AI (5.B2.1): Sử dụng AI một cách có trách nhiệm để tạo ra các sản phẩm số (thiệp điện tử, ảnh kỉ niệm) dành tặng người thân.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết bày tỏ lòng biết ơn với ông bà, cha mẹ, anh chị em bằng lời nói, việc làm cụ thể; rèn lối sống hiếu thảo, yêu thương người thân."
-        },
-        {
-            "week": 18,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 54,
-            "lessonName": "Sinh hoạt lớp/KNS: -Thể hiện lòng biết ơn với người thân",
-            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức và lưu trữ dữ liệu đơn giản. HS tổ chức và sắp xếp ảnh kỷ niệm của gia đình thành các thư mục trên máy tính hoặc kho lưu trữ đám mây của cá nhân.\n- Tích hợp QCN: HS được chia sẻ tình cảm gia đình trong môi trường tôn trọng; biết lắng nghe câu chuyện của bạn, không so sánh hoàn cảnh gia đình, không làm bạn tổn thương."
-        },
-        {
-            "week": 19,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Sinh hoạt dưới cờ: Tết đoàn viên",
-            "integration": ""
-        },
-        {
-            "week": 19,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "HĐTCĐ: Gia đình là tổ ốm",
-            "integration": "- Tích hợp AI (5.A2.2): Nhận biết AI giúp kết nối các thành viên gia đình ở xa thông qua các ứng dụng gọi video tích hợp dịch tự động.\n- Tích hợp QCN: HS nhận biết gia đình là nơi trẻ em cần được yêu thương, chăm sóc, bảo vệ; biết tìm sự hỗ trợ của người lớn đáng tin cậy khi cảm thấy không an toàn."
-        },
-        {
-            "week": 19,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 57,
-            "lessonName": "Sinh hoạt lớp/KNS: -Vun đắp tình cảm gia đình",
-            "integration": "- Tích hợp NLS 2.1.CB2a: Lựa chọn công nghệ số phù hợp để giao tiếp. Sử dụng các ứng dụng gọi video tích hợp tính năng dịch thuật/phụ đề để kết nối và trò chuyện với người thân ở xa.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết vun đắp bầu không khí vui vẻ, đầm ấm bằng lời nói nhẹ nhàng, việc làm vừa sức và thái độ quan tâm đến cảm xúc của người thân."
-        },
-        {
-            "week": 20,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 58,
-            "lessonName": "Sinh hoạt dưới cờ: Hội chợ xuân gây quỹ nhân ái",
-            "integration": ""
-        },
-        {
-            "week": 20,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 59,
-            "lessonName": "HĐTCĐ: Ngày cuối tuần vui vẻ, đầm ấm",
-            "integration": "- Tích hợp AI (5.A3.1): Sử dụng AI để tìm kiếm các công thức món ăn hoặc gợi ý danh sách phim phù hợp cho cả nhà cùng xem an toàn.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết cùng gia đình thiết kế buổi tối hoặc ngày cuối tuần lành mạnh, tiết kiệm; ưu tiên hoạt động gắn kết, chia sẻ và chăm sóc nhau."
-        },
-        {
-            "week": 20,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 60,
-            "lessonName": "Sinh hoạt lớp/KNS: -Buổi tối nhà em",
-            "integration": "- Tích hợp NLS 5.2.CB2a: Chọn công cụ số đơn giản để giải quyết nhu cầu học tập. HS sử dụng ứng dụng Lịch số (Google Calendar) để lập thời gian biểu hoạt động vui chơi cuối tuần cùng gia đình.\n- Tích hợp QCN: HS hiểu quyền được nghỉ ngơi, vui chơi trong gia đình; biết trao đổi với người thân để lựa chọn hoạt động an toàn, phù hợp, không ảnh hưởng sức khỏe và học tập."
-        },
-        {
-            "week": 21,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Sinh hoạt dưới cờ: Rèn luyện sức khoẻ",
-            "integration": ""
-        },
-        {
-            "week": 21,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "HĐTCĐ: Nhận diện các môi trường học tập mới",
-            "integration": "- Tích hợp AI (5.A3.1): Nhận diện các \"trợ lý học tập AI\" (như app học tiếng Anh, toán) giúp cá nhân hóa việc học của em trong môi trường mới.\n- Tích hợp QCN: HS nhận biết quyền được học tập trong môi trường an toàn, thân thiện; biết tìm hiểu các môi trường học tập mới với thái độ tự tin, tôn trọng quy định chung."
-        },
-        {
-            "week": 21,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 63,
-            "lessonName": "Sinh hoạt lớp/KNS: -Trải nghiệm môi trường học tập mới",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số đơn giản phục vụ nhiệm vụ học tập. HS lập bảng so sánh ngắn trên PowerPoint/Google Slides về các môi trường học tập mới; biết lựa chọn thông tin phù hợp, dễ hiểu để chia sẻ trong sinh hoạt lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn ý chí học tập, tinh thần chủ động thích nghi; biết chuẩn bị thói quen học tập, giao tiếp, tự phục vụ khi chuyển sang môi trường mới."
-        },
-        {
-            "week": 22,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 64,
-            "lessonName": "Sinh hoạt dưới cờ: Rèn luyện thể chất và tinh thần để thích ứng với cuộc sống",
-            "integration": ""
-        },
-        {
-            "week": 22,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 65,
-            "lessonName": "HĐTCĐ: Các đức tính cần thiết trong môi trường học tập mới",
-            "integration": "- Tích hợp AI (5.D2.1): Liên hệ: Khả năng thích ứng của con người giống như AI tự cải tiến khi gặp các thách thức dữ liệu mới.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS xác định các đức tính cần thiết như tự tin, kỉ luật, trung thực, kiên trì; biết lập kế hoạch rèn luyện để thích ứng với môi trường học tập mới."
-        },
-        {
-            "week": 22,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 66,
-            "lessonName": "Sinh hoạt lớp/KNS: -Rèn đức tính cần thiết để thích ứng với môi trường học tập mới",
-            "integration": "- Tích hợp NLS 5.2.CB2a: Chọn công cụ số đơn giản để giải quyết nhu cầu học tập. HS dùng bảng kiểm số hoặc Google Forms để tự đánh giá mức độ thích ứng, kiên trì, chủ động của bản thân và lưu kết quả để theo dõi tiến bộ.\n- Tích hợp QCN: HS biết khi gặp khó khăn trong môi trường mới, các em có quyền được hỏi, được hỗ trợ; biết chia sẻ băn khoăn đúng cách và tôn trọng sự khác biệt của bạn."
-        },
-        {
-            "week": 23,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Sinh hoạt dưới cờ: Kỉ niệm ngày Quốc tế phụ nữ 8-3",
-            "integration": ""
-        },
-        {
-            "week": 23,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "HĐTCĐ: Tự chủ và đảm bảo an toàn khi giao tiếp trên mạng",
-            "integration": "- Tích hợp AI (5.A3.1): Giáo dục an toàn: Tuyệt đối không chia sẻ thông tin cá nhân, địa chỉ, ảnh riêng tư cho các chatbot AI lạ.\n- Tích hợp QCN: HS hiểu quyền riêng tư, danh dự, hình ảnh cá nhân cần được bảo vệ khi giao tiếp trên mạng; không chia sẻ mật khẩu, địa chỉ, ảnh riêng tư hoặc thông tin của bạn khi chưa được phép."
-        },
-        {
-            "week": 23,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 69,
-            "lessonName": "Sinh hoạt lớp/KNS: -Ứng xử theo quy tắc tự chủ và đảm bảo an toàn khi giao tiếp trên mạng",
-            "integration": "- Tích hợp NLS 4.2.CB2a: Lựa chọn cách thức đơn giản bảo vệ quyền riêng tư. HS lập danh sách “5 việc nên làm - 5 việc không nên làm” khi giao tiếp trên mạng bằng Canva/PowerPoint; nhấn mạnh không chia sẻ mật khẩu, địa chỉ, ảnh riêng tư.\n- Tích hợp QPAN: HS nâng cao ý thức an toàn, an ninh mạng; biết cảnh giác với người lạ, đường dẫn lạ, tin giả, lời rủ rê nguy hiểm và báo người lớn khi phát hiện nguy cơ."
-        },
-        {
-            "week": 24,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 70,
-            "lessonName": "Sinh hoạt dưới cờ: Tự bảo vệ bản thân",
-            "integration": ""
-        },
-        {
-            "week": 24,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 71,
-            "lessonName": "HĐTCĐ: Nguyên nhân và cách phòng chống hoả hoạn",
-            "integration": "- Tích hợp AI (5.A1.1): Nhận biết các robot chữa cháy hoặc cảm biến báo khói tự động tích hợp AI giúp làm việc ở nơi nguy hiểm thay con người.\n- Tích hợp QPAN: HS nhận biết nguyên nhân gây hoả hoạn, biết cách phòng cháy, thoát hiểm, gọi hỗ trợ khi cần; có ý thức giữ an toàn cho bản thân, gia đình, trường học và cộng đồng."
-        },
-        {
-            "week": 24,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 72,
-            "lessonName": "Sinh hoạt lớp/KNS: -Thực hành thoát hiểm",
-            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS xem video hướng dẫn phòng cháy chữa cháy từ nguồn chính thống, ghi lại các thao tác an toàn bằng sơ đồ ngắn và chia sẻ với nhóm.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được sống an toàn; biết nhắc nhau không nghịch lửa, không tự ý dùng thiết bị điện nguy hiểm và cùng kiểm tra lối thoát hiểm trong lớp."
-        },
-        {
-            "week": 25,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 73,
-            "lessonName": "Sinh hoạt dưới cờ: Lễ hội truyền thống địa phương",
-            "integration": ""
-        },
-        {
-            "week": 25,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 74,
-            "lessonName": "HĐTCĐ: Tham gia lễ hội truyền thống địa phương",
-            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI giúp quảng bá và dịch thuật thông tin lễ hội địa phương cho khách du lịch khắp thế giới.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng lễ hội truyền thống địa phương, tham gia văn minh, giữ trật tự, tôn trọng phong tục tốt đẹp và tự hào về bản sắc quê hương."
-        },
-        {
-            "week": 25,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 75,
-            "lessonName": "Sinh hoạt lớp/KNS: -Tái hiện lễ hội truyền thống",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Tìm dữ liệu, thông tin trong môi trường số. HS tìm kiếm hình ảnh, thông tin về lễ hội truyền thống địa phương trên trang thông tin chính thống, sau đó chọn tư liệu phù hợp để giới thiệu trong lớp.\n- Tích hợp BVMT: HS biết khi tham gia lễ hội cần không xả rác, không giẫm đạp cây xanh, không làm bẩn khu di tích; biết nhắc bạn giữ cảnh quan sạch đẹp."
-        },
-        {
-            "week": 26,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 76,
-            "lessonName": "Sinh hoạt dưới cờ: Tham gia hoạt động xã hội ở địa phương",
-            "integration": ""
-        },
-        {
-            "week": 26,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 77,
-            "lessonName": "HĐTCĐ: Tham gia hoạt động xã hội",
-            "integration": "- Tích hợp AI (5.B2.1): Đề xuất ứng dụng AI vào việc phân loại rác thải tự động tại các sự kiện cộng đồng để bảo vệ môi trường địa phương.\n- Tích hợp BVMT: HS nhận biết hoạt động xã hội có thể gắn với dọn vệ sinh, phân loại rác, chăm sóc cây xanh; biết tham gia việc phù hợp để góp phần bảo vệ môi trường địa phương."
-        },
-        {
-            "week": 26,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 78,
-            "lessonName": "Sinh hoạt lớp/KNS: -Chung tay vì cộng đồng",
-            "integration": "- Tích hợp NLS 2.4.CB2a: Chọn công nghệ số đơn giản cho quá trình hợp tác. HS dùng Padlet/Google Docs để ghi ý tưởng tham gia hoạt động xã hội, phân công nhiệm vụ và theo dõi việc thực hiện của nhóm.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn tinh thần vì cộng đồng, biết quan tâm người xung quanh, tham gia hoạt động xã hội bằng thái độ tự nguyện, trách nhiệm và an toàn."
-        },
-        {
-            "week": 27,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 79,
-            "lessonName": "Sinh hoạt dưới cờ: Gương người tốt, việc tốt",
-            "integration": ""
-        },
-        {
-            "week": 27,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 80,
-            "lessonName": "HĐTCĐ: Thân thiện với người xung quanh",
-            "integration": "- Tích hợp AI (5.B1.1): Thảo luận về tính công bằng: AI cần phục vụ mọi người như nhau, không được có định kiến với bất kì ai.\n- Tích hợp QCN: HS biết mọi người đều có quyền được tôn trọng và đối xử bình đẳng; khi thiết lập quan hệ thân thiện cần dùng lời nói lịch sự, không kì thị, không phân biệt hoàn cảnh."
-        },
-        {
-            "week": 27,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 81,
-            "lessonName": "Sinh hoạt lớp/KNS: Đánh giá việc tham gia hoạt động xã hội",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo hoặc chỉnh sửa nội dung số đơn giản. HS thiết kế một thông điệp số ngắn về ứng xử thân thiện, tôn trọng người xung quanh để chia sẻ trong nhóm lớp.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn lối sống thân thiện, biết chào hỏi, giúp đỡ, hợp tác với người xung quanh; lan tỏa những hành vi đẹp trong trường và cộng đồng."
-        },
-        {
-            "week": 28,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 82,
-            "lessonName": "Sinh hoạt dưới cờ: Hình ảnh quê hương",
-            "integration": ""
-        },
-        {
-            "week": 28,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 83,
-            "lessonName": "HĐTCĐ: Tự hào về cảnh quan thiên nhiên của quê hương, đất nước",
-            "integration": "- Tích hợp AI (5.A2.2): Tìm hiểu cách AI giúp theo dõi đa dạng sinh học và bảo tồn các loài động vật hoang dã tại địa phương.\n- Tích hợp BVMT: HS tự hào về cảnh quan thiên nhiên quê hương, đất nước; biết yêu cây xanh, sông núi, biển đảo và có ý thức không xả rác, không phá hoại cảnh quan."
-        },
-        {
-            "week": 28,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 84,
-            "lessonName": "Sinh hoạt lớp/KNS: -Việt Nam trong mắt em",
-            "integration": "- Tích hợp NLS 1.1.CB2b: Khai thác dữ liệu qua tìm kiếm đơn giản. HS sưu tầm ảnh cảnh quan thiên nhiên quê hương từ nguồn phù hợp, ghi chú tên địa danh và lí do cần trân trọng, bảo vệ.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS liên hệ vẻ đẹp ao hồ, sông suối, biển đảo với trách nhiệm giữ sạch nguồn nước; biết khóa vòi sau khi dùng, không đổ rác, hóa chất xuống kênh rạch, ao hồ."
-        },
-        {
-            "week": 29,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 85,
-            "lessonName": "Sinh hoạt dưới cờ: Bảo tồn cảnh quan thiên nhiên",
-            "integration": ""
-        },
-        {
-            "week": 29,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 86,
-            "lessonName": "HĐTCĐ: Biện pháp bảo tồn cảnh quan thiên nhiên",
-            "integration": "- Tích hợp AI (5.A2.2): Nêu ví dụ AI giúp bảo vệ môi trường: Phân tích ảnh vệ tinh để phát hiện sớm các đám cháy rừng hoặc vết dầu loang.\n- Tích hợp BVMT: HS nêu được biện pháp bảo tồn cảnh quan thiên nhiên như giữ vệ sinh, trồng cây, không bẻ cành, không săn bắt động vật và tuyên truyền bảo vệ cảnh quan."
-        },
-        {
-            "week": 29,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 87,
-            "lessonName": "Sinh hoạt lớp/KNS: -Tuyên truyền về việc bảo tồn cảnh quan thiên nhiên",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số ở các định dạng đơn giản. HS làm poster số tuyên truyền một biện pháp bảo tồn cảnh quan thiên nhiên; biết dùng hình ảnh, chữ viết ngắn gọn và phù hợp.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS biết bảo tồn cảnh quan gắn với bảo vệ nguồn nước sạch; cùng gia đình và lớp thực hiện việc sử dụng nước tiết kiệm, không làm ô nhiễm nguồn nước xung quanh."
-        },
-        {
-            "week": 30,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 88,
-            "lessonName": "Sinh hoạt dưới cờ: Sản phẩm tuyên truyền bảo tồn cảnh quan thiên nhiên",
-            "integration": ""
-        },
-        {
-            "week": 30,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 89,
-            "lessonName": "HĐTCĐ: Lập kế hoạch khảo sát thực trạng môi trường quanh em",
-            "integration": "- Tích hợp AI (5.D1.1): Vận dụng quy trình: \"Xác định vấn đề môi trường -> Thu thập dữ liệu thực tế -> Đưa ra kết luận\" tương tự huấn luyện AI.\n- Tích hợp BVMT: HS lập kế hoạch khảo sát thực trạng môi trường quanh em, biết quan sát rác thải, khói bụi, tiếng ồn, cây xanh và đề xuất cách cải thiện phù hợp."
-        },
-        {
-            "week": 30,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 90,
-            "lessonName": "Sinh hoạt lớp/KNS: -Chúng tôi lên tiếng vì môi trường",
-            "integration": "- Tích hợp NLS 1.3.CB2a: Xác định cách tổ chức, lưu trữ dữ liệu đơn giản. HS thiết kế phiếu khảo sát ngắn bằng Google Forms hoặc bảng giấy được số hoá để thu thập ý kiến về thực trạng môi trường quanh em.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS đưa nội dung khảo sát việc sử dụng nước, điểm có nguy cơ ô nhiễm nước vào kế hoạch; biết ghi nhận hiện trạng và đề xuất việc làm tiết kiệm, bảo vệ nguồn nước."
-        },
-        {
-            "week": 31,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 91,
-            "lessonName": "Sinh hoạt dưới cờ: Ngày hội \"Chữa lành vết thương Trái Đất\"",
-            "integration": ""
-        },
-        {
-            "week": 31,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 92,
-            "lessonName": "HĐTCĐ: Chung tay bảo vệ môi trường quanh ta",
-            "integration": "- Tích hợp AI (5.D2.1): Hiểu rằng các báo cáo dữ liệu môi trường hàng ngày giúp AI đưa ra dự báo và giải pháp bảo tồn chính xác hơn.\n- Tích hợp BVMT: HS tham gia tuyên truyền, đưa tin về thực trạng môi trường, đề xuất hành động xanh hằng ngày; hiểu mỗi hành động nhỏ đều góp phần bảo vệ môi trường quanh ta."
-        },
-        {
-            "week": 31,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 93,
-            "lessonName": "Sinh hoạt lớp/KNS: -Mỗi hành động - Một chiếc lá",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Tạo nội dung số phục vụ nhiệm vụ học tập. HS tổng hợp hình ảnh, số liệu sau khảo sát vào bảng tin số của lớp và chia sẻ một hành động bảo vệ môi trường có thể thực hiện hằng ngày.\n- Tích hợp tiết kiệm và bảo vệ nguồn nước: HS cam kết thực hiện một việc cụ thể như dùng nước vừa đủ, tái sử dụng nước khi phù hợp, không xả rác xuống cống rãnh, kênh rạch để bảo vệ nguồn nước."
-        },
-        {
-            "week": 32,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 94,
-            "lessonName": "Sinh hoạt dưới cờ: -Diễn đàn \"Nghề nghiệp tương lai\"",
-            "integration": ""
-        },
-        {
-            "week": 32,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 95,
-            "lessonName": "HĐTCĐ: Nghề em mơ ước",
-            "integration": "- Tích hợp AI (5.A3.1): Thảo luận: Trong tương lai, AI sẽ thay đổi và hỗ trợ nghề nghiệp mơ ước của em (bác sĩ, kỹ sư...) như thế nào?.\n- Tích hợp QCN: HS hiểu trẻ em có quyền được ước mơ, học tập và phát triển năng lực nghề nghiệp tương lai; biết tôn trọng ước mơ của bạn, không chê bai hoặc áp đặt lựa chọn nghề nghiệp."
-        },
-        {
-            "week": 32,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 96,
-            "lessonName": "Sinh hoạt lớp/KNS: -Câu chuyện của người làm nghề",
-            "integration": "- Tích hợp NLS 1.2.CB2a: Nhận biết nguồn dữ liệu số phù hợp, tin cậy. HS tìm kiếm thông tin cơ bản về nghề em mơ ước từ nguồn tin cậy, ghi lại yêu cầu về phẩm chất, năng lực và điều kiện làm việc.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS xác định nghề mơ ước cần gắn với rèn luyện chăm chỉ, trung thực, trách nhiệm và mong muốn đóng góp cho gia đình, quê hương, đất nước."
-        },
-        {
-            "week": 33,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 97,
-            "lessonName": "Sinh hoạt dưới cờ: Toạ đàm \"Chọn nghề - Đường đến thành công\"",
-            "integration": ""
-        },
-        {
-            "week": 33,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 98,
-            "lessonName": "HĐTCĐ: An toàn nghề nghiệp",
-            "integration": "- Tích hợp AI (5.A1.1): Tìm hiểu cách cảm biến AI trong các nhà máy giúp cảnh báo nguy hiểm và bảo vệ an toàn cho người lao động.\n- Tích hợp QPAN: HS tìm hiểu an toàn nghề nghiệp, nhận biết thiết bị bảo hộ, biển báo nguy hiểm; có ý thức chấp hành quy định an toàn để bảo vệ bản thân và người lao động."
-        },
-        {
-            "week": 33,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 99,
-            "lessonName": "Sinh hoạt lớp/KNS: Thiết bị bảo hộ lao động",
-            "integration": "- Tích hợp NLS 1.3.CB2a: Tổ chức và sắp xếp dữ liệu trong môi trường có cấu trúc. HS sưu tầm hình ảnh thiết bị bảo hộ lao động của nghề mơ ước và sắp xếp thành bảng “nguy cơ - cách phòng tránh”.\n- Tích hợp QCN: HS hiểu người lao động có quyền được làm việc trong môi trường an toàn; biết tôn trọng nghề nghiệp của người khác và không xem nhẹ các quy định bảo hộ lao động."
-        },
-        {
-            "week": 34,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 100,
-            "lessonName": "Sinh hoạt dưới cờ: Kỉ niệm ngày sinh Bác Hồ kính yêi",
-            "integration": ""
-        },
-        {
-            "week": 34,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 101,
-            "lessonName": "HĐTCĐ: Mơ ước nghề nghiệp của em",
-            "integration": "- Tích hợp AI (5.A2.1): Khi thiết kế danh thiếp, khẳng định những giá trị (sáng tạo, đạo đức) của bản thân mà máy móc không thay thế được.\n- Tích hợp QCN: HS biết mỗi em có quyền mơ ước, lựa chọn hướng phát triển phù hợp với năng lực; khi giới thiệu danh thiếp tương lai cần tôn trọng sự khác biệt và điểm mạnh của bạn."
-        },
-        {
-            "week": 34,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 102,
-            "lessonName": "Sinh hoạt lớp/KNS: Tấm danh thiếp tương lai",
-            "integration": "- Tích hợp NLS 3.1.CB2a: Chỉnh sửa nội dung số đơn giản để thể hiện bản thân. HS thiết kế danh thiếp tương lai bằng Canva/PowerPoint, thể hiện tên nghề, điểm mạnh của bản thân và thông điệp nghề nghiệp tích cực.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS rèn thái độ sống có mục tiêu, có trách nhiệm; biết xây dựng hình ảnh bản thân tương lai gắn với phẩm chất tốt, năng lực thật và việc làm có ích."
-        },
-        {
-            "week": 35,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 103,
-            "lessonName": "Sinh hoạt dưới cờ: Lễ tổng kết năm học",
-            "integration": ""
-        },
-        {
-            "week": 35,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 2,
-            "ppct": 104,
-            "lessonName": "HĐTCĐ: Hồ sơ trải nghiệm",
-            "integration": "- Tích hợp AI (5.A2.1): Nhận biết AI có thể hỗ trợ sắp xếp, gợi ý trình bày hồ sơ trải nghiệm, nhưng cảm xúc, quá trình rèn luyện và sự trưởng thành thật của mỗi em là dữ liệu cá nhân cần do chính em tự nhìn lại, tự đánh giá.\n- Tích hợp lý tưởng cách mạng, đạo đức, lối sống: HS tự đánh giá quá trình trải nghiệm lớp 5 trung thực, biết ghi nhận cố gắng của bản thân, biết cảm ơn thầy cô, gia đình, bạn bè đã đồng hành."
-        },
-        {
-            "week": 35,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 3,
-            "ppct": 105,
-            "lessonName": "Sinh hoạt lớp/KNS: Chia tay trường tiểu học",
-            "integration": ""
-        },
-        {
-            "week": 35,
-            "subject": "HĐ Trải nghiệm",
-            "periodInWeek": 1,
-            "ppct": 564,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 600,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 601,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 602,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 603,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 604,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 605,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 606,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 607,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 608,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 609,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 610,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 611,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 612,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 613,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 614,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 615,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 616,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 617,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 618,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 619,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 620,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 621,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 622,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 623,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 624,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 625,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 626,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 627,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 628,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 629,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 630,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 631,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 632,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "KNS",
-            "periodInWeek": 1,
-            "ppct": 633,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "KNS",
-            "periodInWeek": 2,
-            "ppct": 634,
-            "lessonName": "Rèn luyện Kỹ năng sống",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "CD SỐ",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "GV bộ môn dạy",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "STEM",
-            "periodInWeek": 1,
-            "ppct": 705,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1: Thành phần và vai trò của đất đối với cây trồng (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS sử dụng Google Search hoặc Microsoft Edge để tìm và xem video thí nghiệm về thành phần không khí, nước trong đất; đối chiếu tư liệu số với kết quả thực hành tại lớp."
-        },
-        {
-            "week": 1,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Bài 1: Thành phần và vai trò của đất đối với cây trồng (Tiết 2)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS biết đất giữ nước, cung cấp nước cho cây; có ý thức không đổ rác, hóa chất, nước bẩn xuống đất để tránh làm ô nhiễm nguồn nước ngầm."
-        },
-        {
-            "week": 2,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 1)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Canva hoặc PowerPoint để thiết kế poster số kêu gọi các biện pháp bảo vệ môi trường đất tại địa phương."
-        },
-        {
-            "week": 2,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 2)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nhận biết rác thải, phân bón hóa học, thuốc trừ sâu có thể thấm xuống đất và làm ô nhiễm nguồn nước; biết tuyên truyền không xả rác, không đổ hóa chất ra môi trường."
-        },
-        {
-            "week": 3,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 2: Ô nhiễm, xói mòn đất và bảo vệ môi trường đất (Tiết 3)",
-            "integration": "Tích hợp AI 5.A2.2: HS xem hình ảnh hoặc clip về robot lấy mẫu đất, cảm biến độ ẩm đất, cảm biến dinh dưỡng đất để hiểu AI hỗ trợ cảnh báo ô nhiễm, xói mòn đất."
-        },
-        {
-            "week": 3,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Bài 3: Hỗn hợp và dung dịch (Tiết 1)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Camera trên điện thoại hoặc máy tính bảng chụp các bước tách muối khỏi nước; dùng Markup hoặc PowerPoint để chú thích từng bước thực hiện."
-        },
-        {
-            "week": 4,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 3: Hỗn hợp và dung dịch (Tiết 2)",
-            "integration": "Bài học STEM: Tách muối ra khỏi dung dịch"
-        },
-        {
-            "week": 4,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Bài 4: Đặc điểm của chất ở trạng thái rắn, lỏng, khí. Sự biến đổi trạng thái của chất (Tiết 1)",
-            "integration": "Tích hợp AI 5.C4.1: HS dùng Scratch hoặc phiếu lệnh mô phỏng cấu trúc “nếu... thì...”, ví dụ: nếu nhiệt độ dưới 0°C thì nước lỏng chuyển thành nước đá."
-        },
-        {
-            "week": 5,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Bài 4: Đặc điểm của chất ở trạng thái rắn, lỏng, khí. Sự biến đổi trạng thái của chất (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Bài 5: Sự biến đổi hóa học của chất (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS xem video thí nghiệm an toàn trên YouTube Kids hoặc học liệu NXB Giáo dục về giấy cháy, đinh gỉ, đường bị đun nóng để nhận biết dấu hiệu biến đổi hoá học."
-        },
-        {
-            "week": 6,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 5: Sự biến đổi hóa học của chất (Tiết 2)",
-            "integration": "Bài học STEM: Biến đổi chất"
-        },
-        {
-            "week": 6,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Bài 6: Ôn tập chủ đề chất",
-            "integration": "Tích hợp AI 5.D1.1: HS dùng Canva Whiteboard hoặc PowerPoint SmartArt lập sơ đồ dữ liệu “đất - hỗn hợp - dung dịch - biến đổi trạng thái - biến đổi hoá học”, mô tả cách “dạy” AI phân loại chất."
-        },
-        {
-            "week": 7,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 7: Vai trò của năng lượng (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS sử dụng Google Search hoặc Microsoft Edge tìm hình ảnh, video về các nguồn năng lượng trong đời sống, sản xuất và học tập."
-        },
-        {
-            "week": 7,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Bài 7: Vai trò của năng lượng (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2: HS xem clip hoặc hình ảnh về nhà thông minh Google Home/Amazon Alexa hoặc lưới điện thông minh để biết AI giúp điều tiết, tiết kiệm năng lượng."
-        },
-        {
-            "week": 8,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 8: Sử dụng năng lượng điện (Tiết 1)",
-            "integration": "Tích hợp NLS 1.2.CB2a: HS tra cứu quy tắc an toàn điện trên website EVN hoặc website giáo dục. edu. vn; biết nhận diện thông tin tin cậy và tóm tắt lưu ý quan trọng."
-        },
-        {
-            "week": 8,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Bài 8: Sử dụng năng lượng điện (Tiết 2)",
-            "integration": "Tích hợp AI 5.A1.1: HS xem clip về drone hoặc robot kiểm tra đường dây điện cao thế để hiểu AI, robot có thể thay con người làm việc nguy hiểm."
-        },
-        {
-            "week": 9,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Bài 9: Mạch điện đơn giản. Vật dẫn điện và vật cách điện (Tiết 1)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS sử dụng mô phỏng PhET Circuit Construction Kit để quan sát mạch điện đơn giản, vật dẫn điện và vật cách điện trong môi trường số an toàn."
-        },
-        {
-            "week": 9,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Ôn tập giữa HK1",
-            "integration": "Bài học STEM: Mạch điện đơn giản"
-        },
-        {
-            "week": 10,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 9: Mạch điện đơn giản. Vật dẫn điện và vật cách điện (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Bài 10: Năng lượng chất đốt (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Search hoặc Microsoft Edge tìm hình ảnh bếp gas, bếp than, xăng dầu và cách sử dụng an toàn, tiết kiệm."
-        },
-        {
-            "week": 11,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 10: Năng lượng chất đốt (Tiết 2)",
-            "integration": "Tích hợp AI 5.A1.1: HS quan sát cảm biến khói, cảm biến gas thông minh qua ứng dụng Smart Life hoặc Tuya Smart để hiểu thiết bị có thể cảnh báo rò rỉ gas, khói, cháy."
-        },
-        {
-            "week": 11,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS dùng Google Earth tìm vị trí cánh đồng điện gió hoặc khu điện mặt trời ở Việt Nam."
-        },
-        {
-            "week": 12,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2: HS xem minh họa Windy hoặc Google Weather để hiểu AI dự báo nắng, gió, lượng mưa, dòng chảy hỗ trợ sản xuất năng lượng tái tạo."
-        },
-        {
-            "week": 12,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Bài 11: Sử dụng năng lượng mặt trời, năng lượng gió, năng lượng nước chảy (Tiết 3)",
-            "integration": "Bài học STEM: Mô hình thuyền buồm"
-        },
-        {
-            "week": 13,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 12: Ôn tập chủ đề năng lượng",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng PowerPoint SmartArt hoặc Canva Mind Map lập sơ đồ ôn tập chủ đề Năng lượng."
-        },
-        {
-            "week": 13,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Bài 13: Sinh sản của thực vật có hoa (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Images tìm hình ảnh hoa, quả, hạt phục vụ bài Sinh sản của thực vật có hoa."
-        },
-        {
-            "week": 14,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 13: Sinh sản của thực vật có hoa (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.2: HS dùng Google Teachable Machine hoặc Google Lens nhận diện hình ảnh hoa, quả, hạt; sau đó kiểm tra lại bằng kiến thức SGK."
-        },
-        {
-            "week": 14,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 1)",
-            "integration": "Tích hợp NLS 1.3.CB2a: HS dùng Microsoft Excel hoặc Google Sheets lập bảng theo dõi chiều cao, số lá của cây."
-        },
-        {
-            "week": 15,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 2)",
-            "integration": "Tích hợp AI 5.D2.1: HS chụp ảnh cây bằng Camera điện thoại hoặc máy tính bảng, lưu vào Google Drive, sắp xếp ảnh theo thời gian để hiểu AI cần dữ liệu cập nhật."
-        },
-        {
-            "week": 15,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Bài 14: Sự phát triển của cây con (Tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 15: Sinh sản của động vật (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng Google Images hoặc YouTube Kids tìm hình ảnh, video động vật đẻ trứng, đẻ con."
-        },
-        {
-            "week": 16,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Bài 15: Sinh sản của động vật (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.2: HS dùng Google Lens nhận diện hình ảnh động vật và phân nhóm đẻ trứng, đẻ con dưới sự hướng dẫn của GV."
-        },
-        {
-            "week": 17,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 16: Vòng đời và sự phát triển của động vật (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS xem video vòng đời bướm, ếch, gà trên YouTube Kids hoặc học liệu NXB Giáo dục."
-        },
-        {
-            "week": 17,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Bài 16: Vòng đời và sự phát triển của động vật (Tiết 2)",
-            "integration": "Tích hợp AI 5.B3.1: HS dùng ảnh mẫu trong Google Lens để nhận diện giai đoạn vòng đời, thảo luận vì sao AI có thể nhầm nòng nọc với cá."
-        },
-        {
-            "week": 18,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Ôn tập cuối HK1",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 36,
-            "lessonName": "Kiểm tra cuối HK1",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Bài 17: Ôn tập chủ đề thực vật và động vật",
-            "integration": "Tích hợp AI 5.D1.1: HS dùng Google Drive và Canva Whiteboard sắp xếp ảnh cây con, động vật đẻ trứng, động vật đẻ con, vòng đời động vật thành nhóm dữ liệu để “dạy” AI giả định."
-        },
-        {
-            "week": 19,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Bài 18: Vi khuẩn xung quanh chúng ta (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS dùng Google Images tìm hình ảnh vi khuẩn dưới kính hiển vi."
-        },
-        {
-            "week": 20,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 39,
-            "lessonName": "Bài 18: Vi khuẩn xung quanh chúng ta (Tiết 2)",
-            "integration": "Tích hợp KNS: HS biết rửa tay đúng lúc, đúng cách để phòng tránh vi khuẩn có hại."
-        },
-        {
-            "week": 20,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 40,
-            "lessonName": "Bài 19: Vi khuẩn có ích trong chế biến thực phẩm (Tiết 1)",
-            "integration": "Tích hợp AI 5.A2.2: HS quan sát minh họa AI hỗ trợ bác sĩ hoặc nhà khoa học phân tích ảnh kính hiển vi để nhận biết vi khuẩn."
-        },
-        {
-            "week": 21,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Bài 19: Vi khuẩn có ích trong chế biến thực phẩm (Tiết 2)",
-            "integration": "Bài học STEM: Vi khuẩn có ích trong chế biến thực phẩm"
-        },
-        {
-            "week": 21,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Bài 20: Vi khuẩn gây bệnh ở người và cách phòng tránh (Tiết 1)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS xem video phòng bệnh trên website Bộ Y tế, kênh YouTube Sức khỏe Việt Nam hoặc học liệu GV cung cấp; không tự ý tìm nguồn chưa kiểm chứng."
-        },
-        {
-            "week": 22,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Bài 20: Vi khuẩn gây bệnh ở người và cách phòng tránh (Tiết 2)",
-            "integration": "Tích hợp quyền con người: HS hiểu quyền được chăm sóc, bảo vệ sức khỏe; biết thực hiện vệ sinh cá nhân và phòng bệnh cho bản thân, cộng đồng."
-        },
-        {
-            "week": 22,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "Bài 21: Ôn tập chủ đề vi khuẩn",
-            "integration": "Tích hợp AI 5.A2.2: HS dùng hình ảnh mẫu trong Google Images hoặc PowerPoint để thảo luận AI có thể hỗ trợ phân tích hình ảnh vi khuẩn nhưng cần kiểm chứng."
-        },
-        {
-            "week": 23,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Bài 22: Sự hình thành cơ thể người (Tiết 1)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS tìm hiểu sự hình thành cơ thể người từ video hoặc học liệu GV gửi trên Google Drive/PowerPoint; không chia sẻ thông tin riêng tư."
-        },
-        {
-            "week": 23,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Bài 22: Sự hình thành cơ thể người (Tiết 2)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS dùng Google Drive hoặc Google Classroom nhận học liệu do GV cung cấp; không tự tìm kiếm hình ảnh nhạy cảm, không gửi thông tin cá nhân trên mạng."
-        },
-        {
-            "week": 24,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 47,
-            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 1)",
-            "integration": "Tích hợp quyền con người: HS hiểu mỗi người có quyền được tôn trọng trong từng giai đoạn phát triển; không trêu chọc sự khác biệt về ngoại hình, giới tính, tốc độ lớn lên."
-        },
-        {
-            "week": 24,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 48,
-            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 2)",
-            "integration": "Tích hợp KNS: HS biết chăm sóc bản thân phù hợp với lứa tuổi, biết chia sẻ với người lớn đáng tin cậy khi có thay đổi về cơ thể, tâm lí."
-        },
-        {
-            "week": 25,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Bài 23: Các giai đoạn phát triển chính của con người (Tiết 3)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS quan sát tranh, video học liệu GV chọn trên PowerPoint hoặc Google Drive về các giai đoạn phát triển của con người."
-        },
-        {
-            "week": 25,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Bài 24: Nam và nữ (Tiết 1)",
-            "integration": "Tích hợp NLS 2.1.CB2a: HS thực hành lựa chọn Zalo nhóm lớp hoặc Email để trao đổi bài tập nhóm lịch sự giữa bạn nam và bạn nữ."
-        },
-        {
-            "week": 26,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Bài 24: Nam và nữ (Tiết 2)",
-            "integration": "Tích hợp AI 5.B1.1: HS thảo luận tình huống với chatbot mô phỏng trên PowerPoint: nếu robot chỉ chào bạn nam mà bỏ qua bạn nữ thì AI đó chưa công bằng."
-        },
-        {
-            "week": 26,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2a: HS dùng website Bộ Y tế, website trường học hoặc học liệu Google Drive của GV để tìm thông tin chăm sóc sức khỏe tuổi dậy thì."
-        },
-        {
-            "week": 27,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 2)",
-            "integration": "Tích hợp AI 5.A3.1: HS đặt câu hỏi mẫu cho ChatGPT, Gemini hoặc Copilot dưới sự hướng dẫn của GV; không nhập tên thật, địa chỉ, ảnh cá nhân."
-        },
-        {
-            "week": 27,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Ôn tập giữa HK2",
-            "integration": "Tích hợp quyền con người: HS hiểu quyền được chăm sóc sức khỏe, được cung cấp kiến thức phù hợp và được tôn trọng sự riêng tư ở tuổi dậy thì."
-        },
-        {
-            "week": 28,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Bài 25: Chăm sóc sức khỏe tuổi dậy thì (Tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 2)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS xem video an toàn số trên YouTube Kids, website Tổng đài 111 hoặc học liệu GV cung cấp để nhận diện rủi ro từ người lạ trên mạng."
-        },
-        {
-            "week": 29,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 3)",
-            "integration": "Tích hợp AI 5.A3.1: HS xử lí tình huống chatbot lạ trên ChatGPT hoặc Gemini mô phỏng yêu cầu gửi ảnh cá nhân."
-        },
-        {
-            "week": 30,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 59,
-            "lessonName": "Bài 26: Phòng tránh bị xâm hại (Tiết 4)",
-            "integration": "Tích hợp NLS 4.3.CB2a: HS thực hành trên PowerPoint hoặc Google Forms chọn cách phản hồi khi người lạ nhắn tin xin ảnh, địa chỉ, số điện thoại."
-        },
-        {
-            "week": 30,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 60,
-            "lessonName": "Bài 27: Ôn tập chủ đề: con người và sức khỏe",
-            "integration": "Tích hợp quyền con người: HS biết quyền được bảo vệ thân thể, danh dự, nhân phẩm và sự riêng tư; biết tìm người tin cậy để được giúp đỡ."
-        },
-        {
-            "week": 31,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 1)",
-            "integration": "Tích hợp AI 5.A3.1: HS đọc một lời khuyên sức khỏe do ChatGPT, Gemini hoặc Copilot gợi ý, rồi đối chiếu SGK và học liệu của Bộ Y tế."
-        },
-        {
-            "week": 31,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 2)",
-            "integration": "Tích hợp NLS 4.4.CB2a: HS dùng Google Earth hoặc Google Maps quan sát rừng, sông, hồ, khu dân cư để nhận biết môi trường sống của sinh vật."
-        },
-        {
-            "week": 32,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 63,
-            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 3)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS hiểu nước là điều kiện sống quan trọng của sinh vật; biết sử dụng nước tiết kiệm, không xả rác, dầu mỡ, hóa chất xuống ao, hồ, sông, suối."
-        },
-        {
-            "week": 32,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 64,
-            "lessonName": "Bài 28: Chức năng của môi trường đối với sinh vật (Tiết 4)",
-            "integration": "Tích hợp bảo vệ môi trường: HS biết giữ gìn môi trường sống cho sinh vật bằng việc trồng cây, phân loại rác, không phá nơi ở của động vật. Tích hợp AI 5.A2.2: HS xem clip hoặc hình ảnh về thiết bị AI nghe âm thanh rừng, camera bẫy ảnh AI, cảm biến quan trắc nước để nhận biết AI hỗ trợ theo dõi môi trường."
-        },
-        {
-            "week": 33,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 1)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS dùng Google Search hoặc Microsoft Edge tìm giải pháp công nghệ như robot dọn rác, cảm biến quan trắc nước, drone giám sát rừng."
-        },
-        {
-            "week": 33,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 2)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nhận biết hoạt động của con người có thể làm ô nhiễm nước; đề xuất việc không xả rác xuống kênh rạch, tiết kiệm nước, thu gom rác đúng nơi quy định."
-        },
-        {
-            "week": 34,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Bài 29: Tác động của con người và một số biện pháp bảo vệ môi trường (Tiết 3)",
-            "integration": "Tích hợp AI 5.A1.1: HS dùng Canva hoặc PowerPoint phác thảo ý tưởng robot AI thu gom rác trên mặt biển, cống rãnh; nêu cảm biến cần có như camera, cảm biến vật cản, cảm biến mực nước."
-        },
-        {
-            "week": 34,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "Bài 30: Ôn tập chủ đề sinh vật và môi trường",
-            "integration": "Tích hợp NLS 4.4.CB2a: HS dùng Canva Mind Map hoặc PowerPoint SmartArt hệ thống hóa kiến thức chủ đề Sinh vật và môi trường."
-        },
-        {
-            "week": 35,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Ôn tập cuối năm",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS vận dụng kiến thức đã học để nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, địa phương."
-        },
-        {
-            "week": 35,
-            "subject": "Khoa học",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Kiểm tra cuối năm",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "Khoa học",
-            "periodInWeek": 1,
-            "ppct": 776,
-            "lessonName": "Tên bài",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS vận dụng kiến thức đã học để nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, địa phương."
-        },
-        {
-            "week": 1,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1: Vị trí địa lí, lãnh thổ, đơn vị hành chính, Quốc kì, Quốc huy, Quốc ca (Tiết 1)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Maps/Google Earth để xác định vị trí Việt Nam, các điểm cực, vùng biển, đảo và ranh giới lãnh thổ.\nTích hợp QCN: HS hiểu quyền và trách nhiệm của công dân trong việc tôn trọng chủ quyền, lãnh thổ, Quốc kì, Quốc huy, Quốc ca."
-        },
-        {
-            "week": 1,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Bài 1: Vị trí địa lí, lãnh thổ, đơn vị hành chính, Quốc kì, Quốc huy, Quốc ca (Tiết 2)",
-            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu cách AI tối ưu hóa định vị toàn cầu, trải nghiệm bản đồ số có tích hợp AI.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng yêu nước, tự hào về vị trí, lãnh thổ và biểu tượng quốc gia Việt Nam."
-        },
-        {
-            "week": 2,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS sử dụng Google tìm kiếm hình ảnh, bản đồ địa hình, khí hậu, khoáng sản Việt Nam.\nTích hợp BVMT: HS nhận biết thiên nhiên là tài sản quý, cần khai thác hợp lí và bảo vệ môi trường sống."
-        },
-        {
-            "week": 2,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu cách AI dự báo thời tiết, cảnh báo bão, lũ lụt.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS biết giữ gìn sông, suối, ao, hồ; sử dụng nước tiết kiệm trong sinh hoạt."
-        },
-        {
-            "week": 3,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 3)",
-            "integration": "Tích hợp BVMT: HS liên hệ việc bảo vệ rừng, bảo vệ đất, phòng chống xói mòn, hạn chế rác thải làm suy thoái môi trường tự nhiên."
-        },
-        {
-            "week": 3,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Bài 2: Thiên nhiên Việt Nam (Tiết 4)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nêu việc làm phù hợp để bảo vệ nguồn nước ở địa phương như không xả rác xuống kênh rạch, không lãng phí nước sạch."
-        },
-        {
-            "week": 4,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 3: Biển, đảo Việt Nam (Tiết 1)",
-            "integration": "Tích hợp NLS 2.2.CB2a: HS chia sẻ cảm nghĩ, hình ảnh hoặc thông điệp về biển đảo Việt Nam trên Padlet theo hướng dẫn của GV.\nTích hợp QPAN: HS hiểu vị trí, vai trò của biển đảo trong bảo vệ chủ quyền quốc gia."
-        },
-        {
-            "week": 4,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Bài 3: Biển, đảo Việt Nam (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.2: HS dùng AI Search sưu tầm tư liệu, bằng chứng lịch sử khẳng định chủ quyền biển đảo Việt Nam.\nTích hợp BVMT: HS có ý thức giữ gìn môi trường biển, không xả rác nhựa ra biển."
-        },
-        {
-            "week": 5,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 1)",
-            "integration": "Tích hợp NLS 1.3.CB2a: HS sử dụng Excel/Google Sheets để nhập, sắp xếp, so sánh số liệu dân số, phân bố dân cư và một số dân tộc Việt Nam.\nTích hợp QCN: HS hiểu các dân tộc Việt Nam đều bình đẳng, có quyền được tôn trọng bản sắc văn hóa."
-        },
-        {
-            "week": 5,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 2)",
-            "integration": "Tích hợp AI 5.D2.1: HS liên hệ dữ liệu tổng điều tra dân số giúp AI dự báo xu hướng dân số chính xác hơn.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tôn trọng sự khác biệt, đoàn kết với bạn bè thuộc các dân tộc khác nhau."
-        },
-        {
-            "week": 6,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 3)",
-            "integration": "Tích hợp QCN: HS nhận biết quyền được học tập, quyền được giữ gìn tiếng nói, trang phục, phong tục tốt đẹp của các dân tộc Việt Nam."
-        },
-        {
-            "week": 6,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Bài 4: Dân cư và dân tộc ở Việt Nam (Tiết 4)",
-            "integration": "Tích hợp NLS 1.2.CB2a: HS tìm kiếm và xem video/ảnh 3D phục dựng trống đồng Đông Sơn, thành Cổ Loa; bước đầu nhận biết nguồn tư liệu đáng tin cậy từ website bảo tàng, thư viện số.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng tự hào về cội nguồn dân tộc."
-        },
-        {
-            "week": 7,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 1)",
-            "integration": "Tích hợp AI 5.A2.1: HS xem video AI phục dựng 3D trống đồng Đông Sơn hoặc thành Cổ Loa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng di sản, giữ gìn hiện vật, không làm hư hại di tích."
-        },
-        {
-            "week": 7,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 2)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết ơn tổ tiên, có ý thức giữ gìn truyền thống dựng nước và bảo vệ đất nước từ buổi đầu lịch sử."
-        },
-        {
-            "week": 8,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 5: Nhà nước Văn Lang, Nhà nước Âu Lạc (Tiết 3)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo thẻ thông tin số giới thiệu một hiện vật hoặc nét tiêu biểu của Vương quốc Phù Nam.\nTích hợp AI 5.D1.1: HS mô phỏng quy trình “dạy” máy nhận diện hiện vật cổ Phù Nam dựa trên hình ảnh thu thập được."
-        },
-        {
-            "week": 8,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Bài 6: Vương quốc Phù Nam",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng PowerPoint hoặc Canva tạo thẻ ghi nhớ điện tử giới thiệu một đền tháp Chăm - pa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng văn hóa Chăm - pa, không kì thị, biết trân trọng sự đa dạng văn hóa."
-        },
-        {
-            "week": 9,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Bài 7: Vương quốc Chăm - pa (Tiết 1)",
-            "integration": "Tích hợp AI 5.C4.2: HS trải nghiệm tham quan ảo tích hợp AI để khám phá đền tháp Chăm - pa.\nTích hợp BVMT: HS liên hệ việc giữ gìn cảnh quan sạch đẹp quanh di tích, không xả rác khi tham quan."
-        },
-        {
-            "week": 9,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Bài 7: Vương quốc Chăm - pa (Tiết 2)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS tạo sơ đồ thời gian số về các cuộc khởi nghĩa tiêu biểu thời Bắc thuộc bằng PowerPoint, Canva hoặc công cụ vẽ sơ đồ đơn giản.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng lòng yêu nước, ý chí độc lập, tự chủ của dân tộc."
-        },
-        {
-            "week": 10,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 1)",
-            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu cách AI hỗ trợ số hóa, dịch văn bản Hán Nôm cổ.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết noi gương tinh thần bất khuất của cha ông."
-        },
-        {
-            "week": 10,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 2)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS tra cứu hình ảnh 360 độ hoặc hình ảnh số về chùa Một Cột, Hoàng thành Thăng Long; chọn thông tin ngắn gọn để giới thiệu di tích.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết giữ gìn di tích lịch sử, ứng xử văn minh khi tham quan."
-        },
-        {
-            "week": 11,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 8: Đấu tranh giành độc lập thời kì Bắc thuộc (Tiết 3)",
-            "integration": "Tích hợp AI 5.B3.1: HS dùng chatbot AI liệt kê đóng góp của vua Lý Thái Tổ, sau đó đối chiếu SGK để kiểm chứng thông tin.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: Bồi dưỡng ý thức tự hào về Thăng Long - Hà Nội nghìn năm văn hiến."
-        },
-        {
-            "week": 11,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 1)",
-            "integration": "Tích hợp QCN: HS hiểu mỗi người có quyền được tìm hiểu, gìn giữ di sản văn hóa dân tộc và có trách nhiệm bảo vệ di sản chung."
-        },
-        {
-            "week": 12,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 2)",
-            "integration": "Tích hợp AI 5.A1.2: HS xem video mô phỏng trận Bạch Đằng do AI hỗ trợ dựng lại, hiểu con người chịu trách nhiệm cuối cùng về nhận định lịch sử.\nTích hợp QPAN: HS hiểu bài học đoàn kết toàn dân, chuẩn bị lực lượng và quyết tâm bảo vệ Tổ quốc."
-        },
-        {
-            "week": 12,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Bài 9: Triều Lý và việc định đô ở Thăng Long (Tiết 3)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo lược đồ hoặc sơ đồ số đơn giản thể hiện diễn biến chính của kháng chiến chống quân Mông - Nguyên.\nTích hợp QPAN: HS nhận thức ý nghĩa của tinh thần cảnh giác, mưu trí, dũng cảm trong bảo vệ đất nước."
-        },
-        {
-            "week": 13,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 1)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết noi gương Trần Quốc Tuấn, Trần Quốc Toản; rèn ý chí, trách nhiệm với tập thể."
-        },
-        {
-            "week": 13,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 2)",
-            "integration": "Tích hợp QPAN: HS rút ra bài học giữ nước từ chiến thắng Bạch Đằng, biết trân trọng hòa bình hôm nay."
-        },
-        {
-            "week": 14,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 3)",
-            "integration": "Tích hợp AI 5.A3.1: HS dùng Quizizz hoặc Kahoot có hỗ trợ AI để củng cố kiến thức.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS trung thực khi làm bài ôn tập, không sao chép đáp án của bạn."
-        },
-        {
-            "week": 14,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Bài 10: Triều Trần xây dựng đất nước và kháng chiến chống quân Mông - Nguyên xâm lược (Tiết 4)",
-            "integration": "Tích hợp NLS 2.3.CB2a: HS tham gia trò chơi ôn tập trên Wordwall/Quizizz để củng cố kiến thức về các quốc gia đầu tiên và các triều đại phong kiến đã học.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS hệ thống lại truyền thống dựng nước, giữ nước; bồi dưỡng lòng biết ơn cha ông."
-        },
-        {
-            "week": 15,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 11: Ôn tập (Tiết 1)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng sơ đồ tư duy số để hệ thống hóa diễn biến chính của khởi nghĩa Lam Sơn và đóng góp của Lê Lợi, Nguyễn Trãi.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tự hào về tinh thần yêu nước, ý chí đánh giặc cứu nước."
-        },
-        {
-            "week": 15,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Bài 11: Ôn tập (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.1: HS dùng cấu trúc “Nếu… thì…” để tái hiện chiến thuật của nghĩa quân Lam Sơn.\nTích hợp QPAN: HS hiểu vai trò của mưu trí, đoàn kết, lòng dân trong bảo vệ đất nước."
-        },
-        {
-            "week": 16,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 1)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS học tập tinh thần nhân nghĩa, khoan dung, trọng hiền tài thời Hậu Lê."
-        },
-        {
-            "week": 16,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu AI trong bảo tồn Nhã nhạc cung đình Huế hoặc phục dựng ảnh xưa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS có ý thức giữ gìn di sản văn hóa Huế."
-        },
-        {
-            "week": 17,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 12: Khởi nghĩa Lam Sơn và Triều Hậu Lê (Tiết 2)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS tra cứu hình ảnh số về Kinh thành Huế, Nhã nhạc cung đình Huế, lăng tẩm triều Nguyễn; lựa chọn thông tin phù hợp để giới thiệu di sản.\nTích hợp QCN: HS hiểu quyền được tiếp cận, học tập di sản văn hóa và trách nhiệm bảo vệ di tích, hiện vật lịch sử."
-        },
-        {
-            "week": 17,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Bài 13: Triều Nguyễn (Tiết 1)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết nhìn nhận lịch sử khách quan, trân trọng những giá trị văn hóa, giáo dục còn lưu lại."
-        },
-        {
-            "week": 18,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Ôn tập cuối kì I",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 36,
-            "lessonName": "Kiểm tra và đánh giá cuối học kì I",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Bài 13: Triều Nguyễn (Tiết 2)",
-            "integration": "Tích hợp AI 5.B1.2: HS tìm hiểu AI phục dựng âm thanh, hình ảnh Bác Hồ đọc Tuyên ngôn Độc lập; cảnh báo deepfake làm sai lệch lịch sử.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS trân trọng giá trị độc lập, tự do."
-        },
-        {
-            "week": 19,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Bài 13: Triều Nguyễn (Tiết 3)",
-            "integration": "Tích hợp AI 5.A1.1: HS tìm hiểu robot AI hỗ trợ rà phá bom mìn sau chiến tranh.\nTích hợp QPAN: HS hiểu ý nghĩa của chiến thắng Điện Biên Phủ và trách nhiệm bảo vệ Tổ quốc."
-        },
-        {
-            "week": 20,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 39,
-            "lessonName": "Bài 14: Cách mạng tháng Tám năm 1945 (Tiết 1)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng lược đồ số/học liệu số để xác định vị trí Điện Biên Phủ, quan sát một số địa danh lịch sử trong chiến dịch.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết ơn các anh hùng liệt sĩ, sống trách nhiệm, chăm học để góp phần xây dựng đất nước."
-        },
-        {
-            "week": 20,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 40,
-            "lessonName": "Bài 14: Cách mạng tháng Tám năm 1945 (Tiết 2)",
-            "integration": "Tích hợp AI 5.C4.2: HS dùng AI Search sưu tầm hình ảnh, video tư liệu về sự kiện 30-4-1975.\nTích hợp QPAN: HS hiểu ý nghĩa của đại thắng mùa Xuân 1975 đối với độc lập, thống nhất đất nước."
-        },
-        {
-            "week": 21,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Bài 15: Chiến dịch Điện Biên Phủ năm 1954 (Tiết 1)",
-            "integration": "Tích hợp NLS 1.3.CB2a: HS sưu tầm hình ảnh, video tư liệu về sự kiện 30-4-1975; lưu trữ vào thư mục học tập và sắp xếp theo tên tư liệu, thời gian, nội dung.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS bồi dưỡng lòng yêu nước, ý thức giữ gìn hòa bình, thống nhất dân tộc."
-        },
-        {
-            "week": 21,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Bài 15: Chiến dịch Điện Biên Phủ năm 1954 (Tiết 2)",
-            "integration": "Tích hợp NLS 6.1.CB2a: HS tra cứu một số thành tựu công nghệ ở Việt Nam thời kì Đổi mới; nhận biết ứng dụng số, máy tính, Internet, AI trong đời sống hiện nay.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS có ý thức học tập, đổi mới, sáng tạo để thích ứng với thời đại số."
-        },
-        {
-            "week": 22,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Bài 16: Chiến dịch Hồ Chí Minh năm 1975 (Tiết 1)",
-            "integration": "Tích hợp AI 5.D2.1: HS liên hệ sự phát triển của máy tính và AI ở Việt Nam qua thời kì Đổi mới.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tự hào về thành tựu đất nước, có trách nhiệm góp phần xây dựng quê hương."
-        },
-        {
-            "week": 22,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "Bài 16: Chiến dịch Hồ Chí Minh năm 1975 (Tiết 2)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Earth/Google Maps để xác định vị trí Trung Quốc, thủ đô Bắc Kinh, Vạn Lý Trường Thành, Cố cung Bắc Kinh và trình bày ngắn gọn trên bản đồ.\nTích hợp QCN: HS tôn trọng sự khác biệt văn hóa và quyền được tìm hiểu văn hóa của các dân tộc."
-        },
-        {
-            "week": 23,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Bài 17: Đất nước đổi mới (tiết 1)",
-            "integration": "Tích hợp AI 5.C4.2: HS dùng ứng dụng dịch thuật AI để tìm hiểu nghĩa gốc, cách phát âm địa danh Trung Hoa.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS giao tiếp văn minh, tôn trọng văn hóa nước bạn."
-        },
-        {
-            "week": 23,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Bài 17: Đất nước đổi mới (tiết 2)",
-            "integration": "Tích hợp AI 5.D1.1: HS giả lập quy trình dạy robot AI giám sát, bảo vệ Cánh đồng Chum.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng tình hữu nghị Việt Nam - Lào."
-        },
-        {
-            "week": 24,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 47,
-            "lessonName": "Bài 18: Nước Cộng hoà Nhân dân Trung Hoa (Tiết 1)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Google Maps/Google Earth để xác định vị trí Lào, thủ đô Viêng Chăn, sông Mê Công, Cánh đồng Chum và nêu nhận xét về đặc điểm lãnh thổ của Lào.\nTích hợp QCN: HS tôn trọng chủ quyền, văn hóa, phong tục của nước bạn."
-        },
-        {
-            "week": 24,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 48,
-            "lessonName": "Bài 18: Nước Cộng hoà Nhân dân Trung Hoa (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu AI hỗ trợ khách du lịch tại Ăng - co Vát qua hướng dẫn viên ảo và dịch thuật tiếng Khmer.\nTích hợp BVMT: HS liên hệ bảo vệ cảnh quan, môi trường tại di sản văn hóa."
-        },
-        {
-            "week": 25,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Bài 19: Cộng hoà Dân chủ Nhân dân Lào (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS khai thác hình ảnh, video số về Ăng - co Vát, Biển Hồ, thủ đô Phnôm Pênh; chọn thông tin phù hợp để giới thiệu nét tiêu biểu của Cam - pu-chia.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng văn hóa, lịch sử Cam - pu-chia; có thái độ hữu nghị, hợp tác với các nước láng giềng."
-        },
-        {
-            "week": 25,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Bài 19: Cộng hoà Dân chủ Nhân dân Lào (Tiết 2)",
-            "integration": "Tích hợp NLS 2.5.CB2a: HS trao đổi ý nghĩa cờ ASEAN, mục tiêu hợp tác ASEAN qua phần mềm nhắn tin nhóm hoặc Padlet; thực hiện quy tắc ứng xử lịch sự, tích cực trên môi trường số.\nTích hợp QCN: HS hiểu tinh thần bình đẳng, hợp tác, tôn trọng lẫn nhau giữa các quốc gia ASEAN."
-        },
-        {
-            "week": 26,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Bài 20: Vương quốc Cam - pu-chia (Tiết 1)",
-            "integration": "Tích hợp AI 5.B1.1: HS thảo luận chatbot AI cần dữ liệu đa dạng để phục vụ công bằng người dân các nước ASEAN.\nTích hợp QPAN: HS hiểu hợp tác khu vực góp phần giữ gìn hòa bình, ổn định và an ninh chung."
-        },
-        {
-            "week": 26,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Bài 20: Vương quốc Cam - pu-chia (Tiết 2)",
-            "integration": "Tích hợp NLS 5.2.CB2a: HS sử dụng Wordwall để thực hiện bài tập tương tác kéo thả tên các châu lục và đại dương vào đúng vị trí trên lược đồ.\nTích hợp BVMT: HS nhận biết Trái Đất là ngôi nhà chung cần được bảo vệ."
-        },
-        {
-            "week": 27,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Bài 21: Hiệp hội các quốc gia Đông Nam Á (Tiết 1)",
-            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu hệ thống AI theo dõi biến đổi khí hậu toàn cầu và đo độ sâu đại dương bằng dữ liệu vệ tinh.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS có ý thức bảo vệ đại dương, sông ngòi, nguồn nước ngọt."
-        },
-        {
-            "week": 27,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Bài 21: Hiệp hội các quốc gia Đông Nam Á (Tiết 2)",
-            "integration": "Tích hợp BVMT: HS liên hệ hậu quả của ô nhiễm môi trường, biến đổi khí hậu đối với các châu lục và đại dương."
-        },
-        {
-            "week": 28,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 1)",
-            "integration": "Tích hợp tiết kiệm và bảo vệ nguồn nước: HS nêu việc làm bảo vệ nguồn nước ở gia đình, trường học, cộng đồng."
-        },
-        {
-            "week": 28,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 2)",
-            "integration": "Tích hợp BVMT: HS vận dụng kiến thức để đề xuất thông điệp bảo vệ Trái Đất, giảm rác thải nhựa, tiết kiệm tài nguyên."
-        },
-        {
-            "week": 29,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 3)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng Canva để tạo biểu đồ/infographic đơn giản từ số liệu dân số thế giới do GV cung cấp; biết thêm tiêu đề, chú thích và nêu nhận xét.\nTích hợp QCN: HS hiểu mọi người đều có quyền bình đẳng, không bị phân biệt chủng tộc, màu da, nơi sinh sống."
-        },
-        {
-            "week": 29,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 4)",
-            "integration": "Tích hợp AI 5.B1.2: HS thảo luận AI cần phục vụ công bằng, không phân biệt chủng tộc.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết tôn trọng con người, sống nhân ái, không kì thị."
-        },
-        {
-            "week": 30,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 59,
-            "lessonName": "Bài 22: Các châu lục và đại dương trên thế giới (Tiết 5)",
-            "integration": "Tích hợp AI 5.C4.1: HS thiết kế quy trình “Nếu phát hiện nhiệt độ trong kim tự tháp quá cao thì robot AI tự động điều chỉnh thông gió”.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS liên hệ vai trò sông Nin và ý thức bảo vệ nguồn nước đối với đời sống con người."
-        },
-        {
-            "week": 30,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 60,
-            "lessonName": "Bài 23: Dân số và các chủng tộc trên thế giới (Tiết 1)",
-            "integration": "Tích hợp NLS 1.1.CB2b: HS khai thác hình ảnh, video số về sông Nin, kim tự tháp, chữ tượng hình; chọn thông tin tiêu biểu để giới thiệu thành tựu văn minh Ai Cập.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS biết trân trọng di sản văn minh nhân loại, có ý thức bảo vệ di sản khi tham quan, học tập."
-        },
-        {
-            "week": 31,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Bài 23: Dân số và các chủng tộc trên thế giới (Tiết 2)",
-            "integration": "Tích hợp AI 5.A2.1: HS thảo luận AI có thể tạo tác phẩm giống Hy Lạp cổ đại nhưng ý tưởng sáng tạo và linh hồn tác phẩm thuộc về con người.\nTích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tôn trọng sự sáng tạo, không sao chép sản phẩm của người khác."
-        },
-        {
-            "week": 31,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Bài 24: Văn minh Ai Cập",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS dùng Canva/PowerPoint tạo thẻ thông tin số giới thiệu một thành tựu của văn minh Hy Lạp như Thế vận hội, đền Pác - tê-nông, chữ viết, khoa học hoặc nghệ thuật.\nTích hợp QCN: HS hiểu quyền được học tập, tiếp cận văn hóa, khoa học, nghệ thuật của nhân loại; biết tôn trọng giá trị chung của thế giới."
-        },
-        {
-            "week": 32,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 63,
-            "lessonName": "Bài 25: Văn minh Hy Lạp",
-            "integration": "Tích hợp NLS 4.4.CB2a: HS tìm hiểu vai trò của công nghệ số trong bảo vệ môi trường như cảnh báo cháy rừng, theo dõi ô nhiễm, thu gom rác.\nTích hợp BVMT: HS biết tham gia việc làm phù hợp để giữ trường lớp, gia đình, cộng đồng xanh - sạch - đẹp."
-        },
-        {
-            "week": 32,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 64,
-            "lessonName": "Bài 26: Xây dựng thế giới xanh - sạch - đẹp (Tiết 1)",
-            "integration": "Tích hợp AI 5.A2.2: HS tìm hiểu robot AI thu gom rác đại dương hoặc AI nghe âm thanh rừng để phát hiện phá rừng.\nTích hợp tiết kiệm và bảo vệ nguồn nước: HS thực hành tiết kiệm nước, bảo vệ nguồn nước sạch, không xả rác xuống kênh rạch."
-        },
-        {
-            "week": 33,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Bài 26: Xây dựng thế giới xanh - sạch - đẹp (Tiết 2)",
-            "integration": "Tích hợp NLS 4.2.CB2a: HS soạn email/tin nhắn lan tỏa thông điệp yêu hòa bình; biết không chia sẻ thông tin cá nhân, hình ảnh bạn bè khi chưa được đồng ý.\nTích hợp QCN: HS hiểu quyền được sống trong hòa bình, an toàn, được tôn trọng và bảo vệ."
-        },
-        {
-            "week": 33,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Bài 27: Xây dựng thế giới hoà bình (Tiết 1)",
-            "integration": "Tích hợp AI 5.A2.1: HS hiểu AI hỗ trợ thông tin nhưng hòa bình cần lòng nhân ái, thấu cảm và quyết định đạo đức của con người.\nTích hợp QPAN: HS hiểu giữ gìn hòa bình gắn với trách nhiệm bảo vệ Tổ quốc, bảo vệ cuộc sống bình yên."
-        },
-        {
-            "week": 34,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Bài 27: Xây dựng thế giới hoà bình (Tiết 2)",
-            "integration": "Tích hợp NLS 3.1.CB2a: HS sử dụng sơ đồ tư duy số Coggle/MindMeister/Canva để hệ thống hóa kiến thức Lịch sử và Địa lí 5 theo chủ đề."
-        },
-        {
-            "week": 34,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "Bài 28: Ôn tập (tiết 1)",
-            "integration": "Tích hợp AI 5.D2.1: HS hệ thống hóa kiến thức bằng sơ đồ tư duy AI; hiểu kiến thức cần được cập nhật thường xuyên như dữ liệu AI."
-        },
-        {
-            "week": 35,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Bài 28: Ôn tập (tiết 2)",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tổng kết bài học về yêu nước, trách nhiệm công dân, tôn trọng di sản, bảo vệ môi trường và sống nhân ái."
-        },
-        {
-            "week": 35,
-            "subject": "LS&ĐL",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Kiểm tra và đánh giá cuối học kì II",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "LS&ĐL",
-            "periodInWeek": 1,
-            "ppct": 847,
-            "lessonName": "Tên bài",
-            "integration": "Tích hợp Lý tưởng cách mạng, đạo đức, lối sống: HS tổng kết bài học về yêu nước, trách nhiệm công dân, tôn trọng di sản, bảo vệ môi trường và sống nhân ái."
-        },
-        {
-            "week": 1,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chú đề.(tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chú đề.(tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chú đề.(tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Yếu tố tạo hình trong thực hành, sáng tạo theo chú đề.(tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam(tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam (tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Hình tượng anh hùng dân tộc trong mĩ thuật tạo hình Việt Nam",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Gia đình (tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Gia đình (tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Gia đình (tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Gia đình (tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Những hoạt động ở trường em.(tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Những hoạt động ở trường em (tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Những hoạt động ở trường em (tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Những hoạt động ở trường em (tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Đánh giá cuối học kì I",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Những việc làm bình dị mà cao quý trong cuộc sống",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Cảnh sắc quê hương.(tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Cảnh sắc quê hương.(tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Cảnh sắc quê hương..(tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Cảnh sắc quê hương..(tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Việt Nam đất nước con người.(tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Việt Nam đất nước con người.(tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Việt Nam đất nước con người.(tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Việt Nam đất nước con người.(tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Vì một thế giới hoà bình.(tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Vì một thế giới hoà bình.(tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Vì một thế giới hoà bình.(tiết 3)",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Vì một thế giới hoà bình.(tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Kiểm tra/ đánh giá cuối năm học",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Trưng bày sản phẩm cuối năm",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "MĨ THUẬT",
-            "periodInWeek": 1,
-            "ppct": 883,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1. Vai trò của công nghệ (Tiết 1)",
-            "integration": "NLS 1.1.CB2b: HS sử dụng Google hoặc Edge để tìm, xem video ngắn về mặt trái của công nghệ như rác thải điện tử, ô nhiễm môi trường và chọn thông tin phù hợp để trao đổi.\nBVMT: HS nhận biết sử dụng sản phẩm công nghệ không hợp lí có thể gây ô nhiễm; biết dùng công nghệ tiết kiệm, bền vững."
-        },
-        {
-            "week": 2,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Bài 1. Vai trò của công nghệ (Tiết 2)",
-            "integration": "AI 5.A1.1: HS nhận diện AI là sản phẩm công nghệ hiện đại; xem video robot AI trong dây chuyền đóng gói tự động, thảo luận việc AI thực hiện công việc lặp lại, nguy hiểm và giúp nâng cao năng suất.\nTiết kiệm và bảo vệ nguồn nước: HS biết không xả rác, không làm ô nhiễm nguồn nước khi sử dụng, thải bỏ sản phẩm công nghệ."
-        },
-        {
-            "week": 3,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 2. Nhà sáng chế (Tiết 1)",
-            "integration": "NLS 1.1.CB2b: HS tìm kiếm thông tin về cuộc đời và phát minh tiêu biểu của một nhà sáng chế trên website giáo dục uy tín; ghi thông tin chính để chia sẻ."
-        },
-        {
-            "week": 4,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Bài 2. Nhà sáng chế (Tiết 2)",
-            "integration": "KNS: HS rèn kĩ năng tìm hiểu, đặt câu hỏi, lắng nghe và trình bày ý kiến khi trao đổi về vai trò của sáng chế trong đời sống."
-        },
-        {
-            "week": 5,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 2. Nhà sáng chế (Tiết 3)",
-            "integration": "AI 5.A2.1: HS thảo luận “AI có thể trở thành nhà sáng chế độc lập không?”; hiểu AI hỗ trợ tìm ý tưởng, còn tư duy sáng tạo và trách nhiệm đạo đức thuộc về con người.\nLý tưởng cách mạng, đạo đức, lối sống: HS noi gương các nhà sáng chế kiên trì, sáng tạo, biết dùng hiểu biết công nghệ để phục vụ cộng đồng, đất nước."
-        },
-        {
-            "week": 6,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Bài 2. Nhà sáng chế (Tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 3. Tìm hiểu thiết kế (Tiết 1)",
-            "integration": "NLS 3.1.CB2a: HS sử dụng Canva, PowerPoint hoặc ứng dụng vẽ, sơ đồ tư duy số đơn giản để phác thảo ý tưởng thiết kế một sản phẩm công nghệ đơn giản."
-        },
-        {
-            "week": 8,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Bài 3. Tìm hiểu thiết kế (Tiết 2)",
-            "integration": "AI 5.D1.1: HS so sánh quy trình thiết kế sản phẩm với quy trình huấn luyện AI; trải nghiệm mô phỏng “dạy máy học” phân loại rác thải.\nBVMT: HS lựa chọn ý tưởng thiết kế sản phẩm thân thiện môi trường, ưu tiên vật liệu tái sử dụng, an toàn."
-        },
-        {
-            "week": 9,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 1)",
-            "integration": "NLS 3.1.CB2a: HS dùng điện thoại hoặc máy tính bảng để chụp ảnh, quay video quá trình thực hiện các bước làm sản phẩm mẫu, chuẩn bị tư liệu cho báo cáo thực hành điện tử."
-        },
-        {
-            "week": 10,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 2)",
-            "integration": "KNS: HS rèn kĩ năng lập kế hoạch, lựa chọn vật liệu, phân công nhiệm vụ và hợp tác khi vẽ phác thảo sản phẩm."
-        },
-        {
-            "week": 11,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 3)",
-            "integration": "AI 5.D2.1: Thông qua phiếu đánh giá lỗi sản phẩm, HS hiểu hệ thống AI có thể cải tiến tốt hơn khi được cập nhật dữ liệu mới; liên hệ việc con người điều chỉnh sản phẩm sau khi nhận góp ý."
-        },
-        {
-            "week": 12,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Bài 4. Thiết kế sản phẩm (Tiết 4)",
-            "integration": "KNS: HS rèn kĩ năng hợp tác, lắng nghe góp ý, tự đánh giá, điều chỉnh và hoàn thiện sản phẩm khi làm việc nhóm."
-        },
-        {
-            "week": 13,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 1)",
-            "integration": "NLS 4.2.CB2a: HS nhận diện tình huống mất an toàn thông tin khi dùng điện thoại; thực hành xử lí tình huống bảo vệ dữ liệu cá nhân.\nQCN: HS hiểu quyền được bảo vệ thông tin cá nhân, quyền riêng tư; biết không tự ý xem, chia sẻ hình ảnh, số điện thoại, mật khẩu của người khác."
-        },
-        {
-            "week": 14,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 2)",
-            "integration": "KNS: HS rèn kĩ năng tự quản lí thời gian sử dụng điện thoại, lựa chọn nội dung phù hợp, biết dừng lại và nhờ người lớn hỗ trợ khi gặp thông tin lạ."
-        },
-        {
-            "week": 15,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 3)",
-            "integration": "AI 5.A3.1: HS nhận diện trợ lí ảo, nhận diện khuôn mặt trên điện thoại; đóng vai xử lí tình huống khi trợ lí ảo AI yêu cầu mật khẩu cá nhân.\nĐạo đức, lối sống: HS biết sử dụng điện thoại văn minh, không lạm dụng, không chia sẻ thông tin sai lệch."
-        },
-        {
-            "week": 16,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Bài 5. Sử dụng điện thoại (Tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập cuối học kì I",
-            "integration": "AI 5.A3.1: HS sử dụng sơ đồ tư duy AI hoặc chatbot AI dưới sự hướng dẫn của GV để hệ thống hóa kiến thức về vai trò công nghệ, nhà sáng chế, thiết kế sản phẩm và sử dụng điện thoại an toàn."
-        },
-        {
-            "week": 18,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Kiểm tra định kỳ cuối kì I",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 1)",
-            "integration": "NLS 1.2.CB2a: HS tra cứu kí hiệu tiết kiệm năng lượng hoặc hướng dẫn sử dụng tủ lạnh an toàn từ nguồn tin cậy.\nBVMT: HS biết sử dụng tủ lạnh đúng cách, tiết kiệm điện, hạn chế lãng phí năng lượng và thực phẩm."
-        },
-        {
-            "week": 20,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 2)",
-            "integration": "AI 5.A2.2: HS tìm hiểu tủ lạnh thông minh tích hợp AI có thể tự động điều chỉnh nhiệt độ tiết kiệm điện hoặc cảnh báo thực phẩm sắp hết hạn.\nĐạo đức, lối sống: HS có ý thức sử dụng thiết bị gia đình an toàn, tiết kiệm, không lãng phí thực phẩm."
-        },
-        {
-            "week": 21,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 6. Sử dụng tủ lạnh (Tiết 3)",
-            "integration": "KNS: HS rèn kĩ năng sử dụng thiết bị gia đình an toàn, biết sắp xếp thực phẩm hợp lí, vệ sinh tủ lạnh, xử lí tình huống khi thiết bị hoạt động không bình thường."
-        },
-        {
-            "week": 22,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 1)",
-            "integration": "NLS 3.1.CB2a: HS dùng PowerPoint hoặc Google Slides để ghi lại và giới thiệu kết quả kiểm tra hoạt động của mô hình xe; có thể chèn clip ngắn minh chứng xe chạy được khi đóng công tắc."
-        },
-        {
-            "week": 23,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 2)",
-            "integration": "KNS: HS rèn kĩ năng thực hành an toàn, phối hợp nhóm, lắp ráp đúng quy trình, biết kiểm tra dây nối, công tắc, pin và các chi tiết của mô hình."
-        },
-        {
-            "week": 24,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 3)",
-            "integration": "AI 5.A1.1: HS kết nối từ mô hình xe chạy bằng pin đến xe tự lái tích hợp AI; xem video cách AI giúp xe nhận diện và tránh chướng ngại vật trên đường."
-        },
-        {
-            "week": 25,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 7. Lắp ráp mô hình xe điện chạy bằng pin (tiết 4)",
-            "integration": "KNS: HS rèn kĩ năng kiểm tra sản phẩm, điều chỉnh lỗi, chia sẻ kinh nghiệm và đánh giá kết quả lắp ráp mô hình kĩ thuật.\nSTEM: Bài 11. Xe ô tô cánh quạt chạy bằng pin."
-        },
-        {
-            "week": 26,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 1)",
-            "integration": "NLS 1.1.CB2b: HS sử dụng Google Earth hoặc bản đồ số để tìm vị trí các trang trại điện gió lớn tại Việt Nam.\nBVMT: HS nhận biết lợi ích của năng lượng gió, có ý thức ủng hộ sử dụng năng lượng sạch, giảm ô nhiễm môi trường."
-        },
-        {
-            "week": 27,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 2)",
-            "integration": "KNS: HS rèn kĩ năng quan sát, phân tích cấu tạo mô hình, lắp ghép cẩn thận, phối hợp với bạn để bảo đảm an toàn khi thực hành."
-        },
-        {
-            "week": 28,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 3)",
-            "integration": "AI 5.A2.2: HS tìm hiểu cách AI tối ưu hóa việc đón gió và quản lí năng lượng sạch; thảo luận cách AI dự báo hướng gió để tua - bin hoạt động hiệu quả.\nBVMT: HS hiểu năng lượng gió là nguồn năng lượng sạch, góp phần giảm phát thải."
-        },
-        {
-            "week": 29,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 8. Mô hình máy phát điện gió (Tiết 4)",
-            "integration": "KNS: HS rèn kĩ năng hợp tác khi thực hành mô hình máy phát điện gió; biết kiểm tra sản phẩm, quan sát lỗi, điều chỉnh cánh quạt, trục quay, dây nối và chia sẻ kinh nghiệm làm việc nhóm an toàn.\nSTEM: Bài 13. Máy phát điện gió."
-        },
-        {
-            "week": 30,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 1)",
-            "integration": "NLS 1.3.CB2a: HS sử dụng Excel hoặc Google Sheets để nhập số liệu và so sánh độ sáng của đèn LED tương ứng với các điều kiện ánh sáng khác nhau chiếu vào tấm pin.\nBVMT: HS hiểu lợi ích của năng lượng mặt trời, yêu thích giải pháp công nghệ thân thiện với môi trường, biết tiết kiệm điện."
-        },
-        {
-            "week": 31,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 2)",
-            "integration": "AI 5.C4.1: HS sử dụng tư duy thuật toán để vận hành hệ thống năng lượng thông minh; chơi trò chơi viết lệnh “Nếu có nắng, thì sạc pin” cho ngôi nhà thông minh.\nĐạo đức, lối sống: HS có ý thức sử dụng năng lượng tiết kiệm, không lãng phí điện trong sinh hoạt."
-        },
-        {
-            "week": 32,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 3)",
-            "integration": "KNS: HS rèn kĩ năng lắp ráp, thử nghiệm, ghi nhận kết quả, điều chỉnh mô hình điện mặt trời và hợp tác an toàn khi thực hành."
-        },
-        {
-            "week": 33,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 9. Mô hình điện mặt trời (Tiết 4)",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Ôn tập cuối học kì II",
-            "integration": "NLS 5.2.CB2a: HS thực hiện bài tập ôn tập, củng cố kiến thức về công nghệ và đời sống thông qua Quizizz hoặc Google Forms để tự đánh giá mức độ đạt được năng lực.\nKNS: HS rèn kĩ năng tự đánh giá, hệ thống hóa kiến thức và chia sẻ nội dung cần ôn tập với bạn."
-        },
-        {
-            "week": 35,
-            "subject": "Công nghệ",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Kiểm tra định kỳ cuối năm học",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1. Em có thể làm gì với máy tính (T1)",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Bài 1. Em có thể làm gì với máy tính (T2)",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 2. Tìm kiếm thông tin trên website (T1)",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Bài 2. Tìm kiếm thông tin trên website (T1)",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề (T1)",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề (T2)",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 4. Cây thư mục (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Bài 4. Cây thư mục (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Bài 5. Bản quyền nội dung thông tin (T1)",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Bài 5. Bản quyền nội dung thông tin (T1)",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 7. Thực hành soạn thảo văn bản (T1)",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Bài 7. Thực hành soạn thảo văn bản (T2)",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 8. Làm sản phẩm thủ công theo video hướng dẫn (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Bài 8. Làm sản phẩm thủ công theo video hướng dẫn (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập cuối học kì I",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Kiểm tra định kỳ cuối kì I",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 9. Thực hành tạo đồ dùng gia đình theo video hướng dẫn (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Bài 10. Cấu trúc tuần tự (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 10. Cấu trúc tuần tự (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Bài 11. Cấu trúc lắp (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 11. Cấu trúc lắp (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Bài 12. Thực hành sử dụng lệnh lặp (T1)",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 12. Thực hành sử dụng lệnh lặp (T1)",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Bài 13. Cấu trúc rẽ nhánh (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 13. Cấu trúc rẽ nhánh (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Bài 14. Sử dụng biến trong chương trình (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 14. Sử dụng biến trong chương trình (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Bài 15. Sử dụng biểu thức trong chương trình (Tiết 1)",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 15. Sử dụng biểu thức trong chương trình (Tiết 2)",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Bài 16. Từ kịch bản đến chương trình (T1)",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 16. Từ kịch bản đến chương trình (T2)",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Ôn tập",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Kiểm tra định kỳ cuối năm học",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIN HỌC",
-            "periodInWeek": 1,
-            "ppct": 954,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Bài 1: Bài tập phối hợp ĐHĐN",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Bài 1: Bài tập phối hợp đội hình dội ngũ",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Bài 1: Bài tập phối hợp đội hình dội ngũ",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Bài 1: Bài tập phối hợp đội hình dội ngũ",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Bài 1: Bài tập phối hợp đội hình dội ngũ",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Bài 2: Bài tập phối hợp biến đổi đội hình",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Bài 3: Bài tập phối hợp đi đều vòng các hướng",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Bài 1: Động tác vươn thở, động tác tay, động tác chân với gậy",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Bài 2: Động tác bụng, động tác vặn mình, động tác toàn thân với gậy",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Bài 3: Động tác nhảy, Động tác điều hòa với gậy",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Bài 3: Động tác nhảy, Động tác điều hòa với gậy",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Bài 3: Động tác nhảy, Động tác điều hòa với gậy",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Bài 3: Động tác nhảy, Động tác điều hòa với gậy",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Bài 3: Động tác nhảy, Động tác điều hòa với gậy",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Bài 1: Bài tập rèn luyện kĩ năng lăn",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Bài 2: Bài tập rèn luyện kĩ năng lộn xuôi",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 36,
-            "lessonName": "Ôn tập và đánh giá cuối học kỳ I",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Bài 2: Bài tập rèn luyện kĩ năng lộn xuôi",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Bài 2: Bài tập rèn luyện kĩ năng lộn xuôi",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 39,
-            "lessonName": "Bài 2: Bài tập rèn luyện kĩ năng lộn xuôi",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 40,
-            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Bài 3: Bài tập rèn luyện kĩ năng leo",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 47,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 48,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Bài 4: Bài tập rèn luyện kỹ năng trèo",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Bài 1: Dẫn bóng thay đổi tốc độ, dẫn bóng theo đường vòng",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 59,
-            "lessonName": "Bài 2: Động tác chuyền, bắt bóng bằng hai tay trên cao",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 60,
-            "lessonName": "Bài 2: Động tác chuyền, bắt bóng bằng hai tay trên cao",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Bài 2: Động tác chuyền, bắt bóng bằng hai tay trên cao",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Bài 2: Động tác chuyền, bắt bóng bằng hai tay trên cao",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 63,
-            "lessonName": "Bài 2: Động tác chuyền, bắt bóng bằng hai tay trên cao",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 64,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Bài 3: Động tác hai bước ném rổ bằng một tay trên vai",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Ôn tập và đánh giá cuối năm",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "GD THỂ CHẤT",
-            "periodInWeek": 1,
-            "ppct": 1025,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "- Đọc nhạc: Bài số 1",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "- Ôn Đọc nhạc: Bài số 1",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "- Hát: Chim sơn ca",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "- Ôn Hát: Chim sơn ca",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "- Thường thức Âm nhạc: Một số hình thức biểu diễn nhạc cụ",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Hát: Lí đất giồng",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "- Ôn Hát: Lí đất giồng",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "- Thường thức âm nhạc: Đàn nhị",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "- Đọc nhạc: Bài số 2",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "- Ôn Đọc nhạc: Bài số 2",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "- Hát: Bay vào tương lai",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "- Ôn Hát: Bay vào tương lai",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Hát: Duyên dáng mùa xuân",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "- Ôn Hát: Duyên dáng mùa xuân",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "- Thường thức Âm nhạc: Câu chuyện về bản xô-nát Ánh trăng",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Ôn tập cuối học kì I",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Kiểm tra đánh giá cuối học kì I",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "- Đọc nhạc: Bài số 3",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "- Ôn Đọc nhạc: Bài số 3",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "- Hát: Em đi giữa biển vàng",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "- Ôn Hát: Em đi giữa biển vàng",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "- Thường thức âm nhạc: Nhạc sĩ Bùi Đình Thảo và bài hát Sách bút thân yêu ơi!",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Hát: Tuổi hồng ơi",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "- Ôn Hát: Tuổi hồng ơi",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "- Nghe nhạc: Ngôi sao sáng",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "- Đọc nhạc: Bài số 4",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "- Ôn Đọc nhạc: Bài số 4",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "- Hát: Đất nước tươi đẹp sao",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "- Ôn Hát: Đất nước tươi đẹp sao",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "- Thường thức âm nhạc: Giới thiệu một số nhạc cụ gõ nước ngoài",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Hát: Khúc ca hè về",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "- Ôn Hát: Khúc ca hè về",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "- Nghe nhạc: Khúc ca bốn mùa",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Ôn tập cuối năm",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Kiểm tra và đánh gia cuối năm",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "ÂM NHẠC",
-            "periodInWeek": 1,
-            "ppct": 1061,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 1",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 2",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 3",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 4",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 5",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 6",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 7",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 8",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 9",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 10",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 11",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 12",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 13",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 14",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 15",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 16",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 17",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 18",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 19",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 20",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 21",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 22",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 23",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 24",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 25",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 26",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 27",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 28",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 29",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 30",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 31",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 32",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 33",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 34",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 35",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 1097,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 1",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 2",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 3",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 4",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 5",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 6",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 7",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 8",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 9",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 10",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 11",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 12",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 13",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 14",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 15",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 16",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 17",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 18",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 19",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 20",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 21",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 22",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 23",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 24",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 25",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 26",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 27",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 28",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 29",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 30",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 31",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 32",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 33",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 34",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 35",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 36,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 36",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 37",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 38",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 39,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 39",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 40,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 40",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 41",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 42",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 43",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 44",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 45",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 46",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 47,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 47",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 48,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 48",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 49",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 50",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 51",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 52",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 53",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 54",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 55",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 56",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 57",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 58",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 59,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 59",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 60,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 60",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 61",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 62",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 63,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 63",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 64,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 64",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 65",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 66",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 67",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 68",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 69",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Ôn tập Tiếng Việt - Tiết 70",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TIẾNG VIỆT",
-            "periodInWeek": 1,
-            "ppct": 1168,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 2,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 4,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 6,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 8,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 10,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 12,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 14,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 16,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 18,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 20,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 22,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 24,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 26,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 28,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 30,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 32,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 34,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Đọc sách trong Thư viện",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "ĐỌC THƯ VIỆN",
-            "periodInWeek": 1,
-            "ppct": 1204,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Ôn tập Toán - Tiết 1",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Ôn tập Toán - Tiết 2",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 3,
-            "lessonName": "Ôn tập Toán - Tiết 3",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 4,
-            "lessonName": "Ôn tập Toán - Tiết 4",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Ôn tập Toán - Tiết 5",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Ôn tập Toán - Tiết 6",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 7,
-            "lessonName": "Ôn tập Toán - Tiết 7",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 8,
-            "lessonName": "Ôn tập Toán - Tiết 8",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Ôn tập Toán - Tiết 9",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Ôn tập Toán - Tiết 10",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 11,
-            "lessonName": "Ôn tập Toán - Tiết 11",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 12,
-            "lessonName": "Ôn tập Toán - Tiết 12",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Ôn tập Toán - Tiết 13",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Ôn tập Toán - Tiết 14",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 15,
-            "lessonName": "Ôn tập Toán - Tiết 15",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 16,
-            "lessonName": "Ôn tập Toán - Tiết 16",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Ôn tập Toán - Tiết 17",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Ôn tập Toán - Tiết 18",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 19,
-            "lessonName": "Ôn tập Toán - Tiết 19",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 20,
-            "lessonName": "Ôn tập Toán - Tiết 20",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Ôn tập Toán - Tiết 21",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Ôn tập Toán - Tiết 22",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 23,
-            "lessonName": "Ôn tập Toán - Tiết 23",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 24,
-            "lessonName": "Ôn tập Toán - Tiết 24",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Ôn tập Toán - Tiết 25",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Ôn tập Toán - Tiết 26",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 27,
-            "lessonName": "Ôn tập Toán - Tiết 27",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 28,
-            "lessonName": "Ôn tập Toán - Tiết 28",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Ôn tập Toán - Tiết 29",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Ôn tập Toán - Tiết 30",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 31,
-            "lessonName": "Ôn tập Toán - Tiết 31",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 32,
-            "lessonName": "Ôn tập Toán - Tiết 32",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Ôn tập Toán - Tiết 33",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Ôn tập Toán - Tiết 34",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 35,
-            "lessonName": "Ôn tập Toán - Tiết 35",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 36,
-            "lessonName": "Ôn tập Toán - Tiết 36",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Ôn tập Toán - Tiết 37",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Ôn tập Toán - Tiết 38",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 39,
-            "lessonName": "Ôn tập Toán - Tiết 39",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 40,
-            "lessonName": "Ôn tập Toán - Tiết 40",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Ôn tập Toán - Tiết 41",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Ôn tập Toán - Tiết 42",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 43,
-            "lessonName": "Ôn tập Toán - Tiết 43",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 44,
-            "lessonName": "Ôn tập Toán - Tiết 44",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Ôn tập Toán - Tiết 45",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Ôn tập Toán - Tiết 46",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 47,
-            "lessonName": "Ôn tập Toán - Tiết 47",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 48,
-            "lessonName": "Ôn tập Toán - Tiết 48",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Ôn tập Toán - Tiết 49",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Ôn tập Toán - Tiết 50",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 51,
-            "lessonName": "Ôn tập Toán - Tiết 51",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 52,
-            "lessonName": "Ôn tập Toán - Tiết 52",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Ôn tập Toán - Tiết 53",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Ôn tập Toán - Tiết 54",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 55,
-            "lessonName": "Ôn tập Toán - Tiết 55",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 56,
-            "lessonName": "Ôn tập Toán - Tiết 56",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Ôn tập Toán - Tiết 57",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Ôn tập Toán - Tiết 58",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 59,
-            "lessonName": "Ôn tập Toán - Tiết 59",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 60,
-            "lessonName": "Ôn tập Toán - Tiết 60",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Ôn tập Toán - Tiết 61",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Ôn tập Toán - Tiết 62",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 63,
-            "lessonName": "Ôn tập Toán - Tiết 63",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 64,
-            "lessonName": "Ôn tập Toán - Tiết 64",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Ôn tập Toán - Tiết 65",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Ôn tập Toán - Tiết 66",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 67,
-            "lessonName": "Ôn tập Toán - Tiết 67",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 68,
-            "lessonName": "Ôn tập Toán - Tiết 68",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Ôn tập Toán - Tiết 69",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TOÁN",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Ôn tập Toán - Tiết 70",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TC TOÁN",
-            "periodInWeek": 1,
-            "ppct": 1275,
-            "lessonName": "Tên bài",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 1,
-            "lessonName": "Make a rule board and have practise",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 2,
-            "lessonName": "Think and make a “Rules” corner",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 3,
-            "lessonName": "Lesson 1: Words - School subjects",
-            "integration": null
-        },
-        {
-            "week": 1,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 4,
-            "lessonName": "Lesson 1: Words - Free time activities",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 5,
-            "lessonName": "Lesson 2: Grammar",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 6,
-            "lessonName": "Lesson 3: Words - Numbers",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 7,
-            "lessonName": "Lesson 4: Words - Introduce about someone",
-            "integration": null
-        },
-        {
-            "week": 2,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 8,
-            "lessonName": "Lesson 4: Words - Jobs",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 9,
-            "lessonName": "Lesson 1: Words - Daily routines",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 10,
-            "lessonName": "Lesson 2: Grammar - Simple Pre.",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 11,
-            "lessonName": "Lesson 2: Grammar - Simple Pre.",
-            "integration": null
-        },
-        {
-            "week": 3,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 12,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 13,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 14,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 15,
-            "lessonName": "Lesson 6: Skills Time - Daily routines. (Listening / Speaking)",
-            "integration": null
-        },
-        {
-            "week": 4,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 16,
-            "lessonName": "Lesson 6: Skills Time - Daily routines. (Speaking/ Writing)",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 17,
-            "lessonName": "Lesson 1: Words - Places",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 18,
-            "lessonName": "Lesson 2: Grammar - Simple Pre",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 19,
-            "lessonName": "Lesson 2: Grammar - Simple Pre.",
-            "integration": null
-        },
-        {
-            "week": 5,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 20,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 21,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 22,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 23,
-            "lessonName": "Lesson 6: Skills Time - Movie theater. (Listening/ Speaking)",
-            "integration": null
-        },
-        {
-            "week": 6,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 24,
-            "lessonName": "Lesson 6: Skills Time - Movie theater. (Speaking/ Writing)",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 25,
-            "lessonName": "Lesson 1: Words - Food",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 26,
-            "lessonName": "Lesson 2: Grammar",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 27,
-            "lessonName": "Lesson 2: Grammar (Cont.)",
-            "integration": null
-        },
-        {
-            "week": 7,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 28,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 29,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 30,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 31,
-            "lessonName": "Lesson 6: Skills Time - Recipe making spring rolls.",
-            "integration": null
-        },
-        {
-            "week": 8,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 32,
-            "lessonName": "Lesson 6: Skills Time - Recipe making spring rolls.",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 33,
-            "lessonName": "Review: Unit 1 à Unit 3 (Listening/ Reading)",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 34,
-            "lessonName": "Review: Unit 1 à Unit 3 (Speaking / Writing)",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 35,
-            "lessonName": "Everyday English - Ordering food",
-            "integration": null
-        },
-        {
-            "week": 9,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 36,
-            "lessonName": "CLIL - Health and Nutrition",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 37,
-            "lessonName": "Lesson 1: Words - Transportation",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 38,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Be”",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 39,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Be” (Cont.)",
-            "integration": null
-        },
-        {
-            "week": 10,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 40,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 41,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 42,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 43,
-            "lessonName": "Lesson 6: Skills Time - Describe a place. (Listening/ Speaking)",
-            "integration": null
-        },
-        {
-            "week": 11,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 44,
-            "lessonName": "Lesson 6: Skills Time - Describe a place. (Speaking/ Writing)",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 45,
-            "lessonName": "Lesson 1: Words (Countries/ Weather)",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 46,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Be / Have”",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 47,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Be / Have” (Cont.)",
-            "integration": null
-        },
-        {
-            "week": 12,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 48,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 49,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 50,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 51,
-            "lessonName": "Lesson 6: Skills Time - Describe a special day. (Listening / Speaking)",
-            "integration": null
-        },
-        {
-            "week": 13,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 52,
-            "lessonName": "Lesson 6: Skills Time - Describe a special day. (Speaking/ Writing)",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 53,
-            "lessonName": "Lesson 1: Words - Describe things",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 54,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Regular verbs”",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 55,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Regular verbs”(Cont.)",
-            "integration": null
-        },
-        {
-            "week": 14,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 56,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 57,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 58,
-            "lessonName": "Lesson 5: Skills Time - Reading 1",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 59,
-            "lessonName": "Lesson 6: Skills Time - Describe a vacation. (Listening/ Speaking)",
-            "integration": null
-        },
-        {
-            "week": 15,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 60,
-            "lessonName": "Lesson 6: Skills Time - Describe a vacation. (Speaking/ Writing)",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 61,
-            "lessonName": "Review: Unit 4 à Unit 6",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 62,
-            "lessonName": "Review: Unit 4 à Unit 6",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 63,
-            "lessonName": "Everyday English - Vacation",
-            "integration": null
-        },
-        {
-            "week": 16,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 64,
-            "lessonName": "CLIL - Geography",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 65,
-            "lessonName": "Listening/ Speaking 1",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 66,
-            "lessonName": "Listening/ Speaking 2",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 67,
-            "lessonName": "Reading/ Writing 1",
-            "integration": null
-        },
-        {
-            "week": 17,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 68,
-            "lessonName": "Reading/ Writing 2",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 69,
-            "lessonName": "Sample Test 1",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 70,
-            "lessonName": "Sample Test 2",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 71,
-            "lessonName": "The First Semester Test",
-            "integration": null
-        },
-        {
-            "week": 18,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 72,
-            "lessonName": "The First Semester Test",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 73,
-            "lessonName": "Lesson 1: Words - Dinosaur museum",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 74,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Irregular verbs”",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 75,
-            "lessonName": "Lesson 2: Grammar - Simple Past “Irregular verbs”(Cont.)",
-            "integration": null
-        },
-        {
-            "week": 19,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 76,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 77,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 78,
-            "lessonName": "Lesson 5: Skills Time - Reading 1",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 79,
-            "lessonName": "Lesson 6: Skills Time - Tourist leaflets.",
-            "integration": null
-        },
-        {
-            "week": 20,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 80,
-            "lessonName": "Lesson 6: Skills Time - Tourist leaflets.",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 81,
-            "lessonName": "Lesson 1: Words - Famous places",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 82,
-            "lessonName": "Lesson 2: Grammar - Comparative Adjs",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 83,
-            "lessonName": "Lesson 2: Grammar - Comparative Adjs",
-            "integration": null
-        },
-        {
-            "week": 21,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 84,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 85,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 86,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 87,
-            "lessonName": "Lesson 6: Skills Time - A fact file",
-            "integration": null
-        },
-        {
-            "week": 22,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 88,
-            "lessonName": "Lesson 6: Skills Time - A fact file",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 89,
-            "lessonName": "Lesson 1: Words – “In the park”",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 90,
-            "lessonName": "Lesson 2: Grammar - Adverbs of manner.",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 91,
-            "lessonName": "Lesson 2: Grammar - Adverbs of manner.",
-            "integration": null
-        },
-        {
-            "week": 23,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 92,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 93,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 94,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 95,
-            "lessonName": "Lesson 6: Skills Time - In the library.",
-            "integration": null
-        },
-        {
-            "week": 24,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 96,
-            "lessonName": "Lesson 6: Skills Time - In the library.",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 97,
-            "lessonName": "Review: Unit 7 à Unit 9",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 98,
-            "lessonName": "Review: Unit 7 à Unit 9",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 99,
-            "lessonName": "Everyday English (Comparing information.)",
-            "integration": null
-        },
-        {
-            "week": 25,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 100,
-            "lessonName": "CLIL - Science",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 101,
-            "lessonName": "Lesson 1: Words - Health/ Illness",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 102,
-            "lessonName": "Lesson 2: Grammar - Should/ Shouldn’t",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 103,
-            "lessonName": "Lesson 2: Grammar - Should/ Shouldn’t",
-            "integration": null
-        },
-        {
-            "week": 26,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 104,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 105,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 106,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 107,
-            "lessonName": "Lesson 6: Skills Time - Healthy habits.",
-            "integration": null
-        },
-        {
-            "week": 27,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 108,
-            "lessonName": "Lesson 6: Skills Time - Healthy habits.",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 109,
-            "lessonName": "Lesson 1: Words - Space",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 110,
-            "lessonName": "Lesson 2: Grammar - Simple future “Will”",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 111,
-            "lessonName": "Lesson 2: Grammar - Simple future “Will” (Cont..)",
-            "integration": null
-        },
-        {
-            "week": 28,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 112,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 113,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 114,
-            "lessonName": "Lesson 5: Skills Time",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 115,
-            "lessonName": "Lesson 6: Skills Time - Life in the future.",
-            "integration": null
-        },
-        {
-            "week": 29,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 116,
-            "lessonName": "Lesson 6: Skills Time - Life in the future.",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 117,
-            "lessonName": "Lesson 1: Words - Audio - Visual entertainment.",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 118,
-            "lessonName": "Lesson 2: Grammar - Future recent “Be going to”",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 119,
-            "lessonName": "Lesson 2: Grammar - Future recent “Be going to” (Cont.)",
-            "integration": null
-        },
-        {
-            "week": 30,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 120,
-            "lessonName": "Lesson 3: Grammar and Song",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 121,
-            "lessonName": "Lesson 4: Phonics",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 122,
-            "lessonName": "Lesson 5: Skills Time.",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 123,
-            "lessonName": "Lesson 6: Skills Time - Describe a favorite TV show.",
-            "integration": null
-        },
-        {
-            "week": 31,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 124,
-            "lessonName": "Lesson 6: Skills Time - Describe a favorite TV show.",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 125,
-            "lessonName": "Review: Unit 10 à Unit 12",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 126,
-            "lessonName": "Review: Unit 10 à Unit 12",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 127,
-            "lessonName": "Everyday English - TV shows",
-            "integration": null
-        },
-        {
-            "week": 32,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 128,
-            "lessonName": "CLIL - Science",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 129,
-            "lessonName": "Extensive Reading",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 130,
-            "lessonName": "Extensive Writing",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 131,
-            "lessonName": "Extensive Speaking",
-            "integration": null
-        },
-        {
-            "week": 33,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 132,
-            "lessonName": "Extensive Listening",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 133,
-            "lessonName": "Listening/ Speaking 1",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 134,
-            "lessonName": "Listening/ Speaking 2",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 135,
-            "lessonName": "Reading/ Writing 1",
-            "integration": null
-        },
-        {
-            "week": 34,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 136,
-            "lessonName": "Reading/ Writing 2",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 137,
-            "lessonName": "Sample Test 1",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 138,
-            "lessonName": "Sample Test 2",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 139,
-            "lessonName": "The Final Test",
-            "integration": null
-        },
-        {
-            "week": 35,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 140,
-            "lessonName": "The Final Test",
-            "integration": null
-        },
-        {
-            "week": 36,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 141,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 36,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 142,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 36,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 143,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 36,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 144,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 37,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 145,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 37,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 146,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 37,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 147,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 37,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 148,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 38,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 149,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 38,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 150,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 38,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 151,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 38,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 152,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 39,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 153,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 39,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 154,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 39,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 155,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 39,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 156,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 40,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 157,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 40,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 158,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 40,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 159,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 40,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 160,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 41,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 161,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 41,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 162,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 41,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 163,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 41,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 164,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 42,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 165,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 42,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 166,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 42,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 167,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 42,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 168,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 43,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 169,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 43,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 170,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 43,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
             "ppct": 171,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Bài 74. Ôn tập một số yếu tố thống kê và xác suất (Tiết 2): Luyện tập (Trang 126)",
+            "integration": "Đạo đức, lối sống: Khi đọc bảng số liệu, biểu đồ và xác suất, giáo dục học sinh trung thực khi xử lí dữ liệu, không làm sai lệch kết quả."
         },
         {
-            "week": 43,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
+            "week": 35,
+            "subject": "Toán",
+            "periodInWeek": 2,
             "ppct": 172,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Bài 75. Ôn tập chung (tiết 1): Luyện tập (Trang 128)",
+            "integration": "AI 5.A2.1: Khép lại chương trình: AI dù thông minh đến đâu vẫn chỉ là công cụ, trí tuệ và tấm lòng nhân văn của con người mới là yếu tố quyết định."
         },
         {
-            "week": 44,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
+            "week": 35,
+            "subject": "Toán",
+            "periodInWeek": 3,
             "ppct": 173,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Bài 75. Ôn tập chung (tiết 2): Luyện tập (Trang 130)",
+            "integration": "Lý tưởng cách mạng, đạo đức, lối sống: Chọn bài toán tổng hợp về địa danh Việt Nam, phong trào tiết kiệm hoặc hoạt động cộng đồng; giáo dục học sinh trách nhiệm, chăm học và trung thực."
         },
         {
-            "week": 44,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
+            "week": 35,
+            "subject": "Toán",
+            "periodInWeek": 4,
             "ppct": 174,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Bài 75. Ôn tập chung (tiết 3): Luyện tập (Trang 130)",
+            "integration": ""
         },
         {
-            "week": 44,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
+            "week": 35,
+            "subject": "Toán",
+            "periodInWeek": 5,
             "ppct": 175,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Bài 75. Ôn tập chung (tiết 4): Luyện tập (Trang 132)",
+            "integration": ""
         },
         {
-            "week": 44,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
+            "week": 35,
+            "subject": "Toán",
+            "periodInWeek": 1,
             "ppct": 176,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 45,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 177,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 45,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 178,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 45,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 179,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 45,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 180,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 46,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 181,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 46,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 182,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 46,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 183,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 46,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 184,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 47,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 185,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 47,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 186,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 47,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 187,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 47,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 188,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 48,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 189,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 48,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 190,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 48,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 191,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 48,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 192,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 49,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 193,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 49,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 194,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 49,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 195,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 49,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 196,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 50,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 197,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 50,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 198,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 50,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 199,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 50,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 200,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 51,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 201,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 51,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 202,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 51,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 203,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 51,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 204,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 52,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 205,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 52,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 206,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 52,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 207,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 52,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 208,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 53,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 209,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 53,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 210,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 53,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 211,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 53,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 212,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 54,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 213,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 54,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 214,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 54,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 215,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 54,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 216,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 55,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 217,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 55,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 218,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 55,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 219,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 55,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 220,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 56,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 221,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 56,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 222,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 56,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 223,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 56,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 224,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 57,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 225,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 57,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 226,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 57,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 227,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 57,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 228,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 58,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 229,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 58,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 230,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 58,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 231,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 58,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 232,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 59,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 233,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 59,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 234,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 59,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 235,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 59,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 236,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 60,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 237,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 60,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 238,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 60,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 239,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 60,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 240,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 61,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 241,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 61,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 242,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 61,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 243,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 61,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 244,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 62,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 245,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 62,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 246,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 62,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 247,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 62,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 248,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 63,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 249,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 63,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 250,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 63,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 251,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 63,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 252,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 64,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 253,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 64,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 254,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 64,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 255,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 64,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 256,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 65,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 257,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 65,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 258,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 65,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 259,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 65,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 260,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 66,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 261,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 66,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 262,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 66,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 263,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 66,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 264,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 67,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 265,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 67,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 266,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 67,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 267,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 67,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 268,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 68,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 269,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 68,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 270,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 68,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 271,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 68,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 272,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 69,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 273,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 69,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 274,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 69,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 275,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 69,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 276,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 70,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 277,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 70,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 278,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 70,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 279,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 70,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 280,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 71,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 281,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 71,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 2,
-            "ppct": 282,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 71,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 3,
-            "ppct": 283,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 71,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 4,
-            "ppct": 284,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
-        },
-        {
-            "week": 72,
-            "subject": "TIẾNG ANH",
-            "periodInWeek": 1,
-            "ppct": 285,
-            "lessonName": "GV Tiếng Anh dạy",
-            "integration": null
+            "lessonName": "Tên bài",
+            "integration": "Đạo đức, lối sống: Khi đọc bảng số liệu, biểu đồ và xác suất, giáo dục học sinh trung thực khi xử lí dữ liệu, không làm sai lệch kết quả."
         }
     ],
     "khdh": {
