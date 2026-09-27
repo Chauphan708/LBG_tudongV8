@@ -689,7 +689,7 @@ body {
 }
 
 .modal-backdrop.show {
-    display: flex;
+    display: flex !important;
     animation: modalIn 0.2s ease-out;
 }
 

@@ -10,6 +10,43 @@
     <script src="lib/jszip.min.js"></script>
     <script src="lib/FileSaver.min.js"></script>
     <script src="lib/xlsx.full.min.js"></script>
+    <!-- Standalone Robust Tab Switcher -->
+    <script>
+        function switchActiveTab(targetTab) {
+            if (!targetTab) return;
+            try {
+                // 1. Update tab button active states
+                document.querySelectorAll(".tab-btn").forEach(function(btn) {
+                    if (btn.getAttribute("data-tab") === targetTab) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+
+                // 2. Hide all tab contents and display targeted tab
+                document.querySelectorAll(".tab-content").forEach(function(content) {
+                    content.classList.remove("active");
+                    content.style.display = "none";
+                });
+
+                var targetEl = document.getElementById(targetTab);
+                if (targetEl) {
+                    targetEl.classList.add("active");
+                    targetEl.style.display = "block";
+                    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+                }
+
+                // 3. Trigger rendering hooks if main app is initialized
+                if (window._renderTabByTarget) {
+                    window._renderTabByTarget(targetTab);
+                }
+            } catch (err) {
+                console.error("switchActiveTab error:", err);
+            }
+        }
+        window.switchActiveTab = switchActiveTab;
+    </script>
 </head>
 <body>
 
@@ -35,10 +72,10 @@
                         <option value="5" selected>Khối 5</option>
                     </select>
                 </div>
-                <button type="button" class="btn-top-quick" id="btn-top-settings" title="Mở nhanh mục Cài Đặt và Thời Khóa Biểu">
+                <button type="button" class="btn-top-quick" id="btn-top-settings" onclick="switchActiveTab('tab-settings')" title="Mở nhanh mục Cài Đặt và Thời Khóa Biểu">
                     <span>⚙️</span> Cài Đặt &amp; TKB
                 </button>
-                <button type="button" class="btn-top-quick btn-top-guide" id="btn-top-guide" title="Xem Hướng Dẫn Sử Dụng &amp; Tính Năng Mới V10">
+                <button type="button" class="btn-top-quick btn-top-guide" id="btn-top-guide" onclick="switchActiveTab('tab-guide')" title="Xem Hướng Dẫn Sử Dụng &amp; Tính Năng Mới V10">
                     <span>💡</span> Hướng Dẫn V10
                 </button>
                 <span class="badge-info" id="top-badge-school">🏫 TH TRUNG NHỨT — LỚP 5A</span>
@@ -49,33 +86,33 @@
     <!-- Tab Navigation -->
     <nav class="tab-navigation no-print">
         <div class="nav-container">
-            <button class="tab-btn active" data-tab="tab-lbg" id="nav-btn-lbg" title="Lịch Báo Giảng Theo Tuần">
+            <button type="button" class="tab-btn active" data-tab="tab-lbg" id="nav-btn-lbg" onclick="switchActiveTab('tab-lbg')" title="Lịch Báo Giảng Theo Tuần">
                 <span>📅</span>
                 <span>Lịch Báo Giảng</span>
             </button>
-            <button class="tab-btn" data-tab="tab-ctlop" id="nav-btn-ctlop" title="Báo Giảng Tích Hợp CTLOP">
+            <button type="button" class="tab-btn" data-tab="tab-ctlop" id="nav-btn-ctlop" onclick="switchActiveTab('tab-ctlop')" title="Báo Giảng Tích Hợp CTLOP">
                 <span>🎯</span>
                 <span>BG Tích Hợp (CTLOP)</span>
             </button>
-            <button class="tab-btn" data-tab="tab-lbg-mon" id="nav-btn-lbg-mon" title="Báo Giảng Chi Tiết Từng Môn Học Bản V10">
+            <button type="button" class="tab-btn" data-tab="tab-lbg-mon" id="nav-btn-lbg-mon" onclick="switchActiveTab('tab-lbg-mon')" title="Báo Giảng Chi Tiết Từng Môn Học Bản V10">
                 <span>📚</span>
                 <span>Báo Giảng Theo Môn</span>
                 <span class="guide-badge-hot" style="background:#059669; margin-left:4px;">V10</span>
             </button>
-            <button class="tab-btn" data-tab="tab-lichtuan" id="nav-btn-lichtuan" title="Kế Hoạch Thời Gian 35 Tuần &amp; Tùy Chỉnh Nghỉ Tết">
+            <button type="button" class="tab-btn" data-tab="tab-lichtuan" id="nav-btn-lichtuan" onclick="switchActiveTab('tab-lichtuan')" title="Kế Hoạch Thời Gian 35 Tuần &amp; Tùy Chỉnh Nghỉ Tết">
                 <span>🗓️</span>
                 <span>Lịch Tuần (35 Tuần)</span>
             </button>
-            <button class="tab-btn" data-tab="tab-ppct" id="nav-btn-ppct" title="Phân Phối Chương Trình &amp; Kế Hoạch Dạy Học">
+            <button type="button" class="tab-btn" data-tab="tab-ppct" id="nav-btn-ppct" onclick="switchActiveTab('tab-ppct')" title="Phân Phối Chương Trình &amp; Kế Hoạch Dạy Học">
                 <span>📖</span>
                 <span>PPCT &amp; KHDH</span>
                 <span class="tab-badge" id="ppct-count-badge">1400+ tiết</span>
             </button>
-            <button class="tab-btn tab-btn-settings-highlight" data-tab="tab-settings" id="nav-btn-settings" title="Cài Đặt Năm Học &amp; Thời Khóa Biểu">
+            <button type="button" class="tab-btn tab-btn-settings-highlight" data-tab="tab-settings" id="nav-btn-settings" onclick="switchActiveTab('tab-settings')" title="Cài Đặt Năm Học &amp; Thời Khóa Biểu">
                 <span>⚙️</span>
                 <span style="font-weight: 700;">Cài Đặt &amp; TKB</span>
             </button>
-            <button class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" id="nav-btn-guide" title="Xem Hướng Dẫn Sử Dụng và Điểm Mới Bản V10">
+            <button type="button" class="tab-btn tab-btn-guide-highlight" data-tab="tab-guide" id="nav-btn-guide" onclick="switchActiveTab('tab-guide')" title="Xem Hướng Dẫn Sử Dụng và Điểm Mới Bản V10">
                 <span class="guide-icon">💡</span>
                 <span style="font-weight: 700;">Hướng Dẫn Sử Dụng</span>
                 <span class="guide-badge-hot">V10</span>
@@ -101,10 +138,10 @@
                             <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-lbg">📄 Khổ Đứng</button>
                             <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-lbg">📜 Khổ Ngang</button>
                         </div>
-                        <button class="btn btn-secondary btn-sm btn-nav-to-lbgmon" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
+                        <button type="button" class="btn btn-secondary btn-sm btn-nav-to-lbgmon" onclick="switchActiveTab('tab-lbg-mon')" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
                             <span>📚</span> <span>Xem Theo Môn</span>
                         </button>
-                        <button class="btn btn-secondary btn-sm btn-nav-to-settings" title="Cài đặt năm học, thông tin trường lớp và cấu hình Thời Khóa Biểu">
+                        <button type="button" class="btn btn-secondary btn-sm btn-nav-to-settings" onclick="switchActiveTab('tab-settings')" title="Cài đặt năm học, thông tin trường lớp và cấu hình Thời Khóa Biểu">
                             <span>⚙️</span> <span>Cài Đặt &amp; TKB</span>
                         </button>
                         <button class="btn btn-secondary btn-sm" id="btn-lbg-reset-tkb" title="Khôi phục TKB gốc chuẩn 35 tiết của khối 5">
@@ -288,7 +325,7 @@
                             <button type="button" class="btn active" data-orient="portrait" id="btn-orient-portrait-ctlop">📄 Khổ Đứng</button>
                             <button type="button" class="btn" data-orient="landscape" id="btn-orient-landscape-ctlop">📜 Khổ Ngang</button>
                         </div>
-                        <button class="btn btn-secondary btn-sm btn-nav-to-lbgmon" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
+                        <button type="button" class="btn btn-secondary btn-sm btn-nav-to-lbgmon" onclick="switchActiveTab('tab-lbg-mon')" title="Chuyển sang xem Lịch Báo Giảng gom nhóm theo từng môn học">
                             <span>📚</span> <span>Xem Theo Môn</span>
                         </button>
                         <button class="btn btn-secondary" id="btn-ctlop-batch" style="font-weight: 700; color: var(--primary); border-color: var(--primary-light);">
@@ -1070,7 +1107,7 @@
                 <!-- Banner Giới Thiệu -->
                 <div class="guide-banner">
                     <div style="display:inline-block; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.4); border-radius:20px; padding:0.25rem 0.85rem; font-size:0.84rem; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.5rem; color:#ffffff;">
-                        🚀 ĐÂY LÀ PHIÊN BẢN V9 (VERSION 9.0) — PHIÊN BẢN MỚI NHẤT
+                        🚀 ĐÂY LÀ PHIÊN BẢN V10 (VERSION 10.0) — PHIÊN BẢN MỚI NHẤT
                     </div>
                     <h2>📖 Hướng Dẫn Sử Dụng Phần Mềm Lịch Báo Giảng &amp; KHDH Tiểu Học (Khối 1 - 5)</h2>
                     
@@ -1080,7 +1117,7 @@
                         <a href="#guide-sec-1" class="guide-toc-item"><span>1. Thiết lập Trường &amp; Lớp</span></a>
                         <a href="#guide-sec-2" class="guide-toc-item"><span>2. Lịch Báo Giảng Tuần</span></a>
                         <a href="#guide-sec-3" class="guide-toc-item"><span>3. Báo Giảng Tích Hợp</span></a>
-                        <a href="#guide-sec-3b" class="guide-toc-item"><span>3B. Báo Giảng Theo Môn</span> <span class="guide-badge-hot" style="background:#059669; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V8</span></a>
+                        <a href="#guide-sec-3b" class="guide-toc-item"><span>3B. Báo Giảng Theo Môn</span> <span class="guide-badge-hot" style="background:#059669; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V10</span></a>
                         <a href="#guide-sec-4" class="guide-toc-item"><span>4. Kế Hoạch Thời Gian</span></a>
                         <a href="#guide-sec-5" class="guide-toc-item"><span>5. PPCT &amp; Xuất KHDH</span></a>
                         <a href="#guide-sec-6" class="guide-toc-item"><span>6. In Thời Khóa Biểu</span></a>
@@ -1088,7 +1125,8 @@
                         <a href="#guide-sec-8" class="guide-toc-item"><span>8. Sao Lưu &amp; Chia Sẻ</span></a>
                         <a href="#guide-sec-9" class="guide-toc-item"><span>9. An toàn dữ liệu</span> <span style="margin-left:auto; font-size:0.88rem;">🛡️</span></a>
                         <a href="#guide-sec-10" class="guide-toc-item"><span>10. Điểm Mới Bản V7</span> <span class="guide-badge-hot" style="background:#d97706; font-size:0.7rem; padding:1px 5px; margin-left:auto;">V7</span></a>
-                        <a href="#guide-sec-11" class="guide-toc-item guide-toc-item-v8"><span>✨ 11. Điểm Mới Bản V8</span> <span class="guide-badge-hot" style="background:#dc2626; font-size:0.72rem; padding:2px 6px; margin-left:auto;">V8 Mới</span></a>
+                        <a href="#guide-sec-11" class="guide-toc-item"><span>11. Điểm Mới Bản V8</span> <span class="guide-badge-hot" style="background:#dc2626; font-size:0.72rem; padding:2px 6px; margin-left:auto;">V8</span></a>
+                        <a href="#guide-sec-12" class="guide-toc-item guide-toc-item-v8"><span>🌟 12. Điểm Mới Bản V10</span> <span class="guide-badge-hot" style="background:#059669; font-size:0.72rem; padding:2px 6px; margin-left:auto;">V10 Mới</span></a>
                     </div>
                 </div>
 
@@ -1436,11 +1474,15 @@
                         </div>
                         <div class="guide-step-box" style="border-left: 3px solid #f59e0b; background: #ffffff;">
                             <h4 style="color: #b45309;">🎨 Mĩ thuật (Khối 1, 2, 3, 4, 5)</h4>
-                            <p>Đầy đủ 35 tiết/năm cho cả 5 khối lớp, chi tiết theo từng chủ đề thực hành, sáng tạo và trưng bày sản phẩm.</p>
+                            <p>Đầy đủ 35 tiết/năm chuẩn 35 tuần cho cả 5 khối lớp (đặc biệt Khối 3, 4 chuẩn xác phân bổ 1 tiết/tuần từ Tuần 1 đến 35, tích hợp đầy đủ ANQP, AI, Năng lực số, MT 2D/3D).</p>
                         </div>
                         <div class="guide-step-box" style="border-left: 3px solid #3b82f6; background: #ffffff;">
                             <h4 style="color: #1d4ed8;">🏃 Giáo dục thể chất (Khối 1, 2, 3, 4, 5)</h4>
                             <p>Đầy đủ 70 tiết/năm (2 tiết/tuần) cho cả 5 khối lớp, tự động phân phối đều đặn vào thời khóa biểu 35 tuần của trường.</p>
+                        </div>
+                        <div class="guide-step-box" style="border-left: 3px solid #14b8a6; background: #ffffff;">
+                            <h4 style="color: #0f766e;">🛠️ Công nghệ Khối 3 (Kết Nối Tri Thức)</h4>
+                            <p>Đầy đủ 35 tiết/năm (1 tiết/tuần x 35 tuần) theo sách KNTT: Tự nhiên và công nghệ, đèn học, quạt điện, máy thu thanh, thu hình, an toàn công nghệ, làm đồ dùng học tập, biển báo giao thông, đồ chơi và ôn tập kiểm tra.</p>
                         </div>
                         <div class="guide-step-box" style="border-left: 3px solid #6366f1; background: #ffffff;">
                             <h4 style="color: #4338ca;">💻 Tin học (Khối 3, 4, 5)</h4>
@@ -1459,6 +1501,8 @@
 
             </div>
         </section>
+
+    </main>
 
     <!-- =========================================================================
          MODAL WELCOME GUIDE (POPUP HƯỚNG DẪN LẦN ĐẦU TIÊN MỞ PHẦN MỀM)
@@ -1842,7 +1886,7 @@
     </div>
 
     <!-- Modal Xác Nhận Chế Độ Nạp PPCT -->
-    <div class="modal-backdrop" id="modal-import-mode" style="display: none; z-index: 1050;">
+    <div class="modal-backdrop" id="modal-import-mode" style="z-index: 1050;">
         <div class="modal-card" style="max-width: 540px;">
             <div class="modal-header" style="background: var(--primary); color: #fff; padding: 1rem 1.25rem;">
                 <h3 class="modal-title" style="color: #fff; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">

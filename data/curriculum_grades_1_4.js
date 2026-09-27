@@ -1,6 +1,6 @@
 /**
- * Dữ liệu Phân phối chương trình & Thời khóa biểu Khối 1, 2, 3, 4
- * Đồng bộ hóa đầy đủ theo Chương trình GDPT 2018 (Bản V10)
+ * Data File for Lịch Báo Giảng App (Khối 1 - 4)
+ * Tích hợp đầy đủ chương trình GDPT 2018 và phân phối chương trình các môn bộ môn Bản V10
  */
 
 window.APP_GRADE_DATA = {
@@ -23333,8 +23333,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 1,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 1. Tự nhiên và công nghệ (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -23422,79 +23422,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 1,
                 "lessonName": "Em yêu Mĩ thuật (Tiết 1)",
-                "integration": "3. Tích hợp ANQP: (HĐ5 .TIÊT1 ) 3.0.1 : - Nhận thức về tình yêu quê hương, đất nước. - Nhận biết vẻ đẹp của các sản phẩm mĩ thuật truyền thống để nuôi dưỡng tình yêu quê hương. 4. Tích hợp AI: (HĐ2 .TIÊT1 ) 3.B2.1 : - Nhận biết được sự khác nhau giữa tác phẩm mĩ thuật do con người tạo ra và hình ảnh mô phỏng do AI tạo ra."
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 11,
-                "lessonName": "Một số vật liệu sử dụng trong thực hành, sáng tạo mĩ thuật (Tiết 2)",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 12,
-                "lessonName": "Một số vật liệu sử dụng trong thực hành, sáng tạo mĩ thuật (Tiết 3)",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 13,
-                "lessonName": "Biết ơn thầy cô (Tiết 1)",
-                "integration": "3. Tích hợp ANQP: (HĐ2 .TIÊT1 ) 3.0.4 : - Kính trọng thầy giáo, cô giáo. - Thể hiện lòng biết ơn thầy cô và ý thức chăm ngoan, rèn luyện để góp phần xây dựng đất nước. 4. Tích hợp AI: (HĐ2 .TIÊT1,2,3,4 ) 3.A2.2 : - Nhận biết và nêu được các đối tượng trong trường học mà AI có thể hỗ trợ (học sinh, giáo viên). - Nhận biết các công cụ AI có thể hỗ trợ thầy cô và HS tìm kiếm tư liệu, hình ảnh để giúp bài học phong phú, sinh động hơn."
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 14,
-                "lessonName": "Biết ơn thầy cô (Tiết 2)",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 15,
-                "lessonName": "Biết ơn thầy cô (Tiết 3)",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 16,
-                "lessonName": "Biết ơn thầy cô (Tiết 4)",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 17,
-                "lessonName": "Tiết 1",
-                "integration": ""
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 18,
-                "lessonName": "Cảnh vật quanh em (Tiết 1)",
-                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T4 3T1.2 - Biết giữ gìn và bảo vệ trường học, môi trường quanh em.Phê phán hành vi xả rác bừa bãi ra đường phố, sông ngòi… 4. Tích hợp AI: (HĐ2 .TIÊT 1,2,3,4 ) 3.A3.1 : - HS biết thêm thiết bị AI hỗ trợ học tập thông qua xem video và trò chơi. Nhận biết được cảnh vật sinh động để hứng thú học tập 5. Tích hợp GDĐP : HĐ2.T1 3.G1.2 GT Cảnh vật trong cuộc sống ở địa phương"
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 19,
-                "lessonName": "Cảnh vật quanh em (Tiết 2)",
-                "integration": ""
+                "integration": "3. Tích hợp ANQP: (HĐ5 .TIÊT1 )3.0.1:- Nhận thức về tình yêu quê hương, đất nước.- Nhận biết vẻ đẹp của các sản phẩm mĩ thuật truyền thống để nuôi dưỡng tình yêu quê hương. 4. Tích hợp AI: (HĐ2 .TIÊT1 )3.B2.1: - Nhận biết được sự khác nhau giữa tác phẩm mĩ thuật do con người tạo ra và hình ảnh mô phỏng do AI tạo ra."
             },
             {
                 "week": 1,
@@ -23738,8 +23666,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 2,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 1. Tự nhiên và công nghệ (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -23827,7 +23755,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 2,
                 "lessonName": "Hoa văn trên trang phục của một số dân tộc (Tiết 1)",
-                "integration": "3 . Tích hợp AI: HĐ2 .TIÊT 1,2 ) 3.C5.1 : - Hiểu được quy luật lặp lại của hoa văn trên trang phục dân tộc như một dạng \"thuật toán\" thông qua xem video và trò chơi dưới sự hướng dẫn của GV"
+                "integration": "3. Tích hợp AI: HĐ2 .TIÊT 1,2 )3.C5.1: - Hiểu được quy luật lặp lại của hoa văn trên trang phục dân tộc như một dạng \"thuật toán\" thông qua xem video và trò chơi dưới sự hướng dẫn của GV"
             },
             {
                 "week": 2,
@@ -24071,8 +23999,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 3,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 2. Sử dụng đèn học (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -24404,8 +24332,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 4,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 2. Sử dụng đèn học (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -24493,7 +24421,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 4,
                 "lessonName": "Màu sắc em yêu (Tiết 1)",
-                "integration": "3. Tích hợp ANQP: (HĐ3 .TIÊT1 ) 3.0.1: - Tình yêu quê hương qua cảnh sắc thiên nhiên. - Sử dụng màu sắc để thể hiện vẻ đẹp tươi đẹp của cảnh sắc quê hương, đất nước. 4. Tích hợp AI: (HĐ2 .TIÊT1,2,3 ) 3.D1.1 : - Trình bày được quá trình đơn giản để huấn luyện AI gồm các bước: thu thập ví dụ và cho AI học từ các ví dụ đó. - Biết rằng AI có thể \"học\" cách phối màu từ hàng triệu bức ảnh thiên nhiên để gợi ý cách phối màu đẹp cho con người. 5. Tích hợp GDĐP : HĐ2.T1 3.0.3.2 GT cảnh đẹp và sắc màu quanh em"
+                "integration": "3. Tích hợp ANQP: (HĐ3 .TIÊT1 )3.0.1: - Tình yêu quê hương qua cảnh sắc thiên nhiên.- Sử dụng màu sắc để thể hiện vẻ đẹp tươi đẹp của cảnh sắc quê hương, đất nước. 4. Tích hợp AI: (HĐ2 .TIÊT1,2,3 )3.D1.1: - Trình bày được quá trình đơn giản để huấn luyện AI gồm các bước: thu thập ví dụ và cho AI học từ các ví dụ đó.- Biết rằng AI có thể \"học\" cách phối màu từ hàng triệu bức ảnh thiên nhiên để gợi ý cách phối màu đẹp cho con người. 5. Tích hợp GDĐP: HĐ2.T13.0.3.2GT cảnh đẹp và sắc màu quanh em"
             },
             {
                 "week": 4,
@@ -24737,8 +24665,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 5,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 3. Sử dụng quạt điện (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -25070,8 +24998,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 6,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 3. Sử dụng quạt điện (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -25403,8 +25331,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 7,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 4. Sử dụng máy thu thanh (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -25492,7 +25420,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 7,
                 "lessonName": "Vẻ đẹp của khối (Tiết 1)",
-                "integration": "3. Tích hợp ANQP: (HĐ4.T1. HĐ3.T3 ) 3.0.5 : - Rèn luyện tính kỉ luật, tinh thần đoàn kết. - Hợp tác nhóm để tạo sản phẩm khối, thể hiện sự đoàn kết và hỗ trợ lẫn nhau trong học tập. 4. Tích hợp AI: (HĐ2.TIÊT1,2,3 ) 3.A2.1 : - Nhận biết và mô tả được một số ứng dụng hoặc thiết bị có sử dụng AI trong trường học (như robot). - Nhận biết robot là một hệ thống các hình khối chuyển động được điều khiển bởi AI để giúp đỡ con người. - Lồng ghép STEAM"
+                "integration": "3. Tích hợp ANQP: (HĐ4.T1. HĐ3.T3 )3.0.5: - Rèn luyện tính kỉ luật, tinh thần đoàn kết.- Hợp tác nhóm để tạo sản phẩm khối, thể hiện sự đoàn kết và hỗ trợ lẫn nhau trong học tập. 4. Tích hợp AI: (HĐ2.TIÊT1,2,3 )3.A2.1: - Nhận biết và mô tả được một số ứng dụng hoặc thiết bị có sử dụng AI trong trường học (như robot).- Nhận biết robot là một hệ thống các hình khối chuyển động được điều khiển bởi AI để giúp đỡ con người.- Lồng ghép STEAM"
             },
             {
                 "week": 7,
@@ -25736,8 +25664,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 8,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 4. Sử dụng máy thu thanh (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -26069,8 +25997,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 9,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 4. Sử dụng máy thu thanh (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -26402,8 +26330,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 10,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 4. Sử dụng máy thu thanh (T4)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -26491,7 +26419,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 10,
                 "lessonName": "Một số vật liệu sử dụng trong thực hành, sáng tạo mĩ thuật (Tiết 1)",
-                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T3 3.T3.2 - Tận dụng chất liệu có sẵn để tạo sản phẩm, biết giữ vệ sinh chung. - Có ý thức bảo vệ môi trường thông qua việc tái chế vật liệu sẵn có để sáng tạo nghệ thuật. 4. Tích hợp AI: (HĐ2 .TIÊT 1, 2, 3 ) 3.B3.1 : - Biết được rằng con người cần cung cấp dữ liệu đúng và đa dạng để AI hoạt động chính xác. - Biết rằng AI có thể giúp phân loại các vật liệu tái chế (lá cây, vỏ chai, giấy) nếu chúng ta cung cấp hình ảnh dữ liệu đúng ."
+                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T33.T3.2- Tận dụng chất liệu có sẵn để tạo sản phẩm, biết giữ vệ sinh chung.- Có ý thức bảo vệ môi trường thông qua việc tái chế vật liệu sẵn có để sáng tạo nghệ thuật.4. Tích hợp AI: (HĐ2 .TIÊT 1, 2, 3 )3.B3.1: - Biết được rằng con người cần cung cấp dữ liệu đúng và đa dạng để AI hoạt động chính xác.- Biết rằng AI có thể giúp phân loại các vật liệu tái chế (lá cây, vỏ chai, giấy) nếu chúng ta cung cấp hình ảnh dữ liệu đúng ."
             },
             {
                 "week": 10,
@@ -26735,8 +26663,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 11,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 5. Sử dụng máy thu hình (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -26816,6 +26744,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 22,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "3 tiết",
+                "integration": ""
+            },
+            {
+                "week": 11,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 11,
+                "lessonName": "Một số vật liệu sử dụng trong thực hành, sáng tạo mĩ thuật (Tiết 2)",
                 "integration": ""
             },
             {
@@ -27060,8 +26996,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 12,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 5. Sử dụng máy thu hình (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -27141,6 +27077,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 24,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
+                "integration": ""
+            },
+            {
+                "week": 12,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 12,
+                "lessonName": "Một số vật liệu sử dụng trong thực hành, sáng tạo mĩ thuật (Tiết 3)",
                 "integration": ""
             },
             {
@@ -27385,8 +27329,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 13,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 5. Sử dụng máy thu hình (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -27467,6 +27411,14 @@ window.APP_GRADE_DATA = {
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
                 "integration": ""
+            },
+            {
+                "week": 13,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 13,
+                "lessonName": "Biết ơn thầy cô (Tiết 1)",
+                "integration": "3. Tích hợp ANQP: (HĐ2 .TIÊT1 )3.0.4: - Kính trọng thầy giáo, cô giáo.- Thể hiện lòng biết ơn thầy cô và ý thức chăm ngoan, rèn luyện để góp phần xây dựng đất nước.4. Tích hợp AI: (HĐ2 .TIÊT1,2,3,4 )3.A2.2: - Nhận biết và nêu được các đối tượng trong trường học mà AI có thể hỗ trợ (học sinh, giáo viên).- Nhận biết các công cụ AI có thể hỗ trợ thầy cô và HS tìm kiếm tư liệu, hình ảnh để giúp bài học phong phú, sinh động hơn."
             },
             {
                 "week": 13,
@@ -27710,8 +27662,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 14,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 5. Sử dụng máy thu hình (T4)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -27791,6 +27743,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 28,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "3 tiết",
+                "integration": ""
+            },
+            {
+                "week": 14,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 14,
+                "lessonName": "Biết ơn thầy cô (Tiết 2)",
                 "integration": ""
             },
             {
@@ -28035,8 +27995,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 15,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 6. An toàn với môi trường công nghệ trong gia đình (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -28116,6 +28076,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 30,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
+                "integration": ""
+            },
+            {
+                "week": 15,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 15,
+                "lessonName": "Biết ơn thầy cô (Tiết 3)",
                 "integration": ""
             },
             {
@@ -28360,8 +28328,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 16,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 6. An toàn với môi trường công nghệ trong gia đình (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -28441,6 +28409,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 32,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
+                "integration": ""
+            },
+            {
+                "week": 16,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 16,
+                "lessonName": "Biết ơn thầy cô (Tiết 4)",
                 "integration": ""
             },
             {
@@ -28685,8 +28661,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 17,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 6. An toàn với môi trường công nghệ trong gia đình (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -28766,6 +28742,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 34,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "3 tiết",
+                "integration": ""
+            },
+            {
+                "week": 17,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 17,
+                "lessonName": "Tiết 1",
                 "integration": ""
             },
             {
@@ -29010,8 +28994,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 18,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 6. An toàn với môi trường công nghệ trong gia đình (T4)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -29092,6 +29076,14 @@ window.APP_GRADE_DATA = {
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
                 "integration": ""
+            },
+            {
+                "week": 18,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 18,
+                "lessonName": "Cảnh vật quanh em (Tiết 1)",
+                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T43T1.2- Biết giữ gìn và bảo vệ trường học, môi trường quanh em.Phê phán hành vi xả rác bừa bãi ra đường phố, sông ngòi…4. Tích hợp AI: (HĐ2 .TIÊT 1,2,3,4 )3.A3.1: - HS biết thêm thiết bị AI hỗ trợ học tập thông qua xem video và trò chơi. Nhận biết được cảnh vật sinh động để hứng thú học tập 5. Tích hợp GDĐP: HĐ2.T13.G1.2GT Cảnh vật trong cuộc sống ở địa phương"
             },
             {
                 "week": 18,
@@ -29335,8 +29327,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 19,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Ôn tập kiểm tra học kì I (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -29416,6 +29408,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 598,
                 "lessonName": "GV bộ môn dạy",
                 "duration": "",
+                "integration": ""
+            },
+            {
+                "week": 19,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 19,
+                "lessonName": "Cảnh vật quanh em (Tiết 2)",
                 "integration": ""
             },
             {
@@ -29660,8 +29660,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 20,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Ôn tập kiểm tra học kì I (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -29993,8 +29993,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 21,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 7. Dụng cụ và vật liệu làm thủ công (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -30326,8 +30326,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 22,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 7. Dụng cụ và vật liệu làm thủ công (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -30415,7 +30415,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 22,
                 "lessonName": "Chân dung người thân trong gia đình (Tiết 1)",
-                "integration": "3. Tích hợp AI: HĐ2, T1,2, 3,4 3.A1.2 : - Biết được hậu quả của việc phụ thuộc quá mức vào AI làm giảm khả năng tư duy độc lập và sáng tạo. - Hiểu rằng AI có thể vẽ chân dung rất nhanh nhưng không thể thay thế được tình cảm và sự quan sát riêng biệt của em dành cho người thân."
+                "integration": "3. Tích hợp AI: HĐ2, T1,2, 3,43.A1.2: - Biết được hậu quả của việc phụ thuộc quá mức vào AI làm giảm khả năng tư duy độc lập và sáng tạo.- Hiểu rằng AI có thể vẽ chân dung rất nhanh nhưng không thể thay thế được tình cảm và sự quan sát riêng biệt của em dành cho người thân."
             },
             {
                 "week": 22,
@@ -30659,8 +30659,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 23,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 8. Làm đồ dùng học tập (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -30992,8 +30992,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 24,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 8. Làm đồ dùng học tập (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -31325,8 +31325,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 25,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 8. Làm đồ dùng học tập (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -31658,8 +31658,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 26,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 9. Làm biển báo giao thông (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -31747,7 +31747,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 26,
                 "lessonName": "Sinh hoạt trong gia đình (Tiết 1)",
-                "integration": "3. Tích hợp AI: HĐ2. T1,2,3,4 3.A1.1 : - Nhận biết được một số cách mà AI có thể hỗ trợ học sinh (như ứng dụng học tập, trợ lý học tập). - Nhận biết các ứng dụng AI trong gia đình có thể hỗ trợ con người ghi lại hoặc gợi ý sắp xếp các khoảnh khắc sinh hoạt ấm áp. 4. Tích hợp năng lực số: HĐ2.T2 2.2.CB1a: - Nhận biết được các công nghệ số đơn giản, phù hợp với bài học ."
+                "integration": "3. Tích hợp AI: HĐ2. T1,2,3,43.A1.1: - Nhận biết được một số cách mà AI có thể hỗ trợ học sinh (như ứng dụng học tập, trợ lý học tập).- Nhận biết các ứng dụng AI trong gia đình có thể hỗ trợ con người ghi lại hoặc gợi ý sắp xếp các khoảnh khắc sinh hoạt ấm áp.4. Tích hợp năng lực số: HĐ2.T22.2.CB1a:- Nhận biết được các công nghệ số đơn giản, phù hợp với bài học ."
             },
             {
                 "week": 26,
@@ -31991,8 +31991,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 27,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 9. Làm biển báo giao thông (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -32324,8 +32324,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 28,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 9. Làm biển báo giao thông (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -32657,8 +32657,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 29,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 9. Làm biển báo giao thông (T4)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -32990,8 +32990,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 30,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 10. Làm đồ chơi (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -33079,7 +33079,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 30,
                 "lessonName": "An toàn giao thông (Tiết 1)",
-                "integration": "3. Tích hợp ATGT: HĐ2.T1 3.A2.1 - Thực hiện các quy định của pháp luật, hiểu và nêu được một số luật giao thông cơ bản như đội mũ bảo hiểm, đi đúng làn đường, dừng đèn đỏ…. - Nâng cao ý thức chấp hành luật giao thông để giữ gìn trật tự và an toàn xã hội. 4. Tích hợp AI: HĐ2.T1,2,3,4 3.A1.2 : - Nêu được một số tình huống có thể áp dụng học máy như phân loại, nhận dạng. - Hiểu sơ lược rằng AI có thể hỗ trợ an toàn giao thông bằng cách nhận diện biển báo, người đi bộ để báo hiệu cho con người. 5. Tích hợp năng lực số: HĐ2.T1 3.2.CB1a: - Tìm được cách truy cập những dữ liệu, thông tin và nội dung an toàn giao thông . - Nhận biết được các công nghệ số đơn giản, phù hợp để chia sẻ dữ liệu, thông tin và nội dung kỹ thuật số. - Lồng ghép STEAM"
+                "integration": "3. Tích hợp ATGT: HĐ2.T13.A2.1- Thực hiện các quy định của pháp luật, hiểu và nêu được một số luật giao thông cơ bản như đội mũ bảo hiểm, đi đúng làn đường, dừng đèn đỏ…. - Nâng cao ý thức chấp hành luật giao thông để giữ gìn trật tự và an toàn xã hội. 4. Tích hợp AI: HĐ2.T1,2,3,43.A1.2: - Nêu được một số tình huống có thể áp dụng học máy như phân loại, nhận dạng.- Hiểu sơ lược rằng AI có thể hỗ trợ an toàn giao thông bằng cách nhận diện biển báo, người đi bộ để báo hiệu cho con người.5. Tích hợp năng lực số: HĐ2.T1 3.2.CB1a:- Tìm được cách truy cập những dữ liệu, thông tin và nội dung an toàn giao thông . - Nhận biết được các công nghệ số đơn giản, phù hợp để chia sẻ dữ liệu, thông tin và nội dung kỹ thuật số.- Lồng ghép STEAM"
             },
             {
                 "week": 30,
@@ -33323,8 +33323,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 31,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 10. Làm đồ chơi (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -33656,8 +33656,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 32,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 10. Làm đồ chơi (T3)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -33989,8 +33989,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 33,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Bài 10. Làm đồ chơi (T4)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -34322,8 +34322,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 34,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Ôn tập kiểm tra học kì II (T1)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -34655,8 +34655,8 @@ window.APP_GRADE_DATA = {
                 "subject": "Công nghệ",
                 "periodInWeek": 1,
                 "ppct": 35,
-                "lessonName": "GV bộ môn dạy",
-                "duration": "",
+                "lessonName": "Ôn tập kiểm tra học kì II (T2)",
+                "duration": "1 tiết",
                 "integration": ""
             },
             {
@@ -35430,23 +35430,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 1,
                 "lessonName": "Vẻ đẹp trong điêu khắc đình làng Việt Nam (Tiết 1)",
-                "integration": "3. Tích hợp ANQP: (HĐ3.T1,2, HĐ2.T2) 4.1.2: - Nhận thức được truyền thống đánh giặc ngoại xâm và giữ làng của cha ông gắn với di tích lịch sử đình làng. - Quan sát hình ảnh chạm khắc \"Điều voi đuổi hổ\" và thảo luận về tinh thần dũng cảm, bảo vệ xóm làng của người Việt xưa. 4 . Tích hợp AI: (HĐ2.T1,4, HĐ1.T2, 3) 4.A1.1 : - Nhận biết và nêu được một số lĩnh vực hoặc công việc cụ thể mà AI có thể hỗ trợ con người. - Nhận biết được vai trò của AI trong việc hỗ trợ bảo tồn và lưu trữ hình ảnh các tác phẩm điêu khắc truyền thống của dân tộc. 4 . Tích hợp năng lực số: HĐ2.T1,2) 4 .1.CB2c : - Tìm được cách truy cập những dữ liệu, thông tin và nội dung này cũng như điều hướng giữa chúng. - Tìm kiếm hình ảnh video về điêu khắc đình làng bằng thiết bị số."
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 18,
-                "lessonName": "Những kỉ niệm đẹp (Tiết 1)",
-                "integration": "3. Tích hợp AI: (HĐ3 .TIÊT1,2,3,4 ) 4.B2.1 : - Biết được việc chia sẻ thông tin cá nhân (họ tên, địa chỉ, ảnh riêng tư...) cho AI có thể gây rủi ro. - Có ý thức bảo vệ quyền riêng tư và thông tin cá nhân khi sử dụng các ứng dụng AI để chỉnh sửa ảnh kỉ niệm làm tư liệu vẽ. 4. Tích hợp năng lực số: (HĐ4 .TIÊT4 2 . 3CB2a : - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số. 1.4CB2a: - Chọn được những công cụ và công nghệ số đơn giản cho các quá trình cộng tác. - Lồng nhạc, chữ vào Slide để tạo cho hình ảnh lưu trữ kỉ niệm thêm sống động."
-            },
-            {
-                "week": 1,
-                "subject": "Mĩ thuật",
-                "periodInWeek": 1,
-                "ppct": 19,
-                "lessonName": "Những kỉ niệm đẹp (Tiết 2)",
-                "integration": ""
+                "integration": "3. Tích hợp ANQP:(HĐ3.T1,2, HĐ2.T2)4.1.2:- Nhận thức được truyền thống đánh giặc ngoại xâm và giữ làng của cha ông gắn với di tích lịch sử đình làng.- Quan sát hình ảnh chạm khắc \"Điều voi đuổi hổ\" và thảo luận về tinh thần dũng cảm, bảo vệ xóm làng của người Việt xưa.4. Tích hợp AI: (HĐ2.T1,4, HĐ1.T2, 3)4.A1.1: - Nhận biết và nêu được một số lĩnh vực hoặc công việc cụ thể mà AI có thể hỗ trợ con người.- Nhận biết được vai trò của AI trong việc hỗ trợ bảo tồn và lưu trữ hình ảnh các tác phẩm điêu khắc truyền thống của dân tộc.4. Tích hợp năng lực số: HĐ2.T1,2)4.1.CB2c: - Tìm được cách truy cập những dữ liệu, thông tin và nội dung này cũng như điều hướng giữa chúng.- Tìm kiếm hình ảnh video về điêu khắc đình làng bằng thiết bị số."
             },
             {
                 "week": 1,
@@ -36850,7 +36834,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 5,
                 "lessonName": "Một số dạng không gian trong tranh dân gian VN (Tiết 1)",
-                "integration": "3. Tích hợp AI: (HĐ2.T1,2, 3, 4) 4.A1.2 : - Hiểu và giải thích được AI hỗ trợ con người gợi ý ý tưởng, nhưng không thể thay thế tư duy và sự sáng tạo. - Biết sử dụng AI như một công cụ hỗ trợ gợi ý cách sắp xếp các nhân vật trong không gian nhiều lớp, nhưng vẫn tự tay thực hiện tác phẩm. 4. Tích hợp năng lực số: (HĐ4 .TIÊT4 ) 1 .1.CB2a: - Tìm được cách truy cập những dữ liệu, thông tin và nội dung , l ựa chọn được các công nghệ kỹ thuật số đơn giản để tương tác , c hia sẻ hình ảnh, video, tư liệu về một số tranh , hình ảnh 3D đã làm powerpoint (hoặc zalo/messenger)."
+                "integration": "3. Tích hợp AI: (HĐ2.T1,2, 3, 4)4.A1.2: - Hiểu và giải thích được AI hỗ trợ con người gợi ý ý tưởng, nhưng không thể thay thế tư duy và sự sáng tạo.- Biết sử dụng AI như một công cụ hỗ trợ gợi ý cách sắp xếp các nhân vật trong không gian nhiều lớp, nhưng vẫn tự tay thực hiện tác phẩm.4. Tích hợp năng lực số: (HĐ4 .TIÊT4 )1.1.CB2a: - Tìm được cách truy cập những dữ liệu, thông tin và nội dung, lựa chọn được các công nghệ kỹ thuật số đơn giản để tương tác, chia sẻ hình ảnh, video, tư liệu về một số tranh, hình ảnh 3D đã làm powerpoint (hoặc zalo/messenger)."
             },
             {
                 "week": 5,
@@ -38254,7 +38238,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 9,
                 "lessonName": "Cảnh đẹp quê hương (Tiết 1)",
-                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T4 4.T1.2 - Giáo dục học sinh ý thức giữ gìn vệ sinh chung, không xả rác để bảo vệ vẻ đẹp tự nhiên của danh lam thắng cảnh. 4. Tích hợp AI: (HĐ2 .TIÊT1,2,3 ) 4.C2.1 : - Trình bày được các ứng dụng của AI trong học tập và đời sống, đặc biệt gần gũi với bối cảnh Việt Nam. - Biết được ứng dụng AI có thể nhận diện và phân tích màu sắc chủ đạo (nóng/lạnh) trong các bức ảnh phong cảnh quê hương. 5. Tích hợp GDĐP : HĐ2.T1 4.G2.1 Tìm hiểu cảnh đẹp quê hương ở địa phương - Lồng ghép GD STEAM"
+                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4.T44.T1.2- Giáo dục học sinh ý thức giữ gìn vệ sinh chung, không xả rác để bảo vệ vẻ đẹp tự nhiên của danh lam thắng cảnh.4. Tích hợp AI: (HĐ2 .TIÊT1,2,3 )4.C2.1: - Trình bày được các ứng dụng của AI trong học tập và đời sống, đặc biệt gần gũi với bối cảnh Việt Nam.- Biết được ứng dụng AI có thể nhận diện và phân tích màu sắc chủ đạo (nóng/lạnh) trong các bức ảnh phong cảnh quê hương.5. Tích hợp GDĐP: HĐ2.T14.G2.1Tìm hiểu cảnh đẹp quê hương ở địa phương- Lồng ghép GD STEAM"
             },
             {
                 "week": 9,
@@ -39658,7 +39642,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 13,
                 "lessonName": "Vẻ đẹp cuộc sống (Tiết 1)",
-                "integration": "3. Tích hợp ATGT: HĐ4. T3 4.A1.2 - Khắc họa nét đẹp của văn hóa giao thông như hình ảnh người dân đội mũ bảo hiểm, đi bộ trên vỉa hè, hoặc chú cảnh sát giao thông đang điều tiết xe cộ… 4. Tích hợp AI: (HĐ3 .TIÊT 1,2,3 ) 4.A2.1 : - Biết được AI giúp giải quyết vấn đề, tiết kiệm thời gian và nâng cao chất lượng cuộc sống. - Nhận thức được AI giúp con người ghi lại những khoảnh khắc đẹp trong cuộc sống một cách nhanh chóng thông qua các tính năng camera thông minh."
+                "integration": "3. Tích hợp ATGT: HĐ4. T34.A1.2- Khắc họa nét đẹp của văn hóa giao thông như hình ảnh người dân đội mũ bảo hiểm, đi bộ trên vỉa hè, hoặc chú cảnh sát giao thông đang điều tiết xe cộ…4. Tích hợp AI: (HĐ3 .TIÊT 1,2,3 )4.A2.1: - Biết được AI giúp giải quyết vấn đề, tiết kiệm thời gian và nâng cao chất lượng cuộc sống.- Nhận thức được AI giúp con người ghi lại những khoảnh khắc đẹp trong cuộc sống một cách nhanh chóng thông qua các tính năng camera thông minh."
             },
             {
                 "week": 13,
@@ -41061,7 +41045,7 @@ window.APP_GRADE_DATA = {
                 "subject": "Mĩ thuật",
                 "periodInWeek": 1,
                 "ppct": 17,
-                "lessonName": "1 Tiết",
+                "lessonName": "1Tiết",
                 "integration": ""
             },
             {
@@ -41409,6 +41393,14 @@ window.APP_GRADE_DATA = {
             },
             {
                 "week": 18,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 18,
+                "lessonName": "Những kỉ niệm đẹp (Tiết 1)",
+                "integration": "3. Tích hợp AI: (HĐ3 .TIÊT1,2,3,4 )4.B2.1: - Biết được việc chia sẻ thông tin cá nhân (họ tên, địa chỉ, ảnh riêng tư...) cho AI có thể gây rủi ro.- Có ý thức bảo vệ quyền riêng tư và thông tin cá nhân khi sử dụng các ứng dụng AI để chỉnh sửa ảnh kỉ niệm làm tư liệu vẽ.4. Tích hợp năng lực số: (HĐ4 .TIÊT4 2.3CB2a: - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số.1.4CB2a:- Chọn được những công cụ và công nghệ số đơn giản cho các quá trình cộng tác.- Lồng nhạc, chữ vào Slide để tạo cho hình ảnh lưu trữ kỉ niệm thêm sống động."
+            },
+            {
+                "week": 18,
                 "subject": "STEM",
                 "periodInWeek": 1,
                 "ppct": 18,
@@ -41748,6 +41740,14 @@ window.APP_GRADE_DATA = {
                 "ppct": 38,
                 "lessonName": "Dân cư và hoạt động sản xuất ở vùng Duyên hải miền Trung  (Tiết 1)",
                 "duration": "",
+                "integration": ""
+            },
+            {
+                "week": 19,
+                "subject": "Mĩ thuật",
+                "periodInWeek": 1,
+                "ppct": 19,
+                "lessonName": "Những kỉ niệm đẹp (Tiết 2)",
                 "integration": ""
             },
             {
@@ -42801,7 +42801,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 22,
                 "lessonName": "Mái trường yêu dấu (Tiết 1)",
-                "integration": "3. Tích hợp AI: (HĐ2 .TIÊT 1,2,3 ,4) 4.D1.1 : - Nêu được ví dụ cụ thể, đơn giản về các vấn đề giải quyết bằng AI. - Hình thành ý tưởng thiết kế một đồ dùng học tập thông minh tích hợp AI để giúp việc học tập tại trường hiệu quả hơn. 5. Tích hợp năng lực số: (HĐ4 .TIÊT4 ) 1.3CB2a: - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số. - Lồng ghép GD STEAM"
+                "integration": "3. Tích hợp AI: (HĐ2 .TIÊT 1,2,3 ,4)4.D1.1: - Nêu được ví dụ cụ thể, đơn giản về các vấn đề giải quyết bằng AI.- Hình thành ý tưởng thiết kế một đồ dùng học tập thông minh tích hợp AI để giúp việc học tập tại trường hiệu quả hơn.5. Tích hợp năng lực số: (HĐ4 .TIÊT4 )1.3CB2a:- Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số.- Lồng ghép GD STEAM"
             },
             {
                 "week": 22,
@@ -44205,7 +44205,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 26,
                 "lessonName": "Môi trường xanh - sạch - đẹp (Tiết 1)",
-                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4. T4 4.B1.2 Giáo dục HS ý thức bảo vệ môi trường. Khuyến khích dùng vật liệu tái chế để tạo sản phẩm góp phần giảm rác thải giúp bảo vệ môi trường luôn xanh, sạch, đẹp… 4.Tích hợp AI: (HĐ3 .TIÊT 1,2,3,4 ) 4.D1.1 : - Nêu được ví dụ ý tưởng ban đầu về cách AI có thể học hoặc giúp giải quyết vấn đề môi trường. 5. Tích hợp năng lực số: (HĐ4 .TIÊT4 ) 4.3.CB2a : - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số. - C hia sẻ , phân tích hình ảnh, video về môi trường Xanh – Xạch – Đẹp."
+                "integration": "3. Tích hợp bảo vệ môi trường: HĐ4. T44.B1.2Giáo dục HS ý thức bảo vệ môi trường. Khuyến khích dùng vật liệu tái chế để tạo sản phẩm góp phần giảm rác thải giúp bảo vệ môi trường luôn xanh, sạch, đẹp…4.Tích hợp AI: (HĐ3 .TIÊT 1,2,3,4 )4.D1.1: - Nêu được ví dụ ý tưởng ban đầu về cách AI có thể học hoặc giúp giải quyết vấn đề môi trường.5. Tích hợp năng lực số: (HĐ4 .TIÊT4 )4.3.CB2a: - Xác định được cách tổ chức, lưu trữ và truy xuất dữ liệu, thông tin và nội dung một cách đơn giản trong môi trường số.- Chia sẻ, phân tích hình ảnh, video về môi trường Xanh – Xạch – Đẹp."
             },
             {
                 "week": 26,
@@ -45609,7 +45609,7 @@ window.APP_GRADE_DATA = {
                 "periodInWeek": 1,
                 "ppct": 30,
                 "lessonName": "Quê hương thanh bình (Tiết 1)",
-                "integration": "3. Tích hợp AI: (HĐ3 .TIÊT1,2 ,3,4 ) 4.D2.1 : - Nêu được ví dụ ý tưởng ban đầu về cách AI có thể học hoặc giúp giải quyết vấn đề môi trường. - Đề xuất được ý tưởng sử dụng AI để phân loại rác thải hoặc dự báo ô nhiễm tại địa phương thông qua sản phẩm mĩ thuật. 4.Tích hợp GDĐP : HĐ2.T1 4.G2.1 Thể hiện sản phẩm mĩ thuật bằng hình thức yêu thích về chủ đề Quê hương thanh bình, giới thiệu về cuộc sống thanh bình ở địa phương."
+                "integration": "3. Tích hợp AI: (HĐ3 .TIÊT1,2 ,3,4 )4.D2.1: - Nêu được ví dụ ý tưởng ban đầu về cách AI có thể học hoặc giúp giải quyết vấn đề môi trường.- Đề xuất được ý tưởng sử dụng AI để phân loại rác thải hoặc dự báo ô nhiễm tại địa phương thông qua sản phẩm mĩ thuật.4.Tích hợp GDĐP: HĐ2.T14.G2.1Thể hiện sản phẩm mĩ thuật bằng hình thức yêu thích về chủ đề Quê hương thanh bình, giới thiệu về cuộc sống thanh bình ở địa phương."
             },
             {
                 "week": 30,

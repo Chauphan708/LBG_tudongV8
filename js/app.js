@@ -208,17 +208,9 @@
         const days = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
         const cleaned = [];
 
-        // Check if Monday is corrupt (e.g. has Tiếng Anh in Sáng, or != 7 slots, or Sáng > 4 slots)
-        const monSlots = timetable.filter(s => s.day === "Thứ 2");
-        const hasMonCorrupt = monSlots.length !== 7 || 
-            monSlots.some(s => s.session === "Sáng" && s.subject && s.subject.toLowerCase().includes("tiếng anh")) ||
-            !monSlots.some(s => s.session === "Chiều" && s.period === 1 && s.subject && s.subject.toLowerCase().includes("tiếng anh"));
-
         days.forEach(day => {
             let daySlots = timetable.filter(s => s.day === day);
-            if (day === "Thứ 2" && hasMonCorrupt) {
-                daySlots = defaultTt.filter(s => s.day === "Thứ 2");
-            } else if (daySlots.length === 0) {
+            if (daySlots.length === 0) {
                 daySlots = defaultTt.filter(s => s.day === day);
             }
 
@@ -242,12 +234,16 @@
         }
         subjectList.forEach(s => {
             const norm = normalizeSubjectName(s.name);
-            if (norm === "Toán") {
-                // Theo Chương trình GDPT 2018 (Thông tư 32/2018): Lớp 1 là 3 tiết/tuần (105 tiết); Lớp 2, 3, 4, 5 là 5 tiết/tuần (175 tiết)
-                s.defaultPeriods = (grade === 1) ? 3 : 5;
-            } else if (norm === "HĐ Trải nghiệm") {
-                // Hoạt động trải nghiệm là 3 tiết/tuần (105 tiết/năm)
-                s.defaultPeriods = 3;
+            if (s.defaultPeriods === undefined || s.defaultPeriods === null || s.defaultPeriods <= 0) {
+                if (norm === "Toán") {
+                    // Theo Chương trình GDPT 2018 (Thông tư 32/2018): Lớp 1 là 3 tiết/tuần (105 tiết); Lớp 2, 3, 4, 5 là 5 tiết/tuần (175 tiết)
+                    s.defaultPeriods = (grade === 1) ? 3 : 5;
+                } else if (norm === "HĐ Trải nghiệm") {
+                    // Hoạt động trải nghiệm là 3 tiết/tuần (105 tiết/năm)
+                    s.defaultPeriods = 3;
+                } else {
+                    s.defaultPeriods = 1;
+                }
             }
         });
         return subjectList;
@@ -323,12 +319,20 @@
                 }
                 if (parsed.weeks && parsed.weeks.length) state.weeks = parsed.weeks;
                 if (parsed.ppct && parsed.ppct.length) {
-                    // In V10: If migrating from older version or old saved data has placeholder specialist subjects ("GV bộ môn dạy" or missing),
-                    // replace specialist subjects with the official curriculum while preserving custom teacher homeroom edits!
+                    // In V10: Replace specialist subjects and Grade 3 Cong Nghe with official curriculum while preserving teacher homeroom edits
                     const specialistNorms = new Set(['âm nhạc', 'mĩ thuật', 'gd thể chất', 'tin học', 'tiếng anh']);
+                    if (grade === 3) specialistNorms.add('công nghệ');
                     const rawDefault = (grade === 5) ? (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.ppct) : (window.APP_GRADE_DATA && window.APP_GRADE_DATA[grade] && window.APP_GRADE_DATA[grade].ppct);
                     
-                    if (isMigrated && rawDefault && Array.isArray(rawDefault)) {
+                    // Check if current saved data has corrupted weeks (e.g. multiple items in week 1 for 1-period subject) or placeholder
+                    const hasCorruptedWeeks = parsed.ppct.some(p => {
+                        const norm = normalizeSubjectName(p.subject).toLowerCase();
+                        if (norm === 'mĩ thuật' && p.week === 1 && (p.ppct === 18 || p.ppct === 19 || p.ppct === 11)) return true;
+                        if (grade === 3 && norm === 'công nghệ' && (p.lessonName === 'GV bộ môn dạy' || p.lessonName === 'GV bộ môn dạy')) return true;
+                        return false;
+                    });
+
+                    if ((isMigrated || hasCorruptedWeeks) && rawDefault && Array.isArray(rawDefault)) {
                         const userHomeroom = parsed.ppct.filter(p => !specialistNorms.has(normalizeSubjectName(p.subject).toLowerCase()));
                         const officialSpecialist = rawDefault.filter(p => specialistNorms.has(normalizeSubjectName(p.subject).toLowerCase()));
                         state.ppct = [...userHomeroom, ...officialSpecialist];
@@ -690,16 +694,18 @@
         const map = new Map();
         // 1. Add subjects from subjectList
         list.forEach(s => {
-            map.set(normalizeSubjectName(s), s);
+            if (s && s.trim()) {
+                map.set(s.trim().toLowerCase(), s.trim());
+            }
         });
 
         // 2. Add any custom subjects from PPCT
         if (state.ppct) {
             state.ppct.forEach(p => {
-                if (p.subject && p.subject !== "-- Nghỉ / Để trống --") {
-                    const norm = normalizeSubjectName(p.subject);
-                    if (!map.has(norm)) {
-                        map.set(norm, p.subject);
+                if (p.subject && p.subject !== "-- Nghỉ / Để trống --" && p.subject.trim()) {
+                    const k = p.subject.trim().toLowerCase();
+                    if (!map.has(k)) {
+                        map.set(k, p.subject.trim());
                     }
                 }
             });
@@ -708,10 +714,10 @@
         // 3. Add any custom subjects from timetable
         if (state.timetable) {
             state.timetable.forEach(t => {
-                if (t.subject && t.subject !== "-- Nghỉ / Để trống --") {
-                    const norm = normalizeSubjectName(t.subject);
-                    if (!map.has(norm)) {
-                        map.set(norm, t.subject);
+                if (t.subject && t.subject !== "-- Nghỉ / Để trống --" && t.subject.trim()) {
+                    const k = t.subject.trim().toLowerCase();
+                    if (!map.has(k)) {
+                        map.set(k, t.subject.trim());
                     }
                 }
             });
@@ -1159,44 +1165,134 @@
             const daySlots = state.timetable.filter(s => s.day === day);
             const morningSlots = daySlots.filter(s => s.session === "Sáng").sort((a, b) => (a.period || 0) - (b.period || 0));
             const afternoonSlots = daySlots.filter(s => s.session === "Chiều").sort((a, b) => (a.period || 0) - (b.period || 0));
-            const orderedDaySlots = [...morningSlots, ...afternoonSlots];
-            const totalRows = orderedDaySlots.length;
+            
+            // Calculate total rows needed for day cell rowspan
+            let totalRows = morningSlots.length + afternoonSlots.length;
+            if (morningSlots.length === 0) totalRows += 1;
+            if (afternoonSlots.length === 0) totalRows += 1;
+            if (daySlots.length === 0) totalRows = 1;
 
-            orderedDaySlots.forEach((slot, idx) => {
-                const globalIdx = state.timetable.indexOf(slot);
+            if (daySlots.length === 0) {
                 const tr = document.createElement("tr");
                 if (isAltDay) tr.classList.add("row-day-alt");
-
-                let dayCellHtml = "";
-                if (idx === 0) {
-                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="font-weight:bold; text-align:center;">${day}</td>`;
-                }
-
-                let sessionCellHtml = "";
-                if (idx === 0) {
-                    sessionCellHtml = `<td rowspan="${morningSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Sáng</td>`;
-                } else if (idx === morningSlots.length) {
-                    sessionCellHtml = `<td rowspan="${afternoonSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>`;
-                }
-
                 tr.innerHTML = `
-                    ${dayCellHtml}
-                    ${sessionCellHtml}
-                    <td style="text-align:center; font-weight:bold;">${slot.period}</td>
-                    <td>
-                        <select class="form-select form-select-sm master-tt-subject-sel" data-index="${globalIdx}">
-                            ${dynamicSubjectOptions.map(s => `<option value="${s}" ${normalizeSubjectName(s) === normalizeSubjectName(slot.subject) || s === slot.subject ? 'selected' : ''}>${s}</option>`).join('')}
-                        </select>
-                    </td>
+                    <td class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="font-weight:bold; text-align:center;">${day}</td>
+                    <td colspan="3" style="text-align:center; color:#94a3b8; font-style:italic; padding: 0.75rem;">Chưa có tiết nào cho ${day}</td>
                     <td style="text-align:center;">
-                        <div class="row-actions-group">
-                            <button type="button" class="btn-row-action btn-master-add-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay dưới dòng này">➕</button>
-                            <button type="button" class="btn-row-action btn-master-del-slot" data-index="${globalIdx}" title="Xóa tiết này khỏi TKB gốc">🗑️</button>
-                        </div>
+                        <button type="button" class="btn btn-sm btn-secondary btn-master-add-slot" data-day="${day}" data-session="Sáng" data-period="0">➕ Thêm tiết Sáng</button>
+                        <button type="button" class="btn btn-sm btn-secondary btn-master-add-slot" data-day="${day}" data-session="Chiều" data-period="0" style="margin-left: 0.35rem;">➕ Thêm tiết Chiều</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
-            });
+                return;
+            }
+
+            let dayRendered = false;
+
+            // Render Morning Slots
+            if (morningSlots.length > 0) {
+                morningSlots.forEach((slot, idx) => {
+                    const globalIdx = state.timetable.indexOf(slot);
+                    const tr = document.createElement("tr");
+                    if (isAltDay) tr.classList.add("row-day-alt");
+
+                    let dayCellHtml = "";
+                    if (!dayRendered) {
+                        dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="font-weight:bold; text-align:center;">${day}</td>`;
+                        dayRendered = true;
+                    }
+
+                    let sessionCellHtml = "";
+                    if (idx === 0) {
+                        sessionCellHtml = `<td rowspan="${morningSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Sáng</td>`;
+                    }
+
+                    tr.innerHTML = `
+                        ${dayCellHtml}
+                        ${sessionCellHtml}
+                        <td style="text-align:center; font-weight:bold;">${slot.period}</td>
+                        <td>
+                            <select class="form-select form-select-sm master-tt-subject-sel" data-index="${globalIdx}">
+                                ${dynamicSubjectOptions.map(s => {
+                                    const isSel = (s === slot.subject) || (!dynamicSubjectOptions.includes(slot.subject) && normalizeSubjectName(s) === normalizeSubjectName(slot.subject));
+                                    return `<option value="${escapeHtml(s)}" ${isSel ? 'selected' : ''}>${escapeHtml(s)}</option>`;
+                                }).join('')}
+                            </select>
+                        </td>
+                        <td style="text-align:center;">
+                            <div class="row-actions-group">
+                                <button type="button" class="btn-row-action btn-master-add-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay dưới dòng này">➕</button>
+                                <button type="button" class="btn-row-action btn-master-del-slot" data-index="${globalIdx}" title="Xóa tiết này khỏi TKB gốc">🗑️</button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                // Empty morning row
+                const tr = document.createElement("tr");
+                if (isAltDay) tr.classList.add("row-day-alt");
+                let dayCellHtml = "";
+                if (!dayRendered) {
+                    dayCellHtml = `<td rowspan="${totalRows}" class="col-day ${isAltDay ? 'day-alt' : 'day-normal'}" style="font-weight:bold; text-align:center;">${day}</td>`;
+                    dayRendered = true;
+                }
+                tr.innerHTML = `
+                    ${dayCellHtml}
+                    <td style="text-align:center; font-weight:600; background:#fafafa;">Sáng</td>
+                    <td colspan="2" style="text-align:center; color:#94a3b8; font-style:italic;">Không có tiết buổi Sáng</td>
+                    <td style="text-align:center;">
+                        <button type="button" class="btn btn-sm btn-secondary btn-master-add-slot" data-day="${day}" data-session="Sáng" data-period="0">➕ Thêm tiết Sáng</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            }
+
+            // Render Afternoon Slots
+            if (afternoonSlots.length > 0) {
+                afternoonSlots.forEach((slot, idx) => {
+                    const globalIdx = state.timetable.indexOf(slot);
+                    const tr = document.createElement("tr");
+                    if (isAltDay) tr.classList.add("row-day-alt");
+
+                    let sessionCellHtml = "";
+                    if (idx === 0) {
+                        sessionCellHtml = `<td rowspan="${afternoonSlots.length}" style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>`;
+                    }
+
+                    tr.innerHTML = `
+                        ${sessionCellHtml}
+                        <td style="text-align:center; font-weight:bold;">${slot.period}</td>
+                        <td>
+                            <select class="form-select form-select-sm master-tt-subject-sel" data-index="${globalIdx}">
+                                ${dynamicSubjectOptions.map(s => {
+                                    const isSel = (s === slot.subject) || (!dynamicSubjectOptions.includes(slot.subject) && normalizeSubjectName(s) === normalizeSubjectName(slot.subject));
+                                    return `<option value="${escapeHtml(s)}" ${isSel ? 'selected' : ''}>${escapeHtml(s)}</option>`;
+                                }).join('')}
+                            </select>
+                        </td>
+                        <td style="text-align:center;">
+                            <div class="row-actions-group">
+                                <button type="button" class="btn-row-action btn-master-add-slot" data-day="${slot.day}" data-session="${slot.session}" data-period="${slot.period}" title="Chèn thêm 1 tiết ngay dưới dòng này">➕</button>
+                                <button type="button" class="btn-row-action btn-master-del-slot" data-index="${globalIdx}" title="Xóa tiết này khỏi TKB gốc">🗑️</button>
+                            </div>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                // Empty afternoon row
+                const tr = document.createElement("tr");
+                if (isAltDay) tr.classList.add("row-day-alt");
+                tr.innerHTML = `
+                    <td style="text-align:center; font-weight:600; background:#fafafa;">Chiều</td>
+                    <td colspan="2" style="text-align:center; color:#94a3b8; font-style:italic;">Không có tiết buổi Chiều</td>
+                    <td style="text-align:center;">
+                        <button type="button" class="btn btn-sm btn-secondary btn-master-add-slot" data-day="${day}" data-session="Chiều" data-period="0">➕ Thêm tiết Chiều</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            }
         });
 
         renderMasterTimetableMatrix();
@@ -1205,7 +1301,7 @@
             sel.addEventListener("change", (e) => {
                 const idx = parseInt(e.target.dataset.index);
                 if (idx >= 0 && idx < state.timetable.length) {
-                    state.timetable[idx].subject = normalizeSubjectName(e.target.value);
+                    state.timetable[idx].subject = e.target.value;
                     saveState();
                     renderMasterTimetableMatrix();
                     renderTabLbg();
@@ -1218,7 +1314,7 @@
             btn.addEventListener("click", (e) => {
                 const day = e.currentTarget.dataset.day;
                 const session = e.currentTarget.dataset.session;
-                const period = parseInt(e.currentTarget.dataset.period) || 1;
+                const period = parseInt(e.currentTarget.dataset.period) || 0;
                 addSlotToMasterTimetable(day, session, period);
             });
         });
@@ -1240,25 +1336,32 @@
             }
         }
 
+        const defaultSub = (state.subjectList && state.subjectList[0]) ? state.subjectList[0].name : "Tiếng Việt";
         const newSlot = {
             day: day,
             session: session,
             period: (insertAfterPeriod || 0) + 1,
-            subject: "Tiếng Việt"
+            subject: defaultSub
         };
 
         if (targetIdx >= 0) {
             state.timetable.splice(targetIdx + 1, 0, newSlot);
         } else {
-            state.timetable.push(newSlot);
+            let lastIdx = -1;
+            for (let i = 0; i < state.timetable.length; i++) {
+                if (state.timetable[i].day === day && state.timetable[i].session === session) {
+                    lastIdx = i;
+                }
+            }
+            if (lastIdx >= 0) {
+                state.timetable.splice(lastIdx + 1, 0, newSlot);
+            } else {
+                state.timetable.push(newSlot);
+            }
         }
 
-        let pCounter = 1;
-        state.timetable.forEach(s => {
-            if (s.day === day && s.session === session) {
-                s.period = pCounter++;
-            }
-        });
+        // Re-sanitize to maintain clean sequential order
+        state.timetable = sanitizeTimetable(state.timetable, state.currentGrade);
 
         saveState();
         renderMasterTimetableEditor();
@@ -1272,12 +1375,8 @@
         const removed = state.timetable[idx];
         state.timetable.splice(idx, 1);
 
-        let pCounter = 1;
-        state.timetable.forEach(s => {
-            if (s.day === removed.day && s.session === removed.session) {
-                s.period = pCounter++;
-            }
-        });
+        // Re-sanitize to maintain clean sequential order
+        state.timetable = sanitizeTimetable(state.timetable, state.currentGrade);
 
         saveState();
         renderMasterTimetableEditor();
@@ -2118,7 +2217,7 @@
 
         // Hàng tổng kết cuối bảng Lịch báo giảng: Tổng số tiết/tuần
         const remainingColsCount = Math.max(1, orderedCols.length - 3);
-        const totalPeriodsVal = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+        const totalPeriodsVal = (typeof stats !== "undefined" && stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
         const trTotal = document.createElement("tr");
         trTotal.className = "lbg-total-periods-row";
         trTotal.style.fontWeight = "bold";
@@ -2132,13 +2231,20 @@
             tbody.appendChild(trTotal);
         }
 
-        document.getElementById("lbg-stat-gvcn").innerText = `${stats.gvcnCount} tiết`;
-        document.getElementById("lbg-stat-specialist").innerText = `${stats.specialistCount} tiết`;
-        document.getElementById("lbg-stat-enhanced").innerText = `${stats.enhancedCount} tiết`;
-        document.getElementById("lbg-stat-total").innerText = `${stats.total} tiết`;
+        if (typeof stats !== "undefined" && stats) {
+            const elGvcn = document.getElementById("lbg-stat-gvcn");
+            if (elGvcn) elGvcn.innerText = `${stats.gvcnCount || 0} tiết`;
+            const elSpec = document.getElementById("lbg-stat-specialist");
+            if (elSpec) elSpec.innerText = `${stats.specialistCount || 0} tiết`;
+            const elEnh = document.getElementById("lbg-stat-enhanced");
+            if (elEnh) elEnh.innerText = `${stats.enhancedCount || 0} tiết`;
+            const elTot = document.getElementById("lbg-stat-total");
+            if (elTot) elTot.innerText = `${stats.total || 0} tiết`;
+        }
 
         const bghSigner = getBghSignerInfo();
-        document.getElementById("lbg-sig-teacher").innerText = state.settings.homeroomTeacher || "Nguyễn Thị Thu Hà";
+        const elTeach = document.getElementById("lbg-sig-teacher");
+        if (elTeach) elTeach.innerText = state.settings.homeroomTeacher || "Nguyễn Thị Thu Hà";
         document.getElementById("lbg-sig-head").innerText = state.settings.headOfGrade || "Trần Thị Mai";
         document.getElementById("lbg-sig-pht").innerText = bghSigner.name;
         const bghRoleElem = document.getElementById("lbg-bgh-role");
@@ -2474,7 +2580,7 @@
             if (state.currentTab === "tab-lbg") renderTabLbg();
         });
 
-        const { weekInfo, schedule, fridayPeriods } = calculateWeekSchedule(state.currentWeek);
+        const { weekInfo, schedule, stats, fridayPeriods } = calculateWeekSchedule(state.currentWeek);
 
         const fridayOptSelect = document.getElementById("ctlop-friday-opt");
         if (fridayOptSelect) {
@@ -2630,7 +2736,7 @@
 
         // Hàng tổng kết cuối bảng Chi tiết lớp: Tổng số tiết/tuần
         const remainingColsCtlop = Math.max(1, orderedCols.length - 3);
-        const totalPeriodsCtlop = (stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
+        const totalPeriodsCtlop = (typeof stats !== "undefined" && stats && stats.total !== undefined) ? stats.total : schedule.filter(s => !s.isOff && s.subject !== '-- Nghỉ / Để trống --').length;
         const trTotalCtlop = document.createElement("tr");
         trTotalCtlop.className = "lbg-total-periods-row";
         trTotalCtlop.style.fontWeight = "bold";
@@ -4069,12 +4175,16 @@
             inclCheck.checked = true;
         }
 
+        modal.style.display = "flex";
         modal.classList.add("show");
     }
 
     function closeSubjectEditorModal() {
         const modal = document.getElementById("modal-subject-editor");
-        if (modal) modal.classList.remove("show");
+        if (modal) {
+            modal.classList.remove("show");
+            modal.style.display = "none";
+        }
     }
 
     function saveSubjectFromModal() {
@@ -4089,25 +4199,25 @@
             return;
         }
 
-        const normNew = normalizeSubjectName(newName);
+        const cleanNewName = newName.trim();
 
         if (!origName) {
-            // Adding new subject
-            const exists = state.subjectList.some(s => normalizeSubjectName(s.name) === normNew);
+            // Adding new subject: check exact case-insensitive name match
+            const exists = state.subjectList.some(s => s.name.trim().toLowerCase() === cleanNewName.toLowerCase());
             if (exists) {
-                alert(`Môn học '${newName}' đã tồn tại trong danh sách!`);
+                alert(`Môn học '${cleanNewName}' đã tồn tại trong danh sách!`);
                 return;
             }
 
             state.subjectList.push({
-                name: newName,
+                name: cleanNewName,
                 category: category,
                 defaultPeriods: periods,
                 isIncluded: isIncluded
             });
 
-            if (isIncluded && !state.includedSubjects.includes(newName)) {
-                state.includedSubjects.push(newName);
+            if (isIncluded && !state.includedSubjects.includes(cleanNewName)) {
+                state.includedSubjects.push(cleanNewName);
             }
 
             saveState();
@@ -4117,32 +4227,33 @@
             renderTabLbg();
             renderTabCtlop();
             renderTabPpct();
-            showToast(`Đã thêm môn học mới: ${newName}!`, "success");
+            showToast(`Đã thêm môn học mới: ${cleanNewName}!`, "success");
         } else {
             // Editing existing subject
-            const idx = state.subjectList.findIndex(s => s.name === origName);
+            const idx = state.subjectList.findIndex(s => s.name.trim().toLowerCase() === origName.trim().toLowerCase());
             if (idx >= 0) {
-                const normOrig = normalizeSubjectName(origName);
-                if (normOrig !== normNew) {
+                if (origName.trim().toLowerCase() !== cleanNewName.toLowerCase()) {
                     // Name changed - check conflict
-                    const exists = state.subjectList.some((s, i) => i !== idx && normalizeSubjectName(s.name) === normNew);
+                    const exists = state.subjectList.some((s, i) => i !== idx && s.name.trim().toLowerCase() === cleanNewName.toLowerCase());
                     if (exists) {
-                        alert(`Môn học '${newName}' đã tồn tại trong danh sách!`);
+                        alert(`Môn học '${cleanNewName}' đã tồn tại trong danh sách!`);
                         return;
                     }
-                    bulkRenameSubjectInternal(origName, newName);
+                    bulkRenameSubjectInternal(origName, cleanNewName);
                 }
 
-                state.subjectList[idx].name = newName;
+                state.subjectList[idx].name = cleanNewName;
                 state.subjectList[idx].category = category;
                 state.subjectList[idx].defaultPeriods = periods;
                 state.subjectList[idx].isIncluded = isIncluded;
 
                 // Sync includedSubjects
                 if (isIncluded) {
-                    if (!state.includedSubjects.includes(newName)) state.includedSubjects.push(newName);
+                    if (!state.includedSubjects.some(s => s.trim().toLowerCase() === cleanNewName.toLowerCase())) {
+                        state.includedSubjects.push(cleanNewName);
+                    }
                 } else {
-                    state.includedSubjects = state.includedSubjects.filter(s => normalizeSubjectName(s) !== normNew);
+                    state.includedSubjects = state.includedSubjects.filter(s => s.trim().toLowerCase() !== cleanNewName.toLowerCase());
                 }
 
                 saveState();
@@ -4152,7 +4263,7 @@
                 renderTabLbg();
                 renderTabCtlop();
                 renderTabPpct();
-                showToast(`Đã cập nhật thông tin môn học: ${newName}!`, "success");
+                showToast(`Đã cập nhật thông tin môn học: ${cleanNewName}!`, "success");
             }
         }
     }
@@ -4162,9 +4273,18 @@
             return;
         }
 
-        const norm = normalizeSubjectName(subjectName);
-        state.subjectList = state.subjectList.filter(s => normalizeSubjectName(s.name) !== norm);
-        state.includedSubjects = state.includedSubjects.filter(s => normalizeSubjectName(s) !== norm);
+        const cleanName = subjectName.trim().toLowerCase();
+        state.subjectList = state.subjectList.filter(s => s.name.trim().toLowerCase() !== cleanName);
+        state.includedSubjects = state.includedSubjects.filter(s => s.trim().toLowerCase() !== cleanName);
+
+        // Turn any timetable slots having this subject into blank/off
+        if (state.timetable) {
+            state.timetable.forEach(t => {
+                if (t.subject && t.subject.trim().toLowerCase() === cleanName) {
+                    t.subject = "-- Nghỉ / Để trống --";
+                }
+            });
+        }
 
         saveState();
         renderSubjectManagementTable();
@@ -4172,7 +4292,7 @@
         renderTabLbg();
         renderTabCtlop();
         renderTabPpct();
-        showToast(`Đã xóa môn '${subjectName}' khỏi danh sách!`, "success");
+        showToast(`Đã xóa môn '${subjectName}' khỏi danh mục môn học!`, "success");
     }
 
     function resetDefaultSubjects() {
@@ -4199,7 +4319,7 @@
         const selectOld = document.getElementById("modal-rename-old-subject");
         const inputNew = document.getElementById("modal-rename-new-name");
 
-        const allSubjects = getAllUniqueSubjects();
+        const allSubjects = getAllUniqueSubjects().filter(s => s !== "-- Nghỉ / Để trống --");
         selectOld.innerHTML = allSubjects.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
 
         if (allSubjects.length > 0) {
@@ -4210,23 +4330,27 @@
             inputNew.value = e.target.value;
         };
 
+        modal.style.display = "flex";
         modal.classList.add("show");
     }
 
     function closeRenameSubjectModal() {
         const modal = document.getElementById("modal-rename-subject");
-        if (modal) modal.classList.remove("show");
+        if (modal) {
+            modal.classList.remove("show");
+            modal.style.display = "none";
+        }
     }
 
     function bulkRenameSubjectInternal(oldName, newName) {
         const normOld = normalizeSubjectName(oldName);
         const normNew = normalizeSubjectName(newName);
-        if (normOld === normNew) return;
+        if (normOld === normNew && oldName === newName) return;
 
         // 1. Rename in subjectList
         if (state.subjectList) {
             state.subjectList.forEach(s => {
-                if (normalizeSubjectName(s.name) === normOld) {
+                if (s.name.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(s.name) === normOld) {
                     s.name = newName;
                 }
             });
@@ -4235,7 +4359,7 @@
         // 2. Rename in timetable
         if (state.timetable) {
             state.timetable.forEach(t => {
-                if (normalizeSubjectName(t.subject) === normOld) {
+                if (t.subject.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(t.subject) === normOld) {
                     t.subject = newName;
                 }
             });
@@ -4245,7 +4369,7 @@
         if (state.weeklyCustomSlots) {
             for (let w in state.weeklyCustomSlots) {
                 state.weeklyCustomSlots[w].forEach(s => {
-                    if (normalizeSubjectName(s.subject) === normOld) {
+                    if (s.subject.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(s.subject) === normOld) {
                         s.subject = newName;
                     }
                 });
@@ -4255,7 +4379,7 @@
         // 4. Rename in weeklyScheduleOverrides
         if (state.weeklyScheduleOverrides) {
             for (let k in state.weeklyScheduleOverrides) {
-                if (state.weeklyScheduleOverrides[k].subject && normalizeSubjectName(state.weeklyScheduleOverrides[k].subject) === normOld) {
+                if (state.weeklyScheduleOverrides[k].subject && (state.weeklyScheduleOverrides[k].subject.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(state.weeklyScheduleOverrides[k].subject) === normOld)) {
                     state.weeklyScheduleOverrides[k].subject = newName;
                 }
             }
@@ -4264,21 +4388,23 @@
         // 5. Rename in ppct
         if (state.ppct) {
             state.ppct.forEach(p => {
-                if (normalizeSubjectName(p.subject) === normOld) {
+                if (p.subject.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(p.subject) === normOld) {
                     p.subject = newName;
                 }
             });
         }
 
         // 6. Rename in khdh
-        if (state.khdh && state.khdh[oldName]) {
-            state.khdh[newName] = state.khdh[oldName];
-            delete state.khdh[oldName];
+        if (state.khdh) {
+            if (state.khdh[oldName]) {
+                state.khdh[newName] = state.khdh[oldName];
+                delete state.khdh[oldName];
+            }
         }
 
         // 7. Rename in includedSubjects
         if (state.includedSubjects) {
-            state.includedSubjects = state.includedSubjects.map(s => normalizeSubjectName(s) === normOld ? newName : s);
+            state.includedSubjects = state.includedSubjects.map(s => (s.trim().toLowerCase() === oldName.trim().toLowerCase() || normalizeSubjectName(s) === normOld) ? newName : s);
         }
     }
 
@@ -4315,7 +4441,11 @@
     window.closeRenameSubjectModal = closeRenameSubjectModal;
     window.applyBulkRenameSubject = applyBulkRenameSubject;
     window.resetDefaultSubjects = resetDefaultSubjects;
+    window.deleteSubject = deleteSubject;
     window.renderSubjectManagementTable = renderSubjectManagementTable;
+    window.renderMasterTimetableEditor = renderMasterTimetableEditor;
+    window.addSlotToMasterTimetable = addSlotToMasterTimetable;
+    window.removeSlotFromMasterTimetable = removeSlotFromMasterTimetable;
 
     function syncAcademicYear(newYear) {
         if (!newYear || !newYear.trim()) return;
@@ -5572,35 +5702,77 @@
         );
     }
 
+    // Render Tab by Name
+    function renderTabByName(targetTab) {
+        if (!targetTab) return;
+        state.currentTab = targetTab;
+        if (targetTab === "tab-lbg") {
+            try { renderTabLbg(); } catch (e) { console.error("renderTabLbg error:", e); }
+        } else if (targetTab === "tab-ctlop") {
+            try { renderTabCtlop(); } catch (e) { console.error("renderTabCtlop error:", e); }
+        } else if (targetTab === "tab-lbg-mon") {
+            try { renderTabLbgMon(); } catch (e) { console.error("renderTabLbgMon error:", e); }
+        } else if (targetTab === "tab-lichtuan") {
+            try { renderTabLichtuan(); } catch (e) { console.error("renderTabLichtuan error:", e); }
+        } else if (targetTab === "tab-ppct") {
+            try { renderTabPpct(); } catch (e) { console.error("renderTabPpct error:", e); }
+        } else if (targetTab === "tab-settings") {
+            try { renderTabSettings(); } catch (e) { console.error("renderTabSettings error:", e); }
+        }
+    }
+    window._renderTabByTarget = renderTabByName;
+
     // Global Tab Switching Helper Function
     function switchActiveTab(targetTab) {
         if (!targetTab) return;
-        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+        try {
+            document.querySelectorAll(".tab-btn").forEach(b => {
+                if (b.dataset.tab === targetTab || b.getAttribute("data-tab") === targetTab) {
+                    b.classList.add("active");
+                } else {
+                    b.classList.remove("active");
+                }
+            });
+            document.querySelectorAll(".tab-content").forEach(c => {
+                c.classList.remove("active");
+                c.style.display = "none";
+            });
 
-        const btn = document.querySelector(`.tab-btn[data-tab="${targetTab}"]`);
-        if (btn) btn.classList.add("active");
+            state.currentTab = targetTab;
+            const targetEl = document.getElementById(targetTab);
+            if (targetEl) {
+                targetEl.classList.add("active");
+                targetEl.style.display = "block";
+                try {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } catch (e) {}
+            }
 
-        state.currentTab = targetTab;
-        const targetEl = document.getElementById(targetTab);
-        if (targetEl) {
-            targetEl.classList.add("active");
-            try {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } catch (e) {}
+            renderTabByName(targetTab);
+        } catch (err) {
+            console.error("switchActiveTab error:", err);
         }
-
-        if (targetTab === "tab-lbg") renderTabLbg();
-        else if (targetTab === "tab-ctlop") renderTabCtlop();
-        else if (targetTab === "tab-lbg-mon") renderTabLbgMon();
-        else if (targetTab === "tab-lichtuan") renderTabLichtuan();
-        else if (targetTab === "tab-ppct") renderTabPpct();
-        else if (targetTab === "tab-settings") renderTabSettings();
     }
+    window.switchActiveTab = switchActiveTab;
 
     // 7. App Initialization & Event Bindings
     function initApp() {
-        loadState();
+        try {
+            loadState();
+        } catch (e) {
+            console.error("Error in loadState:", e);
+        }
+
+        // Global Event Delegation for tab navigation
+        const navContainer = document.querySelector(".nav-container");
+        if (navContainer) {
+            navContainer.addEventListener("click", (e) => {
+                const btn = e.target.closest(".tab-btn");
+                if (btn && btn.dataset.tab) {
+                    switchActiveTab(btn.dataset.tab);
+                }
+            });
+        }
 
         document.querySelectorAll(".tab-btn").forEach(btn => {
             btn.addEventListener("click", () => {
@@ -6157,7 +6329,10 @@
         const btnSaveMasterTt = document.getElementById("btn-save-master-timetable");
         if (btnSaveMasterTt) {
             btnSaveMasterTt.addEventListener("click", () => {
+                state.timetable = sanitizeTimetable(state.timetable, state.currentGrade);
                 saveState();
+                renderMasterTimetableMatrix();
+                renderMasterTimetableEditor();
                 renderTabLbg();
                 renderTabCtlop();
                 showToast("Đã lưu Thời khóa biểu gốc thành công và áp dụng cho 35 tuần!", "success");
@@ -6171,6 +6346,7 @@
                     state.timetable = getGradeDefaultTimetable(state.currentGrade);
                     state.weeklyCustomSlots = {};
                     saveState();
+                    renderMasterTimetableMatrix();
                     renderMasterTimetableEditor();
                     renderTabLbg();
                     renderTabCtlop();
