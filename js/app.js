@@ -3185,23 +3185,21 @@
 
         const { rows, fileName, targetGrade } = window._pendingPpctImport;
 
+        let updatedCount = 0;
+        let insertedCount = 0;
+
         if (mode === "replace") {
             state.ppct = rows;
-            saveState();
-            renderTabPpct();
-            renderTabLbg();
-            renderTabCtlop();
-            updatePpctCountBadge();
-            showToast(`Đã thay thế toàn bộ bằng ${rows.length} tiết PPCT mới Khối ${targetGrade} từ file!`, "success");
+            insertedCount = rows.length;
         } else if (mode === "merge") {
-            let updatedCount = 0;
-            let insertedCount = 0;
-
             rows.forEach(item => {
+                const normItemSub = normalizeSubjectName(item.subject);
+                const cleanItemSub = (item.subject || "").trim().toLowerCase();
+
                 const existingIdx = state.ppct.findIndex(p => 
                     p.week === item.week && 
-                    normalizeSubjectName(p.subject) === normalizeSubjectName(item.subject) && 
-                    p.periodInWeek === item.periodInWeek
+                    ((p.subject || "").trim().toLowerCase() === cleanItemSub || normalizeSubjectName(p.subject) === normItemSub) && 
+                    (p.periodInWeek === item.periodInWeek || (item.ppct && p.ppct === item.ppct))
                 );
 
                 if (existingIdx >= 0) {
@@ -3215,19 +3213,71 @@
                     insertedCount++;
                 }
             });
-
-            saveState();
-            renderTabPpct();
-            renderTabLbg();
-            renderTabCtlop();
-            updatePpctCountBadge();
-            showToast(`Đã cập nhật ${updatedCount} tiết và bổ sung mới ${insertedCount} tiết PPCT từ file!`, "success");
         }
+
+        // Rebuild khdh dictionary for current grade with newly imported PPCT data
+        state.khdh = buildKhdhForGrade(targetGrade, state.ppct);
+
+        // Automatically register any imported subjects into subjectList, includedSubjects, and selectedKhdhSubjects
+        const importedSubNames = [...new Set(rows.map(r => (r.subject || "").trim()))];
+        importedSubNames.forEach(subName => {
+            if (!subName || subName === "-- Nghỉ / Để trống --") return;
+            const cleanName = subName.trim();
+            
+            // Add to subjectList if not present
+            if (!state.subjectList.some(s => s.name.trim().toLowerCase() === cleanName.toLowerCase())) {
+                state.subjectList.push({
+                    name: cleanName,
+                    category: "GVCN",
+                    defaultPeriods: 1,
+                    isIncluded: true
+                });
+            }
+            
+            // Add to includedSubjects if not present
+            if (!state.includedSubjects.some(s => s.trim().toLowerCase() === cleanName.toLowerCase())) {
+                state.includedSubjects.push(cleanName);
+            }
+            
+            // Add to selectedKhdhSubjects if not present
+            const khdhKey = cleanName.toUpperCase();
+            if (!state.selectedKhdhSubjects.includes(khdhKey) && !state.selectedKhdhSubjects.includes(cleanName)) {
+                state.selectedKhdhSubjects.push(cleanName);
+                state.selectedKhdhSubjects.push(khdhKey);
+            }
+        });
+
+        saveState();
+        renderSubjectManagementTable();
+        renderMasterTimetableEditor();
+        renderTabPpct();
+        renderTabLbg();
+        renderTabCtlop();
+        updatePpctCountBadge();
+
+        let toastMsg = "";
+        if (mode === "replace") {
+            toastMsg = `Đã thay thế toàn bộ bằng ${rows.length} tiết PPCT mới Khối ${targetGrade} từ file!`;
+        } else if (updatedCount > 0 && insertedCount > 0) {
+            toastMsg = `Đã cập nhật ${updatedCount} tiết và bổ sung mới ${insertedCount} tiết PPCT từ file!`;
+        } else if (insertedCount > 0) {
+            toastMsg = `Đã nạp mới thành công ${insertedCount} tiết PPCT từ file!`;
+        } else if (updatedCount > 0) {
+            toastMsg = `Đã cập nhật thành công ${updatedCount} tiết PPCT từ file!`;
+        } else {
+            toastMsg = `Đã đồng bộ thành công ${rows.length} tiết PPCT từ file!`;
+        }
+
+        showToast(toastMsg, "success");
 
         window._pendingPpctImport = null;
         const modal = document.getElementById("modal-import-mode");
         if (modal) modal.style.display = "none";
     }
+
+    window.executePendingImport = executePendingImport;
+    window.promptImportModeModal = promptImportModeModal;
+    window.getState = () => state;
 
     function matchPpctColumn(cellText) {
         const t = (cellText || "").toString().normalize("NFC").toLowerCase().trim();
