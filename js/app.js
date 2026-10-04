@@ -121,6 +121,7 @@
         lbgMonFilterSubject: "all",
         lbgMonFilterCategory: "all",
         lbgMonShowIntegration: true,
+        ctlopShowIntegration: true,
         lbgMonOrientation: "portrait",
         selectedKhdhSubjects: ["TIẾNG VIỆT", "TOÁN", "KHOA HỌC", "LS&ĐL", "HĐ TRẢI NGHIỆM", "ĐẠO ĐỨC", "CÔNG NGHỆ"],
         includedSubjects: [],
@@ -137,6 +138,14 @@
         lbgShowHeadSign: true,
         lbgHideEmptyRows: false,
         lbgShowTotalRow: true,
+        lbgShowGovBody: true,
+        lbgShowSchoolName: true,
+        lbgShowGradeClass: true,
+        lbgShowNationalMotto: true,
+        lbgShowTitle: true,
+        lbgShowDateRange: true,
+        lbgTitleTemplate: "",
+        lbgDateRangeTemplate: "",
         settings: {
             governingBody: "UBND PHƯỜNG TRUNG NHỨT",
             schoolName: "TRƯỜNG TIỂU HỌC TRUNG NHỨT",
@@ -341,7 +350,14 @@
                     }
                     if (grade !== 5) {
                         state.khdh = buildKhdhForGrade(grade, state.ppct);
+                    } else {
+                        const baseKhdh = (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.khdh) ? JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.khdh)) : {};
+                        const builtKhdh = buildKhdhForGrade(5, state.ppct);
+                        state.khdh = Object.assign({}, baseKhdh, builtKhdh);
                     }
+                }
+                if (parsed.selectedKhdhSubjects && Array.isArray(parsed.selectedKhdhSubjects) && parsed.selectedKhdhSubjects.length) {
+                    state.selectedKhdhSubjects = parsed.selectedKhdhSubjects;
                 }
                 // Smart Auto-Healing for Grade 5 Integration: Restore full official 621 integration items if wiped in earlier sessions
                 if (grade === 5 && window.APP_INITIAL_DATA && Array.isArray(window.APP_INITIAL_DATA.ppct)) {
@@ -390,23 +406,35 @@
                 if (parsed.lbgExcludedMode) state.lbgExcludedMode = parsed.lbgExcludedMode;
                 if (parsed.lbgShowColSign !== undefined) state.lbgShowColSign = parsed.lbgShowColSign;
                 if (parsed.lbgShowColNote !== undefined) state.lbgShowColNote = parsed.lbgShowColNote;
-                if (parsed.lbgShowColCustom !== undefined) state.lbgShowColCustom = parsed.lbgShowColCustom;
                 if (parsed.lbgColCustomName) state.lbgColCustomName = parsed.lbgColCustomName;
                 if (parsed.lbgColCustomPos) state.lbgColCustomPos = parsed.lbgColCustomPos;
                 if (parsed.lbgCustomCols && Array.isArray(parsed.lbgCustomCols)) {
                     state.lbgCustomCols = parsed.lbgCustomCols;
+                    state.lbgShowColCustom = state.lbgCustomCols.some(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false');
                 } else if (parsed.lbgShowColCustom) {
                     state.lbgCustomCols = [
                         { id: "col_1", name: parsed.lbgColCustomName || "Ghi chú", pos: parsed.lbgColCustomPos || "end", enabled: true }
                     ];
+                    state.lbgShowColCustom = true;
                 } else {
                     state.lbgCustomCols = [];
+                    state.lbgShowColCustom = false;
                 }
+                if (parsed.ctlopShowIntegration !== undefined) state.ctlopShowIntegration = parsed.ctlopShowIntegration;
+                if (parsed.lbgMonShowIntegration !== undefined) state.lbgMonShowIntegration = parsed.lbgMonShowIntegration;
                 if (parsed.lbgShowBghSign !== undefined) state.lbgShowBghSign = parsed.lbgShowBghSign;
                 if (parsed.lbgShowGvcnSign !== undefined) state.lbgShowGvcnSign = parsed.lbgShowGvcnSign;
                 if (parsed.lbgShowHeadSign !== undefined) state.lbgShowHeadSign = parsed.lbgShowHeadSign;
                 if (parsed.lbgHideEmptyRows !== undefined) state.lbgHideEmptyRows = parsed.lbgHideEmptyRows;
                 if (parsed.lbgShowTotalRow !== undefined) state.lbgShowTotalRow = parsed.lbgShowTotalRow;
+                if (parsed.lbgShowGovBody !== undefined) state.lbgShowGovBody = parsed.lbgShowGovBody;
+                if (parsed.lbgShowSchoolName !== undefined) state.lbgShowSchoolName = parsed.lbgShowSchoolName;
+                if (parsed.lbgShowGradeClass !== undefined) state.lbgShowGradeClass = parsed.lbgShowGradeClass;
+                if (parsed.lbgShowNationalMotto !== undefined) state.lbgShowNationalMotto = parsed.lbgShowNationalMotto;
+                if (parsed.lbgShowTitle !== undefined) state.lbgShowTitle = parsed.lbgShowTitle;
+                if (parsed.lbgShowDateRange !== undefined) state.lbgShowDateRange = parsed.lbgShowDateRange;
+                if (parsed.lbgTitleTemplate !== undefined) state.lbgTitleTemplate = parsed.lbgTitleTemplate;
+                if (parsed.lbgDateRangeTemplate !== undefined) state.lbgDateRangeTemplate = parsed.lbgDateRangeTemplate;
             }
         } catch (e) {
             console.warn("Could not load localStorage for Grade " + grade + ":", e);
@@ -461,6 +489,42 @@
             });
         }
 
+        // Register any custom subjects from PPCT or Timetable into state.subjectList if missing
+        if (!state.subjectList) state.subjectList = [];
+        const existingSubNames = new Set(state.subjectList.map(s => s.name.trim().toLowerCase()));
+        if (state.ppct) {
+            state.ppct.forEach(p => {
+                if (p.subject && p.subject !== "-- Nghỉ / Để trống --" && p.subject.trim()) {
+                    const normK = p.subject.trim().toLowerCase();
+                    if (!existingSubNames.has(normK)) {
+                        existingSubNames.add(normK);
+                        state.subjectList.push({
+                            name: p.subject.trim(),
+                            category: "GVCN",
+                            defaultPeriods: 1,
+                            isIncluded: true
+                        });
+                    }
+                }
+            });
+        }
+        if (state.timetable) {
+            state.timetable.forEach(t => {
+                if (t.subject && t.subject !== "-- Nghỉ / Để trống --" && t.subject.trim()) {
+                    const normK = t.subject.trim().toLowerCase();
+                    if (!existingSubNames.has(normK)) {
+                        existingSubNames.add(normK);
+                        state.subjectList.push({
+                            name: t.subject.trim(),
+                            category: "GVCN",
+                            defaultPeriods: 1,
+                            isIncluded: true
+                        });
+                    }
+                }
+            });
+        }
+
         // Sync state.includedSubjects with state.subjectList
         if (!state.includedSubjects || state.includedSubjects.length === 0) {
             state.includedSubjects = state.subjectList.filter(s => s.isIncluded !== false).map(s => s.name);
@@ -488,20 +552,31 @@
                 weeklyFridayPeriods: state.weeklyFridayPeriods,
                 currentWeek: state.currentWeek,
                 fridayPeriodsDefault: state.fridayPeriodsDefault,
+                selectedKhdhSubjects: state.selectedKhdhSubjects || [],
                 includedSubjects: state.includedSubjects,
                 subjectList: state.subjectList,
                 lbgExcludedMode: state.lbgExcludedMode,
                 lbgShowColSign: state.lbgShowColSign,
                 lbgShowColNote: state.lbgShowColNote,
-                lbgShowColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
+                lbgShowColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false')),
                 lbgColCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName,
                 lbgColCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
                 lbgCustomCols: state.lbgCustomCols || [],
+                ctlopShowIntegration: (state.ctlopShowIntegration !== false),
+                lbgMonShowIntegration: (state.lbgMonShowIntegration !== false),
                 lbgShowBghSign: state.lbgShowBghSign,
                 lbgShowGvcnSign: state.lbgShowGvcnSign,
                 lbgShowHeadSign: state.lbgShowHeadSign,
                 lbgHideEmptyRows: !!state.lbgHideEmptyRows,
                 lbgShowTotalRow: (state.lbgShowTotalRow !== false),
+                lbgShowGovBody: (state.lbgShowGovBody !== false),
+                lbgShowSchoolName: (state.lbgShowSchoolName !== false),
+                lbgShowGradeClass: (state.lbgShowGradeClass !== false),
+                lbgShowNationalMotto: (state.lbgShowNationalMotto !== false),
+                lbgShowTitle: (state.lbgShowTitle !== false),
+                lbgShowDateRange: (state.lbgShowDateRange !== false),
+                lbgTitleTemplate: state.lbgTitleTemplate || "",
+                lbgDateRangeTemplate: state.lbgDateRangeTemplate || "",
                 currentGrade: state.currentGrade
             };
             const gradeKey = getStorageKey(state.currentGrade);
@@ -640,7 +715,20 @@
 
     function normalizeSubjectName(sub) {
         if (!sub) return "";
-        const s = sub.toString().normalize("NFC").trim().toUpperCase()
+        const rawTrimmed = sub.toString().trim();
+        if (rawTrimmed === "-- Nghỉ / Để trống --" || rawTrimmed === "--" || rawTrimmed.startsWith("--")) {
+            return "-- Nghỉ / Để trống --";
+        }
+
+        // 1. If matches any subject explicitly defined in state.subjectList (case-insensitive exact match)
+        if (state && Array.isArray(state.subjectList) && state.subjectList.length > 0) {
+            const matchedSub = state.subjectList.find(s => s && s.name && s.name.trim().toLowerCase() === rawTrimmed.toLowerCase());
+            if (matchedSub) {
+                return matchedSub.name.trim();
+            }
+        }
+
+        const s = rawTrimmed.normalize("NFC").toUpperCase()
             .replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A")
             .replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E")
             .replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I")
@@ -649,8 +737,13 @@
             .replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y")
             .replace(/Đ/g, "D");
         
-        // Priority 1: HĐ Trải nghiệm (MUST check before any off/empty substring checks!)
-        if (s.includes("TRAI NGHIEM") || s.includes("HDTN") || s.includes("HOAT DONG") || s.includes("CHAO CO") || s.includes("SINH HOAT")) {
+        // Priority: Blank / Off Periods
+        if (s.includes("DE TRONG") || s === "NGHI" || s.includes("NGHI HOC") || s.includes("NGHI TIET") || s.startsWith("--")) {
+            return "-- Nghỉ / Để trống --";
+        }
+
+        // Priority 1: HĐ Trải nghiệm
+        if (s.includes("TRAI NGHIEM") || s.includes("HDTN") || s.includes("CHAO CO") || s.includes("SINH HOAT") || s === "HOAT DONG" || s === "HD" || s.startsWith("HOAT DONG TN") || s.startsWith("HD TN") || s.includes("HDTN-HN")) {
             return "HĐ Trải nghiệm";
         }
 
@@ -662,7 +755,7 @@
         if (s.includes("TC TOAN") || s.includes("TANG CUONG TOAN")) return "TC Toán";
         if (s.includes("TOAN")) return "Toán";
 
-        // Priority 4: Other Subjects
+        // Priority 4: Other Standard Primary Subjects
         if (s.includes("TIENG ANH") || s.includes("TA") || s.includes("ENGLISH")) return "Tiếng Anh";
         if (s.includes("TNXH") || s.includes("TU NHIEN VA XA HOI") || s.includes("TU NHIEN XA HOI") || s.includes("TU NHIEN")) return "TNXH";
         if (s.includes("KHOA HOC") || s === "KH") return "Khoa học";
@@ -676,20 +769,17 @@
         if (s.includes("THU VIEN")) return "Đọc Thư viện";
         if (s.includes("KNS") || s.includes("KY NANG")) return "KNS";
         if (s.includes("STEM")) return "STEM";
-        if (s.includes("CD SO") || s.includes("CONG DAN")) return "CD Số";
+        if (s.includes("CD SO") || s.includes("CONG DAN SO")) return "CD Số";
 
-        // Priority 5: Blank / Off Periods
-        if (s.includes("DE TRONG") || s === "NGHI" || s.includes("NGHI HOC") || s.includes("NGHI TIET") || s.startsWith("--")) {
-            return "-- Nghỉ / Để trống --";
-        }
-
-        return sub.toString().trim();
+        // Preserve original custom name
+        return rawTrimmed;
     }
 
     function getAllUniqueSubjects() {
+        const defaultSubs = getGradeDefaultSubjects(state.currentGrade);
         const list = (state.subjectList && state.subjectList.length > 0)
             ? state.subjectList.map(s => s.name)
-            : DEFAULT_GRADE_5_SUBJECTS.map(s => s.name);
+            : defaultSubs.map(s => s.name);
         
         const map = new Map();
         // 1. Add subjects from subjectList
@@ -997,7 +1087,15 @@
     function findPpctItem(week, subject, periodInWeek) {
         const normSub = normalizeSubjectName(subject);
         if (!normSub || normSub === "-- Nghỉ / Để trống --") return null;
-        return state.ppct.find(p => p.week === week && normalizeSubjectName(p.subject) === normSub && p.periodInWeek === periodInWeek);
+        let item = state.ppct.find(p => p.week === week && normalizeSubjectName(p.subject) === normSub && p.periodInWeek === periodInWeek);
+        if (!item) {
+            const matchingSubWeeks = state.ppct.filter(p => p.week === week && (normalizeSubjectName(p.subject) === normSub || (p.subject && p.subject.trim().toLowerCase() === subject.trim().toLowerCase())));
+            if (matchingSubWeeks.length > 0) {
+                const idx = Math.min(Math.max(0, (periodInWeek || 1) - 1), matchingSubWeeks.length - 1);
+                item = matchingSubWeeks[idx];
+            }
+        }
+        return item;
     }
 
     function getWeekSlots(weekNum) {
@@ -1848,9 +1946,9 @@
     }
 
     // Helper: Determine ordered columns for LBG table and export
-    function getLbgOrderedColumns(customColsList, showSign, showNote, isCtlop) {
+    function getLbgOrderedColumns(customColsList, showSign, showNote, isCtlop, showIntegration = true) {
         const enabledCustomCols = Array.isArray(customColsList) 
-            ? customColsList.filter(c => c && c.enabled !== false) 
+            ? customColsList.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false') 
             : [];
         
         const cols = [];
@@ -1906,7 +2004,7 @@
         // Pos 7: after lesson
         pushCustom('7');
 
-        if (isCtlop) {
+        if (isCtlop && showIntegration !== false) {
             cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false });
         }
         if (showSign) {
@@ -2056,6 +2154,363 @@
         });
     }
 
+    // Helper: Generate dynamic or customized LBG main title
+    function getLbgTitle(weekNum, isCtlop = false, isMon = false, filterSubject = "all") {
+        if (state.lbgTitleTemplate && state.lbgTitleTemplate.trim()) {
+            return state.lbgTitleTemplate
+                .replace(/\{week\}/gi, weekNum)
+                .replace(/\{grade\}/gi, state.settings.grade || "KHỐI 5")
+                .replace(/\{class\}/gi, state.settings.className || "LỚP 5A")
+                .replace(/\{subject\}/gi, (filterSubject && filterSubject !== "all" ? filterSubject : (isMon ? "theo môn học" : "")));
+        }
+        if (isMon) {
+            if (filterSubject && filterSubject !== "all") {
+                return `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} - TUẦN ${weekNum}`;
+            }
+            return `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+        }
+        if (isCtlop) {
+            return `LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ${weekNum}`;
+        }
+        return `LỊCH BÁO GIẢNG TUẦN ${weekNum}`;
+    }
+
+    // Helper: Generate dynamic or customized date range subtitle
+    function getLbgDateRangeText(weekInfo) {
+        if (!weekInfo) return "";
+        if (state.lbgDateRangeTemplate && state.lbgDateRangeTemplate.trim()) {
+            return state.lbgDateRangeTemplate
+                .replace(/\{startDate\}/gi, weekInfo.startDateVN || "")
+                .replace(/\{endDate\}/gi, weekInfo.endDateVN || "")
+                .replace(/\{week\}/gi, weekInfo.week || state.currentWeek);
+        }
+        return `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN || ''} đến ngày ${weekInfo.endDateVN || ''})`;
+    }
+
+    // Helper: Synchronize all Header elements across Tab 1, Tab 2, Tab 6, Tab 5
+    function syncAllLbgHeaders() {
+        const weekNum = state.currentWeek;
+        const weekInfo = state.weeks.find(w => w.week === weekNum) || {
+            week: weekNum,
+            startDateVN: "07/09/2026",
+            endDateVN: "11/09/2026"
+        };
+
+        const showGov = (state.lbgShowGovBody !== false);
+        const showSch = (state.lbgShowSchoolName !== false);
+        const showGC = (state.lbgShowGradeClass !== false);
+        const showMotto = (state.lbgShowNationalMotto !== false);
+        const showTit = (state.lbgShowTitle !== false);
+        const showDR = (state.lbgShowDateRange !== false);
+
+        const govText = (state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
+        const schText = (state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
+        const gcText = `${state.settings.grade || "KHỐI 5"} - ${state.settings.className || "LỚP 5A"}`;
+        const dateRangeText = getLbgDateRangeText(weekInfo);
+
+        // Tab 1 (LBG)
+        const elGov1 = document.getElementById("lbg-gov-body");
+        if (elGov1) { elGov1.innerText = govText; elGov1.style.display = showGov ? "" : "none"; }
+        const elSch1 = document.getElementById("lbg-school-name");
+        if (elSch1) { elSch1.innerText = schText; elSch1.style.display = showSch ? "" : "none"; }
+        const elGC1 = document.getElementById("lbg-grade-class");
+        if (elGC1) { elGC1.innerText = gcText; elGC1.style.display = showGC ? "" : "none"; }
+        const elMotto1 = document.getElementById("lbg-motto-box");
+        if (elMotto1) { elMotto1.style.display = showMotto ? "" : "none"; }
+        const elTit1 = document.getElementById("lbg-week-title");
+        if (elTit1) { elTit1.innerText = getLbgTitle(weekNum, false, false); elTit1.style.display = showTit ? "" : "none"; }
+        const elDR1 = document.getElementById("lbg-date-range");
+        if (elDR1) { elDR1.innerText = dateRangeText; elDR1.style.display = showDR ? "" : "none"; }
+
+        // Tab 2 (CTLOP)
+        const elGov2 = document.getElementById("ctlop-gov-body");
+        if (elGov2) { elGov2.innerText = govText; elGov2.style.display = showGov ? "" : "none"; }
+        const elSch2 = document.getElementById("ctlop-school-name");
+        if (elSch2) { elSch2.innerText = schText; elSch2.style.display = showSch ? "" : "none"; }
+        const elGC2 = document.getElementById("ctlop-grade-class");
+        if (elGC2) { elGC2.innerText = gcText; elGC2.style.display = showGC ? "" : "none"; }
+        const elMotto2 = document.getElementById("ctlop-motto-box");
+        if (elMotto2) { elMotto2.style.display = showMotto ? "" : "none"; }
+        const elTit2 = document.getElementById("ctlop-week-title");
+        if (elTit2) { elTit2.innerText = getLbgTitle(weekNum, true, false); elTit2.style.display = showTit ? "" : "none"; }
+        const elDR2 = document.getElementById("ctlop-date-range");
+        if (elDR2) { elDR2.innerText = dateRangeText; elDR2.style.display = showDR ? "" : "none"; }
+
+        // Tab 6 (LBG Môn)
+        const elGov6 = document.getElementById("lbgmon-gov-body");
+        if (elGov6) { elGov6.innerText = govText; elGov6.style.display = showGov ? "" : "none"; }
+        const elSch6 = document.getElementById("lbgmon-school-name");
+        if (elSch6) { elSch6.innerText = schText; elSch6.style.display = showSch ? "" : "none"; }
+        const elGC6 = document.getElementById("lbgmon-grade-class");
+        if (elGC6) { elGC6.innerText = gcText; elGC6.style.display = showGC ? "" : "none"; }
+        const elMotto6 = document.getElementById("lbgmon-motto-box");
+        if (elMotto6) { elMotto6.style.display = showMotto ? "" : "none"; }
+        const elTit6 = document.getElementById("lbgmon-week-title");
+        if (elTit6) { elTit6.innerText = getLbgTitle(weekNum, false, true, state.lbgMonFilterSubject); elTit6.style.display = showTit ? "" : "none"; }
+        const elDR6 = document.getElementById("lbgmon-date-range");
+        if (elDR6) { elDR6.innerText = dateRangeText; elDR6.style.display = showDR ? "" : "none"; }
+
+        // Sync Quick Checkboxes in Tab 1, 2, 6
+        ["lbg", "ctlop", "lbgmon"].forEach(prefix => {
+            const chkGov = document.getElementById(`${prefix}-opt-show-gov-body`) || document.getElementById(`${prefix}-opt-hdr-gov-body`);
+            if (chkGov) chkGov.checked = showGov;
+            const chkSch = document.getElementById(`${prefix}-opt-show-school`) || document.getElementById(`${prefix}-opt-hdr-school`);
+            if (chkSch) chkSch.checked = showSch;
+            const chkGC = document.getElementById(`${prefix}-opt-show-grade-class`) || document.getElementById(`${prefix}-opt-hdr-grade-class`);
+            if (chkGC) chkGC.checked = showGC;
+            const chkMotto = document.getElementById(`${prefix}-opt-show-motto`);
+            if (chkMotto) chkMotto.checked = showMotto;
+            const chkTit = document.getElementById(`${prefix}-opt-show-title`) || document.getElementById(`${prefix}-opt-hdr-title`);
+            if (chkTit) chkTit.checked = showTit;
+            const chkDR = document.getElementById(`${prefix}-opt-show-date-range`) || document.getElementById(`${prefix}-opt-hdr-date-range`);
+            if (chkDR) chkDR.checked = showDR;
+        });
+
+        // Sync Modal Preview Checkboxes
+        const modChkGov = document.getElementById("modal-opt-show-gov-body");
+        if (modChkGov) modChkGov.checked = showGov;
+        const modChkSch = document.getElementById("modal-opt-show-school");
+        if (modChkSch) modChkSch.checked = showSch;
+        const modChkGC = document.getElementById("modal-opt-show-grade-class");
+        if (modChkGC) modChkGC.checked = showGC;
+        const modChkMotto = document.getElementById("modal-opt-show-motto");
+        if (modChkMotto) modChkMotto.checked = showMotto;
+        const modChkTit = document.getElementById("modal-opt-show-title");
+        if (modChkTit) modChkTit.checked = showTit;
+        const modChkDR = document.getElementById("modal-opt-show-date-range");
+        if (modChkDR) modChkDR.checked = showDR;
+
+        // Sync Tab 5 Settings inputs
+        const setChkGov = document.getElementById("set-show-gov-body") || document.getElementById("set-hdr-show-gov-body");
+        if (setChkGov) setChkGov.checked = showGov;
+        const setTxtGov = document.getElementById("set-governing-body") || document.getElementById("set-hdr-gov-body");
+        if (setTxtGov && !setTxtGov.value) setTxtGov.value = state.settings.governingBody || "";
+
+        const setChkSch = document.getElementById("set-show-school-name") || document.getElementById("set-hdr-show-school");
+        if (setChkSch) setChkSch.checked = showSch;
+        const setTxtSch = document.getElementById("set-school-name") || document.getElementById("set-hdr-school");
+        if (setTxtSch && !setTxtSch.value) setTxtSch.value = state.settings.schoolName || "";
+
+        const setChkGC = document.getElementById("set-show-grade-class") || document.getElementById("set-hdr-show-grade-class");
+        if (setChkGC) setChkGC.checked = showGC;
+        const setTxtGrade = document.getElementById("set-grade") || document.getElementById("set-hdr-grade");
+        if (setTxtGrade && !setTxtGrade.value) setTxtGrade.value = state.settings.grade || "KHỐI 5";
+        const setTxtClass = document.getElementById("set-class-name") || document.getElementById("set-hdr-class");
+        if (setTxtClass && !setTxtClass.value) setTxtClass.value = state.settings.className || "LỚP 5A";
+
+        const setChkMotto = document.getElementById("set-show-motto");
+        if (setChkMotto) setChkMotto.checked = showMotto;
+
+        const setChkTit = document.getElementById("set-show-title") || document.getElementById("set-hdr-show-title");
+        if (setChkTit) setChkTit.checked = showTit;
+        const setTxtTit = document.getElementById("set-title-template") || document.getElementById("set-hdr-title");
+        if (setTxtTit) setTxtTit.value = state.lbgTitleTemplate || "";
+
+        const setChkDR = document.getElementById("set-show-date-range") || document.getElementById("set-hdr-show-date-range");
+        if (setChkDR) setChkDR.checked = showDR;
+        const setTxtDR = document.getElementById("set-date-range-template") || document.getElementById("set-hdr-date-range");
+        if (setTxtDR) setTxtDR.value = state.lbgDateRangeTemplate || "";
+    }
+
+    function openHeaderCustomizerModal() {
+        const modal = document.getElementById("modal-header-customizer");
+        if (!modal) return;
+
+        const chkGov = document.getElementById("modal-chk-gov-body");
+        if (chkGov) chkGov.checked = (state.lbgShowGovBody !== false);
+        const txtGov = document.getElementById("modal-input-gov-body");
+        if (txtGov) txtGov.value = state.settings.governingBody || "";
+
+        const chkSch = document.getElementById("modal-chk-school");
+        if (chkSch) chkSch.checked = (state.lbgShowSchoolName !== false);
+        const txtSch = document.getElementById("modal-input-school");
+        if (txtSch) txtSch.value = state.settings.schoolName || "";
+
+        const chkGC = document.getElementById("modal-chk-grade-class");
+        if (chkGC) chkGC.checked = (state.lbgShowGradeClass !== false);
+        const txtGrade = document.getElementById("modal-input-grade");
+        if (txtGrade) txtGrade.value = state.settings.grade || "KHỐI 5";
+        const txtClass = document.getElementById("modal-input-class");
+        if (txtClass) txtClass.value = state.settings.className || "LỚP 5A";
+
+        const chkMotto = document.getElementById("modal-chk-motto");
+        if (chkMotto) chkMotto.checked = (state.lbgShowNationalMotto !== false);
+
+        const chkTit = document.getElementById("modal-chk-title");
+        if (chkTit) chkTit.checked = (state.lbgShowTitle !== false);
+        const txtTit = document.getElementById("modal-input-title");
+        if (txtTit) txtTit.value = state.lbgTitleTemplate || "";
+
+        const presetSel = document.getElementById("modal-sel-title-preset");
+        if (presetSel) {
+            const currentTpl = state.lbgTitleTemplate || "";
+            if (["LỊCH BÁO GIẢNG TUẦN {week}", "KẾ HOẠCH BÁO GIẢNG TUẦN {week}", "LỊCH DẠY TUẦN {week}", "LỊCH BÁO GIẢNG TÍCH HỢP TUẦN {week}"].includes(currentTpl)) {
+                presetSel.value = currentTpl;
+            } else if (!currentTpl) {
+                presetSel.value = "LỊCH BÁO GIẢNG TUẦN {week}";
+            } else {
+                presetSel.value = "custom";
+            }
+        }
+
+        const chkDR = document.getElementById("modal-chk-date-range");
+        if (chkDR) chkDR.checked = (state.lbgShowDateRange !== false);
+        const txtDR = document.getElementById("modal-input-date-range");
+        if (txtDR) txtDR.value = state.lbgDateRangeTemplate || "";
+
+        updateHeaderModalLivePreview();
+        modal.classList.add("show");
+        modal.style.display = "flex";
+    }
+
+    function closeHeaderCustomizerModal() {
+        const modal = document.getElementById("modal-header-customizer");
+        if (modal) {
+            modal.classList.remove("show");
+            modal.style.display = "none";
+        }
+    }
+
+    function updateHeaderModalLivePreview() {
+        const weekNum = state.currentWeek;
+        const weekInfo = state.weeks.find(w => w.week === weekNum) || {
+            week: weekNum,
+            startDateVN: "07/09/2026",
+            endDateVN: "11/09/2026"
+        };
+
+        const showGov = document.getElementById("modal-chk-gov-body") ? document.getElementById("modal-chk-gov-body").checked : true;
+        const govVal = (document.getElementById("modal-input-gov-body")?.value || state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
+
+        const showSch = document.getElementById("modal-chk-school") ? document.getElementById("modal-chk-school").checked : true;
+        const schVal = (document.getElementById("modal-input-school")?.value || state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
+
+        const showGC = document.getElementById("modal-chk-grade-class") ? document.getElementById("modal-chk-grade-class").checked : true;
+        const gradeVal = document.getElementById("modal-input-grade")?.value || state.settings.grade || "KHỐI 5";
+        const classVal = document.getElementById("modal-input-class")?.value || state.settings.className || "LỚP 5A";
+
+        const showMotto = document.getElementById("modal-chk-motto") ? document.getElementById("modal-chk-motto").checked : true;
+
+        const showTit = document.getElementById("modal-chk-title") ? document.getElementById("modal-chk-title").checked : true;
+        const titTpl = document.getElementById("modal-input-title")?.value || "";
+        let titText = `LỊCH BÁO GIẢNG TUẦN ${weekNum}`;
+        if (titTpl.trim()) {
+            titText = titTpl.replace(/\{week\}/gi, weekNum).replace(/\{grade\}/gi, gradeVal).replace(/\{class\}/gi, classVal);
+        }
+
+        const showDR = document.getElementById("modal-chk-date-range") ? document.getElementById("modal-chk-date-range").checked : true;
+        const drTpl = document.getElementById("modal-input-date-range")?.value || "";
+        let drText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        if (drTpl.trim()) {
+            drText = drTpl.replace(/\{startDate\}/gi, weekInfo.startDateVN || '').replace(/\{endDate\}/gi, weekInfo.endDateVN || '').replace(/\{week\}/gi, weekNum);
+        }
+
+        const prevGov = document.getElementById("header-preview-gov") || document.getElementById("prev-gov-val");
+        if (prevGov) { prevGov.innerText = govVal; prevGov.style.display = showGov ? "" : "none"; }
+        const prevSch = document.getElementById("header-preview-school") || document.getElementById("prev-school-val");
+        if (prevSch) { prevSch.innerText = schVal; prevSch.style.display = showSch ? "" : "none"; }
+        const prevGC = document.getElementById("header-preview-grade-class") || document.getElementById("prev-grade-class-val");
+        if (prevGC) { prevGC.innerText = `${gradeVal} - ${classVal}`; prevGC.style.display = showGC ? "" : "none"; }
+        const prevMotto = document.getElementById("header-preview-motto") || document.getElementById("prev-motto-val");
+        if (prevMotto) { prevMotto.style.display = showMotto ? "" : "none"; }
+        const prevTit = document.getElementById("header-preview-title") || document.getElementById("prev-title-val");
+        if (prevTit) { prevTit.innerText = titText; prevTit.style.display = showTit ? "" : "none"; }
+        const prevDR = document.getElementById("header-preview-date-range") || document.getElementById("prev-date-val");
+        if (prevDR) { prevDR.innerText = drText; prevDR.style.display = showDR ? "" : "none"; }
+    }
+
+    function saveHeaderCustomizerModal() {
+        const chkGov = document.getElementById("modal-chk-gov-body");
+        if (chkGov) state.lbgShowGovBody = chkGov.checked;
+        const txtGov = document.getElementById("modal-input-gov-body");
+        if (txtGov && txtGov.value.trim()) state.settings.governingBody = txtGov.value.trim();
+
+        const chkSch = document.getElementById("modal-chk-school");
+        if (chkSch) state.lbgShowSchoolName = chkSch.checked;
+        const txtSch = document.getElementById("modal-input-school");
+        if (txtSch && txtSch.value.trim()) state.settings.schoolName = txtSch.value.trim();
+
+        const chkGC = document.getElementById("modal-chk-grade-class");
+        if (chkGC) state.lbgShowGradeClass = chkGC.checked;
+        const txtGrade = document.getElementById("modal-input-grade");
+        if (txtGrade && txtGrade.value.trim()) state.settings.grade = txtGrade.value.trim();
+        const txtClass = document.getElementById("modal-input-class");
+        if (txtClass && txtClass.value.trim()) state.settings.className = txtClass.value.trim();
+
+        const chkMotto = document.getElementById("modal-chk-motto");
+        if (chkMotto) state.lbgShowNationalMotto = chkMotto.checked;
+
+        const chkTit = document.getElementById("modal-chk-title");
+        if (chkTit) state.lbgShowTitle = chkTit.checked;
+        const txtTit = document.getElementById("modal-input-title");
+        if (txtTit) state.lbgTitleTemplate = txtTit.value.trim();
+
+        const chkDR = document.getElementById("modal-chk-date-range");
+        if (chkDR) state.lbgShowDateRange = chkDR.checked;
+        const txtDR = document.getElementById("modal-input-date-range");
+        if (txtDR) state.lbgDateRangeTemplate = txtDR.value.trim();
+
+        saveState();
+        syncAllLbgHeaders();
+        renderTabLbg();
+        renderTabCtlop();
+        renderTabLbgMon();
+        renderTabSettings();
+        updateTopHeaderBadge();
+        closeHeaderCustomizerModal();
+        showToast("Đã lưu và áp dụng cài đặt đầu trang Lịch Báo Giảng thành công!", "success");
+    }
+
+    function resetHeaderCustomizerDefaults() {
+        state.lbgShowGovBody = true;
+        state.lbgShowSchoolName = true;
+        state.lbgShowGradeClass = true;
+        state.lbgShowNationalMotto = true;
+        state.lbgShowTitle = true;
+        state.lbgShowDateRange = true;
+        state.lbgTitleTemplate = "";
+        state.lbgDateRangeTemplate = "";
+
+        const chkGov = document.getElementById("modal-chk-gov-body");
+        if (chkGov) chkGov.checked = true;
+        const txtGov = document.getElementById("modal-input-gov-body");
+        if (txtGov) txtGov.value = "UBND PHƯỜNG TRUNG NHỨT";
+
+        const chkSch = document.getElementById("modal-chk-school");
+        if (chkSch) chkSch.checked = true;
+        const txtSch = document.getElementById("modal-input-school");
+        if (txtSch) txtSch.value = "TRƯỜNG TIỂU HỌC TRUNG NHỨT";
+
+        const chkGC = document.getElementById("modal-chk-grade-class");
+        if (chkGC) chkGC.checked = true;
+        const txtGrade = document.getElementById("modal-input-grade");
+        if (txtGrade) txtGrade.value = "KHỐI 5";
+        const txtClass = document.getElementById("modal-input-class");
+        if (txtClass) txtClass.value = "LỚP 5A";
+
+        const chkMotto = document.getElementById("modal-chk-motto");
+        if (chkMotto) chkMotto.checked = true;
+
+        const chkTit = document.getElementById("modal-chk-title");
+        if (chkTit) chkTit.checked = true;
+        const txtTit = document.getElementById("modal-input-title");
+        if (txtTit) txtTit.value = "";
+
+        const chkDR = document.getElementById("modal-chk-date-range");
+        if (chkDR) chkDR.checked = true;
+        const txtDR = document.getElementById("modal-input-date-range");
+        if (txtDR) txtDR.value = "";
+
+        updateHeaderModalLivePreview();
+        saveState();
+        syncAllLbgHeaders();
+        renderTabLbg();
+        renderTabCtlop();
+        renderTabLbgMon();
+        renderTabSettings();
+        showToast("Đã khôi phục cài đặt đầu trang về mặc định!", "info");
+    }
+
     // Render Tab 1: Lịch Báo Giảng Thường
     function renderTabLbg() {
         renderWeekToolbar("lbg-week-toolbar", () => {
@@ -2078,11 +2533,7 @@
             };
         }
 
-        document.getElementById("lbg-gov-body").innerText = (state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
-        document.getElementById("lbg-school-name").innerText = (state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
-        document.getElementById("lbg-grade-class").innerText = `${state.settings.grade || "KHỐI 5"} - ${state.settings.className || "LỚP 5A"}`;
-        document.getElementById("lbg-week-title").innerText = `LỊCH BÁO GIẢNG TUẦN ${state.currentWeek}`;
-        document.getElementById("lbg-date-range").innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        syncAllLbgHeaders();
 
         // Sync LBG Options checkboxes
         const optColSign = document.getElementById("lbg-opt-col-sign");
@@ -2326,22 +2777,7 @@
         const { weekInfo } = calculateWeekSchedule(weekNum);
 
         // Update header
-        const govEl = document.getElementById("lbgmon-gov-body");
-        if (govEl) govEl.innerText = (state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
-        const schEl = document.getElementById("lbgmon-school-name");
-        if (schEl) schEl.innerText = (state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
-        const gcEl = document.getElementById("lbgmon-grade-class");
-        if (gcEl) gcEl.innerText = `${state.settings.grade || "KHỐI 5"} - ${state.settings.className || "LỚP 5A"}`;
-        const titleEl = document.getElementById("lbgmon-week-title");
-        if (titleEl) {
-            if (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== "all") {
-                titleEl.innerText = `LỊCH BÁO GIẢNG MÔN ${state.lbgMonFilterSubject.toUpperCase()} - TUẦN ${weekNum}`;
-            } else {
-                titleEl.innerText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
-            }
-        }
-        const rangeEl = document.getElementById("lbgmon-date-range");
-        if (rangeEl) rangeEl.innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        syncAllLbgHeaders();
 
         // Populate Subject Filter dropdown
         const subFilterSel = document.getElementById("lbgmon-subject-filter");
@@ -2378,6 +2814,7 @@
             showIntegCb.checked = (state.lbgMonShowIntegration !== false);
             showIntegCb.onchange = (e) => {
                 state.lbgMonShowIntegration = e.target.checked;
+                saveState();
                 renderTabLbgMon();
             };
         }
@@ -2539,7 +2976,17 @@
         if (window.DocxGenerator && window.DocxGenerator.generateLbgBySubjectDocx) {
             showToast(`Đang tạo file Word (${orient === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) theo môn học...`, "info");
             const data = calculateWeekScheduleBySubject(state.currentWeek, state.lbgMonFilterSubject, state.lbgMonFilterCategory);
-            window.DocxGenerator.generateLbgBySubjectDocx(data, state.settings, isCtlop, orient, state.lbgMonFilterSubject).then(blob => {
+            const options = {
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || ""
+            };
+            window.DocxGenerator.generateLbgBySubjectDocx(data, state.settings, isCtlop, orient, state.lbgMonFilterSubject, options).then(blob => {
                 const subSuffix = (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== 'all') ? `_${state.lbgMonFilterSubject.replace(/\s+/g, '_')}` : '';
                 const orientSuffix = orient === "landscape" ? "_Kho_Ngang" : "";
                 const filename = `Lich_Bao_Giang_Theo_Mon${subSuffix}_Tuan_${state.currentWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
@@ -2559,7 +3006,17 @@
         if (window.XlsxGenerator && window.XlsxGenerator.generateLbgBySubjectXlsx) {
             showToast("Đang tạo file Excel theo môn học...", "info");
             const data = calculateWeekScheduleBySubject(state.currentWeek, state.lbgMonFilterSubject, state.lbgMonFilterCategory);
-            window.XlsxGenerator.generateLbgBySubjectXlsx(data, state.settings, isCtlop, state.lbgMonFilterSubject).then(blob => {
+            const options = {
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || ""
+            };
+            window.XlsxGenerator.generateLbgBySubjectXlsx(data, state.settings, isCtlop, state.lbgMonFilterSubject, options).then(blob => {
                 const subSuffix = (state.lbgMonFilterSubject && state.lbgMonFilterSubject !== 'all') ? `_${state.lbgMonFilterSubject.replace(/\s+/g, '_')}` : '';
                 const filename = `Lich_Bao_Giang_Theo_Mon${subSuffix}_Tuan_${state.currentWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}.xlsx`;
                 saveAs(blob, filename);
@@ -2593,11 +3050,7 @@
             };
         }
 
-        document.getElementById("ctlop-gov-body").innerText = (state.settings.governingBody || "UBND PHƯỜNG TRUNG NHỨT").toUpperCase();
-        document.getElementById("ctlop-school-name").innerText = (state.settings.schoolName || "TRƯỜNG TIỂU HỌC TRUNG NHỨT").toUpperCase();
-        document.getElementById("ctlop-grade-class").innerText = `${state.settings.grade || "KHỐI 5"} - ${state.settings.className || "LỚP 5A"}`;
-        document.getElementById("ctlop-week-title").innerText = `LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ${state.currentWeek}`;
-        document.getElementById("ctlop-date-range").innerText = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        syncAllLbgHeaders();
 
         // Sync CTLOP Options checkboxes with state
         const ctlopOptColSign = document.getElementById("ctlop-opt-col-sign");
@@ -2614,12 +3067,15 @@
         if (ctlopOptHideEmpty) ctlopOptHideEmpty.checked = !!state.lbgHideEmptyRows;
         const ctlopOptTotalRow = document.getElementById("ctlop-opt-show-total-row");
         if (ctlopOptTotalRow) ctlopOptTotalRow.checked = (state.lbgShowTotalRow !== false);
+        const ctlopOptInteg = document.getElementById("ctlop-opt-col-integ");
+        if (ctlopOptInteg) ctlopOptInteg.checked = (state.ctlopShowIntegration !== false);
 
         // Render dynamic custom column chips in Tab 2
         renderCustomColsManager("ctlop-custom-cols-list", false);
 
         // Compute ordered columns for Tab 2 (CTLOP)
-        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, state.lbgShowColSign, state.lbgShowColNote, true);
+        const showInteg = (state.ctlopShowIntegration !== false);
+        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, state.lbgShowColSign, state.lbgShowColNote, true, showInteg);
 
         // Dynamically update Table Header columns for Tab 2
         const theadTr = document.querySelector("#tab-ctlop .table-lbg thead tr");
@@ -3173,6 +3629,72 @@
         if (fileEl) fileEl.textContent = fileName;
         if (gradeEl) gradeEl.textContent = state.currentGrade;
 
+        // Extract and count subjects in the file
+        const subjectCounts = {};
+        parsedRows.forEach(r => {
+            const sub = (r.subject || "Chưa xác định").trim();
+            subjectCounts[sub] = (subjectCounts[sub] || 0) + 1;
+        });
+        const detectedSubjects = Object.keys(subjectCounts);
+
+        const listContainer = document.getElementById("import-subject-list-container");
+        if (listContainer) {
+            listContainer.innerHTML = detectedSubjects.map((sub, idx) => `
+                <label style="display: flex; align-items: center; justify-content: space-between; padding: 0.45rem 0.65rem; border-radius: 6px; background: ${idx % 2 === 0 ? '#f8fafc' : '#ffffff'}; cursor: pointer; border: 1px solid #f1f5f9; transition: all 0.15s;" class="import-sub-item-label" onmouseover="this.style.background='#e0f2fe'" onmouseout="this.style.background='${idx % 2 === 0 ? '#f8fafc' : '#ffffff'}'">
+                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                        <input type="checkbox" class="import-sub-checkbox" value="${escapeHtml(sub)}" data-count="${subjectCounts[sub]}" checked style="accent-color: var(--primary); width: 17px; height: 17px; cursor: pointer;">
+                        <span style="font-weight: 600; color: #1e293b; font-size: 0.9rem;">${escapeHtml(sub)}</span>
+                    </div>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: #0284c7; background: #e0f2fe; padding: 2px 8px; border-radius: 12px;">${subjectCounts[sub]} tiết</span>
+                </label>
+            `).join('');
+
+            const updateStats = () => {
+                const checkboxes = listContainer.querySelectorAll('.import-sub-checkbox');
+                let selSubs = 0;
+                let selPeriods = 0;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        selSubs++;
+                        selPeriods += parseInt(cb.dataset.count || '0', 10);
+                    }
+                });
+                const subCountEl = document.getElementById("import-selected-sub-count");
+                const periodCountEl = document.getElementById("import-selected-period-count");
+                if (subCountEl) subCountEl.textContent = selSubs;
+                if (periodCountEl) periodCountEl.textContent = selPeriods.toLocaleString('vi-VN');
+
+                const btnConfirm = document.getElementById("btn-confirm-import");
+                if (btnConfirm) {
+                    btnConfirm.disabled = (selSubs === 0);
+                    btnConfirm.style.opacity = (selSubs === 0) ? "0.5" : "1";
+                    btnConfirm.style.cursor = (selSubs === 0) ? "not-allowed" : "pointer";
+                }
+            };
+
+            listContainer.querySelectorAll('.import-sub-checkbox').forEach(cb => {
+                cb.addEventListener("change", updateStats);
+            });
+
+            const btnSelAll = document.getElementById("btn-import-select-all");
+            if (btnSelAll) {
+                btnSelAll.onclick = () => {
+                    listContainer.querySelectorAll('.import-sub-checkbox').forEach(cb => { cb.checked = true; });
+                    updateStats();
+                };
+            }
+
+            const btnDeselAll = document.getElementById("btn-import-deselect-all");
+            if (btnDeselAll) {
+                btnDeselAll.onclick = () => {
+                    listContainer.querySelectorAll('.import-sub-checkbox').forEach(cb => { cb.checked = false; });
+                    updateStats();
+                };
+            }
+
+            updateStats();
+        }
+
         if (modal) {
             modal.style.display = "flex";
         }
@@ -3185,14 +3707,60 @@
 
         const { rows, fileName, targetGrade } = window._pendingPpctImport;
 
+        // Get list of selected subjects from checkboxes
+        const listContainer = document.getElementById("import-subject-list-container");
+        let selectedSubs = [];
+        if (listContainer) {
+            const checkedCbs = Array.from(listContainer.querySelectorAll('.import-sub-checkbox:checked'));
+            selectedSubs = checkedCbs.map(cb => cb.value.trim());
+        } else {
+            selectedSubs = [...new Set(rows.map(r => (r.subject || "").trim()))];
+        }
+
+        if (selectedSubs.length === 0) {
+            alert("⚠️ Vui lòng chọn ít nhất 1 môn học cần nạp!");
+            return;
+        }
+
+        // Filter rows to only keep selected subjects
+        const filteredRows = rows.filter(item => {
+            const cleanSub = (item.subject || "").trim();
+            const normSub = normalizeSubjectName(cleanSub).toLowerCase();
+            return selectedSubs.some(s => 
+                s.toLowerCase() === cleanSub.toLowerCase() || 
+                normalizeSubjectName(s).toLowerCase() === normSub
+            );
+        });
+
+        if (filteredRows.length === 0) {
+            alert("⚠️ Không có dòng bài dạy nào tương ứng với các môn đã chọn!");
+            return;
+        }
+
         let updatedCount = 0;
         let insertedCount = 0;
 
-        if (mode === "replace") {
-            state.ppct = rows;
-            insertedCount = rows.length;
+        if (mode === "replace_all") {
+            // Replace all PPCT of this grade with selected subjects
+            state.ppct = filteredRows;
+            insertedCount = filteredRows.length;
+        } else if (mode === "replace_selected" || mode === "replace") {
+            // Remove existing lessons for only the selected subjects, keep all other subjects untouched
+            state.ppct = state.ppct.filter(p => {
+                const pSub = (p.subject || "").trim();
+                const normPSub = normalizeSubjectName(pSub).toLowerCase();
+                const isMatch = selectedSubs.some(s => 
+                    s.toLowerCase() === pSub.toLowerCase() || 
+                    normalizeSubjectName(s).toLowerCase() === normPSub
+                );
+                return !isMatch; // Keep non-selected subjects intact
+            });
+            state.ppct.push(...filteredRows);
+            insertedCount = filteredRows.length;
+            state.ppct.sort((a, b) => (a.week - b.week) || (a.ppct - b.ppct) || (a.periodInWeek - b.periodInWeek));
         } else if (mode === "merge") {
-            rows.forEach(item => {
+            // Merge / update existing
+            filteredRows.forEach(item => {
                 const normItemSub = normalizeSubjectName(item.subject);
                 const cleanItemSub = (item.subject || "").trim().toLowerCase();
 
@@ -3213,14 +3781,20 @@
                     insertedCount++;
                 }
             });
+            state.ppct.sort((a, b) => (a.week - b.week) || (a.ppct - b.ppct) || (a.periodInWeek - b.periodInWeek));
         }
 
-        // Rebuild khdh dictionary for current grade with newly imported PPCT data
-        state.khdh = buildKhdhForGrade(targetGrade, state.ppct);
+        // Rebuild khdh dictionary for target grade with newly imported PPCT data
+        if (targetGrade === 5) {
+            const baseKhdh = (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.khdh) ? JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.khdh)) : {};
+            const builtKhdh = buildKhdhForGrade(targetGrade, state.ppct);
+            state.khdh = Object.assign({}, baseKhdh, builtKhdh);
+        } else {
+            state.khdh = buildKhdhForGrade(targetGrade, state.ppct);
+        }
 
         // Automatically register any imported subjects into subjectList, includedSubjects, and selectedKhdhSubjects
-        const importedSubNames = [...new Set(rows.map(r => (r.subject || "").trim()))];
-        importedSubNames.forEach(subName => {
+        selectedSubs.forEach(subName => {
             if (!subName || subName === "-- Nghỉ / Để trống --") return;
             const cleanName = subName.trim();
             
@@ -3247,25 +3821,45 @@
             }
         });
 
+        // Reset or point PPCT filter to imported subject so user immediately sees imported data
+        const subSelect = document.getElementById("ppct-filter-subject");
+        if (subSelect) {
+            if (selectedSubs.length === 1) {
+                subSelect.value = selectedSubs[0];
+            } else if (selectedSubs.length > 1) {
+                subSelect.value = selectedSubs[0];
+            } else {
+                subSelect.value = "ALL";
+            }
+        }
+        const weekSelect = document.getElementById("ppct-filter-week");
+        if (weekSelect) weekSelect.value = "ALL";
+        const searchInput = document.getElementById("ppct-search");
+        if (searchInput) searchInput.value = "";
+
         saveState();
         renderSubjectManagementTable();
         renderMasterTimetableEditor();
         renderTabPpct();
         renderTabLbg();
         renderTabCtlop();
+        renderTabLbgMon();
         updatePpctCountBadge();
 
         let toastMsg = "";
-        if (mode === "replace") {
-            toastMsg = `Đã thay thế toàn bộ bằng ${rows.length} tiết PPCT mới Khối ${targetGrade} từ file!`;
+        const subCountStr = `${selectedSubs.length} môn (${selectedSubs.slice(0, 3).join(", ")}${selectedSubs.length > 3 ? '...' : ''})`;
+        if (mode === "replace_all") {
+            toastMsg = `Đã thay thế toàn bộ PPCT Khối ${targetGrade} bằng ${filteredRows.length} tiết của ${subCountStr}!`;
+        } else if (mode === "replace_selected" || mode === "replace") {
+            toastMsg = `Đã làm mới hoàn toàn ${filteredRows.length} tiết cho ${subCountStr}! (Các môn khác giữ nguyên)`;
         } else if (updatedCount > 0 && insertedCount > 0) {
-            toastMsg = `Đã cập nhật ${updatedCount} tiết và bổ sung mới ${insertedCount} tiết PPCT từ file!`;
+            toastMsg = `Đã cập nhật ${updatedCount} tiết và thêm mới ${insertedCount} tiết cho ${subCountStr}!`;
         } else if (insertedCount > 0) {
-            toastMsg = `Đã nạp mới thành công ${insertedCount} tiết PPCT từ file!`;
+            toastMsg = `Đã nạp mới thành công ${insertedCount} tiết cho ${subCountStr}!`;
         } else if (updatedCount > 0) {
-            toastMsg = `Đã cập nhật thành công ${updatedCount} tiết PPCT từ file!`;
+            toastMsg = `Đã cập nhật thành công ${updatedCount} tiết cho ${subCountStr}!`;
         } else {
-            toastMsg = `Đã đồng bộ thành công ${rows.length} tiết PPCT từ file!`;
+            toastMsg = `Đã đồng bộ thành công ${filteredRows.length} tiết cho ${subCountStr}!`;
         }
 
         showToast(toastMsg, "success");
@@ -3618,29 +4212,84 @@
         const currentSelectedSub = subSelect ? subSelect.value : "ALL";
         if (subSelect) {
             const allSubs = getAllUniqueSubjects();
+            const isValidSub = currentSelectedSub === "ALL" || allSubs.includes(currentSelectedSub) || allSubs.some(s => normalizeSubjectName(s) === normalizeSubjectName(currentSelectedSub));
+            const activeSub = isValidSub ? currentSelectedSub : "ALL";
             subSelect.innerHTML = `<option value="ALL">-- Tất cả các môn --</option>` + 
-                allSubs.map(s => `<option value="${s}" ${s === currentSelectedSub ? 'selected' : ''}>${s}</option>`).join('');
+                allSubs.map(s => `<option value="${s}" ${s === activeSub ? 'selected' : ''}>${s}</option>`).join('');
+            subSelect.value = activeSub;
         }
 
-        const selectedSubject = subSelect ? subSelect.value : "ALL";
+        let selectedSubject = subSelect ? subSelect.value : "ALL";
         const selectedWeek = weekSelect ? weekSelect.value : "ALL";
         const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
         let filtered = state.ppct;
         if (selectedSubject !== "ALL") {
-            filtered = filtered.filter(p => normalizeSubjectName(p.subject) === normalizeSubjectName(selectedSubject) || p.subject === selectedSubject);
+            const normSel = normalizeSubjectName(selectedSubject).toLowerCase();
+            filtered = filtered.filter(p => 
+                (p.subject && p.subject.trim().toLowerCase() === selectedSubject.trim().toLowerCase()) ||
+                normalizeSubjectName(p.subject).toLowerCase() === normSel
+            );
         }
         if (selectedWeek !== "ALL") {
             filtered = filtered.filter(p => p.week === parseInt(selectedWeek));
         }
         if (searchTerm) {
-            filtered = filtered.filter(p => p.lessonName.toLowerCase().includes(searchTerm) || (p.integration && p.integration.toLowerCase().includes(searchTerm)));
+            filtered = filtered.filter(p => 
+                (p.subject && p.subject.toLowerCase().includes(searchTerm)) ||
+                (p.lessonName && p.lessonName.toLowerCase().includes(searchTerm)) || 
+                (p.integration && p.integration.toLowerCase().includes(searchTerm))
+            );
         }
 
         document.getElementById("ppct-count-badge").innerText = `${filtered.length} tiết`;
 
         const tbody = document.getElementById("ppct-table-body");
         tbody.innerHTML = "";
+
+        if (filtered.length === 0) {
+            const isSpecificSub = (selectedSubject !== "ALL");
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">
+                            📖 ${isSpecificSub ? `Chưa có bài dạy nào cho môn "${escapeHtml(selectedSubject)}" (Khối ${state.currentGrade})` : 'Không có bài dạy nào phù hợp với bộ lọc đã chọn.'}
+                        </div>
+                        <div style="font-size: 0.88rem; margin-bottom: 1.25rem;">
+                            ${isSpecificSub ? 'Thầy/Cô có thể tạo nhanh 35 tuần bài dạy mẫu hoặc thêm từng dòng bài dạy:' : 'Thầy/Cô vui lòng chọn lại bộ lọc hoặc thêm dòng bài dạy mới.'}
+                        </div>
+                        ${isSpecificSub ? `
+                            <div style="display: inline-flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center;">
+                                <button type="button" class="btn btn-primary btn-sm btn-auto-gen-ppct" data-subject="${escapeHtml(selectedSubject)}" style="font-weight: 700;">
+                                    <span>⚡</span> <span>Tự động tạo 35 tuần bài dạy cho môn "${escapeHtml(selectedSubject)}"</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm btn-quick-add-ppct" data-subject="${escapeHtml(selectedSubject)}">
+                                    <span>➕</span> <span>Thêm 1 dòng bài dạy</span>
+                                </button>
+                            </div>
+                        ` : ''}
+                    </td>
+                </tr>
+            `;
+
+            tbody.querySelectorAll(".btn-auto-gen-ppct").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const sub = e.currentTarget.dataset.subject;
+                    const subMeta = (state.subjectList || []).find(s => s.name.trim().toLowerCase() === sub.toLowerCase());
+                    const perWeek = subMeta ? (subMeta.defaultPeriods || 1) : 1;
+                    autoGeneratePpctForSubject(sub, perWeek);
+                });
+            });
+
+            tbody.querySelectorAll(".btn-quick-add-ppct").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const btnAdd = document.getElementById("btn-add-ppct-row");
+                    if (btnAdd) btnAdd.click();
+                });
+            });
+
+            return;
+        }
 
         const displayRows = filtered;
         displayRows.forEach(p => {
@@ -4237,6 +4886,72 @@
         }
     }
 
+    function autoGeneratePpctForSubject(subjectName, periodsPerWeek = 1) {
+        if (!subjectName) return;
+        const cleanName = subjectName.trim();
+        const pPerWeek = Math.max(1, parseInt(periodsPerWeek) || 1);
+        
+        // Remove existing rows for this subject if any
+        const normTarget = normalizeSubjectName(cleanName).toLowerCase();
+        state.ppct = state.ppct.filter(p => 
+            (p.subject && p.subject.trim().toLowerCase() !== cleanName.toLowerCase()) &&
+            normalizeSubjectName(p.subject).toLowerCase() !== normTarget
+        );
+
+        let nextPpct = 1;
+        for (let w = 1; w <= 35; w++) {
+            for (let pInW = 1; pInW <= pPerWeek; pInW++) {
+                state.ppct.push({
+                    week: w,
+                    subject: cleanName,
+                    periodInWeek: pInW,
+                    ppct: nextPpct,
+                    lessonName: (pPerWeek === 1) ? `Bài ${nextPpct} (Tiết ${nextPpct})` : `Bài ${Math.ceil(nextPpct / pPerWeek)} (Tiết ${nextPpct})`,
+                    integration: ""
+                });
+                nextPpct++;
+            }
+        }
+
+        // Add to subjectList if not present
+        if (!state.subjectList.some(s => s.name.trim().toLowerCase() === cleanName.toLowerCase())) {
+            state.subjectList.push({
+                name: cleanName,
+                category: "GVCN",
+                defaultPeriods: pPerWeek,
+                isIncluded: true
+            });
+        }
+
+        // Add to includedSubjects if not present
+        if (!state.includedSubjects.some(s => s.trim().toLowerCase() === cleanName.toLowerCase())) {
+            state.includedSubjects.push(cleanName);
+        }
+
+        // Rebuild KHDH for this grade
+        if (state.currentGrade === 5) {
+            const baseKhdh = (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.khdh) ? JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.khdh)) : {};
+            const builtKhdh = buildKhdhForGrade(5, state.ppct);
+            state.khdh = Object.assign({}, baseKhdh, builtKhdh);
+        } else {
+            state.khdh = buildKhdhForGrade(state.currentGrade, state.ppct);
+        }
+
+        const subSelect = document.getElementById("ppct-filter-subject");
+        if (subSelect) subSelect.value = cleanName;
+
+        saveState();
+        renderSubjectManagementTable();
+        renderMasterTimetableEditor();
+        renderTabPpct();
+        renderTabLbg();
+        renderTabCtlop();
+        renderTabLbgMon();
+        updatePpctCountBadge();
+        showToast(`Đã tự động tạo ${nextPpct - 1} tiết PPCT 35 tuần cho môn "${cleanName}"!`, "success");
+    }
+    window.autoGeneratePpctForSubject = autoGeneratePpctForSubject;
+
     function saveSubjectFromModal() {
         const origName = document.getElementById("modal-sub-editing-original-name").value.trim();
         const newName = document.getElementById("modal-sub-name").value.trim();
@@ -4266,9 +4981,39 @@
                 isIncluded: isIncluded
             });
 
-            if (isIncluded && !state.includedSubjects.includes(cleanNewName)) {
+            if (isIncluded && !state.includedSubjects.some(s => s.trim().toLowerCase() === cleanNewName.toLowerCase())) {
                 state.includedSubjects.push(cleanNewName);
             }
+
+            // Automatically initialize 35 weeks for the newly added subject in PPCT
+            const periodsPerWeek = Math.max(1, periods || 1);
+            let nextPpct = 1;
+            for (let w = 1; w <= 35; w++) {
+                for (let pInW = 1; pInW <= periodsPerWeek; pInW++) {
+                    state.ppct.push({
+                        week: w,
+                        subject: cleanNewName,
+                        periodInWeek: pInW,
+                        ppct: nextPpct,
+                        lessonName: (periodsPerWeek === 1) ? `Bài ${nextPpct} (Tiết ${nextPpct})` : `Bài ${Math.ceil(nextPpct / periodsPerWeek)} (Tiết ${nextPpct})`,
+                        integration: ""
+                    });
+                    nextPpct++;
+                }
+            }
+
+            // Sync with KHDH
+            if (state.currentGrade === 5) {
+                const baseKhdh = (window.APP_INITIAL_DATA && window.APP_INITIAL_DATA.khdh) ? JSON.parse(JSON.stringify(window.APP_INITIAL_DATA.khdh)) : {};
+                const builtKhdh = buildKhdhForGrade(5, state.ppct);
+                state.khdh = Object.assign({}, baseKhdh, builtKhdh);
+            } else {
+                state.khdh = buildKhdhForGrade(state.currentGrade, state.ppct);
+            }
+
+            // Set PPCT filter subject so user immediately sees this subject in Tab 4
+            const subSelect = document.getElementById("ppct-filter-subject");
+            if (subSelect) subSelect.value = cleanNewName;
 
             saveState();
             closeSubjectEditorModal();
@@ -4276,8 +5021,10 @@
             renderMasterTimetableEditor();
             renderTabLbg();
             renderTabCtlop();
+            renderTabLbgMon();
             renderTabPpct();
-            showToast(`Đã thêm môn học mới: ${cleanNewName}!`, "success");
+            updatePpctCountBadge();
+            showToast(`Đã thêm môn '${cleanNewName}' (${periods} tiết/tuần) và tự động tạo 35 tuần bài dạy!`, "success");
         } else {
             // Editing existing subject
             const idx = state.subjectList.findIndex(s => s.name.trim().toLowerCase() === origName.trim().toLowerCase());
@@ -4312,6 +5059,7 @@
                 renderMasterTimetableEditor();
                 renderTabLbg();
                 renderTabCtlop();
+                renderTabLbgMon();
                 renderTabPpct();
                 showToast(`Đã cập nhật thông tin môn học: ${cleanNewName}!`, "success");
             }
@@ -4856,6 +5604,13 @@
             if (cbHide) cbHide.checked = !!state.lbgHideEmptyRows;
             const cbTotalRow = document.getElementById("modal-opt-show-total-row");
             if (cbTotalRow) cbTotalRow.checked = (state.lbgShowTotalRow !== false);
+            const cbInteg = document.getElementById("modal-opt-col-integ");
+            const lblInteg = document.getElementById("modal-lbl-col-integ");
+            if (lblInteg) {
+                const isCtlopMode = (state.currentTab === "tab-ctlop") || (title && (title.includes("Tích Hợp") || title.includes("Tích hợp")));
+                lblInteg.style.display = isCtlopMode ? "inline-flex" : "none";
+                if (cbInteg) cbInteg.checked = (state.ctlopShowIntegration !== false);
+            }
             renderCustomColsManager("modal-custom-cols-list", true);
         }
 
@@ -5233,6 +5988,11 @@
             : `Lich_Bao_Giang_Tuan_${state.currentWeek}_Lop_5A.xlsx`;
 
         if (window.XlsxGenerator) {
+            const activeCustomCols = (Array.isArray(state.lbgCustomCols))
+                ? state.lbgCustomCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false')
+                : [];
+            const showColCustom = activeCustomCols.length > 0;
+            const showInteg = isCtlop ? (state.ctlopShowIntegration !== false) : false;
             window.XlsxGenerator.generateLbgXlsx({
                 settings: state.settings,
                 weekNum: state.currentWeek,
@@ -5241,12 +6001,21 @@
                 stats: stats,
                 isCtlop: isCtlop,
                 orientation: currentOrientation,
-                showColSign: state.lbgShowColSign,
-                showColNote: state.lbgShowColNote,
-                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
-                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
-                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
-                customCols: state.lbgCustomCols || [],
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || "",
+                showColSign: !!state.lbgShowColSign,
+                showColNote: !!state.lbgShowColNote,
+                showColCustom: showColCustom,
+                colCustomName: (activeCustomCols[0] && activeCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (activeCustomCols[0] && activeCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: activeCustomCols,
+                showIntegration: showInteg,
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
@@ -5270,13 +6039,27 @@
         if (window.DocxGenerator && window.DocxGenerator.generateLbgDocx) {
             showToast(`Đang tạo file Word (${orient === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) chuẩn Nghị định 30...`, "info");
             const { weekInfo, schedule, stats } = calculateWeekSchedule(state.currentWeek);
+            const activeCustomCols = (Array.isArray(state.lbgCustomCols))
+                ? state.lbgCustomCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false')
+                : [];
+            const showColCustom = activeCustomCols.length > 0;
+            const showInteg = isCtlop ? (state.ctlopShowIntegration !== false) : false;
             const options = {
-                showColSign: state.lbgShowColSign,
-                showColNote: state.lbgShowColNote,
-                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
-                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
-                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
-                customCols: state.lbgCustomCols || [],
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || "",
+                showColSign: !!state.lbgShowColSign,
+                showColNote: !!state.lbgShowColNote,
+                showColCustom: showColCustom,
+                colCustomName: (activeCustomCols[0] && activeCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (activeCustomCols[0] && activeCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: activeCustomCols,
+                showIntegration: showInteg,
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
@@ -5308,11 +6091,12 @@
         const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
         const showSign = !!state.lbgShowColSign;
         const showNote = !!state.lbgShowColNote;
+        const showInteg = isCtlop ? (state.ctlopShowIntegration !== false) : false;
 
-        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, showSign, showNote, isCtlop);
+        const orderedCols = getLbgOrderedColumns(state.lbgCustomCols, showSign, showNote, isCtlop, showInteg);
 
         // Compute adaptive column widths
-        const customCount = Array.isArray(state.lbgCustomCols) ? state.lbgCustomCols.filter(c => c && c.enabled !== false).length : 0;
+        const customCount = Array.isArray(state.lbgCustomCols) ? state.lbgCustomCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false').length : 0;
         let customColWidth = isLand ? '12%' : '10%';
         if (customCount === 2) customColWidth = isLand ? '10%' : '8%';
         else if (customCount >= 3) customColWidth = isLand ? '8%' : '7%';
@@ -5342,26 +6126,53 @@
             }
         });
 
-        let html = `
-        <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
+        const showGov = (state.lbgShowGovBody !== false);
+        const showSch = (state.lbgShowSchoolName !== false);
+        const showGC = (state.lbgShowGradeClass !== false);
+        const showMotto = (state.lbgShowNationalMotto !== false);
+        const showTit = (state.lbgShowTitle !== false);
+        const showDR = (state.lbgShowDateRange !== false);
+
+        const hasLeft = showGov || showSch || showGC;
+        const hasRight = showMotto;
+
+        const govHtml = showGov ? `<div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>` : '';
+        const schHtml = showSch ? `<div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>` : '';
+        const gcHtml = showGC ? `<div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>` : '';
+
+        const titleText = getLbgTitle(weekNum, isCtlop, false);
+        const dateRangeText = getLbgDateRangeText(weekInfo);
+
+        const titleHtml = showTit ? `<div class="paper-title" style="font-size:13pt;">${titleText}</div>` : '';
+        const dateRangeHtml = showDR ? `<div class="paper-subtitle" style="font-size:13pt;">${dateRangeText}</div>` : '';
+
+        let headerBlockHtml = '';
+        if (hasLeft || hasRight) {
+            headerBlockHtml = `
             <div class="paper-header">
                 <table class="paper-header-table">
                     <tr>
                         <td style="width:${isLand ? '48%' : '50%'}; text-align:center;">
-                            <div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
-                            <div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
-                            <div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
+                            ${govHtml}
+                            ${schHtml}
+                            ${gcHtml}
                         </td>
                         <td style="width:${isLand ? '52%' : '50%'}; text-align:center;">
+                            ${showMotto ? `
                             <div style="font-size:13pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
                             <div style="font-size:13pt; font-weight:bold; text-decoration:underline;">Độc lập - Tự do - Hạnh phúc</div>
+                            ` : ''}
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>`;
+        }
 
-            <div class="paper-title" style="font-size:13pt;">${isCtlop ? 'LỊCH BÁO GIẢNG TÍCH HỢP' : 'LỊCH BÁO GIẢNG'} TUẦN ${weekNum}</div>
-            <div class="paper-subtitle" style="font-size:13pt;">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
+        let html = `
+        <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
+            ${headerBlockHtml}
+            ${titleHtml}
+            ${dateRangeHtml}
 
             <table class="paper-table">
                 <thead>
@@ -5518,31 +6329,53 @@
         const maxWidth = isLand ? "1100px" : (isCtlop ? "960px" : "900px");
         const paperClass = isLand ? "paper-page landscape" : "paper-page";
 
-        let titleStr = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
-        if (filterSubject && filterSubject !== "all") {
-            titleStr = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
-        }
+        const showGov = (state.lbgShowGovBody !== false);
+        const showSch = (state.lbgShowSchoolName !== false);
+        const showGC = (state.lbgShowGradeClass !== false);
+        const showMotto = (state.lbgShowNationalMotto !== false);
+        const showTit = (state.lbgShowTitle !== false);
+        const showDR = (state.lbgShowDateRange !== false);
 
-        let html = `
-        <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
+        const hasLeft = showGov || showSch || showGC;
+        const hasRight = showMotto;
+
+        const govHtml = showGov ? `<div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>` : '';
+        const schHtml = showSch ? `<div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>` : '';
+        const gcHtml = showGC ? `<div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>` : '';
+
+        const titleText = getLbgTitle(weekNum, false, true, filterSubject);
+        const dateRangeText = getLbgDateRangeText(weekInfo);
+
+        const titleHtml = showTit ? `<div class="paper-title" style="font-size:13pt;">${titleText}</div>` : '';
+        const dateRangeHtml = showDR ? `<div class="paper-subtitle" style="font-size:13pt;">${dateRangeText}</div>` : '';
+
+        let headerBlockHtml = '';
+        if (hasLeft || hasRight) {
+            headerBlockHtml = `
             <div class="paper-header">
                 <table class="paper-header-table">
                     <tr>
                         <td style="width:${isLand ? '48%' : '50%'}; text-align:center;">
-                            <div style="font-size:13pt; text-transform:uppercase;">${state.settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT'}</div>
-                            <div style="font-size:13pt; font-weight:bold; text-transform:uppercase;">${state.settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT'}</div>
-                            <div style="font-size:13pt; font-weight:bold; margin-top:2px;">${state.settings.grade || 'KHỐI 5'} - ${state.settings.className || 'LỚP 5A'}</div>
+                            ${govHtml}
+                            ${schHtml}
+                            ${gcHtml}
                         </td>
                         <td style="width:${isLand ? '52%' : '50%'}; text-align:center;">
+                            ${showMotto ? `
                             <div style="font-size:13pt; font-weight:bold;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
                             <div style="font-size:13pt; font-weight:bold; text-decoration:underline;">Độc lập - Tự do - Hạnh phúc</div>
+                            ` : ''}
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>`;
+        }
 
-            <div class="paper-title" style="font-size:13pt;">${titleStr}</div>
-            <div class="paper-subtitle" style="font-size:13pt;">(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})</div>
+        let html = `
+        <div class="${paperClass}" style="max-width:${maxWidth}; margin-bottom: 2.5rem; page-break-after: always;">
+            ${headerBlockHtml}
+            ${titleHtml}
+            ${dateRangeHtml}
 
             <table class="paper-table">
                 <thead>
@@ -5649,18 +6482,32 @@
     function exportBatchLbgToDocxDirect(isCtlop, startWeek, endWeek, orientation = "portrait") {
         if (window.DocxGenerator && window.DocxGenerator.generateMultiWeekLbgDocx) {
             showToast(`Đang tạo file Word (${orientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) từ Tuần ${startWeek} đến Tuần ${endWeek}...`, "info");
+            const activeCustomCols = (Array.isArray(state.lbgCustomCols))
+                ? state.lbgCustomCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false')
+                : [];
+            const showColCustom = activeCustomCols.length > 0;
+            const showInteg = isCtlop ? (state.ctlopShowIntegration !== false) : false;
             const options = {
-                showColSign: state.lbgShowColSign,
-                showColNote: state.lbgShowColNote,
-                showColCustom: (Array.isArray(state.lbgCustomCols) && state.lbgCustomCols.some(c => c.enabled !== false)) || state.lbgShowColCustom,
-                colCustomName: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
-                colCustomPos: (state.lbgCustomCols && state.lbgCustomCols[0] && state.lbgCustomCols[0].pos) || state.lbgColCustomPos || "end",
-                customCols: state.lbgCustomCols || [],
+                showColSign: !!state.lbgShowColSign,
+                showColNote: !!state.lbgShowColNote,
+                showColCustom: showColCustom,
+                colCustomName: (activeCustomCols[0] && activeCustomCols[0].name) || state.lbgColCustomName || "Ghi chú",
+                colCustomPos: (activeCustomCols[0] && activeCustomCols[0].pos) || state.lbgColCustomPos || "end",
+                customCols: activeCustomCols,
+                showIntegration: showInteg,
                 showBghSign: state.lbgShowBghSign,
                 showGvcnSign: state.lbgShowGvcnSign,
                 showHeadSign: state.lbgShowHeadSign,
                 hideEmptyRows: !!state.lbgHideEmptyRows,
-                showTotalRow: (state.lbgShowTotalRow !== false)
+                showTotalRow: (state.lbgShowTotalRow !== false),
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || ""
             };
             window.DocxGenerator.generateMultiWeekLbgDocx(isCtlop, startWeek, endWeek, calculateWeekSchedule, state.settings, orientation, options).then(blob => {
                 const prefix = isCtlop ? "Lich_Bao_Giang_Tich_Hop" : "Lich_Bao_Giang";
@@ -5681,7 +6528,17 @@
         if (window.DocxGenerator && window.DocxGenerator.generateBatchLbgBySubjectDocx) {
             showToast(`Đang tạo file Word (${orientation === 'landscape' ? 'Khổ ngang' : 'Khổ đứng'}) theo môn học từ Tuần ${startWeek} đến Tuần ${endWeek}...`, "info");
             const isCtlop = (state.lbgMonShowIntegration !== false);
-            window.DocxGenerator.generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubject, state.settings, orientation, isCtlop, state.lbgMonFilterSubject, state.lbgMonFilterCategory).then(blob => {
+            const options = {
+                showGovBody: (state.lbgShowGovBody !== false),
+                showSchoolName: (state.lbgShowSchoolName !== false),
+                showGradeClass: (state.lbgShowGradeClass !== false),
+                showNationalMotto: (state.lbgShowNationalMotto !== false),
+                showTitle: (state.lbgShowTitle !== false),
+                showDateRange: (state.lbgShowDateRange !== false),
+                titleTemplate: state.lbgTitleTemplate || "",
+                dateRangeTemplate: state.lbgDateRangeTemplate || ""
+            };
+            window.DocxGenerator.generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubject, state.settings, orientation, isCtlop, state.lbgMonFilterSubject, state.lbgMonFilterCategory, options).then(blob => {
                 const orientSuffix = orientation === "landscape" ? "_Kho_Ngang" : "";
                 const filename = `Lich_Bao_Giang_Theo_Mon_Tuan_${startWeek}_den_${endWeek}_${(state.settings.className || 'Lop_5A').replace(/\s+/g, '_')}${orientSuffix}.docx`;
                 saveAs(blob, filename);
@@ -5867,6 +6724,7 @@
         bindLbgOption("lbg-opt-show-total-row", "lbgShowTotalRow", true);
 
         // Bind CTLOP Checkboxes
+        bindLbgOption("ctlop-opt-col-integ", "ctlopShowIntegration", true);
         bindLbgOption("ctlop-opt-col-sign", "lbgShowColSign", false);
         bindLbgOption("ctlop-opt-col-note", "lbgShowColNote", false);
         bindLbgOption("ctlop-opt-sig-bgh", "lbgShowBghSign", true);
@@ -5890,6 +6748,7 @@
                 }
             });
         };
+        bindModalOption("modal-opt-col-integ", "ctlopShowIntegration", true);
         bindModalOption("modal-opt-col-sign", "lbgShowColSign", false);
         bindModalOption("modal-opt-col-note", "lbgShowColNote", false);
         bindModalOption("modal-opt-sig-bgh", "lbgShowBghSign", true);
@@ -5924,6 +6783,161 @@
                 }
             });
         }
+
+        // Header show/hide options in Tab 1, Tab 2, Tab 6, and Modal Preview
+        const bindHeaderOption = (selector, prop) => {
+            document.querySelectorAll(selector).forEach(chk => {
+                chk.addEventListener("change", (e) => {
+                    state[prop] = !!e.target.checked;
+                    saveState();
+                    syncAllLbgHeaders();
+                    if (currentPreviewRefreshFn) {
+                        const body = document.getElementById("modal-preview-body");
+                        if (body) body.innerHTML = currentPreviewRefreshFn();
+                    }
+                });
+            });
+        };
+        bindHeaderOption("#lbg-opt-show-gov-body, #ctlop-opt-show-gov-body, #lbgmon-opt-show-gov-body, #modal-opt-show-gov-body, #set-show-gov-body", "lbgShowGovBody");
+        bindHeaderOption("#lbg-opt-show-school, #ctlop-opt-show-school, #lbgmon-opt-show-school, #modal-opt-show-school, #set-show-school-name", "lbgShowSchoolName");
+        bindHeaderOption("#lbg-opt-show-grade-class, #ctlop-opt-show-grade-class, #lbgmon-opt-show-grade-class, #modal-opt-show-grade-class, #set-show-grade-class", "lbgShowGradeClass");
+        bindHeaderOption("#lbg-opt-show-motto, #ctlop-opt-show-motto, #lbgmon-opt-show-motto, #modal-opt-show-motto, #set-show-motto", "lbgShowNationalMotto");
+        bindHeaderOption("#lbg-opt-show-title, #ctlop-opt-show-title, #lbgmon-opt-show-title, #modal-opt-show-title, #set-show-title", "lbgShowTitle");
+        bindHeaderOption("#lbg-opt-show-date-range, #ctlop-opt-show-date-range, #lbgmon-opt-show-date-range, #modal-opt-show-date-range, #set-show-date-range", "lbgShowDateRange");
+
+        // Modal Header Customizer Buttons
+        document.querySelectorAll(".btn-open-header-customizer, #btn-open-header-customizer-lbg, #btn-open-header-customizer-ctlop, #btn-open-header-customizer-lbgmon").forEach(btn => {
+            btn.addEventListener("click", openHeaderCustomizerModal);
+        });
+
+        const btnSaveHdr = document.getElementById("btn-save-header-customizer");
+        if (btnSaveHdr) btnSaveHdr.addEventListener("click", saveHeaderCustomizerModal);
+
+        const btnResetHdr = document.getElementById("btn-reset-header-defaults");
+        if (btnResetHdr) btnResetHdr.addEventListener("click", resetHeaderCustomizerDefaults);
+
+        const btnCancelHdr = document.getElementById("btn-cancel-header-customizer");
+        if (btnCancelHdr) btnCancelHdr.addEventListener("click", closeHeaderCustomizerModal);
+
+        const btnCloseHdr = document.getElementById("btn-close-header-customizer");
+        if (btnCloseHdr) btnCloseHdr.addEventListener("click", closeHeaderCustomizerModal);
+
+        const modalHdr = document.getElementById("modal-header-customizer");
+        if (modalHdr) {
+            modalHdr.addEventListener("click", (e) => {
+                if (e.target === modalHdr) closeHeaderCustomizerModal();
+            });
+        }
+
+        // Live preview listeners inside modal
+        [
+            "modal-chk-gov-body", "modal-input-gov-body",
+            "modal-chk-school", "modal-input-school",
+            "modal-chk-grade-class", "modal-input-grade", "modal-input-class",
+            "modal-chk-motto",
+            "modal-chk-title", "modal-input-title",
+            "modal-chk-date-range", "modal-input-date-range"
+        ].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener("input", updateHeaderModalLivePreview);
+                el.addEventListener("change", updateHeaderModalLivePreview);
+            }
+        });
+
+        const presetSel = document.getElementById("modal-sel-title-preset");
+        if (presetSel) {
+            presetSel.addEventListener("change", (e) => {
+                const txtTit = document.getElementById("modal-input-title");
+                if (txtTit && e.target.value !== "custom") {
+                    txtTit.value = e.target.value;
+                }
+                updateHeaderModalLivePreview();
+            });
+        }
+
+        // Tab 5 Header Settings fields
+        const bindTab5HeaderField = (id, prop, isCheckbox = false) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener(isCheckbox ? "change" : "input", (e) => {
+                if (isCheckbox) {
+                    state[prop] = !!e.target.checked;
+                } else {
+                    if (prop.startsWith("settings.")) {
+                        const settingKey = prop.split(".")[1];
+                        state.settings[settingKey] = e.target.value;
+                    } else {
+                        state[prop] = e.target.value;
+                    }
+                }
+                saveState();
+                syncAllLbgHeaders();
+                if (prop === "settings.schoolName" || prop === "settings.className" || prop === "settings.grade") {
+                    updateTopHeaderBadge();
+                }
+            });
+        };
+        bindTab5HeaderField("set-hdr-show-gov-body", "lbgShowGovBody", true);
+        bindTab5HeaderField("set-show-gov-body", "lbgShowGovBody", true);
+        bindTab5HeaderField("set-hdr-show-school", "lbgShowSchoolName", true);
+        bindTab5HeaderField("set-show-school-name", "lbgShowSchoolName", true);
+        bindTab5HeaderField("set-hdr-show-grade-class", "lbgShowGradeClass", true);
+        bindTab5HeaderField("set-show-grade-class", "lbgShowGradeClass", true);
+        bindTab5HeaderField("set-show-motto", "lbgShowNationalMotto", true);
+        bindTab5HeaderField("set-hdr-show-title", "lbgShowTitle", true);
+        bindTab5HeaderField("set-show-title", "lbgShowTitle", true);
+        bindTab5HeaderField("set-hdr-show-date-range", "lbgShowDateRange", true);
+        bindTab5HeaderField("set-show-date-range", "lbgShowDateRange", true);
+        bindTab5HeaderField("set-hdr-gov-body", "settings.governingBody", false);
+        bindTab5HeaderField("set-governing-body", "settings.governingBody", false);
+        bindTab5HeaderField("set-hdr-school", "settings.schoolName", false);
+        bindTab5HeaderField("set-school-name", "settings.schoolName", false);
+        bindTab5HeaderField("set-hdr-grade", "settings.grade", false);
+        bindTab5HeaderField("set-grade", "settings.grade", false);
+        bindTab5HeaderField("set-hdr-class", "settings.className", false);
+        bindTab5HeaderField("set-class-name", "settings.className", false);
+        bindTab5HeaderField("set-title-template", "lbgTitleTemplate", false);
+        bindTab5HeaderField("set-hdr-title", "lbgTitleTemplate", false);
+        bindTab5HeaderField("set-date-range-template", "lbgDateRangeTemplate", false);
+        bindTab5HeaderField("set-hdr-date-range", "lbgDateRangeTemplate", false);
+
+        // Direct inline editing (.header-editable in Tab 1, 2, 6)
+        document.querySelectorAll(".header-editable").forEach(el => {
+            el.addEventListener("blur", (e) => {
+                const target = e.target;
+                const text = target.innerText.trim();
+                const id = target.id;
+                if (id.includes("gov-body")) {
+                    state.settings.governingBody = text;
+                } else if (id.includes("school-name")) {
+                    state.settings.schoolName = text;
+                    updateTopHeaderBadge();
+                } else if (id.includes("grade-class")) {
+                    const parts = text.split("-").map(p => p.trim());
+                    if (parts.length >= 2) {
+                        state.settings.grade = parts[0];
+                        state.settings.className = parts[1];
+                    } else {
+                        state.settings.className = text;
+                    }
+                    updateTopHeaderBadge();
+                } else if (id.includes("title") || id.includes("week-title")) {
+                    state.lbgTitleTemplate = text;
+                } else if (id.includes("date-range")) {
+                    state.lbgDateRangeTemplate = text;
+                }
+                saveState();
+                syncAllLbgHeaders();
+                showToast("Đã lưu nội dung đầu trang!", "success");
+            });
+            el.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    el.blur();
+                }
+            });
+        });
 
         // Add Custom Column Handlers
         const handleAddNewCustomCol = () => {
@@ -6228,10 +7242,15 @@
             btnAddPpct.addEventListener("click", () => {
                 const subSelect = document.getElementById("ppct-filter-subject");
                 const weekSelect = document.getElementById("ppct-filter-week");
-                const targetSub = subSelect && subSelect.value !== "ALL" ? subSelect.value : "Tiếng Việt";
+                const defaultSubName = (state.subjectList && state.subjectList[0]) ? state.subjectList[0].name : "Tiếng Việt";
+                const targetSub = subSelect && subSelect.value !== "ALL" ? subSelect.value : defaultSubName;
                 const targetWeek = weekSelect && weekSelect.value !== "ALL" ? parseInt(weekSelect.value) : 1;
 
-                const subItems = state.ppct.filter(p => normalizeSubjectName(p.subject) === normalizeSubjectName(targetSub));
+                const normTarget = normalizeSubjectName(targetSub).toLowerCase();
+                const subItems = state.ppct.filter(p => 
+                    (p.subject && p.subject.trim().toLowerCase() === targetSub.trim().toLowerCase()) ||
+                    normalizeSubjectName(p.subject).toLowerCase() === normTarget
+                );
                 const maxPpct = subItems.reduce((max, p) => Math.max(max, parseInt(p.ppct) || 0), 0);
                 const weekItems = subItems.filter(p => p.week === targetWeek);
                 const nextPeriodInWeek = weekItems.length + 1;
@@ -6250,6 +7269,8 @@
                 renderTabPpct();
                 renderTabLbg();
                 renderTabCtlop();
+                renderTabLbgMon();
+                updatePpctCountBadge();
                 showToast(`Đã thêm tiết mới cho môn ${targetSub} (Tuần ${targetWeek})!`, "success");
             });
         }
@@ -6332,7 +7353,7 @@
         if (btnConfirmImport) {
             btnConfirmImport.addEventListener("click", () => {
                 const selectedMode = document.querySelector('input[name="import-mode"]:checked');
-                const mode = selectedMode ? selectedMode.value : "replace";
+                const mode = selectedMode ? selectedMode.value : "replace_selected";
                 executePendingImport(mode);
             });
         }

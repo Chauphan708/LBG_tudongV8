@@ -235,15 +235,53 @@
                             </label>
                         </div>
                     </div>
+
+                    <!-- Options for Header Visibility & Customization -->
+                    <div class="toolbar-options-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--radius-sm); padding:0.45rem 0.85rem; margin-top:0.5rem;">
+                        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:#166534;">🏛️ Ẩn/Hiện Đầu Trang:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Cơ quan cấp trên (UBND Phường/Xã / Phòng GD&ĐT)">
+                                <input type="checkbox" id="lbg-opt-show-gov-body" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>UBND / Cấp trên</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tên Trường">
+                                <input type="checkbox" id="lbg-opt-show-school" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tên trường</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Khối - Lớp">
+                                <input type="checkbox" id="lbg-opt-show-grade-class" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Khối - Lớp</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Quốc hiệu / Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc)">
+                                <input type="checkbox" id="lbg-opt-show-motto" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Quốc ngữ (Cộng hòa...)</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tiêu đề chính (LỊCH BÁO GIẢNG TUẦN ...)">
+                                <input type="checkbox" id="lbg-opt-show-title" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tiêu đề</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Dòng thời gian thực hiện (Từ ngày... đến ngày...)">
+                                <input type="checkbox" id="lbg-opt-show-date-range" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Thời gian (Từ ngày - Đến ngày)</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm btn-open-header-customizer" style="font-size:0.82rem; padding:0.25rem 0.65rem; font-weight:700; color:#15803d; border:1px solid #86efac; background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.3rem;" title="Mở hộp thoại tùy chỉnh chi tiết từng dòng đầu trang và mẫu chữ tiêu đề">
+                            <span>⚙️</span> <span>Tùy Chỉnh Chữ &amp; Tiêu Đề</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Header Preview inside View -->
-                <div style="text-align: center; margin-bottom: 1.25rem;">
-                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="lbg-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
-                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="lbg-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="lbg-grade-class">KHỐI 5 - LỚP 5A</div>
-                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="lbg-week-title">LỊCH BÁO GIẢNG TUẦN 1</h3>
-                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="lbg-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                <div style="text-align: center; margin-bottom: 1.25rem;" class="lbg-header-container" id="lbg-header-box">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" class="header-editable" id="lbg-gov-body" contenteditable="true" title="Nhấp vào để sửa trực tiếp Cơ quan cấp trên">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" class="header-editable" id="lbg-school-name" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tên trường">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.35rem;" class="header-editable" id="lbg-grade-class" contenteditable="true" title="Nhấp vào để sửa trực tiếp Khối - Lớp">KHỐI 5 - LỚP 5A</div>
+                    <div style="margin-bottom: 0.5rem;" id="lbg-motto-box">
+                        <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div style="font-size: 0.88rem; font-weight: 700; text-decoration: underline; color: var(--text-secondary);">Độc lập - Tự do - Hạnh phúc</div>
+                    </div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" class="header-editable" id="lbg-week-title" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tiêu đề">LỊCH BÁO GIẢNG TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" class="header-editable" id="lbg-date-range" contenteditable="true" title="Nhấp vào để sửa trực tiếp Dòng thời gian thực hiện">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
                 </div>
 
                 <!-- Timetable Table -->
@@ -361,6 +399,10 @@
                     <div class="toolbar-options-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-sm); padding:0.5rem 0.85rem; margin-top:0.6rem;">
                         <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
                             <span style="font-weight:700; font-size:0.88rem; color:var(--primary);">📋 Cột bổ sung:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn cột Nội dung tích hợp / Điều chỉnh trên bảng và khi in/xuất file">
+                                <input type="checkbox" id="ctlop-opt-col-integ" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>📋 Cột Tích hợp / Điều chỉnh</span>
+                            </label>
                             <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.88rem; font-weight:600; cursor:pointer;" title="Hiển thị và in thêm cột Kí tên cho giáo viên dạy tiết đó">
                                 <input type="checkbox" id="ctlop-opt-col-sign" style="width:16px; height:16px; cursor:pointer;">
                                 <span>✍️ Cột Kí tên</span>
@@ -399,14 +441,52 @@
                             </label>
                         </div>
                     </div>
+
+                    <!-- Options for Header Visibility & Customization -->
+                    <div class="toolbar-options-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--radius-sm); padding:0.45rem 0.85rem; margin-top:0.5rem;">
+                        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:#166534;">🏛️ Ẩn/Hiện Đầu Trang:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Cơ quan cấp trên (UBND Phường/Xã / Phòng GD&ĐT)">
+                                <input type="checkbox" id="ctlop-opt-show-gov-body" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>UBND / Cấp trên</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tên Trường">
+                                <input type="checkbox" id="ctlop-opt-show-school" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tên trường</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Khối - Lớp">
+                                <input type="checkbox" id="ctlop-opt-show-grade-class" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Khối - Lớp</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Quốc hiệu / Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc)">
+                                <input type="checkbox" id="ctlop-opt-show-motto" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Quốc ngữ (Cộng hòa...)</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tiêu đề chính (LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ...)">
+                                <input type="checkbox" id="ctlop-opt-show-title" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tiêu đề</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Dòng thời gian thực hiện (Từ ngày... đến ngày...)">
+                                <input type="checkbox" id="ctlop-opt-show-date-range" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Thời gian (Từ ngày - Đến ngày)</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm btn-open-header-customizer" style="font-size:0.82rem; padding:0.25rem 0.65rem; font-weight:700; color:#15803d; border:1px solid #86efac; background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.3rem;" title="Mở hộp thoại tùy chỉnh chi tiết từng dòng đầu trang và mẫu chữ tiêu đề">
+                            <span>⚙️</span> <span>Tùy Chỉnh Chữ &amp; Tiêu Đề</span>
+                        </button>
+                    </div>
                 </div>
 
-                <div style="text-align: center; margin-bottom: 1.25rem;">
-                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="ctlop-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
-                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="ctlop-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="ctlop-grade-class">KHỐI 5 - LỚP 5A</div>
-                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="ctlop-week-title">LỊCH BÁO GIẢNG TÍCH HỢP TUẦN 1</h3>
-                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="ctlop-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                <div style="text-align: center; margin-bottom: 1.25rem;" class="lbg-header-container" id="ctlop-header-box">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" class="header-editable" id="ctlop-gov-body" contenteditable="true" title="Nhấp vào để sửa trực tiếp Cơ quan cấp trên">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" class="header-editable" id="ctlop-school-name" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tên trường">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.35rem;" class="header-editable" id="ctlop-grade-class" contenteditable="true" title="Nhấp vào để sửa trực tiếp Khối - Lớp">KHỐI 5 - LỚP 5A</div>
+                    <div style="margin-bottom: 0.5rem;" id="ctlop-motto-box">
+                        <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div style="font-size: 0.88rem; font-weight: 700; text-decoration: underline; color: var(--text-secondary);">Độc lập - Tự do - Hạnh phúc</div>
+                    </div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" class="header-editable" id="ctlop-week-title" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tiêu đề">LỊCH BÁO GIẢNG TÍCH HỢP TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" class="header-editable" id="ctlop-date-range" contenteditable="true" title="Nhấp vào để sửa trực tiếp Dòng thời gian thực hiện">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
                 </div>
 
                 <div class="table-responsive">
@@ -510,15 +590,53 @@
                             <span>Hiển thị cột Nội dung tích hợp</span>
                         </label>
                     </div>
+
+                    <!-- Options for Header Visibility & Customization -->
+                    <div style="width:100%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--radius-sm); padding:0.45rem 0.85rem; margin-top:0.35rem;">
+                        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+                            <span style="font-weight:700; font-size:0.88rem; color:#166534;">🏛️ Ẩn/Hiện Đầu Trang:</span>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Cơ quan cấp trên (UBND Phường/Xã / Phòng GD&ĐT)">
+                                <input type="checkbox" id="lbgmon-opt-show-gov-body" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>UBND / Cấp trên</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tên Trường">
+                                <input type="checkbox" id="lbgmon-opt-show-school" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tên trường</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Khối - Lớp">
+                                <input type="checkbox" id="lbgmon-opt-show-grade-class" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Khối - Lớp</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Quốc hiệu / Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc)">
+                                <input type="checkbox" id="lbgmon-opt-show-motto" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Quốc ngữ (Cộng hòa...)</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Tiêu đề chính">
+                                <input type="checkbox" id="lbgmon-opt-show-title" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Tiêu đề</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn Dòng thời gian thực hiện">
+                                <input type="checkbox" id="lbgmon-opt-show-date-range" checked style="width:16px; height:16px; cursor:pointer;">
+                                <span>Thời gian (Từ ngày - Đến ngày)</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm btn-open-header-customizer" style="font-size:0.82rem; padding:0.25rem 0.65rem; font-weight:700; color:#15803d; border:1px solid #86efac; background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.3rem;" title="Mở hộp thoại tùy chỉnh chi tiết từng dòng đầu trang và mẫu chữ tiêu đề">
+                            <span>⚙️</span> <span>Tùy Chỉnh Chữ &amp; Tiêu Đề</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Header Preview inside View -->
-                <div style="text-align: center; margin-bottom: 1.25rem;">
-                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" id="lbgmon-gov-body">UBND PHƯỜNG TRUNG NHỨT</div>
-                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" id="lbgmon-school-name">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;" id="lbgmon-grade-class">KHỐI 5 - LỚP 5A</div>
-                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" id="lbgmon-week-title">LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN 1</h3>
-                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" id="lbgmon-date-range">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
+                <div style="text-align: center; margin-bottom: 1.25rem;" class="lbg-header-container" id="lbgmon-header-box">
+                    <div style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase;" class="header-editable" id="lbgmon-gov-body" contenteditable="true" title="Nhấp vào để sửa trực tiếp Cơ quan cấp trên">UBND PHƯỜNG TRUNG NHỨT</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; color: var(--primary);" class="header-editable" id="lbgmon-school-name" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tên trường">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.35rem;" class="header-editable" id="lbgmon-grade-class" contenteditable="true" title="Nhấp vào để sửa trực tiếp Khối - Lớp">KHỐI 5 - LỚP 5A</div>
+                    <div style="margin-bottom: 0.5rem;" id="lbgmon-motto-box">
+                        <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                        <div style="font-size: 0.88rem; font-weight: 700; text-decoration: underline; color: var(--text-secondary);">Độc lập - Tự do - Hạnh phúc</div>
+                    </div>
+                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); text-transform: uppercase;" class="header-editable" id="lbgmon-week-title" contenteditable="true" title="Nhấp vào để sửa trực tiếp Tiêu đề">LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN 1</h3>
+                    <p style="font-size: 0.88rem; font-style: italic; color: var(--text-muted);" class="header-editable" id="lbgmon-date-range" contenteditable="true" title="Nhấp vào để sửa trực tiếp Dòng thời gian thực hiện">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</p>
                 </div>
 
                 <!-- Table -->
@@ -891,6 +1009,69 @@
                     <div class="form-group">
                         <label class="form-label">Họ tên Khối trưởng chuyên môn:</label>
                         <input type="text" class="form-control" id="set-head">
+                    </div>
+                </div>
+
+                <!-- LBG Header & Title Customization Panel -->
+                <div style="margin-top: 1.5rem; background: #ffffff; border: 1px solid #cbd5e1; border-radius: var(--radius-md); padding: 1.25rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
+                        <div>
+                            <h3 style="font-size: 1.08rem; font-weight: 700; color: #166534; margin: 0 0 0.25rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <span>🏛️</span> <span>Tùy Chọn Ẩn/Hiện &amp; Mẫu Chữ Đầu Trang Lịch Báo Giảng</span>
+                            </h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Tùy chỉnh bật/tắt hiển thị từng dòng và định dạng mẫu chữ tiêu đề trên màn hình, bản in và file xuất Word/Excel.</p>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm btn-open-header-customizer" style="font-size: 0.82rem; padding: 0.35rem 0.85rem; font-weight: 700; color: #15803d; border: 1px solid #86efac; background: #f0fdf4;">
+                            <span>⚙️</span> <span>Mở Hộp Thoại Tùy Chỉnh Nhanh</span>
+                        </button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+                        <!-- Col 1: Visibility Options -->
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 1rem;">
+                            <div style="font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">👁️ Tùy chọn Ẩn / Hiển thị các dòng:</div>
+                            <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-gov-body" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Cơ quan cấp trên (UBND Phường/Xã / Phòng GD&ĐT)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-school-name" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Tên Trường Tiểu học</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-grade-class" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Khối lớp - Tên Lớp</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-motto" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Quốc hiệu &amp; Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-title" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Tiêu đề chính Lịch Báo Giảng</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+                                    <input type="checkbox" id="set-show-date-range" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                    <span>Dòng thời gian thực hiện (Từ ngày... đến ngày...)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Custom Templates -->
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 1rem;">
+                            <div style="font-size: 0.9rem; font-weight: 700; color: #b45309; margin-bottom: 0.75rem;">📝 Mẫu chữ Tiêu đề &amp; Thời gian:</div>
+                            <div class="form-group" style="margin-bottom: 0.75rem;">
+                                <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Mẫu Tiêu đề LBG (Dùng {week} để đại diện cho số tuần):</label>
+                                <input type="text" class="form-control form-control-sm" id="set-title-template" placeholder="Mặc định: LỊCH BÁO GIẢNG TUẦN {week}" value="">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 2px;">Ví dụ: <code>LỊCH BÁO GIẢNG TUẦN {week}</code> hoặc <code>KẾ HOẠCH BÁO GIẢNG TUẦN {week}</code></span>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Mẫu dòng thời gian (Dùng {startDate}, {endDate}):</label>
+                                <input type="text" class="form-control form-control-sm" id="set-date-range-template" placeholder="Mặc định: (Thời gian thực hiện: Từ ngày {startDate} đến ngày {endDate})" value="">
+                                <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 2px;">Để trống nếu muốn sử dụng định dạng tiêu chuẩn.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1841,6 +2022,9 @@
                     <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Ghi chú khi in">
                         <input type="checkbox" id="modal-opt-col-note"> <span>Cột Ghi chú</span>
                     </label>
+                    <label id="modal-lbl-col-integ" style="display:none; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt cột Nội dung tích hợp / Điều chỉnh khi in và xuất file">
+                        <input type="checkbox" id="modal-opt-col-integ" checked> <span>Cột Tích hợp / Điều chỉnh</span>
+                    </label>
                     <div id="modal-custom-cols-list" style="display:inline-flex; align-items:center; gap:0.45rem; flex-wrap:wrap;"></div>
                     <button type="button" class="btn btn-secondary btn-sm" id="btn-modal-add-custom-col" style="font-size:0.78rem; padding:0.15rem 0.45rem; font-weight:700; color:var(--primary); border:1px dashed var(--primary); background:#ffffff; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; gap:0.2rem;" title="Thêm cột tuỳ chỉnh mới">
                         <span>➕ Thêm cột</span>
@@ -1862,6 +2046,12 @@
                     </label>
                     <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Hiển thị hoặc ẩn dòng Tổng số tiết/tuần ở cuối bảng">
                         <input type="checkbox" id="modal-opt-show-total-row" checked> <span style="color:#0f766e;">📊 Dòng Tổng số tiết</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt Quốc hiệu &amp; Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc)">
+                        <input type="checkbox" id="modal-opt-show-motto" checked> <span>Quốc ngữ (Cộng hòa...)</span>
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem; font-weight:600; cursor:pointer;" title="Bật/Tắt Tiêu đề chính">
+                        <input type="checkbox" id="modal-opt-show-title" checked> <span>Tiêu đề</span>
                     </label>
                 </div>
             </div>
@@ -1887,38 +2077,79 @@
 
     <!-- Modal Xác Nhận Chế Độ Nạp PPCT -->
     <div class="modal-backdrop" id="modal-import-mode" style="z-index: 1050;">
-        <div class="modal-card" style="max-width: 540px;">
+        <div class="modal-card" style="max-width: 620px;">
             <div class="modal-header" style="background: var(--primary); color: #fff; padding: 1rem 1.25rem;">
                 <h3 class="modal-title" style="color: #fff; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
                     <span>📥</span> <span>Tùy Chọn Nạp Phân Phối Chương Trình</span>
                 </h3>
                 <button type="button" class="btn btn-secondary btn-sm" id="btn-close-import-modal" style="color: #fff; background: rgba(255,255,255,0.2); border: none;">✕ Đóng</button>
             </div>
-            <div class="modal-body" style="padding: 1.25rem;">
-                <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-main); font-size: 0.95rem;">
-                    Đã kiểm tra và trích xuất thành công <span id="import-row-count" style="color: var(--primary); font-size: 1.15em; font-weight: 800;">0</span> tiết bài dạy từ file: <br>
-                    <span id="import-file-name" style="font-weight: 700; color: #b45309; word-break: break-all;"></span>
-                </p>
-                <p style="margin-bottom: 1.25rem; font-size: 0.88rem; color: var(--text-muted);">
-                    Thầy/Cô vui lòng chọn phương thức nạp dữ liệu cho <strong>Khối <span id="import-target-grade">5</span></strong>:
-                </p>
+            <div class="modal-body" style="padding: 1.25rem; max-height: 78vh; overflow-y: auto;">
+                <div style="background: #f8fafc; padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #e2e8f0;">
+                    <div style="font-weight: 600; color: var(--text-main); font-size: 0.92rem;">
+                        Đã trích xuất thành công <span id="import-row-count" style="color: var(--primary); font-size: 1.15em; font-weight: 800;">0</span> tiết bài dạy từ file:
+                    </div>
+                    <div id="import-file-name" style="font-weight: 700; color: #b45309; word-break: break-all; font-size: 0.88rem; margin-top: 0.2rem;"></div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+                        Nạp vào dữ liệu: <strong>Khối <span id="import-target-grade">5</span></strong>
+                    </div>
+                </div>
 
-                <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.25rem;">
-                    <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-replace">
-                        <input type="radio" name="import-mode" value="replace" checked style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
-                        <div>
-                            <div style="font-weight: 700; color: #b91c1c; font-size: 0.95rem;">🔄 Ghi đè thay thế toàn bộ (Khuyên dùng khi nạp năm học mới)</div>
-                            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">Xóa toàn bộ danh sách PPCT cũ của khối hiện tại và thay thế hoàn toàn 100% bằng dữ liệu mới từ file này.</div>
+                <!-- Lựa chọn môn học cần nạp -->
+                <div style="margin-bottom: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                        <label style="font-weight: 700; color: var(--text-main); font-size: 0.92rem; display: flex; align-items: center; gap: 0.35rem;">
+                            <span>📚</span> <span>Chọn môn học cần nạp vào hệ thống:</span>
+                        </label>
+                        <div style="display: flex; gap: 0.4rem;">
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-import-select-all" style="font-size: 0.78rem; padding: 0.25rem 0.6rem; cursor: pointer;">✓ Chọn tất cả</button>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-import-deselect-all" style="font-size: 0.78rem; padding: 0.25rem 0.6rem; cursor: pointer;">✕ Bỏ chọn hết</button>
                         </div>
-                    </label>
+                    </div>
+                    <div id="import-subject-list-container" style="max-height: 175px; overflow-y: auto; background: #fff; border: 1.5px solid #cbd5e1; border-radius: 6px; padding: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                        <!-- Danh sách checkbox các môn được tự động tạo từ file -->
+                    </div>
+                    <div id="import-selected-stats" style="font-size: 0.82rem; color: #475569; margin-top: 0.4rem; font-weight: 600;">
+                        Đang chọn: <span id="import-selected-sub-count" style="color: var(--primary); font-size: 1.05em; font-weight: 700;">0</span> môn (<span id="import-selected-period-count" style="color: #0284c7; font-weight: 700;">0</span> tiết)
+                    </div>
+                </div>
 
-                    <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-merge">
-                        <input type="radio" name="import-mode" value="merge" style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
-                        <div>
-                            <div style="font-weight: 700; color: #047857; font-size: 0.95rem;">➕ Cập nhật &amp; Bổ sung</div>
-                            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">Giữ nguyên các bài dạy cũ, chỉ cập nhật bài dạy nếu trùng tiết và thêm mới các tiết chưa có.</div>
-                        </div>
+                <!-- Phương thức nạp dữ liệu -->
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 700; color: var(--text-main); font-size: 0.92rem; display: block; margin-bottom: 0.5rem;">
+                        ⚙️ Chọn phương thức nạp:
                     </label>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-replace-selected">
+                            <input type="radio" name="import-mode" value="replace_selected" checked style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
+                            <div>
+                                <div style="font-weight: 700; color: #0284c7; font-size: 0.92rem;">🔄 Ghi đè thay thế riêng các môn đã chọn (Khuyên dùng)</div>
+                                <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">
+                                    Xóa bài dạy cũ của <strong>chỉ những môn được chọn</strong> và nạp mới từ file. Toàn bộ các môn học khác trong hệ thống được <strong>bảo toàn 100%</strong>.
+                                </div>
+                            </div>
+                        </label>
+
+                        <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-merge">
+                            <input type="radio" name="import-mode" value="merge" style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
+                            <div>
+                                <div style="font-weight: 700; color: #047857; font-size: 0.92rem;">➕ Cập nhật &amp; Bổ sung các môn đã chọn</div>
+                                <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">
+                                    Giữ nguyên bài cũ của các môn, chỉ cập nhật bài nếu trùng tuần/tiết và thêm các tiết chưa có. Các môn khác không bị ảnh hưởng.
+                                </div>
+                            </div>
+                        </label>
+
+                        <label style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 1rem; border: 2px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;" class="import-mode-card" id="card-mode-replace-all">
+                            <input type="radio" name="import-mode" value="replace_all" style="margin-top: 0.25rem; accent-color: var(--primary); transform: scale(1.25);">
+                            <div>
+                                <div style="font-weight: 700; color: #b91c1c; font-size: 0.92rem;">⚠️ Thay thế toàn bộ PPCT cả khối bằng các môn đã chọn</div>
+                                <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">
+                                    Xóa sạch toàn bộ PPCT của khối hiện tại và chỉ lưu các môn được chọn từ file này (chỉ dùng khi nạp bảng PPCT mới cho cả năm).
+                                </div>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.75rem;">
@@ -1926,6 +2157,138 @@
                 <button type="button" class="btn btn-primary" id="btn-confirm-import">
                     <span>✓</span> <span>Xác Nhận Nạp File</span>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tùy Chỉnh & Ẩn/Hiện Đầu Trang Lịch Báo Giảng -->
+    <div class="modal-backdrop" id="modal-header-customizer" style="z-index: 1060;">
+        <div class="modal-card" style="max-width: 680px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: #fff; padding: 1rem 1.25rem;">
+                <h3 class="modal-title" style="color: #fff; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
+                    <span>🏛️</span> <span>Tùy Chỉnh &amp; Ẩn/Hiện Đầu Trang Lịch Báo Giảng</span>
+                </h3>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-close-header-customizer" style="color: #fff; background: rgba(255,255,255,0.2); border: none;">✕ Đóng</button>
+            </div>
+            <div class="modal-body" style="padding: 1.25rem; max-height: 75vh; overflow-y: auto;">
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Thầy/Cô có thể bật/tắt hiển thị từng dòng và tùy chỉnh nội dung chữ. Thay đổi sẽ được áp dụng cho màn hình, bản in và file xuất Word/Excel.
+                </p>
+
+                <!-- Live Preview in Modal -->
+                <div style="margin-bottom: 1.25rem;">
+                    <div style="font-size: 0.82rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 0.35rem;">👁️ Xem trước giao diện đầu trang:</div>
+                    <div class="header-preview-box" id="modal-header-live-preview">
+                        <div class="prev-gov" id="prev-gov-val">UBND PHƯỜNG TRUNG NHỨT</div>
+                        <div class="prev-school" id="prev-school-val">TRƯỜNG TIỂU HỌC TRUNG NHỨT</div>
+                        <div class="prev-grade-class" id="prev-grade-class-val">KHỐI 5 - LỚP 5A</div>
+                        <div class="prev-motto" id="prev-motto-val" style="margin: 0.35rem 0; font-weight: 700; color: var(--primary);">
+                            <div>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+                            <div style="text-decoration: underline; font-size: 0.85rem;">Độc lập - Tự do - Hạnh phúc</div>
+                        </div>
+                        <div class="prev-title" id="prev-title-val">LỊCH BÁO GIẢNG TUẦN 1</div>
+                        <div class="prev-date" id="prev-date-val">(Thời gian thực hiện: Từ ngày 07/09/2026 đến ngày 11/09/2026)</div>
+                    </div>
+                </div>
+
+                <!-- Customizer Fields List -->
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- 1. Governing Body -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-gov-body" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>1. Cơ quan cấp trên (UBND Phường/Xã / Phòng GD&ĐT):</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Dòng 1</span>
+                        </div>
+                        <input type="text" class="form-control form-control-sm" id="modal-input-gov-body" placeholder="Ví dụ: UBND PHƯỜNG TRUNG NHỨT hoặc PHÒNG GD&ĐT QUẬN...">
+                    </div>
+
+                    <!-- 2. School Name -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-school" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>2. Tên Trường Tiểu học:</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Dòng 2</span>
+                        </div>
+                        <input type="text" class="form-control form-control-sm" id="modal-input-school" placeholder="Ví dụ: TRƯỜNG TIỂU HỌC TRUNG NHỨT">
+                    </div>
+
+                    <!-- 3. Grade & Class -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-grade-class" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>3. Khối lớp &amp; Tên Lớp:</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Dòng 3</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <input type="text" class="form-control form-control-sm" id="modal-input-grade" placeholder="Khối (Ví dụ: KHỐI 5)" style="flex: 1; min-width: 130px;">
+                            <input type="text" class="form-control form-control-sm" id="modal-input-class" placeholder="Tên Lớp (Ví dụ: LỚP 5A)" style="flex: 1; min-width: 130px;">
+                        </div>
+                    </div>
+
+                    <!-- 4. National Motto -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-motto" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>4. Quốc hiệu &amp; Tiêu ngữ (CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM / Độc lập - Tự do - Hạnh phúc):</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Góc phải đầu trang</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Title Template -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-title" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>5. Tiêu đề Lịch Báo Giảng:</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Dòng 5</span>
+                        </div>
+                        <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 0.35rem;">
+                            <select class="form-select form-select-sm" id="modal-sel-title-preset" style="max-width: 200px; font-weight: 600;">
+                                <option value="LỊCH BÁO GIẢNG TUẦN {week}">LỊCH BÁO GIẢNG TUẦN {week}</option>
+                                <option value="KẾ HOẠCH BÁO GIẢNG TUẦN {week}">KẾ HOẠCH BÁO GIẢNG TUẦN {week}</option>
+                                <option value="LỊCH DẠY TUẦN {week}">LỊCH DẠY TUẦN {week}</option>
+                                <option value="LỊCH BÁO GIẢNG TÍCH HỢP TUẦN {week}">LỊCH BÁO GIẢNG TÍCH HỢP TUẦN {week}</option>
+                                <option value="custom">Tùy chỉnh...</option>
+                            </select>
+                            <input type="text" class="form-control form-control-sm" id="modal-input-title" placeholder="Ví dụ: LỊCH BÁO GIẢNG TUẦN {week}" style="flex: 1;">
+                        </div>
+                        <span style="font-size: 0.76rem; color: var(--text-muted);">Dùng mã <code>{week}</code> để tự động điền số tuần hiện tại.</span>
+                    </div>
+
+                    <!-- 6. Date Range Template -->
+                    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-weight: 700; font-size: 0.9rem; color: var(--primary); cursor: pointer;">
+                                <input type="checkbox" id="modal-chk-date-range" checked style="width: 17px; height: 17px; cursor: pointer;">
+                                <span>6. Dòng thời gian thực hiện (Từ ngày... đến ngày...):</span>
+                            </label>
+                            <span style="font-size: 0.78rem; color: var(--text-muted);">Dòng 6</span>
+                        </div>
+                        <input type="text" class="form-control form-control-sm" id="modal-input-date-range" placeholder="Mặc định: (Thời gian thực hiện: Từ ngày {startDate} đến ngày {endDate})">
+                        <span style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">Dùng <code>{startDate}</code> và <code>{endDate}</code> để tự động điền ngày đầu và ngày cuối của tuần.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-header-defaults">
+                    <span>🔄</span> <span>Khôi Phục Mặc Định</span>
+                </button>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-header-customizer">Đóng lại</button>
+                    <button type="button" class="btn btn-primary" id="btn-save-header-customizer">
+                        <span>💾</span> <span>Lưu &amp; Áp Dụng Ngay</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

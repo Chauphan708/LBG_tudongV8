@@ -721,9 +721,9 @@ window.DocxGenerator = (function() {
         return `${dStr}/${mStr}/${yStr}`;
     }
 
-    function getDocxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop, isLandscape) {
+    function getDocxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop, isLandscape, showIntegration = true) {
         const enabledCustomCols = Array.isArray(customColsList) 
-            ? customColsList.filter(c => c && c.enabled !== false) 
+            ? customColsList.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false') 
             : [];
         
         const cols = [];
@@ -779,7 +779,7 @@ window.DocxGenerator = (function() {
         // Pos 7: after lesson
         pushCustom('7');
 
-        if (isCtlop) {
+        if (isCtlop && showIntegration !== false) {
             cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false });
         }
         if (showSign) {
@@ -801,8 +801,10 @@ window.DocxGenerator = (function() {
         });
 
         const customCount = enabledCustomCols.length;
+        const hasInteg = cols.some(c => c.key === 'integ');
+
         if (isLandscape) {
-            if (isCtlop) {
+            if (hasInteg) {
                 if (customCount === 0 && !showSign && !showNote) {
                     cols.forEach(col => {
                         if (col.key === 'day') col.width = 1300;
@@ -882,7 +884,7 @@ window.DocxGenerator = (function() {
             }
         } else {
             // Portrait
-            if (isCtlop) {
+            if (hasInteg) {
                 if (customCount === 0 && !showSign && !showNote) {
                     cols.forEach(col => {
                         if (col.key === 'day') col.width = 1050;
@@ -965,6 +967,139 @@ window.DocxGenerator = (function() {
         return cols;
     }
 
+    function formatDocxLbgHeader(settings, options, weekNum, weekInfo, isCtlop, filterSubject, headerColWidths) {
+        const widths = (headerColWidths && headerColWidths.length >= 2) ? headerColWidths : [4600, 5000];
+        const showGovBody = (options && options.showGovBody !== undefined) ? options.showGovBody : true;
+        const showSchoolName = (options && options.showSchoolName !== undefined) ? options.showSchoolName : true;
+        const showGradeClass = (options && options.showGradeClass !== undefined) ? options.showGradeClass : true;
+        const showNationalMotto = (options && options.showNationalMotto !== undefined) ? options.showNationalMotto : true;
+        const showTitle = (options && options.showTitle !== undefined) ? options.showTitle : true;
+        const showDateRange = (options && options.showDateRange !== undefined) ? options.showDateRange : true;
+
+        let defaultTitle = isCtlop ? `LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ${weekNum}` : `LỊCH BÁO GIẢNG TUẦN ${weekNum}`;
+        if (filterSubject && filterSubject !== "all") {
+            defaultTitle = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
+        } else if (filterSubject === "all") {
+            defaultTitle = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
+        }
+
+        let titleText = defaultTitle;
+        if (options && options.titleTemplate && options.titleTemplate.trim()) {
+            titleText = options.titleTemplate
+                .replace(/\{week\}/gi, weekNum)
+                .replace(/\{grade\}/gi, settings.grade || 'KHỐI 5')
+                .replace(/\{class\}/gi, settings.className || 'LỚP 5A')
+                .replace(/\{subject\}/gi, (filterSubject && filterSubject !== 'all' ? filterSubject : 'theo môn học'));
+        } else if (options && options.titleText) {
+            titleText = options.titleText;
+        }
+
+        let defaultDateRange = `(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})`;
+        let dateRangeText = defaultDateRange;
+        if (options && options.dateRangeTemplate && options.dateRangeTemplate.trim()) {
+            dateRangeText = options.dateRangeTemplate
+                .replace(/\{startDate\}/gi, weekInfo.startDateVN || '')
+                .replace(/\{endDate\}/gi, weekInfo.endDateVN || '')
+                .replace(/\{week\}/gi, weekNum);
+        } else if (options && options.dateRangeText) {
+            dateRangeText = options.dateRangeText;
+        }
+
+        let leftParas = "";
+        if (showGovBody) {
+            leftParas += `
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+            </w:p>`;
+        }
+        if (showSchoolName) {
+            leftParas += `
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
+            </w:p>`;
+        }
+        if (showGradeClass) {
+            leftParas += `
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
+            </w:p>`;
+        }
+        if (!leftParas) {
+            leftParas = `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t></w:t></w:r></w:p>`;
+        }
+
+        const hasLeft = showGovBody || showSchoolName || showGradeClass;
+        const hasRight = showNationalMotto;
+
+        let tableHeaderXml = "";
+        if (hasLeft || hasRight) {
+            let rightParas = "";
+            if (showNationalMotto) {
+                rightParas = `
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
+                    </w:p>
+                    <w:p>
+                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
+                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
+                    </w:p>`;
+            } else {
+                rightParas = `<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t></w:t></w:r></w:p>`;
+            }
+
+            tableHeaderXml = `
+        <w:tbl>
+            <w:tblPr>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:jc w:val="center"/>
+                <w:tblBorders>
+                    <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
+                    <w:insideH w:val="none"/><w:insideV w:val="none"/>
+                </w:tblBorders>
+            </w:tblPr>
+            <w:tblGrid>
+                <w:gridCol w:w="${widths[0]}"/>
+                <w:gridCol w:w="${widths[1]}"/>
+            </w:tblGrid>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${widths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    ${leftParas}
+                </w:tc>
+                <w:tc>
+                    <w:tcPr><w:tcW w:w="${widths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
+                    ${rightParas}
+                </w:tc>
+            </w:tr>
+        </w:tbl>`;
+        }
+
+        let titleParas = "";
+        if (showTitle) {
+            titleParas += `
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:before="${(hasLeft || hasRight) ? '240' : '0'}" w:after="40"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(titleText)}</w:t></w:r>
+            </w:p>`;
+        }
+        if (showDateRange) {
+            titleParas += `
+            <w:p>
+                <w:pPr><w:jc w:val="center"/><w:spacing w:before="${showTitle ? '0' : ((hasLeft || hasRight) ? '240' : '0')}" w:after="200"/></w:pPr>
+                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(dateRangeText)}</w:t></w:r>
+            </w:p>`;
+        }
+
+        return `
+        ${tableHeaderXml}
+        ${titleParas}
+        `;
+    }
+
     function generateLbgDocx(isCtlop, weekNum, weekInfo, schedule, settings, stats, orientation = "portrait", options = {}) {
         const zip = new JSZip();
 
@@ -984,65 +1119,13 @@ window.DocxGenerator = (function() {
                 : (settings.vicePrincipal || 'Lê Văn Tám'));
         const bghSignerRole = ((settings.bghSignerLbgType || settings.bghSignerType || 'PHT') === 'HT') ? 'HIỆU TRƯỞNG' : 'BAN GIÁM HIỆU';
 
-        let docBody = `
-        <w:tbl>
-            <w:tblPr>
-                <w:tblW w:w="0" w:type="auto"/>
-                <w:jc w:val="center"/>
-                <w:tblBorders>
-                    <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
-                    <w:insideH w:val="none"/><w:insideV w:val="none"/>
-                </w:tblBorders>
-            </w:tblPr>
-            <w:tblGrid>
-                <w:gridCol w:w="${headerColWidths[0]}"/>
-                <w:gridCol w:w="${headerColWidths[1]}"/>
-            </w:tblGrid>
-            <w:tr>
-                <w:tc>
-                    <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                </w:tc>
-                <w:tc>
-                    <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
-                    </w:p>
-                </w:tc>
-            </w:tr>
-        </w:tbl>
-
-        <w:p>
-            <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
-            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isCtlop ? 'LỊCH BÁO GIẢNG TÍCH HỢP' : 'LỊCH BÁO GIẢNG'} TUẦN ${weekNum}</w:t></w:r>
-        </w:p>
-        <w:p>
-            <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
-            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
-        </w:p>
-        `;
+        let docBody = formatDocxLbgHeader(settings, options, weekNum, weekInfo, isCtlop, null, headerColWidths);
 
         const showColSign = !!(options && options.showColSign);
         const showColNote = !!(options && options.showColNote);
         let customCols = [];
-        if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
-            customCols = options.customCols;
+        if (Array.isArray(options && options.customCols)) {
+            customCols = options.customCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false');
         } else if (options && options.showColCustom) {
             customCols = [{
                 id: 'col_1',
@@ -1054,8 +1137,9 @@ window.DocxGenerator = (function() {
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
+        const showIntegration = (options && options.showIntegration !== undefined) ? options.showIntegration : true;
 
-        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape);
+        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape, showIntegration);
 
         const colWidths = orderedCols.map(c => c.width);
         const headers = orderedCols.map(c => c.title);
@@ -1316,8 +1400,8 @@ window.DocxGenerator = (function() {
         const showColSign = !!(options && options.showColSign);
         const showColNote = !!(options && options.showColNote);
         let customCols = [];
-        if (Array.isArray(options && options.customCols) && options.customCols.length > 0) {
-            customCols = options.customCols;
+        if (Array.isArray(options && options.customCols)) {
+            customCols = options.customCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false');
         } else if (options && options.showColCustom) {
             customCols = [{
                 id: 'col_1',
@@ -1329,8 +1413,9 @@ window.DocxGenerator = (function() {
         const showBghSign = (options && options.showBghSign !== undefined) ? options.showBghSign : true;
         const showHeadSign = (options && options.showHeadSign !== undefined) ? options.showHeadSign : true;
         const showGvcnSign = (options && options.showGvcnSign !== undefined) ? options.showGvcnSign : true;
+        const showIntegration = (options && options.showIntegration !== undefined) ? options.showIntegration : true;
 
-        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape);
+        const orderedCols = getDocxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, isLandscape, showIntegration);
 
         const colWidths = orderedCols.map(c => c.width);
         const headers = orderedCols.map(c => c.title);
@@ -1340,59 +1425,7 @@ window.DocxGenerator = (function() {
         for (let w = startWeek; w <= endWeek; w++) {
             const { weekInfo, schedule, stats } = calculateWeekScheduleFn(w);
 
-            docBody += `
-            <w:tbl>
-                <w:tblPr>
-                    <w:tblW w:w="0" w:type="auto"/>
-                    <w:jc w:val="center"/>
-                    <w:tblBorders>
-                        <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
-                        <w:insideH w:val="none"/><w:insideV w:val="none"/>
-                    </w:tblBorders>
-                </w:tblPr>
-                <w:tblGrid>
-                    <w:gridCol w:w="${headerColWidths[0]}"/>
-                    <w:gridCol w:w="${headerColWidths[1]}"/>
-                </w:tblGrid>
-                <w:tr>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                    </w:tc>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
-                        </w:p>
-                    </w:tc>
-                </w:tr>
-            </w:tbl>
-
-            <w:p>
-                <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
-                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${isCtlop ? 'LỊCH BÁO GIẢNG TÍCH HỢP' : 'LỊCH BÁO GIẢNG'} TUẦN ${w}</w:t></w:r>
-            </w:p>
-            <w:p>
-                <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
-                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
-            </w:p>
-            `;
+            docBody += formatDocxLbgHeader(settings, options, w, weekInfo, isCtlop, null, headerColWidths);
 
             docBody += `
             <w:tbl>
@@ -1890,7 +1923,7 @@ window.DocxGenerator = (function() {
         return `${dayStr} (${dStr}/${mStr})`;
     }
 
-    function generateLbgBySubjectDocx(data, settings, isCtlop = true, orientation = "portrait", filterSubject = "all") {
+    function generateLbgBySubjectDocx(data, settings, isCtlop = true, orientation = "portrait", filterSubject = "all", options = {}) {
         const zip = new JSZip();
 
         zip.file("[Content_Types].xml", createContentTypes());
@@ -1913,64 +1946,7 @@ window.DocxGenerator = (function() {
         const weekInfo = data.weekInfo || {};
         const subjectGroups = data.subjectGroups || [];
 
-        let titleText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
-        if (filterSubject && filterSubject !== "all") {
-            titleText = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
-        }
-
-        let docBody = `
-        <w:tbl>
-            <w:tblPr>
-                <w:tblW w:w="0" w:type="auto"/>
-                <w:jc w:val="center"/>
-                <w:tblBorders>
-                    <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
-                    <w:insideH w:val="none"/><w:insideV w:val="none"/>
-                </w:tblBorders>
-            </w:tblPr>
-            <w:tblGrid>
-                <w:gridCol w:w="${headerColWidths[0]}"/>
-                <w:gridCol w:w="${headerColWidths[1]}"/>
-            </w:tblGrid>
-            <w:tr>
-                <w:tc>
-                    <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
-                    </w:p>
-                </w:tc>
-                <w:tc>
-                    <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                        <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
-                    </w:p>
-                </w:tc>
-            </w:tr>
-        </w:tbl>
-
-        <w:p>
-            <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
-            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(titleText)}</w:t></w:r>
-        </w:p>
-        <w:p>
-            <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
-            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
-        </w:p>
-        `;
+        let docBody = formatDocxLbgHeader(settings, options, weekNum, weekInfo, isCtlop, filterSubject, headerColWidths);
 
         const colWidths = isLandscape
             ? (isCtlop ? [2200, 1500, 1000, 800, 900, 1100, 3500, 3600] : [2600, 1800, 1100, 900, 1000, 1200, 6000])
@@ -2142,7 +2118,7 @@ window.DocxGenerator = (function() {
         return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
     }
 
-    function generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubjectFn, settings, orientation = "portrait", isCtlop = true, filterSubject = "all", filterCategory = "all") {
+    function generateBatchLbgBySubjectDocx(startWeek, endWeek, calculateWeekScheduleBySubjectFn, settings, orientation = "portrait", isCtlop = true, filterSubject = "all", filterCategory = "all", options = {}) {
         const zip = new JSZip();
 
         zip.file("[Content_Types].xml", createContentTypes());
@@ -2175,64 +2151,7 @@ window.DocxGenerator = (function() {
             const weekInfo = data.weekInfo || {};
             const subjectGroups = data.subjectGroups || [];
 
-            let titleText = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${w}`;
-            if (filterSubject && filterSubject !== "all") {
-                titleText = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${w}`;
-            }
-
-            docBody += `
-            <w:tbl>
-                <w:tblPr>
-                    <w:tblW w:w="0" w:type="auto"/>
-                    <w:jc w:val="center"/>
-                    <w:tblBorders>
-                        <w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/>
-                        <w:insideH w:val="none"/><w:insideV w:val="none"/>
-                    </w:tblBorders>
-                </w:tblPr>
-                <w:tblGrid>
-                    <w:gridCol w:w="${headerColWidths[0]}"/>
-                    <w:gridCol w:w="${headerColWidths[1]}"/>
-                </w:tblGrid>
-                <w:tr>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${headerColWidths[0]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml((settings.grade || 'KHỐI 5').toUpperCase())} - ${escapeXml((settings.className || 'LỚP 5A').toUpperCase())}</w:t></w:r>
-                        </w:p>
-                    </w:tc>
-                    <w:tc>
-                        <w:tcPr><w:tcW w:w="${headerColWidths[1]}" w:type="dxa"/><w:vAlign w:val="top"/></w:tcPr>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="20"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</w:t></w:r>
-                        </w:p>
-                        <w:p>
-                            <w:pPr><w:jc w:val="center"/><w:spacing w:line="220" w:after="40"/></w:pPr>
-                            <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:u w:val="single"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>Độc lập - Tự do - Hạnh phúc</w:t></w:r>
-                        </w:p>
-                    </w:tc>
-                </w:tr>
-            </w:tbl>
-
-            <w:p>
-                <w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="40"/></w:pPr>
-                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:b/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>${escapeXml(titleText)}</w:t></w:r>
-            </w:p>
-            <w:p>
-                <w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
-                <w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:i/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr><w:t>(Thời gian thực hiện: Từ ngày ${escapeXml(weekInfo.startDateVN || '')} đến ngày ${escapeXml(weekInfo.endDateVN || '')})</w:t></w:r>
-            </w:p>
-            `;
+            docBody += formatDocxLbgHeader(settings, options, w, weekInfo, isCtlop, filterSubject, headerColWidths);
 
             docBody += `
             <w:tbl>
@@ -2409,6 +2328,7 @@ window.DocxGenerator = (function() {
 
 
     return {
+        formatDocxLbgHeader: formatDocxLbgHeader,
         generateKhdhDocx: generateKhdhDocx,
         generateLbgDocx: generateLbgDocx,
         generateMultiWeekLbgDocx: generateMultiWeekLbgDocx,

@@ -185,9 +185,9 @@ window.XlsxGenerator = (function() {
         return letter;
     }
 
-    function getXlsxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop) {
+    function getXlsxLbgOrderedColumns(customColsList, showSign, showNote, isCtlop, showIntegration = true) {
         const enabledCustomCols = Array.isArray(customColsList) 
-            ? customColsList.filter(c => c && c.enabled !== false) 
+            ? customColsList.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false') 
             : [];
         
         const cols = [];
@@ -227,7 +227,7 @@ window.XlsxGenerator = (function() {
         pushCustom('4');
 
         // Subject
-        cols.push({ key: 'subject', title: 'Môn học', isCustom: false, width: isCtlop ? 18 : 20 });
+        cols.push({ key: 'subject', title: 'Môn học', isCustom: false, width: (isCtlop && showIntegration !== false) ? 18 : 20 });
 
         // Pos 5: after subject
         pushCustom('5');
@@ -244,7 +244,7 @@ window.XlsxGenerator = (function() {
         // Pos 7: after lesson
         pushCustom('7');
 
-        if (isCtlop) {
+        if (isCtlop && showIntegration !== false) {
             cols.push({ key: 'integ', title: 'Nội dung tích hợp / Điều chỉnh', isCustom: false, width: 30 });
         }
         if (showSign) {
@@ -270,7 +270,7 @@ window.XlsxGenerator = (function() {
         const lessonCol = cols.find(c => c.key === 'lesson');
         const integCol = cols.find(c => c.key === 'integ');
         if (lessonCol) {
-            if (isCtlop) {
+            if (isCtlop && showIntegration !== false) {
                 let extraCount = (showSign ? 1 : 0) + (showNote ? 1 : 0) + customCount;
                 if (extraCount >= 4) {
                     lessonCol.width = 24;
@@ -310,25 +310,57 @@ window.XlsxGenerator = (function() {
         const { settings, weekNum, weekInfo, schedule, isCtlop } = options;
         const zip = new JSZip();
 
-        const sheetName = `Tuan_${weekNum}`;
-        const mainTitle = isCtlop 
+        const showGovBody = (options.showGovBody !== undefined) ? options.showGovBody : true;
+        const showSchoolName = (options.showSchoolName !== undefined) ? options.showSchoolName : true;
+        const showGradeClass = (options.showGradeClass !== undefined) ? options.showGradeClass : true;
+        const showNationalMotto = (options.showNationalMotto !== undefined) ? options.showNationalMotto : true;
+        const showTitle = (options.showTitle !== undefined) ? options.showTitle : true;
+        const showDateRange = (options.showDateRange !== undefined) ? options.showDateRange : true;
+
+        let mainTitle = isCtlop 
             ? `LỊCH BÁO GIẢNG TÍCH HỢP TUẦN ${weekNum}` 
             : `LỊCH BÁO GIẢNG TUẦN ${weekNum}`;
-        const subtitle = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        if (options.titleTemplate && options.titleTemplate.trim()) {
+            mainTitle = options.titleTemplate
+                .replace(/\{week\}/gi, weekNum)
+                .replace(/\{grade\}/gi, settings.grade || 'KHỐI 5')
+                .replace(/\{class\}/gi, settings.className || 'LỚP 5A');
+        } else if (options.titleText) {
+            mainTitle = options.titleText;
+        }
+
+        let subtitle = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN} đến ngày ${weekInfo.endDateVN})`;
+        if (options.dateRangeTemplate && options.dateRangeTemplate.trim()) {
+            subtitle = options.dateRangeTemplate
+                .replace(/\{startDate\}/gi, weekInfo.startDateVN || '')
+                .replace(/\{endDate\}/gi, weekInfo.endDateVN || '')
+                .replace(/\{week\}/gi, weekNum);
+        } else if (options.dateRangeText) {
+            subtitle = options.dateRangeText;
+        }
+
+        const govBodyText = showGovBody ? escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT') : '';
+        const schoolNameText = showSchoolName ? escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT') : '';
+        const gradeClassText = showGradeClass ? escapeXml(`${settings.grade || 'KHỐI 5'} - ${settings.className || 'LỚP 5A'}`) : '';
+        const nationalMottoTop = showNationalMotto ? 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM' : '';
+        const nationalMottoBottom = showNationalMotto ? 'Độc lập - Tự do - Hạnh phúc' : '';
+        const titleText = showTitle ? escapeXml(mainTitle) : '';
+        const subtitleText = showDateRange ? escapeXml(subtitle) : '';
 
         zip.file("[Content_Types].xml", createContentTypes());
         zip.file("_rels/.rels", createRels());
         zip.file("docProps/app.xml", createAppXml());
         zip.file("docProps/core.xml", createCoreXml(mainTitle));
         zip.file("xl/_rels/workbook.xml.rels", createWbRels());
+        const sheetName = isCtlop ? `Tuan ${weekNum} Tich hop` : `Tuan ${weekNum}`;
         zip.file("xl/workbook.xml", createWbXml(sheetName));
         zip.file("xl/styles.xml", createStylesXml());
 
         const showColSign = !!(options.showColSign);
         const showColNote = !!(options.showColNote);
         let customCols = [];
-        if (Array.isArray(options.customCols) && options.customCols.length > 0) {
-            customCols = options.customCols;
+        if (Array.isArray(options.customCols)) {
+            customCols = options.customCols.filter(c => c && (c.enabled === true || c.enabled === 'true') && c.enabled !== false && c.enabled !== 'false');
         } else if (options.showColCustom) {
             customCols = [{
                 id: 'col_1',
@@ -341,8 +373,9 @@ window.XlsxGenerator = (function() {
         const showGvcnSign = (options.showGvcnSign !== false);
         const showHeadSign = (options.showHeadSign !== false);
         const isLandscape = (options.orientation === 'landscape' || isCtlop);
+        const showIntegration = (options && options.showIntegration !== undefined) ? options.showIntegration : true;
 
-        const orderedCols = getXlsxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop);
+        const orderedCols = getXlsxLbgOrderedColumns(customCols, showColSign, showColNote, isCtlop, showIntegration);
         const totalCols = orderedCols.length;
         const lastColLetter = getColLetter(totalCols);
 
@@ -378,9 +411,9 @@ ${colsXml}    </cols>
         // Row 1: Header UBND & Quoc Hieu
         sheetXml += `
         <row r="1" ht="22" customHeight="1">
-            <c r="A1" s="1" t="inlineStr"><is><t>${escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT')}</t></is></c>
+            <c r="A1" s="1" t="inlineStr"><is><t>${govBodyText}</t></is></c>
             ${makeCellsRow(2, splitCol, 1, 1)}
-            <c r="${nextColLetter}1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
+            <c r="${nextColLetter}1" s="4" t="inlineStr"><is><t>${nationalMottoTop}</t></is></c>
             ${makeCellsRow(splitCol + 2, totalCols, 1, 4)}
         </row>`;
         mergeCellsList.push(`A1:${splitColLetter}1`);
@@ -389,9 +422,9 @@ ${colsXml}    </cols>
         // Row 2: School & Tieu Ngu
         sheetXml += `
         <row r="2" ht="22" customHeight="1">
-            <c r="A2" s="2" t="inlineStr"><is><t>${escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT')}</t></is></c>
+            <c r="A2" s="2" t="inlineStr"><is><t>${schoolNameText}</t></is></c>
             ${makeCellsRow(2, splitCol, 2, 2)}
-            <c r="${nextColLetter}2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
+            <c r="${nextColLetter}2" s="5" t="inlineStr"><is><t>${nationalMottoBottom}</t></is></c>
             ${makeCellsRow(splitCol + 2, totalCols, 2, 5)}
         </row>`;
         mergeCellsList.push(`A2:${splitColLetter}2`);
@@ -400,7 +433,7 @@ ${colsXml}    </cols>
         // Row 3: Grade & Class
         sheetXml += `
         <row r="3" ht="20" customHeight="1">
-            <c r="A3" s="3" t="inlineStr"><is><t>${escapeXml(settings.grade || 'KHỐI 5')} - ${escapeXml(settings.className || 'LỚP 5A')}</t></is></c>
+            <c r="A3" s="3" t="inlineStr"><is><t>${gradeClassText}</t></is></c>
             ${makeCellsRow(2, splitCol, 3, 3)}
             ${makeCellsRow(splitCol + 1, totalCols, 3, 0)}
         </row>`;
@@ -412,7 +445,7 @@ ${colsXml}    </cols>
         // Row 5: Title
         sheetXml += `
         <row r="5" ht="26" customHeight="1">
-            <c r="A5" s="6" t="inlineStr"><is><t>${escapeXml(mainTitle)}</t></is></c>
+            <c r="A5" s="6" t="inlineStr"><is><t>${titleText}</t></is></c>
             ${makeCellsRow(2, totalCols, 5, 6)}
         </row>`;
         mergeCellsList.push(`A5:${lastColLetter}5`);
@@ -420,7 +453,7 @@ ${colsXml}    </cols>
         // Row 6: Subtitle
         sheetXml += `
         <row r="6" ht="18" customHeight="1">
-            <c r="A6" s="7" t="inlineStr"><is><t>${escapeXml(subtitle)}</t></is></c>
+            <c r="A6" s="7" t="inlineStr"><is><t>${subtitleText}</t></is></c>
             ${makeCellsRow(2, totalCols, 6, 7)}
         </row>`;
         mergeCellsList.push(`A6:${lastColLetter}6`);
@@ -876,7 +909,7 @@ ${colsXml}    </cols>
         return `${dayStr} (${dStr}/${mStr})`;
     }
 
-    function generateLbgBySubjectXlsx(data, settings, isCtlop = true, filterSubject = "all") {
+    function generateLbgBySubjectXlsx(data, settings, isCtlop = true, filterSubject = "all", options = {}) {
         const zip = new JSZip();
 
         zip.file("[Content_Types].xml", createContentTypes());
@@ -887,17 +920,50 @@ ${colsXml}    </cols>
         const weekInfo = data.weekInfo || {};
         const subjectGroups = data.subjectGroups || [];
 
+        const showGovBody = (options.showGovBody !== undefined) ? options.showGovBody : true;
+        const showSchoolName = (options.showSchoolName !== undefined) ? options.showSchoolName : true;
+        const showGradeClass = (options.showGradeClass !== undefined) ? options.showGradeClass : true;
+        const showNationalMotto = (options.showNationalMotto !== undefined) ? options.showNationalMotto : true;
+        const showTitle = (options.showTitle !== undefined) ? options.showTitle : true;
+        const showDateRange = (options.showDateRange !== undefined) ? options.showDateRange : true;
+
         let mainTitle = `LỊCH BÁO GIẢNG THEO MÔN HỌC TUẦN ${weekNum}`;
         if (filterSubject && filterSubject !== "all") {
             mainTitle = `LỊCH BÁO GIẢNG MÔN ${filterSubject.toUpperCase()} TUẦN ${weekNum}`;
         }
+        if (options.titleTemplate && options.titleTemplate.trim()) {
+            mainTitle = options.titleTemplate
+                .replace(/\{week\}/gi, weekNum)
+                .replace(/\{grade\}/gi, settings.grade || 'KHỐI 5')
+                .replace(/\{class\}/gi, settings.className || 'LỚP 5A')
+                .replace(/\{subject\}/gi, (filterSubject && filterSubject !== 'all' ? filterSubject : 'theo môn học'));
+        } else if (options.titleText) {
+            mainTitle = options.titleText;
+        }
+
+        let subtitle = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN || ''} đến ngày ${weekInfo.endDateVN || ''})`;
+        if (options.dateRangeTemplate && options.dateRangeTemplate.trim()) {
+            subtitle = options.dateRangeTemplate
+                .replace(/\{startDate\}/gi, weekInfo.startDateVN || '')
+                .replace(/\{endDate\}/gi, weekInfo.endDateVN || '')
+                .replace(/\{week\}/gi, weekNum);
+        } else if (options.dateRangeText) {
+            subtitle = options.dateRangeText;
+        }
+
+        const govBodyText = showGovBody ? escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT') : '';
+        const schoolNameText = showSchoolName ? escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT') : '';
+        const gradeClassText = showGradeClass ? escapeXml(`${settings.grade || 'KHỐI 5'} - ${settings.className || 'LỚP 5A'}`) : '';
+        const nationalMottoTop = showNationalMotto ? 'CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM' : '';
+        const nationalMottoBottom = showNationalMotto ? 'Độc lập - Tự do - Hạnh phúc' : '';
+        const titleText = showTitle ? escapeXml(mainTitle) : '';
+        const subtitleText = showDateRange ? escapeXml(subtitle) : '';
 
         zip.file("docProps/core.xml", createCoreXml(mainTitle));
         zip.file("xl/_rels/workbook.xml.rels", createWbRels());
         zip.file("xl/workbook.xml", createWbXml(`Tuan ${weekNum} Theo Mon`));
         zip.file("xl/styles.xml", createStylesXml());
 
-        const subtitle = `(Thời gian thực hiện: Từ ngày ${weekInfo.startDateVN || ''} đến ngày ${weekInfo.endDateVN || ''})`;
         const lastColLetter = isCtlop ? "H" : "G";
         const mergeCellsList = [];
 
@@ -923,21 +989,21 @@ ${colsXml}    </cols>
     <sheetData>
         <!-- Row 1: Header UBND & Quoc Hieu -->
         <row r="1" ht="22" customHeight="1">
-            <c r="A1" s="1" t="inlineStr"><is><t>${escapeXml(settings.governingBody || 'UBND PHƯỜNG TRUNG NHỨT')}</t></is></c>
+            <c r="A1" s="1" t="inlineStr"><is><t>${govBodyText}</t></is></c>
             <c r="B1" s="1"/><c r="C1" s="1"/>
-            <c r="D1" s="4" t="inlineStr"><is><t>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</t></is></c>
+            <c r="D1" s="4" t="inlineStr"><is><t>${nationalMottoTop}</t></is></c>
             <c r="E1" s="4"/><c r="F1" s="4"/><c r="G1" s="4"/>${isCtlop ? '<c r="H1" s="4"/>' : ''}
         </row>
         <!-- Row 2: School & Tieu Ngu -->
         <row r="2" ht="22" customHeight="1">
-            <c r="A2" s="2" t="inlineStr"><is><t>${escapeXml(settings.schoolName || 'TRƯỜNG TIỂU HỌC TRUNG NHỨT')}</t></is></c>
+            <c r="A2" s="2" t="inlineStr"><is><t>${schoolNameText}</t></is></c>
             <c r="B2" s="2"/><c r="C2" s="2"/>
-            <c r="D2" s="5" t="inlineStr"><is><t>Độc lập - Tự do - Hạnh phúc</t></is></c>
+            <c r="D2" s="5" t="inlineStr"><is><t>${nationalMottoBottom}</t></is></c>
             <c r="E2" s="5"/><c r="F2" s="5"/><c r="G2" s="5"/>${isCtlop ? '<c r="H2" s="5"/>' : ''}
         </row>
         <!-- Row 3: Grade & Class -->
         <row r="3" ht="20" customHeight="1">
-            <c r="A3" s="3" t="inlineStr"><is><t>${escapeXml(settings.grade || 'KHỐI 5')} - ${escapeXml(settings.className || 'LỚP 5A')}</t></is></c>
+            <c r="A3" s="3" t="inlineStr"><is><t>${gradeClassText}</t></is></c>
             <c r="B3" s="3"/><c r="C3" s="3"/>
             <c r="D3" s="0"/><c r="E3" s="0"/><c r="F3" s="0"/><c r="G3" s="0"/>${isCtlop ? '<c r="H3" s="0"/>' : ''}
         </row>
@@ -945,12 +1011,12 @@ ${colsXml}    </cols>
         <row r="4" ht="10" customHeight="1"/>
         <!-- Row 5: Title -->
         <row r="5" ht="26" customHeight="1">
-            <c r="A5" s="6" t="inlineStr"><is><t>${escapeXml(mainTitle)}</t></is></c>
+            <c r="A5" s="6" t="inlineStr"><is><t>${titleText}</t></is></c>
             <c r="B5" s="6"/><c r="C5" s="6"/><c r="D5" s="6"/><c r="E5" s="6"/><c r="F5" s="6"/><c r="G5" s="6"/>${isCtlop ? '<c r="H5" s="6"/>' : ''}
         </row>
         <!-- Row 6: Subtitle -->
         <row r="6" ht="18" customHeight="1">
-            <c r="A6" s="7" t="inlineStr"><is><t>${escapeXml(subtitle)}</t></is></c>
+            <c r="A6" s="7" t="inlineStr"><is><t>${subtitleText}</t></is></c>
             <c r="B6" s="7"/><c r="C6" s="7"/><c r="D6" s="7"/><c r="E6" s="7"/><c r="F6" s="7"/><c r="G6" s="7"/>${isCtlop ? '<c r="H6" s="7"/>' : ''}
         </row>
         <!-- Row 7: Space -->
